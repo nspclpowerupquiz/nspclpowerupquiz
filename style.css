@@ -299,3 +299,46 @@ nav{
 
 
 }
+/* ===============================
+   PREMIUM HEADER
+================================ */
+
+.logo-area{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+
+.logo-circle{
+
+    width:45px;
+    height:45px;
+
+    background:#ff9800;
+
+    border-radius:50%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:25px;
+
+}
+
+
+.brand-name{
+
+    font-size:20px;
+    font-weight:700;
+
+}
+
+
+.brand-tagline{
+
+    font-size:11px;
+    opacity:.8;
+
+}
