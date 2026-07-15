@@ -466,3 +466,141 @@ width:90%;
 
 
 }
+/* ===============================
+   ALIGNMENT FIX
+================================*/
+
+
+body{
+    overflow-x:hidden;
+}
+
+
+/* Main content alignment */
+
+.hero,
+.intro,
+.features,
+.categories,
+.cta,
+.about-preview{
+
+    max-width:1200px;
+    margin:auto;
+}
+
+
+
+/* Center all headings */
+
+h1,h2,h3{
+
+    text-align:center;
+
+}
+
+
+
+/* Paragraph alignment */
+
+p{
+
+    text-align:center;
+    max-width:900px;
+    margin:15px auto;
+
+}
+
+
+
+/* Lists */
+
+ul{
+
+    max-width:700px;
+    margin:20px auto;
+
+}
+
+
+li{
+
+    margin:10px;
+
+}
+
+
+
+/* Card alignment */
+
+.card-container{
+
+    display:flex;
+    justify-content:center;
+    align-items:stretch;
+    gap:25px;
+
+}
+
+
+
+.card{
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    text-align:center;
+
+}
+
+
+
+/* Category alignment */
+
+.category-box{
+
+    max-width:1000px;
+    margin:auto;
+
+}
+
+
+
+/* Buttons center */
+
+button,
+.btn,
+.cta a{
+
+    display:inline-block;
+    margin:20px auto;
+
+}
+
+
+
+/* Hero fix */
+
+.hero{
+
+    text-align:center;
+
+}
+
+
+
+.hero h2{
+
+    margin-bottom:15px;
+
+}
+
+
+
+/* Footer fix */
+
+footer p{
+
+    color:white;
+
+}
