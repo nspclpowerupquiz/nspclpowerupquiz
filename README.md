@@ -1,4 +1,14 @@
-## Hi there 👋
+## NSPCL Power Quiz is an interactive knowledge platform designed to enhance awareness and learning about the SSC C&M (Contracts & Materials) Function of NTPC-SAIL Power Company Limited (NSPCL).
+
+The quiz aims to promote continuous learning among employees by providing an engaging way to understand important concepts related to:
+
+✅ Contracts Management
+✅ Procurement Processes
+✅ Materials Management
+✅ Vendor Management
+✅ Tendering Procedures
+✅ Supply Chain Practices
+✅ Commercial & C&M Guidelines
 
 <!--
 **nspclpowerupquiz/nspclpowerupquiz** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
