@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>QuizMaster</title>
+<title>NSPCL Power-Up Quiz</title>
 
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/responsive.css">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -17,166 +19,51 @@
 
 <header>
 
-<h1>🧠 QuizMaster</h1>
-
-<div class="header-right">
-
-<button id="darkBtn">
-🌙
-</button>
-
+<div class="logo">
+<h2>⚡ NSPCL Power-Up Quiz</h2>
 </div>
+
+<nav>
+
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="leaderboard.html">Leaderboard</a>
+<a href="contact.html">Contact</a>
+
+</nav>
 
 </header>
 
-<!-- Landing Page -->
+<section class="hero">
 
-<section id="landing">
-
-<div class="hero">
-
-<h2>Welcome to QuizMaster</h2>
+<h1>Welcome to NSPCL Power-Up Quiz</h1>
 
 <p>
-Test your knowledge and challenge yourself with exciting quizzes.
+Test your knowledge, improve your skills, and compete with colleagues.
 </p>
 
-<button id="startQuiz">
+<button id="startBtn">
 Start Quiz
 </button>
 
-</div>
-
 </section>
 
-<!-- Quiz Container -->
+<section class="features">
 
-<section id="quizContainer" class="hidden">
-
-<div class="topBar">
-
-<div>
-
-Question
-<span id="questionNumber">
-1
-</span>
-
-/
-
-<span id="totalQuestions">
-10
-</span>
-
+<div class="card">
+<h3>📚 Learn</h3>
+<p>Enhance your technical knowledge.</p>
 </div>
 
-<div id="timer">
-
-10:00
-
+<div class="card">
+<h3>🏆 Compete</h3>
+<p>Score high and reach the leaderboard.</p>
 </div>
 
+<div class="card">
+<h3>🎯 Improve</h3>
+<p>Practice every day.</p>
 </div>
-
-<div class="progress">
-
-<div id="progressBar">
-
-</div>
-
-</div>
-
-<div class="questionBox">
-
-<h2 id="questionText">
-
-Question appears here...
-
-</h2>
-
-<div id="options">
-
-<button class="option">
-Option A
-</button>
-
-<button class="option">
-Option B
-</button>
-
-<button class="option">
-Option C
-</button>
-
-<button class="option">
-Option D
-</button>
-
-</div>
-
-</div>
-
-<div class="navigation">
-
-<button id="prevBtn">
-
-⬅ Previous
-
-</button>
-
-<button id="nextBtn">
-
-Next ➜
-
-</button>
-
-</div>
-
-<div class="submitArea">
-
-<button id="submitBtn">
-
-Submit Quiz
-
-</button>
-
-</div>
-
-</section>
-
-<!-- Result -->
-
-<section id="resultContainer" class="hidden">
-
-<h2>
-
-🎉 Congratulations!
-
-</h2>
-
-<p>
-
-Your Score
-
-</p>
-
-<h1 id="score">
-
-0 / 10
-
-</h1>
-
-<button id="restartBtn">
-
-Play Again
-
-</button>
-
-<button id="certificateBtn">
-
-Download Certificate
-
-</button>
 
 </section>
 
@@ -184,15 +71,13 @@ Download Certificate
 
 <p>
 
-Made with ❤️ using HTML, CSS & JavaScript
+© 2026 NSPCL Power-Up Quiz
 
 </p>
 
 </footer>
 
-<script src="questions.js"></script>
-
-<script src="script.js"></script>
+<script src="js/script.js"></script>
 
 </body>
 </html>
