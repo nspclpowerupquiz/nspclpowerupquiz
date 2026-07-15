@@ -342,3 +342,55 @@ nav{
     opacity:.8;
 
 }
+/* ===============================
+ ANIMATIONS
+================================ */
+
+
+.hero-text,
+.login-box,
+.card{
+
+animation:fadeUp 1s ease;
+
+}
+
+
+@keyframes fadeUp{
+
+from{
+
+opacity:0;
+transform:translateY(40px);
+
+}
+
+
+to{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
+}
+
+
+
+.card{
+
+transition:.4s;
+
+}
+
+
+.card:hover{
+
+transform:
+translateY(-10px)
+scale(1.03);
+
+box-shadow:
+0 15px 35px rgba(0,0,0,.25);
+
+}
