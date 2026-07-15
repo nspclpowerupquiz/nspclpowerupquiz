@@ -332,15 +332,21 @@ function showResult(){
 
 restartBtn.addEventListener("click",()=>{
 
-    currentQuestion = 0;
+    clearInterval(timer);
 
-    userAnswers = new Array(questions.length).fill(null);
+    totalTime=600;
+
+    timerDisplay.textContent="10:00";
+
+    currentQuestion=0;
+
+    userAnswers=new Array(questions.length).fill(null);
 
     resultContainer.classList.add("hidden");
 
     landing.classList.remove("hidden");
 
-    progressBar.style.width = "0%";
+    progressBar.style.width="0%";
 
 });
 // =====================
