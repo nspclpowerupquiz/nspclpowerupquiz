@@ -142,6 +142,13 @@ const darkBtn = document.getElementById("darkBtn");
 
 // Total Questions
 totalQuestions.textContent = questions.length;
+// =====================
+// Sound Effects
+// =====================
+
+const correctSound = new Audio("sounds/correct.mp3");
+const wrongSound = new Audio("sounds/wrong.mp3");
+const finishSound = new Audio("sounds/finish.mp3");
 
 // ==========================
 // Start Quiz
