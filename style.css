@@ -1,15 +1,14 @@
-/* ===============================
-   NSPCL POWER-UP QUIZ STYLE
-================================*/
+/* =================================
+   NSPCL POWER-UP QUIZ CSS
+================================= */
 
 
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family: 'Segoe UI', Arial, sans-serif;
+    font-family:'Segoe UI', Arial, sans-serif;
 }
-
 
 
 body{
@@ -17,20 +16,21 @@ body{
     background:#f4f8fc;
     color:#222;
     line-height:1.6;
+    overflow-x:hidden;
 
 }
 
 
-/* ===============================
+/* =================================
 HEADER
-================================*/
+================================= */
 
 
 header{
 
     background:linear-gradient(135deg,#004aad,#007bff);
     color:white;
-    padding:25px 10%;
+    padding:25px 8%;
     text-align:center;
 
 }
@@ -51,7 +51,6 @@ header p{
 }
 
 
-
 nav{
 
     margin-top:20px;
@@ -63,9 +62,9 @@ nav a{
 
     color:white;
     text-decoration:none;
-    margin:0 15px;
+    margin:0 12px;
     font-weight:bold;
-    transition:0.3s;
+    transition:.3s;
 
 }
 
@@ -78,24 +77,47 @@ nav a:hover{
 
 
 
-/* ===============================
-HERO SECTION
-================================*/
+/* =================================
+COMMON SECTIONS
+================================= */
+
+
+section{
+
+    padding:50px 8%;
+}
+
+
+section h2{
+
+    text-align:center;
+    color:#004aad;
+    margin-bottom:25px;
+
+}
+
+
+
+/* =================================
+HERO
+================================= */
 
 
 .hero{
 
     min-height:350px;
+
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
+
     text-align:center;
 
     background:
     linear-gradient(
-    rgba(0,0,0,0.5),
-    rgba(0,0,0,0.5)
+    rgba(0,0,0,.55),
+    rgba(0,0,0,.55)
     ),
     url("https://images.unsplash.com/photo-1473341304170-971dccb5ac1e");
 
@@ -104,14 +126,12 @@ HERO SECTION
 
     color:white;
 
-    padding:40px;
-
 }
-
 
 
 .hero h2{
 
+    color:white;
     font-size:42px;
 
 }
@@ -119,42 +139,43 @@ HERO SECTION
 
 .hero p{
 
-    font-size:20px;
     max-width:700px;
-    margin:20px;
+    font-size:20px;
+    margin:20px auto;
 
 }
 
 
 
-/* ===============================
+/* =================================
 BUTTONS
-================================*/
+================================= */
 
 
 button,
 .btn,
 .cta a{
 
+    display:inline-block;
 
     background:#ff9800;
     color:white;
 
     border:none;
+
     padding:14px 30px;
 
     border-radius:30px;
 
     font-size:17px;
 
-    cursor:pointer;
-
     text-decoration:none;
 
-    transition:0.3s;
+    cursor:pointer;
+
+    transition:.3s;
 
 }
-
 
 
 button:hover,
@@ -162,49 +183,15 @@ button:hover,
 .cta a:hover{
 
     background:#e68900;
-
     transform:scale(1.05);
 
 }
 
 
 
-/* ===============================
-SECTIONS
-================================*/
-
-
-section{
-
-    padding:50px 10%;
-
-}
-
-
-
-section h2{
-
-    text-align:center;
-
-    color:#004aad;
-
-    margin-bottom:25px;
-
-}
-
-
-
-/* ===============================
+/* =================================
 CARDS
-================================*/
-
-
-.features{
-
-    text-align:center;
-
-}
-
+================================= */
 
 
 .card-container{
@@ -213,6 +200,8 @@ CARDS
 
     justify-content:center;
 
+    align-items:stretch;
+
     gap:25px;
 
     flex-wrap:wrap;
@@ -220,9 +209,7 @@ CARDS
 }
 
 
-
 .card{
-
 
     background:white;
 
@@ -232,20 +219,21 @@ CARDS
 
     border-radius:15px;
 
-    box-shadow:0 5px 20px rgba(0,0,0,0.1);
+    text-align:center;
 
-    transition:0.3s;
+    box-shadow:
+    0 5px 20px rgba(0,0,0,.1);
+
+    transition:.3s;
 
 }
-
 
 
 .card:hover{
 
-    transform:translateY(-10px);
+    transform:translateY(-8px);
 
 }
-
 
 
 .card h3{
@@ -258,12 +246,16 @@ CARDS
 
 
 
-/* ===============================
-CATEGORY BOX
-================================*/
+/* =================================
+CATEGORY
+================================= */
 
 
 .category-box{
+
+    max-width:1000px;
+
+    margin:auto;
 
     display:grid;
 
@@ -275,9 +267,7 @@ CATEGORY BOX
 }
 
 
-
 .category-box div{
-
 
     background:white;
 
@@ -287,7 +277,8 @@ CATEGORY BOX
 
     border-radius:12px;
 
-    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    box-shadow:
+    0 5px 15px rgba(0,0,0,.1);
 
     font-weight:bold;
 
@@ -295,15 +286,16 @@ CATEGORY BOX
 
 
 
-/* ===============================
-LOGIN PAGE
-================================*/
+/* =================================
+LOGIN
+================================= */
 
 
 .login-box{
 
-
     width:350px;
+
+    max-width:90%;
 
     margin:50px auto;
 
@@ -313,21 +305,21 @@ LOGIN PAGE
 
     border-radius:15px;
 
-    box-shadow:
-    0 10px 25px rgba(0,0,0,0.15);
-
     text-align:center;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.15);
 
 }
 
 
-
 .login-box input{
-
 
     width:100%;
 
     padding:12px;
+
+    margin-top:10px;
 
     border:1px solid #ccc;
 
@@ -339,13 +331,12 @@ LOGIN PAGE
 
 
 
-/* ===============================
-QUIZ CARD
-================================*/
+/* =================================
+QUIZ
+================================= */
 
 
 .quiz-container{
-
 
     max-width:800px;
 
@@ -354,9 +345,7 @@ QUIZ CARD
 }
 
 
-
 .question-card{
-
 
     background:white;
 
@@ -364,14 +353,13 @@ QUIZ CARD
 
     border-radius:15px;
 
-    box-shadow:0 5px 20px rgba(0,0,0,0.1);
+    box-shadow:
+    0 5px 20px rgba(0,0,0,.1);
 
 }
 
 
-
 .option{
-
 
     display:block;
 
@@ -388,7 +376,6 @@ QUIZ CARD
 }
 
 
-
 .option:hover{
 
     background:#cfe3ff;
@@ -397,13 +384,12 @@ QUIZ CARD
 
 
 
-/* ===============================
+/* =================================
 FOOTER
-================================*/
+================================= */
 
 
 footer{
-
 
     background:#002b5c;
 
@@ -418,11 +404,17 @@ footer{
 }
 
 
+footer p{
+
+    color:white;
+
+}
 
 
-/* ===============================
-MOBILE RESPONSIVE
-================================*/
+
+/* =================================
+MOBILE
+================================= */
 
 
 @media(max-width:700px){
@@ -430,177 +422,32 @@ MOBILE RESPONSIVE
 
 header h1{
 
-font-size:28px;
+    font-size:28px;
 
 }
 
 
 nav a{
 
-display:block;
-
-margin:10px;
-
-}
-
-
-.hero h2{
-
-font-size:30px;
-
-}
-
-
-.card{
-
-width:100%;
-
-}
-
-
-.login-box{
-
-width:90%;
-
-}
-
-
-}
-/* ===============================
-   ALIGNMENT FIX
-================================*/
-
-
-body{
-    overflow-x:hidden;
-}
-
-
-/* Main content alignment */
-
-.hero,
-.intro,
-.features,
-.categories,
-.cta,
-.about-preview{
-
-    max-width:1200px;
-    margin:auto;
-}
-
-
-
-/* Center all headings */
-
-h1,h2,h3{
-
-    text-align:center;
-
-}
-
-
-
-/* Paragraph alignment */
-
-p{
-
-    text-align:center;
-    max-width:900px;
-    margin:15px auto;
-
-}
-
-
-
-/* Lists */
-
-ul{
-
-    max-width:700px;
-    margin:20px auto;
-
-}
-
-
-li{
+    display:block;
 
     margin:10px;
 
 }
 
 
+.hero h2{
 
-/* Card alignment */
-
-.card-container{
-
-    display:flex;
-    justify-content:center;
-    align-items:stretch;
-    gap:25px;
+    font-size:30px;
 
 }
-
 
 
 .card{
 
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    text-align:center;
+    width:100%;
 
 }
 
-
-
-/* Category alignment */
-
-.category-box{
-
-    max-width:1000px;
-    margin:auto;
-
-}
-
-
-
-/* Buttons center */
-
-button,
-.btn,
-.cta a{
-
-    display:inline-block;
-    margin:20px auto;
-
-}
-
-
-
-/* Hero fix */
-
-.hero{
-
-    text-align:center;
-
-}
-
-
-
-.hero h2{
-
-    margin-bottom:15px;
-
-}
-
-
-
-/* Footer fix */
-
-footer p{
-
-    color:white;
 
 }
