@@ -2736,3 +2736,35 @@ transform:translateY(0);
 
 
 }
+.gallery-card{
+
+animation:galleryFloat 4s infinite;
+
+}
+
+
+@keyframes galleryFloat{
+
+
+0%{
+
+transform:translateY(0);
+
+}
+
+
+50%{
+
+transform:translateY(-8px);
+
+}
+
+
+100%{
+
+transform:translateY(0);
+
+}
+
+
+}
