@@ -529,3 +529,55 @@ background:#1976d2;
 color:white;
 
 }
+/* ===============================
+CERTIFICATE
+================================ */
+
+
+.certificate{
+
+
+max-width:800px;
+
+margin:50px auto;
+
+padding:50px;
+
+
+background:white;
+
+
+border:8px solid #ff9800;
+
+
+text-align:center;
+
+
+border-radius:25px;
+
+
+box-shadow:
+0 10px 30px rgba(0,0,0,.2);
+
+
+}
+
+
+.certificate h1{
+
+color:#071b4f;
+
+font-size:38px;
+
+}
+
+
+.certificate h3{
+
+font-size:30px;
+
+color:#ff9800;
+
+margin:25px;
+
+}
