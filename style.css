@@ -272,3 +272,613 @@ button:hover,
     box-shadow:0 18px 35px rgba(255,152,0,.45);
 
 }
+/*==================================================
+STATISTICS
+==================================================*/
+
+.stats{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:25px;
+
+    padding:60px 8%;
+
+}
+
+.stat-card{
+
+    background:linear-gradient(135deg,var(--primary),var(--secondary));
+
+    color:var(--white);
+
+    text-align:center;
+
+    padding:35px 25px;
+
+    border-radius:20px;
+
+    box-shadow:var(--shadow);
+
+    transition:.35s;
+
+}
+
+.stat-card:hover{
+
+    transform:translateY(-10px) scale(1.03);
+
+}
+
+.stat-card h2{
+
+    font-size:48px;
+
+    margin-bottom:10px;
+
+}
+
+.stat-card p{
+
+    font-size:18px;
+
+    font-weight:600;
+
+}
+
+
+/*==================================================
+FEATURE SECTION
+==================================================*/
+
+.features{
+
+    text-align:center;
+
+}
+
+.features h2{
+
+    color:var(--primary);
+
+    margin-bottom:40px;
+
+    font-size:38px;
+
+}
+
+.feature-container{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+
+    gap:30px;
+
+}
+
+
+/*==================================================
+FEATURE CARDS
+==================================================*/
+
+.card{
+
+    background:var(--white);
+
+    border-radius:20px;
+
+    padding:35px;
+
+    box-shadow:var(--shadow);
+
+    transition:.35s;
+
+    text-align:center;
+
+}
+
+.card:hover{
+
+    transform:translateY(-12px);
+
+    box-shadow:0 25px 45px rgba(0,86,179,.25);
+
+}
+
+.card h3{
+
+    color:var(--primary);
+
+    font-size:28px;
+
+    margin-bottom:15px;
+
+}
+
+.card p{
+
+    margin-bottom:25px;
+
+    color:#555;
+
+}
+
+.card a{
+
+    display:inline-block;
+
+    padding:12px 25px;
+
+    border-radius:30px;
+
+    background:var(--primary);
+
+    color:white;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+}
+
+.card a:hover{
+
+    background:var(--accent);
+
+}
+
+
+/*==================================================
+LOGIN BOX
+==================================================*/
+
+.login-box{
+
+    width:380px;
+
+    margin:35px auto;
+
+    padding:35px;
+
+    background:rgba(255,255,255,.15);
+
+    backdrop-filter:blur(12px);
+
+    border-radius:20px;
+
+    border:1px solid rgba(255,255,255,.25);
+
+    box-shadow:0 20px 45px rgba(0,0,0,.25);
+
+}
+
+.login-box h3{
+
+    color:white;
+
+    margin-bottom:20px;
+
+    font-size:28px;
+
+}
+
+.login-box input{
+
+    width:100%;
+
+    padding:15px;
+
+    margin:12px 0;
+
+    border:none;
+
+    border-radius:10px;
+
+    outline:none;
+
+    font-size:16px;
+
+}
+
+.login-box button{
+
+    width:100%;
+
+    margin-top:15px;
+
+}
+
+
+/*==================================================
+CALL TO ACTION
+==================================================*/
+
+.cta{
+
+    text-align:center;
+
+    background:linear-gradient(135deg,var(--primary),var(--secondary));
+
+    color:white;
+
+    border-radius:25px;
+
+    margin:60px 8%;
+
+}
+
+.cta h2{
+
+    color:white;
+
+    font-size:40px;
+
+}
+
+.cta p{
+
+    margin:20px auto;
+
+    max-width:700px;
+
+    font-size:20px;
+
+}
+/*==================================================
+LEADERBOARD
+==================================================*/
+
+.leaderboard{
+
+    padding:70px 8%;
+
+    text-align:center;
+
+}
+
+.leaderboard h1{
+
+    color:var(--primary);
+
+    margin-bottom:15px;
+
+    font-size:42px;
+
+}
+
+.top-three{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:flex-end;
+
+    flex-wrap:wrap;
+
+    gap:30px;
+
+    margin:50px 0;
+
+}
+
+.winner{
+
+    width:230px;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    color:white;
+
+    box-shadow:var(--shadow);
+
+    transition:.35s;
+
+}
+
+.winner:hover{
+
+    transform:translateY(-10px);
+
+}
+
+.first{
+
+    background:linear-gradient(135deg,#FFD700,#FFB300);
+
+}
+
+.second{
+
+    background:linear-gradient(135deg,#C0C0C0,#9E9E9E);
+
+}
+
+.third{
+
+    background:linear-gradient(135deg,#CD7F32,#B87333);
+
+}
+
+.winner h2{
+
+    font-size:30px;
+
+    margin:15px 0;
+
+}
+
+.winner h3{
+
+    font-size:24px;
+
+}
+
+table{
+
+    width:100%;
+
+    margin-top:40px;
+
+    border-collapse:collapse;
+
+    background:white;
+
+    border-radius:15px;
+
+    overflow:hidden;
+
+    box-shadow:var(--shadow);
+
+}
+
+th{
+
+    background:var(--primary);
+
+    color:white;
+
+    padding:18px;
+
+    font-size:18px;
+
+}
+
+td{
+
+    padding:16px;
+
+    border-bottom:1px solid #eee;
+
+}
+
+tr:hover{
+
+    background:#f4f8ff;
+
+}
+
+
+/*==================================================
+ANALYTICS
+==================================================*/
+
+.analytics{
+
+    padding:70px 8%;
+
+    text-align:center;
+
+}
+
+.analytics-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+
+    gap:25px;
+
+    margin:45px 0;
+
+}
+
+.analytics-card{
+
+    background:white;
+
+    padding:35px;
+
+    border-radius:20px;
+
+    box-shadow:var(--shadow);
+
+    transition:.35s;
+
+}
+
+.analytics-card:hover{
+
+    transform:translateY(-10px);
+
+}
+
+.analytics-card h2{
+
+    font-size:50px;
+
+}
+
+.analytics-card h3{
+
+    color:var(--primary);
+
+    font-size:36px;
+
+    margin:15px 0;
+
+}
+
+.progress{
+
+    width:100%;
+
+    height:35px;
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+    background:#ddd;
+
+    margin:40px auto;
+
+}
+
+.progress-fill{
+
+    width:82%;
+
+    height:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:white;
+
+    font-weight:bold;
+
+    background:linear-gradient(90deg,#28a745,#00b894);
+
+}
+
+.activity{
+
+    margin-top:40px;
+
+    background:white;
+
+    border-radius:20px;
+
+    box-shadow:var(--shadow);
+
+    padding:30px;
+
+    text-align:left;
+
+}
+
+.activity p{
+
+    padding:15px;
+
+    border-bottom:1px solid #eee;
+
+}
+
+
+/*==================================================
+DAILY CHALLENGE
+==================================================*/
+
+.daily{
+
+    padding:70px 8%;
+
+    text-align:center;
+
+}
+
+.challenge-card{
+
+    max-width:750px;
+
+    margin:40px auto;
+
+    padding:45px;
+
+    background:white;
+
+    border-radius:25px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.challenge-card h2{
+
+    color:var(--primary);
+
+    margin-bottom:20px;
+
+}
+
+.timer{
+
+    margin:35px 0;
+
+}
+
+.timer h3{
+
+    font-size:46px;
+
+    color:#ff5722;
+
+    animation:pulse 1.5s infinite;
+
+}
+
+.reward-section{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:25px;
+
+    margin:50px 0;
+
+}
+
+.reward-card{
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    box-shadow:var(--shadow);
+
+    transition:.35s;
+
+}
+
+.reward-card:hover{
+
+    transform:translateY(-10px);
+
+}
+
+.reward-card h3{
+
+    margin:15px 0;
+
+    color:var(--primary);
+
+}
+
+.reward-card p{
+
+    color:#666;
+
+}
