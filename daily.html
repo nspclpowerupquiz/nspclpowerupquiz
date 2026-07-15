@@ -1,74 +1,184 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 
 <head>
-
-<title>NSPCL Daily Challenge</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daily Challenge | NSPCL Power-Up Quiz</title>
 
 <link rel="stylesheet" href="style.css">
 
 </head>
 
-
 <body>
-
 
 <header class="header">
 
-<h2>
-🔥 Daily Challenge
-</h2>
+<div class="logo">
+<h2>🔥 Daily Challenge</h2>
+<span>One Challenge Every Day</span>
+</div>
 
+<nav>
 
-<a href="index.html">
-Home
-</a>
+<a href="index.html">Home</a>
+<a href="quiz.html">Quiz</a>
+<a href="leaderboard.html">Leaderboard</a>
 
+</nav>
 
 </header>
 
+<section class="daily">
 
+<h1>🔥 Today's Challenge</h1>
 
-<section class="features">
+<p>
+Complete today's SSC C&M challenge and earn bonus points.
+</p>
 
+<div class="challenge-card">
 
-<div class="card">
+<h2>📚 Procurement Challenge</h2>
 
+<p>
 
-<h1>
-Today's Power Challenge
-</h1>
-
-
-<p id="dailyQuestion">
-
-Loading...
+Answer today's 10 questions correctly.
 
 </p>
 
+<div class="timer">
 
-<div id="dailyOptions">
+⏳ Ends In
 
-</div>
-
-
-
-<p id="dailyResult">
-
-</p>
-
+<h3 id="countdown">
+23:59:59
+</h3>
 
 </div>
 
+<button onclick="location.href='quiz.html'">
 
+🚀 Start Challenge
+
+</button>
+
+</div>
+
+<div class="reward-section">
+
+<div class="reward-card">
+
+⭐
+
+<h3>50 Points</h3>
+
+<p>Daily Reward</p>
+
+</div>
+
+<div class="reward-card">
+
+🔥
+
+<h3>7 Days</h3>
+
+<p>Current Streak</p>
+
+</div>
+
+<div class="reward-card">
+
+🏅
+
+<h3>Bronze Badge</h3>
+
+<p>Achievement</p>
+
+</div>
+
+</div>
+
+<h2>Recent Challenges</h2>
+
+<table>
+
+<tr>
+
+<th>Date</th>
+
+<th>Topic</th>
+
+<th>Status</th>
+
+</tr>
+
+<tr>
+
+<td>14 Jul</td>
+
+<td>Contracts</td>
+
+<td>✅ Completed</td>
+
+</tr>
+
+<tr>
+
+<td>13 Jul</td>
+
+<td>Inventory</td>
+
+<td>✅ Completed</td>
+
+</tr>
+
+<tr>
+
+<td>12 Jul</td>
+
+<td>Vendor Management</td>
+
+<td>❌ Missed</td>
+
+</tr>
+
+</table>
 
 </section>
 
+<footer>
 
+© 2026 NSPCL Power-Up Quiz
 
-<script src="js/daily.js"></script>
+</footer>
 
+<script>
+
+function updateCountdown(){
+
+let now=new Date();
+
+let tomorrow=new Date();
+
+tomorrow.setHours(24,0,0,0);
+
+let diff=tomorrow-now;
+
+let h=Math.floor(diff/1000/60/60);
+
+let m=Math.floor((diff/1000/60)%60);
+
+let s=Math.floor((diff/1000)%60);
+
+document.getElementById("countdown").innerHTML=
+`${h}:${m}:${s}`;
+
+}
+
+setInterval(updateCountdown,1000);
+
+</script>
 
 </body>
 
