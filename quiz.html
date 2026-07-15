@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,6 +25,7 @@
 
 <p>Learn • Compete • Achieve</p>
 
+
 <nav>
 
 <a href="index.html">Home</a>
@@ -42,70 +44,26 @@
 
 <section class="quiz-intro">
 
-<h2>Welcome to NSPCL Power-Up Quiz</h2>
+<h2>🚀 Welcome to Online Challenge Quiz</h2>
 
 <p>
-Test your knowledge with our exciting quizzes.
-Download practice papers or attempt the online quiz.
+Test your knowledge and improve your learning skills.
 </p>
 
-</section>
+
+<input 
+type="text" 
+id="playerName"
+placeholder="Enter Your Name">
 
 
+<br><br>
 
 
-<!-- PDF QUIZ SECTION -->
+<button onclick="startQuiz()">
+Start Quiz 🚀
+</button>
 
-<section class="pdf-section">
-
-<h2>📘 Practice Quiz Papers</h2>
-
-
-<div class="quiz-cards">
-
-
-<div class="card">
-
-<h3>General Knowledge</h3>
-
-<p>Explore questions about India and the world.</p>
-
-<a href="gk-quiz.pdf" target="_blank">
-Download PDF
-</a>
-
-</div>
-
-
-
-<div class="card">
-
-<h3>Science Quiz</h3>
-
-<p>Test your science knowledge.</p>
-
-<a href="science-quiz.pdf" target="_blank">
-Download PDF
-</a>
-
-</div>
-
-
-
-<div class="card">
-
-<h3>Environment Quiz</h3>
-
-<p>Learn about nature and sustainability.</p>
-
-<a href="environment-quiz.pdf" target="_blank">
-Download PDF
-</a>
-
-</div>
-
-
-</div>
 
 </section>
 
@@ -118,30 +76,37 @@ Download PDF
 <section class="online-quiz">
 
 
-<h2>🚀 Online Challenge Quiz</h2>
+<div id="quiz-area" style="display:none;">
+
+
+<h2>NSPCL Power-Up Challenge</h2>
+
 
 
 <div id="timer">
 
-Time Left: <span id="time">60</span> seconds
+⏱ Time Left:
+<span id="time">60</span> seconds
 
 </div>
+
 
 
 
 <div id="quiz-box">
 
 
-<h3 id="question">
-Loading Question...
-</h3>
+<h3 id="question"></h3>
 
 
 <div id="options"></div>
 
 
+
 <button onclick="nextQuestion()">
-Next Question
+
+Next Question ➡️
+
 </button>
 
 
@@ -149,10 +114,17 @@ Next Question
 
 
 
+</div>
+
+
+
+
 <h2 id="result"></h2>
 
 
+
 </section>
+
 
 
 
@@ -172,10 +144,11 @@ Next Question
 
 
 
+
 <script>
 
 
-const questions = [
+const questions=[
 
 
 {
@@ -193,7 +166,7 @@ answer:"Tiger"
 
 
 {
-question:"Which gas is most important for human breathing?",
+question:"Which gas is important for human breathing?",
 options:["Carbon dioxide","Oxygen","Nitrogen","Hydrogen"],
 answer:"Oxygen"
 },
@@ -203,26 +176,84 @@ answer:"Oxygen"
 question:"What is the capital of India?",
 options:["Mumbai","Delhi","Kolkata","Chennai"],
 answer:"Delhi"
+},
+
+
+{
+question:"NSPCL is a joint venture between NTPC and?",
+options:["SAIL","BHEL","ONGC","GAIL"],
+answer:"SAIL"
 }
 
 
 ];
 
 
-let currentQuestion = 0;
-
-let score = 0;
-
-let time = 60;
 
 
 
-let timer = setInterval(function(){
+let currentQuestion=0;
+
+let score=0;
+
+let time=60;
+
+let timer;
+
+let playerName="";
+
+
+
+
+
+
+function startQuiz(){
+
+
+playerName=document.getElementById("playerName").value;
+
+
+if(playerName==""){
+
+alert("Please enter your name");
+
+return;
+
+}
+
+
+
+document.querySelector(".quiz-intro").style.display="none";
+
+
+document.getElementById("quiz-area").style.display="block";
+
+
+
+startTimer();
+
+
+loadQuestion();
+
+
+}
+
+
+
+
+
+
+function startTimer(){
+
+
+timer=setInterval(function(){
 
 
 time--;
 
+
 document.getElementById("time").innerHTML=time;
+
 
 
 if(time<=0){
@@ -237,6 +268,10 @@ showResult();
 },1000);
 
 
+}
+
+
+
 
 
 
@@ -244,36 +279,39 @@ showResult();
 function loadQuestion(){
 
 
-let q = questions[currentQuestion];
+let q=questions[currentQuestion];
 
 
-document.getElementById("question").innerHTML =
+
+document.getElementById("question").innerHTML=
+
 (currentQuestion+1)+". "+q.question;
 
 
 
-let optionsHTML="";
+let html="";
+
 
 
 q.options.forEach(function(option){
 
 
-optionsHTML +=
+html+=`
 
-`
 <button class="option"
-onclick="checkAnswer('${option}')">
+onclick="checkAnswer(this,'${option}')">
 
 ${option}
 
 </button>
+
 `;
 
 });
 
 
-document.getElementById("options").innerHTML =
-optionsHTML;
+
+document.getElementById("options").innerHTML=html;
 
 
 }
@@ -283,17 +321,46 @@ optionsHTML;
 
 
 
-function checkAnswer(selected){
+
+function checkAnswer(button,answer){
 
 
-if(selected == questions[currentQuestion].answer){
+
+let buttons=document.querySelectorAll(".option");
+
+
+
+buttons.forEach(btn=>{
+
+btn.disabled=true;
+
+});
+
+
+
+if(answer==questions[currentQuestion].answer){
+
 
 score++;
 
-}
+button.style.background="green";
 
 
 }
+
+else{
+
+
+button.style.background="red";
+
+
+}
+
+
+
+}
+
+
 
 
 
@@ -305,20 +372,27 @@ function nextQuestion(){
 currentQuestion++;
 
 
+
 if(currentQuestion < questions.length){
 
+
 loadQuestion();
+
 
 }
 
 else{
 
+
 showResult();
 
+
 }
 
 
 }
+
+
 
 
 
@@ -328,30 +402,46 @@ showResult();
 function showResult(){
 
 
-document.getElementById("quiz-box").style.display="none";
+clearInterval(timer);
+
+
+
+document.getElementById("quiz-area").style.display="none";
+
 
 
 document.getElementById("result").innerHTML=
 
-"🎉 Quiz Completed! Your Score: "
-+score+
-"/"+questions.length;
+
+`
+🎉 Congratulations ${playerName}! 
+
+<br><br>
+
+Your Score:
+
+<h1>${score}/${questions.length}</h1>
 
 
-clearInterval(timer);
+`;
+
+
+
+localStorage.setItem("playerName",playerName);
+
+localStorage.setItem("score",score);
+
 
 
 }
 
 
 
-
-loadQuestion();
-
-
 </script>
+
 
 
 </body>
 
 </html>
+```
