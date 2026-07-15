@@ -1,9 +1,10 @@
-/* ===================================
-   NSPCL Power Up Quiz - Main Styles
-   =================================== */
+/* =========================================
+   NSPCL Power Up Quiz - Main Stylesheet
+   ========================================= */
 
 
-/* Reset */
+/* ---------- Global Reset ---------- */
+
 * {
     margin: 0;
     padding: 0;
@@ -11,189 +12,138 @@
 }
 
 
-/* Body */
 body {
-    font-family: "Segoe UI", Arial, sans-serif;
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-    color: #ffffff;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #0f172a, #1e3a8a);
+    color: white;
     min-height: 100vh;
 }
 
 
-/* Header */
+/* ---------- Header ---------- */
+
 header {
     background: rgba(0,0,0,0.35);
     padding: 20px;
     text-align: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    backdrop-filter: blur(10px);
 }
 
 
 header h1 {
-    font-size: 38px;
-    color: #ffd700;
-    margin-bottom: 10px;
+    font-size: 35px;
+    color: #facc15;
+    margin-bottom: 8px;
 }
 
 
 header p {
     font-size: 18px;
+    color: #e2e8f0;
 }
 
 
-/* Navigation */
+/* ---------- Navigation ---------- */
 
 nav {
-    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    background: #020617;
+    padding: 15px;
 }
 
 
 nav a {
     color: white;
     text-decoration: none;
-    margin: 0 12px;
     font-size: 17px;
     font-weight: bold;
 }
 
 
 nav a:hover {
-    color: #ffd700;
+    color: #facc15;
 }
 
 
-/* Main Container */
+/* ---------- Main Container ---------- */
 
 .container {
 
     width: 90%;
-    max-width: 1100px;
+    max-width: 1000px;
     margin: 40px auto;
 }
 
 
-/* Hero Section */
-
-.hero {
-
-    text-align: center;
-    padding: 40px 20px;
-
-}
-
-
-.hero h2 {
-
-    font-size: 42px;
-    margin-bottom: 20px;
-    color:#ffffff;
-
-}
-
-
-.hero span {
-
-    color:#ffd700;
-
-}
-
-
-.hero p {
-
-    font-size:20px;
-    line-height:1.6;
-
-}
-
-
-
-/* Buttons */
-
-.btn {
-
-    display:inline-block;
-    margin-top:25px;
-    padding:14px 35px;
-    background:#ffd700;
-    color:#111;
-    text-decoration:none;
-    border-radius:30px;
-    font-size:18px;
-    font-weight:bold;
-    transition:0.3s;
-
-}
-
-
-.btn:hover {
-
-    background:#ffffff;
-    transform:scale(1.05);
-
-}
-
-
-
-/* Cards */
-
-.card-container {
-
-    display:flex;
-    justify-content:center;
-    gap:25px;
-    flex-wrap:wrap;
-
-}
-
+/* ---------- Cards ---------- */
 
 .card {
 
-    background:white;
-    color:#222;
-    width:300px;
-    padding:25px;
-    border-radius:15px;
-    text-align:center;
-    box-shadow:0 8px 20px rgba(0,0,0,0.3);
-    transition:0.3s;
+    background: white;
+    color: #111827;
+    padding: 30px;
+    border-radius: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
 
 }
 
 
-.card:hover {
+.card h2 {
 
-    transform:translateY(-8px);
-
-}
-
-
-.card h3 {
-
-    color:#0f2027;
-    margin-bottom:15px;
+    color: #1e3a8a;
+    margin-bottom: 15px;
 
 }
 
 
 .card p {
 
-    line-height:1.5;
+    line-height: 1.7;
+    font-size: 17px;
+
+}
+
+
+/* ---------- Buttons ---------- */
+
+
+.btn {
+
+    display: inline-block;
+    background: #facc15;
+    color: #111827;
+    padding: 12px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: 0.3s;
+
+}
+
+
+.btn:hover {
+
+    background: #ffffff;
+    transform: scale(1.05);
 
 }
 
 
 
-/* Quiz Area */
+/* ---------- Quiz Area ---------- */
+
 
 .quiz-box {
 
     background:white;
-    color:#222;
-    max-width:700px;
-    margin:auto;
-    padding:30px;
-    border-radius:15px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.3);
+    color:#111827;
+    padding:35px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.3);
 
 }
 
@@ -207,16 +157,22 @@ nav a:hover {
 }
 
 
-/* Options */
+.options {
+
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+
+}
+
 
 .option {
 
-    display:block;
-    background:#eeeeee;
+    background:#e0f2fe;
     padding:15px;
-    margin:12px 0;
     border-radius:10px;
     cursor:pointer;
+    font-size:18px;
     transition:0.3s;
 
 }
@@ -224,14 +180,15 @@ nav a:hover {
 
 .option:hover {
 
-    background:#ffd700;
+    background:#38bdf8;
+    color:white;
 
 }
 
 
 .option.correct {
 
-    background:#4caf50;
+    background:#22c55e;
     color:white;
 
 }
@@ -239,47 +196,54 @@ nav a:hover {
 
 .option.wrong {
 
-    background:#f44336;
+    background:#ef4444;
     color:white;
 
 }
 
 
 
-/* Timer */
+/* ---------- Timer ---------- */
+
 
 .timer {
 
-    text-align:center;
-    font-size:25px;
+    background:#ef4444;
+    padding:10px 20px;
+    border-radius:25px;
+    display:inline-block;
+    font-size:20px;
     font-weight:bold;
-    color:#ffd700;
     margin-bottom:20px;
 
 }
 
 
 
-/* Score */
+/* ---------- Score ---------- */
+
 
 .score {
 
     text-align:center;
-    font-size:30px;
-    color:#ffd700;
+    font-size:28px;
+    font-weight:bold;
+    color:#facc15;
+
 }
 
 
 
-/* Leaderboard */
+/* ---------- Leaderboard ---------- */
+
 
 table {
 
     width:100%;
-    background:white;
-    color:#222;
     border-collapse:collapse;
-    border-radius:10px;
+    background:white;
+    color:#111827;
+    border-radius:15px;
     overflow:hidden;
 
 }
@@ -287,7 +251,8 @@ table {
 
 th {
 
-    background:#ffd700;
+    background:#1e3a8a;
+    color:white;
     padding:15px;
 
 }
@@ -295,7 +260,7 @@ th {
 
 td {
 
-    padding:12px;
+    padding:15px;
     text-align:center;
     border-bottom:1px solid #ddd;
 
@@ -303,48 +268,83 @@ td {
 
 
 
-/* Footer */
+/* ---------- Footer ---------- */
+
 
 footer {
 
-    margin-top:50px;
-    padding:20px;
+    background:#020617;
     text-align:center;
-    background:rgba(0,0,0,0.4);
+    padding:20px;
+    margin-top:40px;
+    color:#cbd5e1;
 
 }
 
 
-/* Mobile Responsive */
+
+/* ---------- Forms ---------- */
+
+
+input,
+textarea {
+
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border-radius:8px;
+    border:1px solid #94a3b8;
+
+}
+
+
+button {
+
+    border:none;
+    cursor:pointer;
+
+}
+
+
+
+/* ---------- Mobile Responsive ---------- */
+
 
 @media(max-width:768px){
 
 
-header h1{
+header h1 {
 
-font-size:28px;
-
-}
-
-
-.hero h2{
-
-font-size:32px;
+    font-size:25px;
 
 }
 
 
-.card{
+nav {
 
-width:90%;
+    flex-direction:column;
+    align-items:center;
 
 }
 
 
-nav a{
+.container {
 
-display:block;
-margin:10px;
+    width:95%;
+
+}
+
+
+.card {
+
+    padding:20px;
+
+}
+
+
+.question {
+
+    font-size:20px;
 
 }
 
