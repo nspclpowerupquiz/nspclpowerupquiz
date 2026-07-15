@@ -883,3 +883,128 @@ transform:scale(1);
 }
 
 }
+/* ==========================
+CERTIFICATE
+========================== */
+
+.certificate-section{
+
+padding:60px 20px;
+
+background:#f4f8fc;
+
+text-align:center;
+
+}
+
+.certificate{
+
+max-width:950px;
+
+margin:auto;
+
+background:white;
+
+padding:20px;
+
+box-shadow:0 15px 35px rgba(0,0,0,.18);
+
+}
+
+.certificate-border{
+
+border:12px solid #004aad;
+
+padding:50px;
+
+position:relative;
+
+}
+
+.certificate-border h1{
+
+color:#004aad;
+
+margin:20px 0;
+
+font-size:42px;
+
+}
+
+.certificate-border h2{
+
+font-size:40px;
+
+color:#ff9800;
+
+margin:20px 0;
+
+}
+
+.score-box{
+
+display:flex;
+
+justify-content:space-around;
+
+margin:40px 0;
+
+flex-wrap:wrap;
+
+}
+
+.score-box div{
+
+background:#f5f9ff;
+
+padding:20px;
+
+width:180px;
+
+border-radius:15px;
+
+box-shadow:0 8px 20px rgba(0,0,0,.12);
+
+}
+
+.score-box h3{
+
+font-size:36px;
+
+color:#004aad;
+
+}
+
+.certificate-footer{
+
+display:flex;
+
+justify-content:space-between;
+
+margin-top:60px;
+
+}
+
+.qr{
+
+margin-top:40px;
+
+font-size:18px;
+
+font-weight:bold;
+
+color:#004aad;
+
+}
+
+.certificate-buttons{
+
+margin-top:40px;
+
+}
+
+.certificate-buttons button{
+
+margin:10px;
+
+}
