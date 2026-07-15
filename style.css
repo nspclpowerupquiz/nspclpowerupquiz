@@ -1,173 +1,207 @@
 /* ===============================
-   GLOBAL SETTINGS
-================================ */
+   NSPCL POWER-UP QUIZ STYLE
+================================*/
+
 
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Segoe UI',Arial,sans-serif;
+    font-family: 'Segoe UI', Arial, sans-serif;
 }
 
+
+
 body{
-    background:#f4f7fb;
+
+    background:#f4f8fc;
     color:#222;
+    line-height:1.6;
+
 }
 
 
 /* ===============================
-   HEADER
-================================ */
+HEADER
+================================*/
+
 
 header{
-    background:#071b4f;
+
+    background:linear-gradient(135deg,#004aad,#007bff);
     color:white;
-    padding:15px 50px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+    padding:25px 10%;
+    text-align:center;
+
 }
 
 
 header h1{
-    font-size:24px;
-}
 
-
-nav a{
-    color:white;
-    text-decoration:none;
-    margin:0 12px;
-    font-size:15px;
-}
-
-
-nav a:hover{
-    color:#ff9800;
-}
-
-
-/* ===============================
-   HERO SECTION
-================================ */
-
-
-.hero{
-
-    min-height:380px;
-    background:linear-gradient(
-        120deg,
-        #1148a8,
-        #1976d2
-    );
-
-    display:flex;
-    justify-content:space-around;
-    align-items:center;
-
-    padding:40px;
+    font-size:36px;
+    margin-bottom:8px;
 
 }
 
 
-.hero-text{
-
-    color:white;
-    width:45%;
-}
-
-
-.hero-text h2{
-
-    font-size:42px;
-    margin-bottom:15px;
-
-}
-
-
-.hero-text p{
+header p{
 
     font-size:18px;
 
 }
 
 
-/* LOGIN BOX */
 
+nav{
 
-.login-box{
-
-    background:white;
-    width:330px;
-    padding:30px;
-    border-radius:15px;
-
-    box-shadow:0 10px 30px rgba(0,0,0,.2);
+    margin-top:20px;
 
 }
 
 
-.login-box h3{
+nav a{
 
-    text-align:center;
-    margin-bottom:20px;
-
-}
-
-
-.login-box input{
-
-    width:100%;
-    padding:12px;
-    margin:10px 0;
-
-    border:1px solid #ddd;
-    border-radius:8px;
-
-}
-
-
-.login-box button{
-
-    width:100%;
-    padding:12px;
-
-    background:#ff9800;
     color:white;
-
-    border:none;
-    border-radius:8px;
-
-    font-size:16px;
-    cursor:pointer;
+    text-decoration:none;
+    margin:0 15px;
+    font-weight:bold;
+    transition:0.3s;
 
 }
 
 
-.login-box button:hover{
+nav a:hover{
 
-    background:#e68900;
+    color:#ffd700;
 
 }
 
 
 
 /* ===============================
- FEATURES
-================================ */
+HERO SECTION
+================================*/
 
 
-.features{
+.hero{
 
-    padding:50px;
+    min-height:350px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+
+    background:
+    linear-gradient(
+    rgba(0,0,0,0.5),
+    rgba(0,0,0,0.5)
+    ),
+    url("https://images.unsplash.com/photo-1473341304170-971dccb5ac1e");
+
+    background-size:cover;
+    background-position:center;
+
+    color:white;
+
+    padding:40px;
 
 }
 
 
-.features h2{
+
+.hero h2{
+
+    font-size:42px;
+
+}
+
+
+.hero p{
+
+    font-size:20px;
+    max-width:700px;
+    margin:20px;
+
+}
+
+
+
+/* ===============================
+BUTTONS
+================================*/
+
+
+button,
+.btn,
+.cta a{
+
+
+    background:#ff9800;
+    color:white;
+
+    border:none;
+    padding:14px 30px;
+
+    border-radius:30px;
+
+    font-size:17px;
+
+    cursor:pointer;
+
+    text-decoration:none;
+
+    transition:0.3s;
+
+}
+
+
+
+button:hover,
+.btn:hover,
+.cta a:hover{
+
+    background:#e68900;
+
+    transform:scale(1.05);
+
+}
+
+
+
+/* ===============================
+SECTIONS
+================================*/
+
+
+section{
+
+    padding:50px 10%;
+
+}
+
+
+
+section h2{
 
     text-align:center;
-    margin-bottom:35px;
+
+    color:#004aad;
+
+    margin-bottom:25px;
+
+}
+
+
+
+/* ===============================
+CARDS
+================================*/
+
+
+.features{
+
+    text-align:center;
 
 }
 
@@ -175,12 +209,13 @@ nav a:hover{
 
 .card-container{
 
-    display:grid;
+    display:flex;
 
-    grid-template-columns:
-    repeat(auto-fit,minmax(220px,1fr));
+    justify-content:center;
 
     gap:25px;
+
+    flex-wrap:wrap;
 
 }
 
@@ -188,53 +223,71 @@ nav a:hover{
 
 .card{
 
+
     background:white;
+
+    width:300px;
 
     padding:30px;
 
-    text-align:center;
-
     border-radius:15px;
 
-    box-shadow:
-    0 5px 20px rgba(0,0,0,.12);
+    box-shadow:0 5px 20px rgba(0,0,0,0.1);
 
-    transition:.3s;
+    transition:0.3s;
 
 }
+
 
 
 .card:hover{
 
-    transform:translateY(-8px);
+    transform:translateY(-10px);
 
 }
+
 
 
 .card h3{
 
-    color:#1148a8;
-    margin:15px 0;
+    color:#004aad;
+
+    font-size:25px;
 
 }
 
 
-.card p{
 
-    color:#555;
+/* ===============================
+CATEGORY BOX
+================================*/
+
+
+.category-box{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(200px,1fr));
+
+    gap:20px;
 
 }
 
 
-.card a{
 
-    display:inline-block;
+.category-box div{
 
-    margin-top:15px;
 
-    text-decoration:none;
+    background:white;
 
-    color:#1976d2;
+    padding:25px;
+
+    text-align:center;
+
+    border-radius:12px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
 
     font-weight:bold;
 
@@ -243,373 +296,164 @@ nav a:hover{
 
 
 /* ===============================
- FOOTER
-================================ */
+LOGIN PAGE
+================================*/
+
+
+.login-box{
+
+
+    width:350px;
+
+    margin:50px auto;
+
+    background:white;
+
+    padding:35px;
+
+    border-radius:15px;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,0.15);
+
+    text-align:center;
+
+}
+
+
+
+.login-box input{
+
+
+    width:100%;
+
+    padding:12px;
+
+    border:1px solid #ccc;
+
+    border-radius:8px;
+
+    font-size:16px;
+
+}
+
+
+
+/* ===============================
+QUIZ CARD
+================================*/
+
+
+.quiz-container{
+
+
+    max-width:800px;
+
+    margin:auto;
+
+}
+
+
+
+.question-card{
+
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:15px;
+
+    box-shadow:0 5px 20px rgba(0,0,0,0.1);
+
+}
+
+
+
+.option{
+
+
+    display:block;
+
+    padding:15px;
+
+    margin:10px 0;
+
+    background:#eef5ff;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+}
+
+
+
+.option:hover{
+
+    background:#cfe3ff;
+
+}
+
+
+
+/* ===============================
+FOOTER
+================================*/
 
 
 footer{
 
-    background:#071b4f;
+
+    background:#002b5c;
+
     color:white;
 
     text-align:center;
 
-    padding:20px;
+    padding:25px;
+
+    margin-top:40px;
 
 }
+
 
 
 
 /* ===============================
- MOBILE
-================================ */
+MOBILE RESPONSIVE
+================================*/
 
 
-@media(max-width:768px){
+@media(max-width:700px){
 
 
-.hero{
+header h1{
 
-    flex-direction:column;
-    text-align:center;
-
-}
-
-
-.hero-text{
-
-    width:100%;
-    margin-bottom:30px;
+font-size:28px;
 
 }
 
 
-header{
-
-    flex-direction:column;
-
-}
-
-
-nav{
-
-    margin-top:10px;
-
-}
-
-
-}
-/* ===============================
-   PREMIUM HEADER
-================================ */
-
-.logo-area{
-    display:flex;
-    align-items:center;
-    gap:12px;
-}
-
-
-.logo-circle{
-
-    width:45px;
-    height:45px;
-
-    background:#ff9800;
-
-    border-radius:50%;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    font-size:25px;
-
-}
-
-
-.brand-name{
-
-    font-size:20px;
-    font-weight:700;
-
-}
-
-
-.brand-tagline{
-
-    font-size:11px;
-    opacity:.8;
-
-}
-/* ===============================
- ANIMATIONS
-================================ */
-
-
-.hero-text,
-.login-box,
-.card{
-
-animation:fadeUp 1s ease;
-
-}
-
-
-@keyframes fadeUp{
-
-from{
-
-opacity:0;
-transform:translateY(40px);
-
-}
-
-
-to{
-
-opacity:1;
-transform:translateY(0);
-
-}
-
-}
-
-
-
-.card{
-
-transition:.4s;
-
-}
-
-
-.card:hover{
-
-transform:
-translateY(-10px)
-scale(1.03);
-
-box-shadow:
-0 15px 35px rgba(0,0,0,.25);
-
-}
-/* APP STYLE */
-
-.card{
-
-border-radius:22px;
-
-padding:35px 20px;
-
-background:white;
-
-}
-
-
-.card::before{
-
-content:"";
+nav a{
 
 display:block;
 
-height:5px;
-
-background:#ff9800;
-
-border-radius:20px;
-
-margin-bottom:15px;
-
-}
-/* ===============================
-LEADERBOARD
-================================ */
-
-
-.leaderboard{
-
-padding:40px;
-
-text-align:center;
+margin:10px;
 
 }
 
 
-.rank-card{
+.hero h2{
 
-background:white;
-
-margin:20px auto;
-
-max-width:450px;
-
-padding:25px;
-
-border-radius:20px;
-
-box-shadow:
-0 8px 25px rgba(0,0,0,.15);
-
-
-display:flex;
-
-justify-content:space-around;
-
-align-items:center;
-
-
-font-size:18px;
-
-}
-/* ===============================
-QUIZ UI
-================================ */
-
-
-.quiz-box{
-
-max-width:600px;
-
-margin:50px auto;
-
-background:white;
-
-padding:35px;
-
-border-radius:25px;
-
-
-box-shadow:
-0 10px 30px rgba(0,0,0,.2);
+font-size:30px;
 
 }
 
 
-.question{
-
-font-size:22px;
-
-margin:25px 0;
-
-font-weight:600;
-
-}
-
-
-.quiz-box button{
-
+.card{
 
 width:100%;
-
-padding:15px;
-
-margin:10px 0;
-
-
-border:none;
-
-border-radius:12px;
-
-
-background:#eef4ff;
-
-cursor:pointer;
-
-
-font-size:16px;
-
-}
-
-
-.quiz-box button:hover{
-
-background:#1976d2;
-
-color:white;
-
-}
-/* ===============================
-CERTIFICATE
-================================ */
-
-
-.certificate{
-
-
-max-width:800px;
-
-margin:50px auto;
-
-padding:50px;
-
-
-background:white;
-
-
-border:8px solid #ff9800;
-
-
-text-align:center;
-
-
-border-radius:25px;
-
-
-box-shadow:
-0 10px 30px rgba(0,0,0,.2);
-
-
-}
-
-
-.certificate h1{
-
-color:#071b4f;
-
-font-size:38px;
-
-}
-
-
-.certificate h3{
-
-font-size:30px;
-
-color:#ff9800;
-
-margin:25px;
-
-}
-body{
-
--webkit-tap-highlight-color:transparent;
-
-}
-
-
-button,
-.card,
-.login-box{
-
--webkit-transition:.3s;
-
-}
-
-
-@media(max-width:600px){
-
-
-.hero-text h2{
-
-font-size:30px;
-
-}
-
-
-.card-container{
-
-grid-template-columns:1fr;
 
 }
 
