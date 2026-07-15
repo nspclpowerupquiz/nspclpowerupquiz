@@ -1101,3 +1101,15 @@ transition:.4s;
 opacity:1;
 
 }
+:root{
+
+--primary:#003366;
+--secondary:#0056b3;
+--accent:#ff9800;
+--gold:#ffc107;
+--success:#28a745;
+--light:#f5f9ff;
+--white:#ffffff;
+--dark:#1a1a1a;
+
+}
