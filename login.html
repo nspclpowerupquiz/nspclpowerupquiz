@@ -1,10 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>NSPCL Power Quiz Login</title>
 
@@ -16,97 +13,75 @@
 <body>
 
 
-<header>
-
 <h1>⚡ NSPCL Power-Up Quiz</h1>
 
-<p>SSC C&M Function</p>
+<h2>Employee Login</h2>
 
-</header>
-
-
-
-<section class="login-box">
-
-
-<h2>🔐 Employee Login</h2>
-
-
-<label>Employee ID</label>
-
-<br>
 
 <input 
+id="empid" 
 type="text" 
-id="employeeID"
-placeholder="Enter Employee ID"
+placeholder="Employee ID"
 >
 
 
 <br><br>
 
-
-<label>Password</label>
-
-<br>
 
 <input 
+id="password" 
 type="password" 
-id="password"
-placeholder="Enter Password"
+placeholder="Password"
 >
 
 
 <br><br>
 
 
-<button onclick="login()">
-Login 🚀
+<button onclick="checkLogin()">
+LOGIN
 </button>
 
 
-<p id="message"></p>
-
-
-</section>
-
+<p id="msg"></p>
 
 
 
 <script>
 
-
-function login()
+function checkLogin()
 {
 
-
-let empID = document.getElementById("employeeID").value;
-
-let password = document.getElementById("password").value;
+let emp =
+document.getElementById("empid").value;
 
 
+let pass =
+document.getElementById("password").value;
 
-if(empID === "" || password === "")
+
+
+if(emp=="" || pass=="")
 {
 
-document.getElementById("message").innerHTML =
-"⚠️ Please enter Employee ID and Password";
+document.getElementById("msg").innerHTML =
+"Enter Employee ID and Password";
 
 return;
 
 }
 
 
-// Initial password same as Employee ID
 
-if(password === empID)
+if(emp == pass)
 {
 
+localStorage.setItem("employeeID",emp);
 
-localStorage.setItem("employeeID", empID);
+alert("Login Successful");
 
 
-window.location.href = "quiz.html";
+window.location.href="quiz.html";
 
 
 }
@@ -114,29 +89,16 @@ window.location.href = "quiz.html";
 else
 {
 
-
-document.getElementById("message").innerHTML =
-"❌ Invalid Employee ID or Password";
-
+document.getElementById("msg").innerHTML =
+"Invalid Password";
 
 }
-
 
 
 }
 
 
 </script>
-
-
-
-<footer>
-
-<p>
-⚡ NSPCL Power Quiz | Learn • Compete • Grow
-</p>
-
-</footer>
 
 
 </body>
