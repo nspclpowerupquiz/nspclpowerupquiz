@@ -2705,3 +2705,34 @@ color:white;
 cursor:pointer;
 
 }
+.section-title{
+
+font-size:45px;
+
+animation:titleMove 1s ease;
+
+}
+
+
+@keyframes titleMove{
+
+
+from{
+
+opacity:0;
+
+transform:translateY(-40px);
+
+}
+
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+
+}
