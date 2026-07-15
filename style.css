@@ -394,3 +394,31 @@ box-shadow:
 0 15px 35px rgba(0,0,0,.25);
 
 }
+/* APP STYLE */
+
+.card{
+
+border-radius:22px;
+
+padding:35px 20px;
+
+background:white;
+
+}
+
+
+.card::before{
+
+content:"";
+
+display:block;
+
+height:5px;
+
+background:#ff9800;
+
+border-radius:20px;
+
+margin-bottom:15px;
+
+}
