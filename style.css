@@ -2579,3 +2579,67 @@ rgba(0,0,0,.8)
 color:white;
 
 }
+/* ===================================
+   ADVANCED GALLERY HOVER EFFECT
+=================================== */
+
+
+.gallery-card{
+
+    cursor:pointer;
+    transition:0.4s;
+}
+
+
+.gallery-card:hover{
+
+    transform:translateY(-12px);
+
+    box-shadow:
+    0 20px 40px rgba(0,74,173,0.35);
+
+}
+
+
+
+.gallery-card img{
+
+    transition:0.6s ease;
+
+}
+
+
+
+.gallery-card:hover img{
+
+    transform:scale(1.12);
+
+}
+
+
+
+/* Glow border effect */
+
+.gallery-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:20px;
+
+    border:2px solid transparent;
+
+    transition:.4s;
+
+}
+
+
+
+.gallery-card:hover::before{
+
+    border-color:#ff9800;
+
+}
