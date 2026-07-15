@@ -738,3 +738,148 @@ padding:12px;
 border-bottom:1px solid #eee;
 
 }
+/* ===============================
+DAILY CHALLENGE
+=============================== */
+
+.daily{
+
+padding:60px 10%;
+
+text-align:center;
+
+}
+
+.challenge-card{
+
+background:white;
+
+padding:40px;
+
+border-radius:20px;
+
+box-shadow:0 15px 35px rgba(0,0,0,.15);
+
+max-width:700px;
+
+margin:30px auto;
+
+}
+
+.challenge-card h2{
+
+color:#004aad;
+
+margin-bottom:20px;
+
+}
+
+.timer{
+
+margin:30px 0;
+
+font-size:20px;
+
+}
+
+.timer h3{
+
+font-size:42px;
+
+color:#ff5722;
+
+animation:pulse 1s infinite;
+
+}
+
+.reward-section{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+gap:25px;
+
+margin:50px 0;
+
+}
+
+.reward-card{
+
+background:white;
+
+padding:25px;
+
+border-radius:20px;
+
+box-shadow:0 10px 30px rgba(0,0,0,.12);
+
+transition:.3s;
+
+}
+
+.reward-card:hover{
+
+transform:translateY(-10px);
+
+}
+
+.reward-card h3{
+
+color:#004aad;
+
+margin:15px 0;
+
+}
+
+table{
+
+width:100%;
+
+border-collapse:collapse;
+
+background:white;
+
+margin-top:40px;
+
+border-radius:15px;
+
+overflow:hidden;
+
+box-shadow:0 10px 30px rgba(0,0,0,.12);
+
+}
+
+th{
+
+background:#004aad;
+
+color:white;
+
+padding:15px;
+
+}
+
+td{
+
+padding:15px;
+
+border-bottom:1px solid #eee;
+
+}
+
+@keyframes pulse{
+
+0%{
+transform:scale(1);
+}
+
+50%{
+transform:scale(1.08);
+}
+
+100%{
+transform:scale(1);
+}
+
+}
