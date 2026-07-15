@@ -1,60 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gallery - NSPCL Power-Up Quiz</title>
+
+<title>Gallery | NSPCL Power-Up Quiz</title>
 
 <link rel="stylesheet" href="style.css">
-
-<style>
-
-.gallery{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
-    padding:30px;
-}
-
-.gallery img{
-    width:100%;
-    border-radius:12px;
-    box-shadow:0 5px 15px rgba(0,0,0,.2);
-    transition:.3s;
-}
-
-.gallery img:hover{
-    transform:scale(1.05);
-}
-
-h2{
-    text-align:center;
-    margin-top:30px;
-}
-
-</style>
 
 </head>
 
 <body>
 
-<header>
-<h1>⚡ NSPCL Power-Up Quiz</h1>
-<p>Gallery</p>
-</header>
+<!-- ================= HEADER ================= -->
 
-<h2>Photo Gallery</h2>
+<header class="header">
 
-<div class="gallery">
+<div class="logo">
 
-<img src="images/photo1.jpg" alt="Photo 1">
-<img src="images/photo2.jpg" alt="Photo 2">
-<img src="images/photo3.jpg" alt="Photo 3">
-<img src="images/photo4.jpg" alt="Photo 4">
-<img src="images/photo5.jpg" alt="Photo 5">
-<img src="images/photo6.jpg" alt="Photo 6">
+<h2>⚡ NSPCL Power-Up Quiz</h2>
+
+<span>Knowledge • Innovation • Excellence</span>
 
 </div>
 
-</body>
-</html>
+<nav>
+
+<a href="index.html">🏠 Home</a>
+
+<a href="about.html">ℹ About</a>
+
+<a href="quiz.html">📚 Quiz</a>
+
+<a href="leaderboard.html">🏆 Leaderboard</a>
+
+<a href="analytics.html">📈 Analytics</a>
+
+<a href="gallery.html" class="active">🖼 Gallery</a>
+
+<a href="certificate.html">📜 Certificate</a>
+
+</nav>
+
+</header>
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>📸 NSPCL Learning Gallery</h1>
+
+<p>
+
+Capturing moments of learning, technical excellence,
+knowledge sharing and achievements across NSPCL.
+
+</p>
+
+</div>
+
+</section>
+
+<!-- ================= FEATURED IMAGE ================= -->
+
+<section class="featured-image">
+
+<img src="images/powerplant.jpg" alt="NSPCL Power Plant">
+
+<div class="featured-text">
+
+<h2>Powering Knowledge</h2>
+
+<p>
+
+Building a culture of continuous learning,
+professional excellence and operational efficiency.
+
+</p>
+
+</div>
+
+</section>
+
+<!-- ================= INTRODUCTION ================= -->
+
+<section class="gallery">
+
+<h1 class="section-title">
+
+Gallery of Excellence
+
+</h1>
+
+<p>
+
+Explore photographs highlighting technical learning,
+quiz competitions, employee achievements,
+certificate ceremonies, power plants,
+and knowledge-sharing initiatives.
+
+</p>
+
+<!-- ================= FILTER BUTTONS ================= -->
+
+<div class="gallery-filter">
+
+<button class="btn">All</button>
+
+<button class="btn">🏭 Power Plants</button>
+
+<button class="btn">📚 Quiz</button>
+
+<button class="btn">🏆 Winners</button>
+
+<button class="btn">📜 Certificates</button>
+
+<button class="btn">🤝 Events</button>
+
+</div>
+
+<!-- Gallery Cards will start here in Part 2 -->
+
+<div class="gallery-grid">
+    
