@@ -882,3 +882,839 @@ DAILY CHALLENGE
     color:#666;
 
 }
+/*==================================================
+CERTIFICATE
+==================================================*/
+
+.certificate-section{
+
+    padding:70px 8%;
+
+    background:linear-gradient(135deg,#eef5ff,#ffffff);
+
+}
+
+.certificate{
+
+    max-width:1000px;
+
+    margin:auto;
+
+    background:white;
+
+    border-radius:20px;
+
+    box-shadow:var(--shadow);
+
+    overflow:hidden;
+
+}
+
+.certificate-border{
+
+    margin:20px;
+
+    padding:50px;
+
+    border:10px solid var(--primary);
+
+    border-radius:15px;
+
+    text-align:center;
+
+    position:relative;
+
+}
+
+.certificate-top{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:20px;
+
+    margin-bottom:25px;
+
+}
+
+.certificate-top img{
+
+    width:90px;
+
+}
+
+.certificate-border h1{
+
+    color:var(--primary);
+
+    font-size:50px;
+
+    margin:20px 0;
+
+}
+
+.certificate-border h2{
+
+    color:var(--accent);
+
+    font-size:40px;
+
+    margin:20px 0;
+
+}
+
+.result-box{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+
+    gap:25px;
+
+    margin:40px 0;
+
+}
+
+.result-box div{
+
+    background:var(--light);
+
+    padding:25px;
+
+    border-radius:15px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.12);
+
+}
+
+.result-box h3{
+
+    color:var(--primary);
+
+    font-size:34px;
+
+}
+
+.signature-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    margin-top:60px;
+
+    gap:40px;
+
+}
+
+.signature-row div{
+
+    flex:1;
+
+    text-align:center;
+
+}
+
+.signature-row hr{
+
+    border:none;
+
+    border-top:2px solid #444;
+
+    margin-bottom:10px;
+
+}
+
+.verify{
+
+    margin-top:40px;
+
+}
+
+.verify img{
+
+    width:120px;
+
+    margin:auto;
+
+}
+
+.certificate-buttons{
+
+    text-align:center;
+
+    margin:40px 0;
+
+}
+
+.certificate-buttons button{
+
+    margin:10px;
+
+}
+
+
+/*==================================================
+GALLERY
+==================================================*/
+
+.gallery{
+
+    padding:70px 8%;
+
+    text-align:center;
+
+}
+
+.gallery h1{
+
+    color:var(--primary);
+
+    margin-bottom:20px;
+
+}
+
+.gallery-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+
+    gap:25px;
+
+    margin-top:40px;
+
+}
+
+.gallery-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:18px;
+
+    box-shadow:var(--shadow);
+
+    cursor:pointer;
+
+}
+
+.gallery-card img{
+
+    width:100%;
+
+    height:260px;
+
+    object-fit:cover;
+
+    transition:.5s;
+
+}
+
+.gallery-card:hover img{
+
+    transform:scale(1.08);
+
+}
+
+.overlay{
+
+    position:absolute;
+
+    left:0;
+
+    bottom:0;
+
+    width:100%;
+
+    padding:20px;
+
+    color:white;
+
+    background:linear-gradient(transparent,rgba(0,0,0,.85));
+
+    opacity:0;
+
+    transition:.4s;
+
+}
+
+.gallery-card:hover .overlay{
+
+    opacity:1;
+
+}
+
+
+/*==================================================
+FOOTER
+==================================================*/
+
+footer{
+
+    background:var(--primary);
+
+    color:white;
+
+    text-align:center;
+
+    padding:40px 8%;
+
+    margin-top:60px;
+
+}
+
+footer p{
+
+    margin:10px 0;
+
+}
+
+
+/*==================================================
+ANIMATIONS
+==================================================*/
+
+@keyframes fadeDown{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(-40px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+@keyframes pulse{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.08);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+
+/*==================================================
+RESPONSIVE
+==================================================*/
+
+@media(max-width:992px){
+
+.header{
+
+    flex-direction:column;
+
+    text-align:center;
+
+}
+
+nav{
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+    margin-top:20px;
+
+}
+
+.hero h1{
+
+    font-size:46px;
+
+}
+
+.hero p{
+
+    font-size:18px;
+
+}
+
+.login-box{
+
+    width:100%;
+
+    max-width:420px;
+
+}
+
+.signature-row{
+
+    flex-direction:column;
+
+}
+
+}
+
+
+@media(max-width:768px){
+
+section{
+
+    padding:50px 20px;
+
+}
+
+.hero{
+
+    min-height:500px;
+
+}
+
+.hero h1{
+
+    font-size:36px;
+
+}
+
+.hero p{
+
+    font-size:17px;
+
+}
+
+.card{
+
+    width:100%;
+
+}
+
+table{
+
+    display:block;
+
+    overflow-x:auto;
+
+}
+
+button,
+
+.btn{
+
+    width:100%;
+
+}
+
+}
+
+
+@media(max-width:480px){
+
+.logo h2{
+
+    font-size:24px;
+
+}
+
+.hero h1{
+
+    font-size:30px;
+
+}
+
+.hero p{
+
+    font-size:16px;
+
+}
+
+.certificate-border{
+
+    padding:25px;
+
+}
+
+.certificate-border h1{
+
+    font-size:34px;
+
+}
+
+.certificate-border h2{
+
+    font-size:28px;
+
+}
+
+}
+/*==================================================
+PREMIUM BACKGROUND
+==================================================*/
+
+body{
+
+    background:
+    linear-gradient(rgba(255,255,255,.94),rgba(245,249,255,.95)),
+    url("images/pattern.png");
+
+    background-size:300px;
+
+    background-attachment:fixed;
+
+}
+
+
+/*==================================================
+GLASS EFFECT
+==================================================*/
+
+.glass{
+
+    background:rgba(255,255,255,.18);
+
+    backdrop-filter:blur(15px);
+
+    border:1px solid rgba(255,255,255,.25);
+
+}
+
+
+/*==================================================
+HOVER GLOW
+==================================================*/
+
+.card:hover,
+.stat-card:hover,
+.analytics-card:hover,
+.reward-card:hover,
+.gallery-card:hover{
+
+    box-shadow:
+    0 20px 45px rgba(0,86,179,.25),
+    0 0 30px rgba(0,123,255,.18);
+
+}
+
+
+/*==================================================
+ICON CIRCLE
+==================================================*/
+
+.icon-circle{
+
+    width:80px;
+
+    height:80px;
+
+    border-radius:50%;
+
+    background:linear-gradient(135deg,#0056b3,#008cff);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:white;
+
+    font-size:36px;
+
+    margin:auto;
+
+    margin-bottom:20px;
+
+}
+
+
+/*==================================================
+SECTION TITLE
+==================================================*/
+
+.section-title{
+
+    position:relative;
+
+    display:inline-block;
+
+    padding-bottom:15px;
+
+}
+
+.section-title::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    bottom:0;
+
+    width:90px;
+
+    height:4px;
+
+    border-radius:30px;
+
+    background:linear-gradient(
+    90deg,
+    var(--primary),
+    var(--accent)
+    );
+
+}
+
+
+/*==================================================
+IMAGE HOVER
+==================================================*/
+
+img{
+
+    transition:.5s;
+
+}
+
+img:hover{
+
+    transform:scale(1.02);
+
+}
+
+
+/*==================================================
+SCROLLBAR
+==================================================*/
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#eef4fb;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:var(--primary);
+
+    border-radius:30px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:var(--secondary);
+
+}
+
+
+/*==================================================
+FLOATING BUTTON
+==================================================*/
+
+.floating{
+
+    animation:floating 4s ease-in-out infinite;
+
+}
+
+@keyframes floating{
+
+0%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-10px);
+
+}
+
+100%{
+
+transform:translateY(0);
+
+}
+
+}
+
+
+/*==================================================
+FADE-IN
+==================================================*/
+
+.fade{
+
+    animation:fade .8s ease;
+
+}
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+
+}
+
+to{
+
+opacity:1;
+
+}
+
+}
+
+
+/*==================================================
+ZOOM-IN
+==================================================*/
+
+.zoom{
+
+animation:zoom .6s ease;
+
+}
+
+@keyframes zoom{
+
+from{
+
+transform:scale(.9);
+
+opacity:0;
+
+}
+
+to{
+
+transform:scale(1);
+
+opacity:1;
+
+}
+
+}
+
+
+/*==================================================
+GRADIENT TEXT
+==================================================*/
+
+.gradient-text{
+
+background:linear-gradient(
+90deg,
+#ff9800,
+#ff5722
+);
+
+-webkit-background-clip:text;
+
+-webkit-text-fill-color:transparent;
+
+font-weight:bold;
+
+}
+
+
+/*==================================================
+BADGE
+==================================================*/
+
+.badge{
+
+display:inline-block;
+
+padding:8px 18px;
+
+border-radius:50px;
+
+background:linear-gradient(
+135deg,
+#ffc107,
+#ff9800
+);
+
+color:white;
+
+font-size:14px;
+
+font-weight:bold;
+
+}
+
+
+/*==================================================
+SHADOW
+==================================================*/
+
+.shadow{
+
+box-shadow:
+0 20px 40px rgba(0,0,0,.15);
+
+}
+
+
+/*==================================================
+BORDER GLOW
+==================================================*/
+
+.glow{
+
+border:2px solid #007bff;
+
+box-shadow:
+
+0 0 20px rgba(0,123,255,.25);
+
+}
