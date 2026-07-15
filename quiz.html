@@ -1,25 +1,357 @@
-<div class="quiz-box">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>NSPCL Power-Up Quiz</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
 
 
-<h2>
-Question 1 / 10
-</h2>
+<body>
 
 
-<p class="question">
+<!-- HEADER -->
 
-Which planet is called Red Planet?
+<header>
 
+<h1>⚡ NSPCL Power-Up Quiz</h1>
+
+<p>Learn • Compete • Achieve</p>
+
+<nav>
+
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="quiz.html">Quiz</a>
+<a href="leaderboard.html">Leaderboard</a>
+<a href="contact.html">Contact</a>
+
+</nav>
+
+</header>
+
+
+
+<!-- QUIZ INTRO -->
+
+<section class="quiz-intro">
+
+<h2>Welcome to NSPCL Power-Up Quiz</h2>
+
+<p>
+Test your knowledge with our exciting quizzes.
+Download practice papers or attempt the online quiz.
 </p>
 
+</section>
 
-<button>Mars</button>
 
-<button>Earth</button>
 
-<button>Venus</button>
 
-<button>Jupiter</button>
+<!-- PDF QUIZ SECTION -->
+
+<section class="pdf-section">
+
+<h2>📘 Practice Quiz Papers</h2>
+
+
+<div class="quiz-cards">
+
+
+<div class="card">
+
+<h3>General Knowledge</h3>
+
+<p>Explore questions about India and the world.</p>
+
+<a href="gk-quiz.pdf" target="_blank">
+Download PDF
+</a>
+
+</div>
+
+
+
+<div class="card">
+
+<h3>Science Quiz</h3>
+
+<p>Test your science knowledge.</p>
+
+<a href="science-quiz.pdf" target="_blank">
+Download PDF
+</a>
+
+</div>
+
+
+
+<div class="card">
+
+<h3>Environment Quiz</h3>
+
+<p>Learn about nature and sustainability.</p>
+
+<a href="environment-quiz.pdf" target="_blank">
+Download PDF
+</a>
+
+</div>
 
 
 </div>
+
+</section>
+
+
+
+
+
+<!-- ONLINE QUIZ -->
+
+<section class="online-quiz">
+
+
+<h2>🚀 Online Challenge Quiz</h2>
+
+
+<div id="timer">
+
+Time Left: <span id="time">60</span> seconds
+
+</div>
+
+
+
+<div id="quiz-box">
+
+
+<h3 id="question">
+Loading Question...
+</h3>
+
+
+<div id="options"></div>
+
+
+<button onclick="nextQuestion()">
+Next Question
+</button>
+
+
+</div>
+
+
+
+<h2 id="result"></h2>
+
+
+</section>
+
+
+
+
+
+
+<footer>
+
+<p>
+© 2026 NSPCL Power-Up Quiz | Created with Learning & Innovation
+</p>
+
+</footer>
+
+
+
+
+
+
+<script>
+
+
+const questions = [
+
+
+{
+question:"Which planet is known as the Red Planet?",
+options:["Earth","Mars","Jupiter","Venus"],
+answer:"Mars"
+},
+
+
+{
+question:"What is the national animal of India?",
+options:["Lion","Tiger","Elephant","Peacock"],
+answer:"Tiger"
+},
+
+
+{
+question:"Which gas is most important for human breathing?",
+options:["Carbon dioxide","Oxygen","Nitrogen","Hydrogen"],
+answer:"Oxygen"
+},
+
+
+{
+question:"What is the capital of India?",
+options:["Mumbai","Delhi","Kolkata","Chennai"],
+answer:"Delhi"
+}
+
+
+];
+
+
+let currentQuestion = 0;
+
+let score = 0;
+
+let time = 60;
+
+
+
+let timer = setInterval(function(){
+
+
+time--;
+
+document.getElementById("time").innerHTML=time;
+
+
+if(time<=0){
+
+clearInterval(timer);
+
+showResult();
+
+}
+
+
+},1000);
+
+
+
+
+
+
+function loadQuestion(){
+
+
+let q = questions[currentQuestion];
+
+
+document.getElementById("question").innerHTML =
+(currentQuestion+1)+". "+q.question;
+
+
+
+let optionsHTML="";
+
+
+q.options.forEach(function(option){
+
+
+optionsHTML +=
+
+`
+<button class="option"
+onclick="checkAnswer('${option}')">
+
+${option}
+
+</button>
+`;
+
+});
+
+
+document.getElementById("options").innerHTML =
+optionsHTML;
+
+
+}
+
+
+
+
+
+
+function checkAnswer(selected){
+
+
+if(selected == questions[currentQuestion].answer){
+
+score++;
+
+}
+
+
+}
+
+
+
+
+
+function nextQuestion(){
+
+
+currentQuestion++;
+
+
+if(currentQuestion < questions.length){
+
+loadQuestion();
+
+}
+
+else{
+
+showResult();
+
+}
+
+
+}
+
+
+
+
+
+
+function showResult(){
+
+
+document.getElementById("quiz-box").style.display="none";
+
+
+document.getElementById("result").innerHTML=
+
+"🎉 Quiz Completed! Your Score: "
++score+
+"/"+questions.length;
+
+
+clearInterval(timer);
+
+
+}
+
+
+
+
+loadQuestion();
+
+
+</script>
+
+
+</body>
+
+</html>
