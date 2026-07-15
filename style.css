@@ -422,3 +422,43 @@ border-radius:20px;
 margin-bottom:15px;
 
 }
+/* ===============================
+LEADERBOARD
+================================ */
+
+
+.leaderboard{
+
+padding:40px;
+
+text-align:center;
+
+}
+
+
+.rank-card{
+
+background:white;
+
+margin:20px auto;
+
+max-width:450px;
+
+padding:25px;
+
+border-radius:20px;
+
+box-shadow:
+0 8px 25px rgba(0,0,0,.15);
+
+
+display:flex;
+
+justify-content:space-around;
+
+align-items:center;
+
+
+font-size:18px;
+
+}
