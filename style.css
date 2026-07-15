@@ -2768,3 +2768,58 @@ transform:translateY(0);
 
 
 }
+.login-section{
+
+min-height:500px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+background:
+linear-gradient(
+135deg,
+#004aad,
+#007bff
+);
+
+}
+
+
+.login-box input{
+
+display:block;
+
+width:100%;
+
+padding:15px;
+
+margin:15px 0;
+
+border-radius:10px;
+
+border:none;
+
+font-size:16px;
+
+}
+
+
+.login-box h2{
+
+color:#004aad;
+
+}
+
+
+#message{
+
+margin-top:15px;
+
+font-weight:bold;
+
+color:red;
+
+}
