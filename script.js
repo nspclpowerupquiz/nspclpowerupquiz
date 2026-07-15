@@ -159,7 +159,6 @@ startBtn.addEventListener("click", () => {
 
 });
 
-});
 
 // ==========================
 // Load Question
