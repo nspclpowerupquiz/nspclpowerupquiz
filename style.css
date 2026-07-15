@@ -104,48 +104,27 @@ HERO
 
 
 .hero{
-
-    min-height:350px;
+    min-height:550px;
 
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
-
     text-align:center;
+
+    color:white;
 
     background:
     linear-gradient(
-    rgba(0,0,0,.55),
-    rgba(0,0,0,.55)
+        rgba(0,40,85,0.65),
+        rgba(0,40,85,0.65)
     ),
-    url("https://images.unsplash.com/photo-1473341304170-971dccb5ac1e");
+    url("images/powerplant.jpg");
 
     background-size:cover;
     background-position:center;
-
-    color:white;
-
+    background-repeat:no-repeat;
 }
-
-
-.hero h2{
-
-    color:white;
-    font-size:42px;
-
-}
-
-
-.hero p{
-
-    max-width:700px;
-    font-size:20px;
-    margin:20px auto;
-
-}
-
-
 
 /* =================================
 BUTTONS
