@@ -13,104 +13,228 @@
 </head>
 
 
+
 <body>
 
 
 <!-- ================= HEADER ================= -->
 
-<header>
+
+<header class="header">
+
 
 <div class="logo">
 
-<h1>⚡ NSPCL Power-Up Quiz</h1>
+<h2>
+⚡ NSPCL Power-Up Quiz
+</h2>
 
-<p>SSC C&M Function</p>
+<span>
+Knowledge • Innovation • Excellence
+</span>
 
 </div>
 
 
+
+
 <nav>
 
-<a href="index.html">Home</a>
+
+<a href="index.html">
+Home
+</a>
+
 
 <a href="about.html">About</a>
 
-<a href="quiz.html">Quiz</a>
 
-<a href="leaderboard.html">Leaderboard</a>
+<a href="leaderboard.html">
+🏆 Leaderboard
+</a>
 
-<a href="contact.html">Contact</a>
+
+<a href="analytics.html">
+📈 Analytics
+</a>
+
+
+<a href="daily.html">
+🔥 Daily Challenge
+</a>
+
+
+<a href="certificate.html">
+📜 Certificate
+</a>
+
+
+<a href="admin.html">
+⚙️ Admin
+</a>
+
+
+
+<button id="themeToggle">
+
+🌙
+
+</button>
+
 
 </nav>
+
 
 
 </header>
 
 
 
-<!-- ================= HERO SECTION ================= -->
+
+
+<!-- ================= HERO ================= -->
 
 
 <section class="hero">
 
 
-<h2>
-Welcome to NSPCL Power Quiz
-</h2>
+<div class="hero-content">
+
+
+
+<h1>
+
+Power Up Your Knowledge!
+
+</h1>
+
 
 
 <p>
-Test your knowledge on SSC C&M (Contracts & Materials) Function
-through an interactive learning experience.
+
+Learn. Compete. Grow with NSPCL Power-Up Quiz.
+
 </p>
 
 
-<button onclick="window.location.href='quiz.html'">
-Start Quiz 🚀
+
+
+
+<div class="login-box">
+
+
+<h3>
+Participant Login
+</h3>
+
+
+
+<input 
+type="text"
+id="userName"
+placeholder="Enter Your Name">
+
+
+
+<input 
+type="text"
+id="employeeId"
+placeholder="Enter Employee ID">
+
+
+
+
+
+<button id="startBtn">
+
+🚀 Start Quiz
+
 </button>
 
 
+
+</div>
+
+
+
+</div>
+
+
 </section>
 
 
 
 
 
-<!-- ================= INTRODUCTION ================= -->
 
 
-<section class="intro">
+<!-- ================= DASHBOARD STATS ================= -->
 
 
-<h2>About the Quiz</h2>
+<section class="stats">
 
+
+<div class="stat-card">
+
+<h2>
+⚡
+</h2>
 
 <p>
+Power Learning
+</p>
 
-NSPCL Power-Up Quiz is a knowledge platform created to improve
-awareness about Contracts & Materials functions including:
+</div>
+
+
+
+<div class="stat-card">
+
+<h2>
+🏆
+</h2>
+
+<p>
+Competition
+</p>
+
+</div>
+
+
+
+<div class="stat-card">
+
+<h2>
+📊
+</h2>
+
+<p>
+Analytics
+</p>
+
+</div>
+
+
+
+<div class="stat-card">
+
+<h2>
+🏅
+</h2>
+
+<p id="badgeDisplay">
+
+Badges
 
 </p>
 
+</div>
 
-<ul>
-
-<li>Procurement Management</li>
-
-<li>Tender & Contract Management</li>
-
-<li>Materials Management</li>
-
-<li>Vendor Management</li>
-
-<li>Supply Chain Practices</li>
-
-<li>Power Sector Knowledge</li>
-
-</ul>
 
 
 </section>
+
+
 
 
 
@@ -122,48 +246,193 @@ awareness about Contracts & Materials functions including:
 <section class="features">
 
 
-<h2>Why Participate?</h2>
+<h2>
+
+Explore NSPCL Quiz Platform
+
+</h2>
 
 
 
-<div class="card-container">
+<div class="feature-container">
 
-
-<div class="card">
-
-<h3>📚 Learn</h3>
-
-<p>
-Enhance your understanding of C&M processes and procedures.
-</p>
-
-</div>
 
 
 
 
 <div class="card">
 
-<h3>🏆 Compete</h3>
+
+<h3>
+📚 Quiz
+</h3>
+
 
 <p>
-Participate in quizzes and check your functional knowledge.
+
+Test your technical and general knowledge.
+
 </p>
 
+
+<a href="quiz.html">
+
+Start Quiz →
+
+</a>
+
+
 </div>
+
+
 
 
 
 
 <div class="card">
 
-<h3>⚡ Improve</h3>
+
+<h3>
+🏆 Leaderboard
+</h3>
+
 
 <p>
-Develop continuous learning habits and professional excellence.
+
+View top performers and rankings.
+
 </p>
 
+
+<a href="leaderboard.html">
+
+View Ranking →
+
+</a>
+
+
 </div>
+
+
+
+
+
+
+<div class="card">
+
+
+<h3>
+🔥 Daily Challenge
+</h3>
+
+
+<p>
+
+Complete daily challenges and earn badges.
+
+</p>
+
+
+<a href="daily.html">
+
+Take Challenge →
+
+</a>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="card">
+
+
+<h3>
+📈 Analytics
+</h3>
+
+
+<p>
+
+Track performance and improvement.
+
+</p>
+
+
+<a href="analytics.html">
+
+View Dashboard →
+
+</a>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="card">
+
+
+<h3>
+📜 Certificate
+</h3>
+
+
+<p>
+
+Download your achievement certificate.
+
+</p>
+
+
+<a href="certificate.html">
+
+Get Certificate →
+
+</a>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="card">
+
+
+<h3>
+⚙️ Admin Panel
+</h3>
+
+
+<p>
+
+Manage questions and quiz database.
+
+</p>
+
+
+<a href="admin.html">
+
+Open Admin →
+
+</a>
+
+
+</div>
+
+
 
 
 
@@ -172,56 +441,6 @@ Develop continuous learning habits and professional excellence.
 
 </section>
 
-
-
-
-
-<!-- ================= QUIZ CATEGORIES ================= -->
-
-
-<section class="categories">
-
-
-<h2>Quiz Categories</h2>
-
-
-<div class="category-box">
-
-
-<div>
-📦 Materials Management
-</div>
-
-
-<div>
-📝 Contract Management
-</div>
-
-
-<div>
-🤝 Vendor Management
-</div>
-
-
-<div>
-🚚 Procurement Process
-</div>
-
-
-<div>
-🏭 NSPCL Knowledge
-</div>
-
-
-<div>
-⚡ Power Sector
-</div>
-
-
-</div>
-
-
-</section>
 
 
 
@@ -235,21 +454,33 @@ Develop continuous learning habits and professional excellence.
 
 
 <h2>
-Ready to Test Your Knowledge?
+
+Ready to Power Up?
+
 </h2>
 
 
+
 <p>
-Start the NSPCL Power Quiz and challenge yourself.
+
+Challenge yourself and become a knowledge champion.
+
 </p>
 
 
-<a href="quiz.html">
-Take Quiz Now ⚡
-</a>
+
+
+<button onclick="location.href='quiz.html'">
+
+Start Quiz 🚀
+
+</button>
+
 
 
 </section>
+
+
 
 
 
@@ -263,12 +494,16 @@ Take Quiz Now ⚡
 
 
 <p>
+
 © 2026 NSPCL Power-Up Quiz
+
 </p>
 
 
 <p>
-Learn • Compete • Grow
+
+Built for continuous learning and excellence ⚡
+
 </p>
 
 
@@ -277,6 +512,21 @@ Learn • Compete • Grow
 
 
 
+
+
+
+<!-- ================= SCRIPTS ================= -->
+
+
+<script src="js/script.js"></script>
+
+<script src="js/theme.js"></script>
+
+<script src="js/badge.js"></script>
+
+
+
 </body>
+
 
 </html>
