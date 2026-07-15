@@ -2058,3 +2058,14 @@ textarea:focus{
     box-shadow:0 0 15px rgba(0,86,179,.25);
 
 }
+body{
+
+    background:
+    linear-gradient(
+        #eef5fb,
+        #ffffff
+    );
+
+    color:#222;
+
+}
