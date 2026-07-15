@@ -170,7 +170,7 @@ HERO
 
 .hero{
 
-    min-height:650px;
+    min-height:100vh;
 
     display:flex;
 
@@ -180,49 +180,26 @@ HERO
 
     text-align:center;
 
+    position:relative;
+
+    overflow:hidden;
+
     background:
-
     linear-gradient(
-
-    rgba(0,51,102,.75),
-
-    rgba(0,51,102,.75)
-
+        rgba(0,40,85,.82),
+        rgba(0,60,120,.75)
     ),
-
     url("images/powerplant.jpg");
 
     background-size:cover;
 
     background-position:center;
 
+    background-repeat:no-repeat;
+
+    background-attachment:fixed;
+
     color:white;
-
-}
-
-.hero-content{
-
-    max-width:700px;
-
-}
-
-.hero h1{
-
-    font-size:60px;
-
-    margin-bottom:20px;
-
-    animation:fadeDown 1s;
-
-}
-
-.hero p{
-
-    font-size:22px;
-
-    margin-bottom:30px;
-
-    animation:fadeUp 1.2s;
 
 }
 /*==================================================
