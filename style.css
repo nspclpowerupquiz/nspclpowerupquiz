@@ -594,3 +594,44 @@ justify-content:center;
 
 
 }
+/* =========================
+   DARK MODE COLORS
+========================= */
+
+
+.dark-mode{
+
+    background:
+    linear-gradient(135deg,#020617,#111827);
+
+    color:#f8fafc;
+
+}
+
+
+
+.dark-mode .card,
+.dark-mode .stat-card,
+.dark-mode .login-box{
+
+    background:rgba(255,255,255,0.08);
+
+}
+
+
+
+.dark-mode input{
+
+    background:#1e293b;
+
+    color:white;
+
+}
+
+
+
+.dark-mode footer{
+
+    background:#020617;
+
+}
