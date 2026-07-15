@@ -1,410 +1,587 @@
+// =================================
+// NSPCL POWER-UP QUIZ
+// Professional Quiz Engine
+// =================================
+
+
 // ===============================
-// Quiz Questions
+// User Details
 // ===============================
 
-const questions = [
+let userName="";
+let employeeId="";
 
-{
-    question: "Which planet is known as the Red Planet?",
-    options: ["Earth","Mars","Jupiter","Venus"],
-    answer: "Mars",
-    category: "Science"
-},
 
-{
-    question: "What is the capital of India?",
-    options: ["Mumbai","Delhi","Kolkata","Chennai"],
-    answer: "Delhi",
-    category: "GK"
-},
 
-{
-    question: "5 × 8 = ?",
-    options: ["35","40","45","50"],
-    answer: "40",
-    category: "Maths"
-},
+// ===============================
+// Quiz Variables
+// ===============================
 
-{
-    question: "Who wrote Harry Potter?",
-    options: [
-        "J.K. Rowling",
-        "Ruskin Bond",
-        "Roald Dahl",
-        "Enid Blyton"
-    ],
-    answer: "J.K. Rowling",
-    category: "Reading"
-},
 
-{
-    question: "How many squares are there on a chessboard?",
-    options: ["32","64","100","81"],
-    answer: "64",
-    category: "Chess"
-},
-
-{
-    question: "Which gas do plants absorb?",
-    options: [
-        "Oxygen",
-        "Nitrogen",
-        "Carbon Dioxide",
-        "Hydrogen"
-    ],
-    answer: "Carbon Dioxide",
-    category: "Science"
-},
-
-{
-    question: "Who is known as the Father of the Nation in India?",
-    options: [
-        "Jawaharlal Nehru",
-        "Subhas Chandra Bose",
-        "Mahatma Gandhi",
-        "Sardar Patel"
-    ],
-    answer: "Mahatma Gandhi",
-    category: "GK"
-},
-
-{
-    question: "12 + 18 = ?",
-    options: ["28","30","32","34"],
-    answer: "30",
-    category: "Maths"
-},
-
-{
-    question: "Who is the author of Charlotte's Web?",
-    options: [
-        "E. B. White",
-        "Ruskin Bond",
-        "Dr. Seuss",
-        "Enid Blyton"
-    ],
-    answer: "E. B. White",
-    category: "Reading"
-},
-
-{
-    question: "Which chess piece can jump over other pieces?",
-    options: [
-        "Queen",
-        "Knight",
-        "Rook",
-        "Bishop"
-    ],
-    answer: "Knight",
-    category: "Chess"
-}
-
-];
-// ==========================
-// QuizMaster Script Part 4A
-// ==========================
-
-// Elements
-const landing = document.getElementById("landing");
-const quizContainer = document.getElementById("quizContainer");
-const resultContainer = document.getElementById("resultContainer");
-
-const startBtn = document.getElementById("startQuiz");
-const questionText = document.getElementById("questionText");
-const optionsContainer = document.getElementById("options");
-
-const nextBtn = document.getElementById("nextBtn");
-const prevBtn = document.getElementById("prevBtn");
-const submitBtn = document.getElementById("submitBtn");
-
-const scoreText = document.getElementById("score");
-const restartBtn = document.getElementById("restartBtn");
-
-const progressBar = document.getElementById("progressBar");
-
-const questionNumber = document.getElementById("questionNumber");
-const totalQuestions = document.getElementById("totalQuestions");
-
-// Variables
 let currentQuestion = 0;
-let userAnswers = new Array(questions.length).fill(null);
-// =====================
-// Timer Variables
-// =====================
 
-let totalTime = 600; // 10 Minutes
+let userAnswers = new Array(questions.length).fill(null);
+
+
+let totalTime = 600;
 
 let timer;
 
+
+
+// ===============================
+// Elements
+// ===============================
+
+
+const startBtn = document.getElementById("startBtn");
+
+const startQuiz = document.getElementById("startQuiz");
+
+
+const landing = document.getElementById("landing");
+
+const quizContainer = document.getElementById("quizContainer");
+
+const resultContainer = document.getElementById("resultContainer");
+
+
+const questionText = document.getElementById("questionText");
+
+const optionsContainer = document.getElementById("options");
+
+
+const nextBtn = document.getElementById("nextBtn");
+
+const prevBtn = document.getElementById("prevBtn");
+
+const submitBtn = document.getElementById("submitBtn");
+
+
+const progressBar = document.getElementById("progressBar");
+
+
 const timerDisplay = document.getElementById("timer");
 
-const darkBtn = document.getElementById("darkBtn");
 
-// Total Questions
-totalQuestions.textContent = questions.length;
-// =====================
-// Sound Effects
-// =====================
+const scoreText = document.getElementById("score");
+
+
+
+const userNameInput = document.getElementById("userName");
+
+const employeeInput = document.getElementById("employeeId");
+
+
+
+// ===============================
+// Sounds
+// ===============================
+
 
 const correctSound = new Audio("sounds/correct.mp3");
+
 const wrongSound = new Audio("sounds/wrong.mp3");
+
 const finishSound = new Audio("sounds/finish.mp3");
 
-// ==========================
+
+
+
+// ===============================
 // Start Quiz
-// ==========================
+// ===============================
 
-startBtn.addEventListener("click", () => {
 
-    landing.classList.add("hidden");
+function startQuizGame(){
 
-    quizContainer.classList.remove("hidden");
+
+    userName=userNameInput.value || "Guest";
+
+    employeeId=employeeInput.value || "NA";
+
+
+    localStorage.setItem("NSPCL_User",userName);
+
+    localStorage.setItem("NSPCL_ID",employeeId);
+
+
+
+    if(landing){
+
+        landing.classList.add("hidden");
+
+    }
+
+
+    if(quizContainer){
+
+        quizContainer.classList.remove("hidden");
+
+    }
+
 
     loadQuestion();
 
     startTimer();
 
-});
+
+}
 
 
-// ==========================
+
+
+
+if(startBtn){
+
+startBtn.addEventListener("click",startQuizGame);
+
+}
+
+
+if(startQuiz){
+
+startQuiz.addEventListener("click",startQuizGame);
+
+}
+
+
+
+
+// ===============================
 // Load Question
-// ==========================
+// ===============================
 
-function loadQuestion() {
 
-    const q = questions[currentQuestion];
+function loadQuestion(){
 
-    questionText.textContent = q.question;
 
-    questionNumber.textContent = currentQuestion + 1;
+    let q=questions[currentQuestion];
 
-    optionsContainer.innerHTML = "";
 
-    q.options.forEach(option => {
+    questionText.innerHTML=
 
-        const btn = document.createElement("button");
+    `
+    <span>
+    Question ${currentQuestion+1}/${questions.length}
+    </span>
+    <br>
+    ${q.question}
+    `;
 
-        btn.classList.add("option");
 
-        btn.textContent = option;
 
-        if(userAnswers[currentQuestion] === option){
-            btn.classList.add("selected");
+    optionsContainer.innerHTML="";
+
+
+
+    q.options.forEach(option=>{
+
+
+        let button=document.createElement("button");
+
+
+        button.className="option";
+
+
+        button.innerHTML=option;
+
+
+
+        if(userAnswers[currentQuestion]===option){
+
+            button.classList.add("selected");
+
         }
 
-        btn.addEventListener("click", () => {
 
-            userAnswers[currentQuestion] = option;
+
+        button.onclick=()=>{
+
+
+            userAnswers[currentQuestion]=option;
+
+
+            saveProgress();
+
 
             loadQuestion();
 
-        });
 
-        optionsContainer.appendChild(btn);
+        };
+
+
+        optionsContainer.appendChild(button);
+
+
 
     });
+
+
 
     updateProgress();
 
+
 }
 
-// ==========================
-// Progress Bar
-// ==========================
+
+
+
+
+// ===============================
+// Progress
+// ===============================
+
 
 function updateProgress(){
 
-    const percent = ((currentQuestion + 1) / questions.length) * 100;
 
-    progressBar.style.width = percent + "%";
+    let percent=
+
+    ((currentQuestion+1)/questions.length)*100;
+
+
+    if(progressBar){
+
+    progressBar.style.width=
+
+    percent+"%";
+
+    }
+
 
 }
 
-// ==========================
-// Next
-// ==========================
 
-nextBtn.addEventListener("click", () => {
 
-    if(currentQuestion < questions.length - 1){
 
-        currentQuestion++;
 
-        loadQuestion();
+// ===============================
+// Navigation
+// ===============================
 
-    }
 
-});
+if(nextBtn){
 
-// ==========================
-// Previous
-// ==========================
+nextBtn.onclick=()=>{
 
-prevBtn.addEventListener("click", () => {
 
-    if(currentQuestion > 0){
+if(currentQuestion<questions.length-1){
 
-        currentQuestion--;
+currentQuestion++;
 
-        loadQuestion();
+loadQuestion();
 
-    }
+}
 
-});
 
-// ==========================
+};
+
+}
+
+
+
+
+if(prevBtn){
+
+prevBtn.onclick=()=>{
+
+
+if(currentQuestion>0){
+
+currentQuestion--;
+
+loadQuestion();
+
+}
+
+
+};
+
+}
+
+
+
+
+
+// ===============================
 // Submit
-// ==========================
+// ===============================
 
-submitBtn.addEventListener("click", showResult);
 
-// ==========================
+if(submitBtn){
+
+submitBtn.onclick=showResult;
+
+}
+
+
+
+
+
+// ===============================
 // Result
-// ==========================
+// ===============================
+
 
 function showResult(){
 
-    clearInterval(timer);
 
-    let score = 0;
+clearInterval(timer);
 
-    questions.forEach((q,index)=>{
 
-        if(userAnswers[index] === q.answer){
 
-            score++;
+let score=0;
 
-        }
 
-    });
+questions.forEach((q,i)=>{
 
-    const percentage = Math.round((score/questions.length)*100);
 
-    let message="";
+if(userAnswers[i]===q.answer){
 
-    if(percentage>=80){
-
-        message="🏆 Excellent!";
-
-    }
-
-    else if(percentage>=60){
-
-        message="😊 Good Job!";
-
-    }
-
-    else{
-
-        message="📚 Keep Practicing!";
-
-    }
-
-    quizContainer.classList.add("hidden");
-
-    resultContainer.classList.remove("hidden");
-
-    scoreText.innerHTML=`
-        <h2>${score} / ${questions.length}</h2>
-        <h3>${percentage}%</h3>
-        <p>${message}</p>
-    `;
+score++;
 
 }
-
-    let score = 0;
-
-    questions.forEach((q,index)=>{
-
-        if(userAnswers[index] === q.answer){
-
-            score++;
-
-        }
-
-    });
-
-    quizContainer.classList.add("hidden");
-
-    resultContainer.classList.remove("hidden");
-
-    scoreText.textContent = score + " / " + questions.length;
-
-}
-
-// ==========================
-// Restart
-// ==========================
-
-restartBtn.addEventListener("click",()=>{
-
-    clearInterval(timer);
-
-    totalTime=600;
-
-    timerDisplay.textContent="10:00";
-
-    currentQuestion=0;
-
-    userAnswers=new Array(questions.length).fill(null);
-
-    resultContainer.classList.add("hidden");
-
-    landing.classList.remove("hidden");
-
-    progressBar.style.width="0%";
 
 });
-// =====================
+
+
+
+let percentage=
+
+Math.round((score/questions.length)*100);
+
+
+
+saveLeaderboard(score,percentage);
+
+
+
+quizContainer.classList.add("hidden");
+
+
+resultContainer.classList.remove("hidden");
+
+
+
+scoreText.innerHTML=
+
+`
+
+<h2>${score}/${questions.length}</h2>
+
+<h3>${percentage}%</h3>
+
+<p>
+
+${percentage>=80?
+
+"🏆 Excellent Performance":
+
+percentage>=60?
+
+"😊 Good Job":
+
+"📚 Keep Practicing"}
+
+</p>
+
+`;
+
+
+
+finishSound.play();
+
+
+
+showConfetti();
+
+
+
+}
+
+
+
+
+// ===============================
 // Timer
-// =====================
+// ===============================
+
 
 function startTimer(){
 
-    clearInterval(timer);
 
-    totalTime = 600;
+totalTime=600;
 
-    updateTimer();
 
-    timer = setInterval(()=>{
+timer=setInterval(()=>{
 
-        totalTime--;
 
-        updateTimer();
+totalTime--;
 
-        if(totalTime<=0){
 
-            clearInterval(timer);
+let min=Math.floor(totalTime/60);
 
-            showResult();
+let sec=totalTime%60;
 
-        }
 
-    },1000);
+if(sec<10)sec="0"+sec;
+
+
+timerDisplay.innerHTML=
+
+min+":"+sec;
+
+
+
+if(totalTime<=0){
+
+clearInterval(timer);
+
+showResult();
+
+}
+
+
+
+},1000);
+
 
 }
 
-function updateTimer(){
 
-    let minutes=Math.floor(totalTime/60);
 
-    let seconds=totalTime%60;
 
-    if(minutes<10) minutes="0"+minutes;
 
-    if(seconds<10) seconds="0"+seconds;
+// ===============================
+// Auto Save
+// ===============================
 
-    timerDisplay.textContent=minutes+":"+seconds;
+
+function saveProgress(){
+
+
+localStorage.setItem(
+
+"NSPCL_progress",
+
+JSON.stringify(userAnswers)
+
+);
+
 
 }
-// =====================
-// Dark Mode
-// =====================
 
-darkBtn.addEventListener("click",()=>{
 
-    document.body.classList.toggle("dark");
+
+
+
+// ===============================
+// Leaderboard
+// ===============================
+
+
+function saveLeaderboard(score,percentage){
+
+
+let data=
+
+JSON.parse(
+
+localStorage.getItem("leaderboard")
+
+)||[];
+
+
+
+data.push({
+
+name:userName,
+
+id:employeeId,
+
+score:score,
+
+percentage:percentage,
+
+date:new Date().toLocaleDateString()
 
 });
+
+
+
+localStorage.setItem(
+
+"leaderboard",
+
+JSON.stringify(data)
+
+);
+
+
+}
+
+
+
+
+
+// ===============================
+// Confetti
+// ===============================
+
+
+function showConfetti(){
+
+
+if(typeof confetti==="function"){
+
+
+confetti({
+
+particleCount:150,
+
+spread:100
+
+});
+
+
+}
+
+
+}
+
+
+
+
+
+// ===============================
+// Restart
+// ===============================
+
+
+function restartQuiz(){
+
+
+currentQuestion=0;
+
+
+userAnswers=
+
+new Array(questions.length).fill(null);
+
+
+
+resultContainer.classList.add("hidden");
+
+
+landing.classList.remove("hidden");
+
+
+progressBar.style.width="0%";
+
+
+}
+
+
+
+
