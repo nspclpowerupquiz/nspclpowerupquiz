@@ -100,3 +100,183 @@ const questions = [
 }
 
 ];
+// ==========================
+// QuizMaster Script Part 4A
+// ==========================
+
+// Elements
+const landing = document.getElementById("landing");
+const quizContainer = document.getElementById("quizContainer");
+const resultContainer = document.getElementById("resultContainer");
+
+const startBtn = document.getElementById("startQuiz");
+const questionText = document.getElementById("questionText");
+const optionsContainer = document.getElementById("options");
+
+const nextBtn = document.getElementById("nextBtn");
+const prevBtn = document.getElementById("prevBtn");
+const submitBtn = document.getElementById("submitBtn");
+
+const scoreText = document.getElementById("score");
+const restartBtn = document.getElementById("restartBtn");
+
+const progressBar = document.getElementById("progressBar");
+
+const questionNumber = document.getElementById("questionNumber");
+const totalQuestions = document.getElementById("totalQuestions");
+
+// Variables
+let currentQuestion = 0;
+let userAnswers = new Array(questions.length).fill(null);
+
+// Total Questions
+totalQuestions.textContent = questions.length;
+
+// ==========================
+// Start Quiz
+// ==========================
+
+startBtn.addEventListener("click", () => {
+
+    landing.classList.add("hidden");
+    quizContainer.classList.remove("hidden");
+
+    loadQuestion();
+
+});
+
+// ==========================
+// Load Question
+// ==========================
+
+function loadQuestion() {
+
+    const q = questions[currentQuestion];
+
+    questionText.textContent = q.question;
+
+    questionNumber.textContent = currentQuestion + 1;
+
+    optionsContainer.innerHTML = "";
+
+    q.options.forEach(option => {
+
+        const btn = document.createElement("button");
+
+        btn.classList.add("option");
+
+        btn.textContent = option;
+
+        if(userAnswers[currentQuestion] === option){
+            btn.classList.add("selected");
+        }
+
+        btn.addEventListener("click", () => {
+
+            userAnswers[currentQuestion] = option;
+
+            loadQuestion();
+
+        });
+
+        optionsContainer.appendChild(btn);
+
+    });
+
+    updateProgress();
+
+}
+
+// ==========================
+// Progress Bar
+// ==========================
+
+function updateProgress(){
+
+    const percent = ((currentQuestion + 1) / questions.length) * 100;
+
+    progressBar.style.width = percent + "%";
+
+}
+
+// ==========================
+// Next
+// ==========================
+
+nextBtn.addEventListener("click", () => {
+
+    if(currentQuestion < questions.length - 1){
+
+        currentQuestion++;
+
+        loadQuestion();
+
+    }
+
+});
+
+// ==========================
+// Previous
+// ==========================
+
+prevBtn.addEventListener("click", () => {
+
+    if(currentQuestion > 0){
+
+        currentQuestion--;
+
+        loadQuestion();
+
+    }
+
+});
+
+// ==========================
+// Submit
+// ==========================
+
+submitBtn.addEventListener("click", showResult);
+
+// ==========================
+// Result
+// ==========================
+
+function showResult(){
+
+    let score = 0;
+
+    questions.forEach((q,index)=>{
+
+        if(userAnswers[index] === q.answer){
+
+            score++;
+
+        }
+
+    });
+
+    quizContainer.classList.add("hidden");
+
+    resultContainer.classList.remove("hidden");
+
+    scoreText.textContent = score + " / " + questions.length;
+
+}
+
+// ==========================
+// Restart
+// ==========================
+
+restartBtn.addEventListener("click",()=>{
+
+    currentQuestion = 0;
+
+    userAnswers = new Array(questions.length).fill(null);
+
+    resultContainer.classList.add("hidden");
+
+    landing.classList.remove("hidden");
+
+    progressBar.style.width = "0%";
+
+});
