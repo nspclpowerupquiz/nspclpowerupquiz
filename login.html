@@ -29,27 +29,31 @@
 <section class="login-box">
 
 
-<h2>🔐 Participant Login</h2>
+<h2>🔐 Employee Login</h2>
 
 
-<label>Name</label>
+<label>Employee ID</label>
+
+<br>
 
 <input 
 type="text" 
-id="username" 
-placeholder="Enter your name"
+id="employeeID"
+placeholder="Enter Employee ID"
 >
 
 
 <br><br>
 
 
-<label>Email / Employee ID</label>
+<label>Password</label>
+
+<br>
 
 <input 
-type="text" 
-id="userid" 
-placeholder="Enter Email or Employee ID"
+type="password" 
+id="password"
+placeholder="Enter Password"
 >
 
 
@@ -57,9 +61,8 @@ placeholder="Enter Email or Employee ID"
 
 
 <button onclick="login()">
-Start Quiz 🚀
+Login 🚀
 </button>
-
 
 
 <p id="message"></p>
@@ -77,31 +80,47 @@ function login()
 {
 
 
-let name = document.getElementById("username").value;
+let empID = document.getElementById("employeeID").value;
 
-let id = document.getElementById("userid").value;
+let password = document.getElementById("password").value;
 
 
 
-if(name=="" || id=="")
+if(empID === "" || password === "")
 {
 
 document.getElementById("message").innerHTML =
-"⚠️ Please enter all details";
+"⚠️ Please enter Employee ID and Password";
 
 return;
 
 }
 
 
+// Initial password same as Employee ID
 
-localStorage.setItem("participantName", name);
-
-localStorage.setItem("participantID", id);
-
+if(password === empID)
+{
 
 
-window.location.href="quiz.html";
+localStorage.setItem("employeeID", empID);
+
+
+window.location.href = "quiz.html";
+
+
+}
+
+else
+{
+
+
+document.getElementById("message").innerHTML =
+"❌ Invalid Employee ID or Password";
+
+
+}
+
 
 
 }
@@ -118,7 +137,6 @@ window.location.href="quiz.html";
 </p>
 
 </footer>
-
 
 
 </body>
