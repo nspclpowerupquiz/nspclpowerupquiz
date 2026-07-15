@@ -2069,3 +2069,181 @@ body{
     color:#222;
 
 }
+.hero h1{
+
+    font-size:68px;
+
+    font-weight:700;
+
+    text-shadow:
+
+    0 5px 20px rgba(0,0,0,.55);
+
+}
+
+.hero p{
+
+    font-size:24px;
+
+    margin:25px auto;
+
+    max-width:700px;
+
+}
+.login-box{
+
+    background:rgba(255,255,255,.12);
+
+    backdrop-filter:blur(15px);
+
+    border:1px solid rgba(255,255,255,.3);
+
+    border-radius:25px;
+
+    padding:40px;
+
+    width:420px;
+
+    box-shadow:
+
+    0 20px 45px rgba(0,0,0,.35);
+
+}
+button,.btn{
+
+    background:
+
+    linear-gradient(
+
+    135deg,
+
+    #ff9800,
+
+    #ff6b00
+
+    );
+
+    border:none;
+
+    color:white;
+
+    padding:16px 38px;
+
+    border-radius:50px;
+
+    font-weight:bold;
+
+    font-size:17px;
+
+    transition:.35s;
+
+}
+
+button:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:
+
+    0 20px 35px rgba(255,152,0,.4);
+
+}
+.card{
+
+    background:white;
+
+    border-radius:22px;
+
+    padding:35px;
+
+    box-shadow:
+
+    0 20px 40px rgba(0,0,0,.10);
+
+    transition:.35s;
+
+}
+
+.card:hover{
+
+    transform:
+
+    translateY(-12px);
+
+    box-shadow:
+
+    0 30px 60px rgba(0,74,173,.22);
+
+}
+.stat-card{
+
+    background:
+
+    linear-gradient(
+
+    135deg,
+
+    #004aad,
+
+    #0077ff
+
+    );
+
+    color:white;
+
+    border-radius:20px;
+
+    padding:35px;
+
+    transition:.35s;
+
+}
+
+.stat-card:hover{
+
+    transform:scale(1.05);
+
+}
+.hero::before{
+
+content:"";
+
+position:absolute;
+
+width:600px;
+
+height:600px;
+
+background:
+
+radial-gradient(
+
+rgba(255,152,0,.18),
+
+transparent
+
+);
+
+top:-150px;
+
+right:-150px;
+
+animation:rotateGlow 12s linear infinite;
+
+}
+
+@keyframes rotateGlow{
+
+from{
+
+transform:rotate(0deg);
+
+}
+
+to{
+
+transform:rotate(360deg);
+
+}
+
+}
