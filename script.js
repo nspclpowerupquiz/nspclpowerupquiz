@@ -392,3 +392,12 @@ function updateTimer(){
     timerDisplay.textContent=minutes+":"+seconds;
 
 }
+// =====================
+// Dark Mode
+// =====================
+
+darkBtn.addEventListener("click",()=>{
+
+    document.body.classList.toggle("dark");
+
+});
