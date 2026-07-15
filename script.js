@@ -258,6 +258,54 @@ submitBtn.addEventListener("click", showResult);
 
 function showResult(){
 
+    clearInterval(timer);
+
+    let score = 0;
+
+    questions.forEach((q,index)=>{
+
+        if(userAnswers[index] === q.answer){
+
+            score++;
+
+        }
+
+    });
+
+    const percentage = Math.round((score/questions.length)*100);
+
+    let message="";
+
+    if(percentage>=80){
+
+        message="🏆 Excellent!";
+
+    }
+
+    else if(percentage>=60){
+
+        message="😊 Good Job!";
+
+    }
+
+    else{
+
+        message="📚 Keep Practicing!";
+
+    }
+
+    quizContainer.classList.add("hidden");
+
+    resultContainer.classList.remove("hidden");
+
+    scoreText.innerHTML=`
+        <h2>${score} / ${questions.length}</h2>
+        <h3>${percentage}%</h3>
+        <p>${message}</p>
+    `;
+
+}
+
     let score = 0;
 
     questions.forEach((q,index)=>{
