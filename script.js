@@ -150,9 +150,14 @@ totalQuestions.textContent = questions.length;
 startBtn.addEventListener("click", () => {
 
     landing.classList.add("hidden");
+
     quizContainer.classList.remove("hidden");
 
     loadQuestion();
+
+    startTimer();
+
+});
 
 });
 
