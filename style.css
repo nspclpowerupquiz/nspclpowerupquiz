@@ -477,3 +477,12 @@ html{
     scroll-behavior:smooth;
 
 }
+.hero h2{
+
+    text-shadow:
+
+    0 0 15px rgba(255,255,255,.4),
+
+    0 0 30px rgba(255,152,0,.4);
+
+}
