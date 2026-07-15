@@ -65,3 +65,102 @@ section{
     padding:70px 8%;
 
 }
+/*==================================================
+HEADER
+==================================================*/
+
+.header{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:999;
+
+    background:rgba(0,51,102,.95);
+
+    backdrop-filter:blur(10px);
+
+    color:white;
+
+    padding:20px 8%;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.2);
+
+}
+
+.logo h2{
+
+    font-size:30px;
+
+}
+
+.logo span{
+
+    font-size:14px;
+
+    opacity:.9;
+
+}
+
+nav{
+
+    display:flex;
+
+    gap:20px;
+
+    align-items:center;
+
+}
+
+nav a{
+
+    color:white;
+
+    font-weight:600;
+
+    position:relative;
+
+    transition:.3s;
+
+}
+
+nav a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-5px;
+
+    width:0;
+
+    height:3px;
+
+    background:var(--gold);
+
+    transition:.3s;
+
+}
+
+nav a:hover{
+
+    color:var(--gold);
+
+}
+
+nav a:hover::after{
+
+    width:100%;
+
+}
