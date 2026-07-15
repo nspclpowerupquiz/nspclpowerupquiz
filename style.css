@@ -151,42 +151,25 @@ HERO
 BUTTONS
 ================================= */
 
-
 button,
-.btn,
-.cta a{
-
-    display:inline-block;
-
-    background:#ff9800;
-    color:white;
-
-    border:none;
-
-    padding:14px 30px;
-
-    border-radius:30px;
-
-    font-size:17px;
-
-    text-decoration:none;
-
-    cursor:pointer;
-
-    transition:.3s;
-
+.btn {
+    background: linear-gradient(135deg, #ff9800, #ff6f00);
+    color: white;
+    border: none;
+    padding: 14px 30px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(255,152,0,0.35);
 }
-
 
 button:hover,
-.btn:hover,
-.cta a:hover{
-
-    background:#e68900;
-    transform:scale(1.05);
-
+.btn:hover {
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 12px 28px rgba(255,152,0,0.5);
 }
-
 
 
 /* =================================
