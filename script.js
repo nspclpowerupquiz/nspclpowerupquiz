@@ -585,6 +585,68 @@ progressBar.style.width="0%";
 
 
 }
+// ===============================
+// GALLERY IMAGE POPUP
+// ===============================
+
+
+let galleryImages =
+document.querySelectorAll(".gallery-card img");
+
+
+let popup =
+document.getElementById("imagePopup");
+
+
+let popupImage =
+document.getElementById("popupImage");
+
+
+let closePopup =
+document.getElementById("closePopup");
+
+
+
+galleryImages.forEach(image=>{
+
+
+image.onclick=function(){
+
+
+popup.style.display="flex";
+
+
+popupImage.src=this.src;
+
+
+}
+
+
+});
+
+
+
+closePopup.onclick=function(){
+
+
+popup.style.display="none";
+
+
+}
+
+
+
+popup.onclick=function(e){
+
+
+if(e.target===popup){
+
+popup.style.display="none";
+
+}
+
+
+}
 
 
 
