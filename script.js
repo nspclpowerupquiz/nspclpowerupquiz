@@ -296,3 +296,46 @@ restartBtn.addEventListener("click",()=>{
     progressBar.style.width = "0%";
 
 });
+// =====================
+// Timer
+// =====================
+
+function startTimer(){
+
+    clearInterval(timer);
+
+    totalTime = 600;
+
+    updateTimer();
+
+    timer = setInterval(()=>{
+
+        totalTime--;
+
+        updateTimer();
+
+        if(totalTime<=0){
+
+            clearInterval(timer);
+
+            showResult();
+
+        }
+
+    },1000);
+
+}
+
+function updateTimer(){
+
+    let minutes=Math.floor(totalTime/60);
+
+    let seconds=totalTime%60;
+
+    if(minutes<10) minutes="0"+minutes;
+
+    if(seconds<10) seconds="0"+seconds;
+
+    timerDisplay.textContent=minutes+":"+seconds;
+
+}
