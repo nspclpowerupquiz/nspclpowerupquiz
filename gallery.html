@@ -1,96 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Gallery | NSPCL Power-Up Quiz</title>
+<title>Gallery - NSPCL Power-Up Quiz</title>
 
 <link rel="stylesheet" href="style.css">
+
+<style>
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+    padding:30px;
+}
+
+.gallery img{
+    width:100%;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,.2);
+    transition:.3s;
+}
+
+.gallery img:hover{
+    transform:scale(1.05);
+}
+
+h2{
+    text-align:center;
+    margin-top:30px;
+}
+
+</style>
 
 </head>
 
 <body>
 
-<header class="header">
-
-<div class="logo">
-<h2>📸 NSPCL Gallery</h2>
-<span>Learning • Excellence • Innovation</span>
-</div>
-
-<nav>
-
-<a href="index.html">Home</a>
-<a href="about.html">About</a>
-<a href="quiz.html">Quiz</a>
-<a href="leaderboard.html">Leaderboard</a>
-
-</nav>
-
+<header>
+<h1>⚡ NSPCL Power-Up Quiz</h1>
+<p>Gallery</p>
 </header>
 
-<section class="gallery">
+<h2>Photo Gallery</h2>
 
-<h1>📸 Gallery</h1>
+<div class="gallery">
 
-<p>Explore moments from quizzes, learning sessions and achievements.</p>
-
-<div class="gallery-grid">
-
-<div class="gallery-card">
-<img src="images/gallery1.jpg" alt="Training Session">
-<div class="overlay">
-<h3>Training Session</h3>
-</div>
-</div>
-
-<div class="gallery-card">
-<img src="images/gallery2.jpg" alt="Power Plant">
-<div class="overlay">
-<h3>Power Plant</h3>
-</div>
-</div>
-
-<div class="gallery-card">
-<img src="images/gallery3.jpg" alt="Quiz Event">
-<div class="overlay">
-<h3>Quiz Competition</h3>
-</div>
-</div>
-
-<div class="gallery-card">
-<img src="images/gallery4.jpg" alt="Award Ceremony">
-<div class="overlay">
-<h3>Award Ceremony</h3>
-</div>
-</div>
-
-<div class="gallery-card">
-<img src="images/gallery5.jpg" alt="Certificate">
-<div class="overlay">
-<h3>Certificates</h3>
-</div>
-</div>
-
-<div class="gallery-card">
-<img src="images/gallery6.jpg" alt="Employees">
-<div class="overlay">
-<h3>Team Excellence</h3>
-</div>
-</div>
+<img src="images/photo1.jpg" alt="Photo 1">
+<img src="images/photo2.jpg" alt="Photo 2">
+<img src="images/photo3.jpg" alt="Photo 3">
+<img src="images/photo4.jpg" alt="Photo 4">
+<img src="images/photo5.jpg" alt="Photo 5">
+<img src="images/photo6.jpg" alt="Photo 6">
 
 </div>
-
-</section>
-
-<footer>
-
-<p>© 2026 NSPCL Power-Up Quiz</p>
-
-</footer>
 
 </body>
-
 </html>
