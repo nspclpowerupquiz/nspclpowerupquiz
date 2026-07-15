@@ -395,7 +395,11 @@ finishSound.play();
 
 
 showConfetti();
+setTimeout(()=>{
 
+window.location.href="certificate.html";
+
+},3000);
 
 
 }
