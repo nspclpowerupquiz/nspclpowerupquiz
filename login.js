@@ -1,17 +1,20 @@
-// ===============================
-// NSPCL EMPLOYEE LOGIN SYSTEM
-// ===============================
+// =================================
+// NSPCL POWER-UP QUIZ LOGIN SYSTEM
+// =================================
 
 
 function login(){
 
 
-let employeeId = 
+
+let employeeId =
 document.getElementById("employeeId").value.trim();
 
 
-let password = 
+
+let password =
 document.getElementById("password").value.trim();
+
 
 
 
@@ -21,23 +24,23 @@ const employees = [
 
 
 {
-    id:"100106",
-    password:"NSPCL@100106",
-    name:"Employee 100106"
+id:"100106",
+password:"NSPCL@100106",
+name:"Employee 100106"
 },
 
 
 {
-    id:"100107",
-    password:"NSPCL@100107",
-    name:"Employee 100107"
+id:"100107",
+password:"NSPCL@100107",
+name:"Employee 100107"
 },
 
 
 {
-    id:"100108",
-    password:"NSPCL@100108",
-    name:"Employee 100108"
+id:"100108",
+password:"NSPCL@100108",
+name:"Employee 100108"
 }
 
 
@@ -45,12 +48,13 @@ const employees = [
 
 
 
-// Empty check
+
 
 if(employeeId==="" || password===""){
 
 
 document.getElementById("loginMessage").innerHTML =
+
 "⚠️ Please enter Employee ID and Password";
 
 
@@ -60,11 +64,18 @@ return;
 
 
 
-// Check employee
 
 let user = employees.find(function(emp){
 
-return emp.id===employeeId && emp.password===password;
+
+return (
+
+emp.id === employeeId &&
+
+emp.password === password
+
+);
+
 
 });
 
@@ -77,21 +88,27 @@ if(user){
 
 
 localStorage.setItem(
-"employee",
-user.name
-);
-
-
-
-localStorage.setItem(
 "employeeId",
 user.id
 );
 
 
 
+localStorage.setItem(
+"employeeName",
+user.name
+);
+
+
+
+
+
 document.getElementById("loginMessage").innerHTML =
-"✅ Login Successful";
+
+"✅ Login Successful!";
+
+
+
 
 
 setTimeout(function(){
@@ -106,10 +123,14 @@ window.location.href="quiz.html";
 
 }
 
+
+
 else{
 
 
+
 document.getElementById("loginMessage").innerHTML =
+
 "❌ Invalid Employee ID or Password";
 
 
