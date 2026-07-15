@@ -1,10 +1,10 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>NSPCL Power-Up Quiz</title>
@@ -17,51 +17,66 @@
 <body>
 
 
-<!-- HEADER -->
+<!-- ================= HEADER ================= -->
 
-<header>
 
-<h1>⚡ NSPCL Power-Up Quiz</h1>
+<header class="header">
 
-<p>Learn • Compete • Achieve</p>
+
+<h1>
+⚡ NSPCL Power-Up Quiz
+</h1>
+
+
+<p>
+Learn • Compete • Achieve
+</p>
 
 
 <nav>
 
 <a href="index.html">Home</a>
+
 <a href="about.html">About</a>
-<a href="quiz.html">Quiz</a>
-<a href="leaderboard.html">Leaderboard</a>
-<a href="contact.html">Contact</a>
+
+<a href="login.html">Quiz</a>
+
+<a href="leaderboard.html">🏆 Leaderboard</a>
+
+<a href="gallery.html">🖼 Gallery</a>
+
+<a href="certificate.html">📜 Certificate</a>
+
 
 </nav>
+
 
 </header>
 
 
 
-<!-- QUIZ INTRO -->
+
+
+<!-- ================= QUIZ INTRO ================= -->
+
 
 <section class="quiz-intro">
 
-<h2>🚀 Welcome to Online Challenge Quiz</h2>
 
-<p>
-Test your knowledge and improve your learning skills.
+<h2>
+🚀 Welcome to NSPCL Power-Up Challenge
+</h2>
+
+
+<p id="welcomeUser">
+
 </p>
 
 
-<input 
-type="text" 
-id="playerName"
-placeholder="Enter Your Name">
-
-
-<br><br>
-
-
 <button onclick="startQuiz()">
-Start Quiz 🚀
+
+🚀 Start Quiz
+
 </button>
 
 
@@ -71,7 +86,8 @@ Start Quiz 🚀
 
 
 
-<!-- ONLINE QUIZ -->
+<!-- ================= ONLINE QUIZ ================= -->
+
 
 <section class="online-quiz">
 
@@ -79,27 +95,41 @@ Start Quiz 🚀
 <div id="quiz-area" style="display:none;">
 
 
-<h2>NSPCL Power-Up Challenge</h2>
+
+<h2>
+NSPCL Knowledge Challenge
+</h2>
 
 
 
-<div id="timer">
+<div class="timer">
+
 
 ⏱ Time Left:
-<span id="time">60</span> seconds
+
+<span id="time">
+60
+</span>
+
+seconds
+
 
 </div>
 
 
 
 
-<div id="quiz-box">
+<div class="question-card">
 
 
-<h3 id="question"></h3>
+<h3 id="question">
+
+</h3>
 
 
-<div id="options"></div>
+<div id="options">
+
+</div>
 
 
 
@@ -110,16 +140,18 @@ Next Question ➡️
 </button>
 
 
-</div>
-
-
 
 </div>
 
 
+</div>
 
 
-<h2 id="result"></h2>
+
+
+<h2 id="result">
+
+</h2>
 
 
 
@@ -131,11 +163,25 @@ Next Question ➡️
 
 
 
+<!-- ================= FOOTER ================= -->
+
+
 <footer>
 
+
 <p>
-© 2026 NSPCL Power-Up Quiz | Created with Learning & Innovation
+
+© 2026 NSPCL Power-Up Quiz
+
 </p>
+
+
+<p>
+
+Learn • Compete • Grow ⚡
+
+</p>
+
 
 </footer>
 
@@ -145,42 +191,151 @@ Next Question ➡️
 
 
 
-<script src="questions.js"></script>
-
 <script>
 
-{
-question:"Which planet is known as the Red Planet?",
-options:["Earth","Mars","Jupiter","Venus"],
-answer:"Mars"
-},
+
+// =============================
+// LOGIN CHECK
+// =============================
+
+
+let employee =
+localStorage.getItem("employee");
+
+
+if(employee==null){
+
+window.location.href="login.html";
+
+}
+
+
+
+
+document.getElementById("welcomeUser").innerHTML =
+
+"Welcome Employee : <b>" + employee + "</b>";
+
+
+
+
+// =============================
+// QUESTIONS
+// =============================
+
+
+const questions = [
 
 
 {
-question:"What is the national animal of India?",
-options:["Lion","Tiger","Elephant","Peacock"],
-answer:"Tiger"
-},
 
+question:"NSPCL is a joint venture between NTPC and which company?",
 
-{
-question:"Which gas is important for human breathing?",
-options:["Carbon dioxide","Oxygen","Nitrogen","Hydrogen"],
-answer:"Oxygen"
-},
+options:[
+"SAIL",
+"BHEL",
+"ONGC",
+"GAIL"
+],
 
-
-{
-question:"What is the capital of India?",
-options:["Mumbai","Delhi","Kolkata","Chennai"],
-answer:"Delhi"
-},
-
-
-{
-question:"NSPCL is a joint venture between NTPC and?",
-options:["SAIL","BHEL","ONGC","GAIL"],
 answer:"SAIL"
+
+},
+
+
+{
+
+question:"Which department handles Contracts and Materials management?",
+
+options:[
+"C&M",
+"Finance",
+"HR",
+"IT"
+],
+
+answer:"C&M"
+
+},
+
+
+{
+
+question:"Which gas is essential for human breathing?",
+
+options:[
+"Carbon dioxide",
+"Oxygen",
+"Nitrogen",
+"Hydrogen"
+],
+
+answer:"Oxygen"
+
+},
+
+
+{
+
+question:"Capital of India is:",
+
+options:[
+"Mumbai",
+"Delhi",
+"Kolkata",
+"Chennai"
+],
+
+answer:"Delhi"
+
+},
+
+
+{
+
+question:"Which planet is called the Red Planet?",
+
+options:[
+"Earth",
+"Mars",
+"Jupiter",
+"Venus"
+],
+
+answer:"Mars"
+
+},
+
+
+{
+
+question:"Procurement mainly deals with:",
+
+options:[
+"Buying goods and services",
+"Employee training",
+"Power generation",
+"Accounting"
+],
+
+answer:"Buying goods and services"
+
+},
+
+
+{
+
+question:"Inventory management focuses on:",
+
+options:[
+"Stock control",
+"Marketing",
+"Recruitment",
+"Sales"
+],
+
+answer:"Stock control"
+
 }
 
 
@@ -188,6 +343,11 @@ answer:"SAIL"
 
 
 
+
+
+// =============================
+// VARIABLES
+// =============================
 
 
 let currentQuestion=0;
@@ -198,34 +358,23 @@ let time=60;
 
 let timer;
 
-let playerName="";
 
 
 
 
+
+// =============================
+// START QUIZ
+// =============================
 
 
 function startQuiz(){
-
-
-playerName=document.getElementById("playerName").value;
-
-
-if(playerName==""){
-
-alert("Please enter your name");
-
-return;
-
-}
-
 
 
 document.querySelector(".quiz-intro").style.display="none";
 
 
 document.getElementById("quiz-area").style.display="block";
-
 
 
 startTimer();
@@ -239,6 +388,12 @@ loadQuestion();
 
 
 
+
+
+
+// =============================
+// TIMER
+// =============================
 
 
 function startTimer(){
@@ -256,9 +411,12 @@ document.getElementById("time").innerHTML=time;
 
 if(time<=0){
 
+
 clearInterval(timer);
 
+
 showResult();
+
 
 }
 
@@ -274,16 +432,23 @@ showResult();
 
 
 
+// =============================
+// LOAD QUESTION
+// =============================
+
+
 function loadQuestion(){
 
 
-let q=questions[currentQuestion];
+let q =
+questions[currentQuestion];
 
 
 
-document.getElementById("question").innerHTML=
+document.getElementById("question").innerHTML =
 
 (currentQuestion+1)+". "+q.question;
+
 
 
 
@@ -294,9 +459,12 @@ let html="";
 q.options.forEach(function(option){
 
 
-html+=`
+html +=
+
+`
 
 <button class="option"
+
 onclick="checkAnswer(this,'${option}')">
 
 ${option}
@@ -305,11 +473,13 @@ ${option}
 
 `;
 
+
 });
 
 
 
 document.getElementById("options").innerHTML=html;
+
 
 
 }
@@ -320,12 +490,16 @@ document.getElementById("options").innerHTML=html;
 
 
 
+// =============================
+// CHECK ANSWER
+// =============================
+
+
 function checkAnswer(button,answer){
 
 
-
-let buttons=document.querySelectorAll(".option");
-
+let buttons =
+document.querySelectorAll(".option");
 
 
 buttons.forEach(btn=>{
@@ -355,13 +529,17 @@ button.style.background="red";
 }
 
 
-
 }
 
 
 
 
 
+
+
+// =============================
+// NEXT QUESTION
+// =============================
 
 
 function nextQuestion(){
@@ -396,6 +574,10 @@ showResult();
 
 
 
+// =============================
+// RESULT
+// =============================
+
 
 function showResult(){
 
@@ -408,24 +590,27 @@ document.getElementById("quiz-area").style.display="none";
 
 
 
-document.getElementById("result").innerHTML=
+document.getElementById("result").innerHTML =
 
 
 `
-🎉 Congratulations ${playerName}! 
+
+🎉 Congratulations ${employee}
 
 <br><br>
 
-Your Score:
+Your Score
 
-<h1>${score}/${questions.length}</h1>
+<h1>
+
+${score}/${questions.length}
+
+</h1>
 
 
 `;
 
 
-
-localStorage.setItem("playerName",playerName);
 
 localStorage.setItem("score",score);
 
@@ -438,8 +623,6 @@ localStorage.setItem("score",score);
 </script>
 
 
-
 </body>
 
 </html>
-```
