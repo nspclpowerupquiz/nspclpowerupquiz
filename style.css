@@ -1,164 +1,150 @@
-/* ================================
-   NSPCL POWER-UP QUIZ
-   Main Website CSS
+/* ===============================
+   GLOBAL SETTINGS
+================================ */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',Arial,sans-serif;
+}
+
+body{
+    background:#f4f7fb;
+    color:#222;
+}
+
+
+/* ===============================
+   HEADER
+================================ */
+
+header{
+    background:#071b4f;
+    color:white;
+    padding:15px 50px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+
+header h1{
+    font-size:24px;
+}
+
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:0 12px;
+    font-size:15px;
+}
+
+
+nav a:hover{
+    color:#ff9800;
+}
+
+
+/* ===============================
+   HERO SECTION
 ================================ */
 
 
-/* ---------- Global ---------- */
+.hero{
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #f4f7fb;
-    color: #222;
-    overflow-x: hidden;
-}
-
-
-/* ---------- Header ---------- */
-
-header {
-    background: #071a41;
-    color: white;
-    padding: 15px 40px;
-    text-align: center;
-}
-
-
-header h1 {
-    font-size: 28px;
-    margin-bottom: 5px;
-}
-
-
-header p {
-    font-size: 14px;
-    color: #ffb000;
-}
-
-
-
-/* ---------- Navigation ---------- */
-
-nav {
-    background: #0d2455;
-    padding: 12px;
-    text-align: center;
-}
-
-
-nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 15px;
-    font-size: 14px;
-}
-
-
-nav a:hover {
-    color: #ff9800;
-}
-
-
-
-/* ---------- Hero Section ---------- */
-
-.hero {
-    min-height: 400px;
-    background: linear-gradient(
-        135deg,
-        #0d47a1,
+    min-height:380px;
+    background:linear-gradient(
+        120deg,
+        #1148a8,
         #1976d2
     );
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
 
-    text-align: center;
-    padding: 40px 20px;
-    color: white;
-}
-
-
-.hero h2 {
-    font-size: 38px;
-    margin-bottom: 10px;
-}
-
-
-.hero p {
-    font-size: 18px;
-}
-
-
-
-/* ---------- Login Box ---------- */
-
-.login-box {
-
-    background: white;
-    width: 350px;
-    padding: 25px;
-
-    border-radius: 15px;
-
-    margin-top: 30px;
-
-    box-shadow:
-    0 8px 20px rgba(0,0,0,0.15);
+    padding:40px;
 
 }
 
 
-.login-box h3 {
+.hero-text{
 
-    color:#071a41;
+    color:white;
+    width:45%;
+}
+
+
+.hero-text h2{
+
+    font-size:42px;
+    margin-bottom:15px;
+
+}
+
+
+.hero-text p{
+
+    font-size:18px;
+
+}
+
+
+/* LOGIN BOX */
+
+
+.login-box{
+
+    background:white;
+    width:330px;
+    padding:30px;
+    border-radius:15px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.2);
+
+}
+
+
+.login-box h3{
+
+    text-align:center;
     margin-bottom:20px;
 
 }
 
 
-.login-box input {
+.login-box input{
 
     width:100%;
     padding:12px;
+    margin:10px 0;
 
-    margin:8px 0;
-
-    border:1px solid #ccc;
-
-    border-radius:6px;
+    border:1px solid #ddd;
+    border-radius:8px;
 
 }
 
 
+.login-box button{
 
-button {
+    width:100%;
+    padding:12px;
 
     background:#ff9800;
-
     color:white;
 
     border:none;
-
-    padding:12px 25px;
-
     border-radius:8px;
 
+    font-size:16px;
     cursor:pointer;
 
 }
 
 
-button:hover {
+.login-box button:hover{
 
     background:#e68900;
 
@@ -166,118 +152,148 @@ button:hover {
 
 
 
-/* ---------- Feature Section ---------- */
+/* ===============================
+ FEATURES
+================================ */
 
 
-.features {
+.features{
 
-    padding:50px 30px;
+    padding:50px;
 
-    display:flex;
+}
 
-    justify-content:center;
+
+.features h2{
+
+    text-align:center;
+    margin-bottom:35px;
+
+}
+
+
+
+.card-container{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(220px,1fr));
 
     gap:25px;
 
-    flex-wrap:wrap;
-
 }
 
 
 
-.card {
+.card{
 
     background:white;
 
-    width:260px;
-
-    min-height:170px;
-
-    padding:25px;
-
-    border-radius:15px;
+    padding:30px;
 
     text-align:center;
 
+    border-radius:15px;
 
     box-shadow:
-    0 5px 15px rgba(0,0,0,0.12);
+    0 5px 20px rgba(0,0,0,.12);
+
+    transition:.3s;
 
 }
 
 
+.card:hover{
 
-.card h3 {
-
-    color:#071a41;
-
-    margin-bottom:10px;
+    transform:translateY(-8px);
 
 }
 
 
+.card h3{
 
-.card p {
+    color:#1148a8;
+    margin:15px 0;
 
-    font-size:14px;
+}
+
+
+.card p{
 
     color:#555;
 
 }
 
 
+.card a{
 
-/* ---------- Footer ---------- */
+    display:inline-block;
+
+    margin-top:15px;
+
+    text-decoration:none;
+
+    color:#1976d2;
+
+    font-weight:bold;
+
+}
 
 
-footer {
 
-    background:#071a41;
+/* ===============================
+ FOOTER
+================================ */
 
+
+footer{
+
+    background:#071b4f;
     color:white;
 
     text-align:center;
 
     padding:20px;
 
-    margin-top:40px;
-
 }
 
 
 
-/* ---------- Mobile Responsive ---------- */
+/* ===============================
+ MOBILE
+================================ */
 
 
 @media(max-width:768px){
 
 
-header h1 {
+.hero{
 
-    font-size:22px;
-
-}
-
-
-.hero h2 {
-
-    font-size:28px;
+    flex-direction:column;
+    text-align:center;
 
 }
 
 
-.login-box {
+.hero-text{
 
-    width:90%;
+    width:100%;
+    margin-bottom:30px;
 
 }
 
 
-nav a {
+header{
 
-    display:block;
+    flex-direction:column;
 
-    margin:10px;
+}
+
+
+nav{
+
+    margin-top:10px;
 
 }
 
