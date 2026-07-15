@@ -1,9 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 
-<title>NSPCL Power Quiz Login</title>
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Employee Login | NSPCL Power-Up Quiz</title>
 
 <link rel="stylesheet" href="style.css">
 
@@ -13,92 +17,81 @@
 <body>
 
 
-<h1>⚡ NSPCL Power-Up Quiz</h1>
+<header class="header">
 
-<h2>Employee Login</h2>
+<h2>
+⚡ NSPCL Power-Up Quiz
+</h2>
+
+<p>
+SSC C&M Function
+</p>
+
+</header>
+
+
+
+<section class="login-section">
+
+
+<div class="login-box">
+
+
+<h2>
+🔐 Employee Login
+</h2>
+
+
+<p>
+Enter Employee ID and Password
+</p>
+
 
 
 <input 
-id="empid" 
-type="text" 
-placeholder="Employee ID"
->
+type="text"
+id="employeeId"
+placeholder="Employee ID">
 
-
-<br><br>
 
 
 <input 
-id="password" 
-type="password" 
-placeholder="Password"
->
+type="password"
+id="password"
+placeholder="Password">
 
 
-<br><br>
 
+<button onclick="login()">
 
-<button onclick="checkLogin()">
-LOGIN
+🚀 Login
+
 </button>
 
 
-<p id="msg"></p>
+
+<p id="message"></p>
+
+
+</div>
+
+
+</section>
 
 
 
-<script>
 
-function checkLogin()
-{
+<footer>
 
-let emp =
-document.getElementById("empid").value;
+<p>
+⚡ Learn • Compete • Grow
+</p>
 
-
-let pass =
-document.getElementById("password").value;
+</footer>
 
 
 
-if(emp=="" || pass=="")
-{
-
-document.getElementById("msg").innerHTML =
-"Enter Employee ID and Password";
-
-return;
-
-}
-
-
-
-if(emp == pass)
-{
-
-localStorage.setItem("employeeID",emp);
-
-alert("Login Successful");
-
-
-window.location.href="quiz.html";
-
-
-}
-
-else
-{
-
-document.getElementById("msg").innerHTML =
-"Invalid Password";
-
-}
-
-
-}
-
-
-</script>
+<script src="js/login.js"></script>
 
 
 </body>
