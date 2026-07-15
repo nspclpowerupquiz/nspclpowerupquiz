@@ -3,552 +3,237 @@
 
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>NSPCL Power-Up Quiz</title>
+    <title>NSPCL Power-Up Quiz</title>
 
-<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
 
 </head>
 
-
-
 <body>
-
 
 <!-- ================= HEADER ================= -->
 
-
 <header class="header">
 
+    <div class="logo">
 
-<div class="logo">
+        <h2>⚡ NSPCL Power-Up Quiz</h2>
 
-<h2>
-⚡ NSPCL Power-Up Quiz
-</h2>
+        <span>Knowledge • Innovation • Excellence</span>
 
-<span>
-Knowledge • Innovation • Excellence
-</span>
+    </div>
 
-</div>
+    <nav>
 
+        <a href="index.html">Home</a>
 
+        <a href="about.html">About</a>
 
+        <a href="leaderboard.html">🏆 Leaderboard</a>
 
-<nav>
+        <a href="analytics.html">📈 Analytics</a>
 
+        <a href="daily.html">🔥 Daily Challenge</a>
 
-<a href="index.html">
-Home
-</a>
+        <a href="certificate.html">📜 Certificate</a>
 
+        <a href="admin.html">⚙️ Admin</a>
 
-<a href="about.html">About</a>
+        <button id="themeToggle">🌙</button>
 
-
-<a href="leaderboard.html">
-🏆 Leaderboard
-</a>
-
-
-<a href="analytics.html">
-📈 Analytics
-</a>
-
-
-<a href="daily.html">
-🔥 Daily Challenge
-</a>
-
-
-<a href="certificate.html">
-📜 Certificate
-</a>
-
-
-<a href="admin.html">
-⚙️ Admin
-</a>
-
-
-
-<button id="themeToggle">
-
-🌙
-
-</button>
-
-
-</nav>
-
-
+    </nav>
 
 </header>
 
-
-
-
-
 <!-- ================= HERO ================= -->
 
-
 <section class="hero">
 
+    <div class="hero-content">
 
-<div class="hero-content">
-<section class="hero">
+        <div class="hero-text">
 
+            <h1>⚡ Power Up Your Knowledge!</h1>
 
-    <h1>
-        Power Up Your Knowledge!
-    </h1>
+            <p>
+                Learn • Compete • Grow with NSPCL Power-Up Quiz.
+                Enhance your SSC C&M knowledge through interactive
+                quizzes and continuous learning.
+            </p>
 
-    <p>
-        Learn. Compete. Grow with NSPCL Power-Up Quiz.
-    </p>
+            <div class="login-box">
 
-    <div class="login-box">
+                <h3>Participant Login</h3>
 
-        <h3>Participant Login</h3>
+                <input
+                    type="text"
+                    id="userName"
+                    placeholder="Enter Your Name">
 
-        <input
-        type="text"
-        id="userName"
-        placeholder="Enter Your Name">
+                <input
+                    type="text"
+                    id="employeeId"
+                    placeholder="Enter Employee ID">
 
-        <input
-        type="text"
-        id="employeeId"
-        placeholder="Enter Employee ID">
+                <button id="startBtn">
+                    🚀 Start Quiz
+                </button>
 
-        <button id="startBtn">
-            🚀 Start Quiz
-        </button>
+            </div>
+
+        </div>
+
+        <div class="hero-image">
+
+            <img src="images/powerplant.png"
+                 alt="NSPCL Power Plant">
+
+        </div>
 
     </div>
 
-    <!-- ADD THIS HERE -->
-
-    <div class="hero-image">
-        <img src="images/powerplant.png" alt="NSPCL Power Plant">
-    </div>
-
-</div>
-
 </section>
-
-
-<h1>
-
-Power Up Your Knowledge!
-
-</h1>
-
-
-
-<p>
-
-Learn. Compete. Grow with NSPCL Power-Up Quiz.
-
-</p>
-
-
-
-
-
-<div class="login-box">
-
-
-<h3>
-Participant Login
-</h3>
-
-
-
-<input 
-type="text"
-id="userName"
-placeholder="Enter Your Name">
-
-
-
-<input 
-type="text"
-id="employeeId"
-placeholder="Enter Employee ID">
-
-
-
-
-
-<button id="startBtn">
-
-🚀 Start Quiz
-
-</button>
-
-
-
-</div>
-
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
 
 <!-- ================= DASHBOARD STATS ================= -->
 
-
 <section class="stats">
 
+    <div class="stat-card">
 
-<div class="stat-card">
+        <h2>⚡</h2>
 
-<h2>
-⚡
-</h2>
+        <p>Power Learning</p>
 
-<p>
-Power Learning
-</p>
+    </div>
 
-</div>
+    <div class="stat-card">
 
+        <h2>🏆</h2>
 
+        <p>Competition</p>
 
-<div class="stat-card">
+    </div>
 
-<h2>
-🏆
-</h2>
+    <div class="stat-card">
 
-<p>
-Competition
-</p>
+        <h2>📊</h2>
 
-</div>
+        <p>Analytics</p>
 
+    </div>
 
+    <div class="stat-card">
 
-<div class="stat-card">
+        <h2>🏅</h2>
 
-<h2>
-📊
-</h2>
+        <p id="badgeDisplay">Badges</p>
 
-<p>
-Analytics
-</p>
-
-</div>
-
-
-
-<div class="stat-card">
-
-<h2>
-🏅
-</h2>
-
-<p id="badgeDisplay">
-
-Badges
-
-</p>
-
-</div>
-
-
+    </div>
 
 </section>
-
-
-
-
-
-
 
 <!-- ================= FEATURES ================= -->
 
-
 <section class="features">
 
+    <h2>Explore NSPCL Quiz Platform</h2>
 
-<h2>
+    <div class="feature-container">
 
-Explore NSPCL Quiz Platform
+        <div class="card">
 
-</h2>
+            <h3>📚 Quiz</h3>
 
+            <p>Test your technical and general knowledge.</p>
 
+            <a href="login.html">Start Quiz 🚀</a>
 
-<div class="feature-container">
+        </div>
 
+        <div class="card">
 
+            <h3>🏆 Leaderboard</h3>
 
+            <p>View top performers and rankings.</p>
 
+            <a href="leaderboard.html">View Ranking →</a>
 
-<div class="card">
+        </div>
 
+        <div class="card">
 
-<h3>
-📚 Quiz
-</h3>
+            <h3>🔥 Daily Challenge</h3>
 
+            <p>Complete daily challenges and earn badges.</p>
 
-<p>
+            <a href="daily.html">Take Challenge →</a>
 
-Test your technical and general knowledge.
+        </div>
 
-</p>
+        <div class="card">
 
+            <h3>📈 Analytics</h3>
 
-<a href="login.html">
-Start Quiz 🚀
-</a>
+            <p>Track performance and improvement.</p>
 
-</div>
+            <a href="analytics.html">View Dashboard →</a>
 
+        </div>
 
-<div class="card">
+        <div class="card">
 
+            <h3>📜 Certificate</h3>
 
-<h3>
-🏆 Leaderboard
-</h3>
+            <p>Download your achievement certificate.</p>
 
+            <a href="certificate.html">Get Certificate →</a>
 
-<p>
+        </div>
 
-View top performers and rankings.
+        <div class="card">
 
-</p>
+            <h3>⚙️ Admin Panel</h3>
 
+            <p>Manage questions and quiz database.</p>
 
-<a href="leaderboard.html">
+            <a href="admin.html">Open Admin →</a>
 
-View Ranking →
+        </div>
 
-</a>
-
-
-</div>
-
-
-
-
-
-
-<div class="card">
-
-
-<h3>
-🔥 Daily Challenge
-</h3>
-
-
-<p>
-
-Complete daily challenges and earn badges.
-
-</p>
-
-
-<a href="daily.html">
-
-Take Challenge →
-
-</a>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="card">
-
-
-<h3>
-📈 Analytics
-</h3>
-
-
-<p>
-
-Track performance and improvement.
-
-</p>
-
-
-<a href="analytics.html">
-
-View Dashboard →
-
-</a>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="card">
-
-
-<h3>
-📜 Certificate
-</h3>
-
-
-<p>
-
-Download your achievement certificate.
-
-</p>
-
-
-<a href="certificate.html">
-
-Get Certificate →
-
-</a>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="card">
-
-
-<h3>
-⚙️ Admin Panel
-</h3>
-
-
-<p>
-
-Manage questions and quiz database.
-
-</p>
-
-
-<a href="admin.html">
-
-Open Admin →
-
-</a>
-
-
-</div>
-
-
-
-
-
-</div>
-
+    </div>
 
 </section>
-
-
-
-
-
-
 
 <!-- ================= CALL TO ACTION ================= -->
 
-
 <section class="cta">
 
+    <h2>Ready to Power Up?</h2>
 
-<h2>
+    <p>
+        Challenge yourself and become a knowledge champion.
+    </p>
 
-Ready to Power Up?
-
-</h2>
-
-
-
-<p>
-
-Challenge yourself and become a knowledge champion.
-
-</p>
-
-
-
-
-<button onclick="location.href='quiz.html'">
-
-Start Quiz 🚀
-
-</button>
-
-
+    <button onclick="location.href='quiz.html'">
+        Start Quiz 🚀
+    </button>
 
 </section>
 
-
-
-
-
-
-
-
 <!-- ================= FOOTER ================= -->
-
 
 <footer>
 
+    <p>© 2026 NSPCL Power-Up Quiz</p>
 
-<p>
-
-© 2026 NSPCL Power-Up Quiz
-
-</p>
-
-
-<p>
-
-Built for continuous learning and excellence ⚡
-
-</p>
-
+    <p>Built for continuous learning and excellence ⚡</p>
 
 </footer>
 
-
-
-
-
-
-
 <!-- ================= SCRIPTS ================= -->
-
 
 <script src="js/script.js"></script>
 
@@ -556,9 +241,5 @@ Built for continuous learning and excellence ⚡
 
 <script src="js/badge.js"></script>
 
-
-
 </body>
-
-
 </html>
