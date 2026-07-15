@@ -128,6 +128,17 @@ const totalQuestions = document.getElementById("totalQuestions");
 // Variables
 let currentQuestion = 0;
 let userAnswers = new Array(questions.length).fill(null);
+// =====================
+// Timer Variables
+// =====================
+
+let totalTime = 600; // 10 Minutes
+
+let timer;
+
+const timerDisplay = document.getElementById("timer");
+
+const darkBtn = document.getElementById("darkBtn");
 
 // Total Questions
 totalQuestions.textContent = questions.length;
