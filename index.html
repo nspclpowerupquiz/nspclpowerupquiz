@@ -1,1 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>QuizMaster</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<header>
+
+<h1>🧠 QuizMaster</h1>
+
+<div class="header-right">
+
+<button id="darkBtn">
+🌙
+</button>
+
+</div>
+
+</header>
+
+<!-- Landing Page -->
+
+<section id="landing">
+
+<div class="hero">
+
+<h2>Welcome to QuizMaster</h2>
+
+<p>
+Test your knowledge and challenge yourself with exciting quizzes.
+</p>
+
+<button id="startQuiz">
+Start Quiz
+</button>
+
+</div>
+
+</section>
+
+<!-- Quiz Container -->
+
+<section id="quizContainer" class="hidden">
+
+<div class="topBar">
+
+<div>
+
+Question
+<span id="questionNumber">
+1
+</span>
+
+/
+
+<span id="totalQuestions">
+10
+</span>
+
+</div>
+
+<div id="timer">
+
+10:00
+
+</div>
+
+</div>
+
+<div class="progress">
+
+<div id="progressBar">
+
+</div>
+
+</div>
+
+<div class="questionBox">
+
+<h2 id="questionText">
+
+Question appears here...
+
+</h2>
+
+<div id="options">
+
+<button class="option">
+Option A
+</button>
+
+<button class="option">
+Option B
+</button>
+
+<button class="option">
+Option C
+</button>
+
+<button class="option">
+Option D
+</button>
+
+</div>
+
+</div>
+
+<div class="navigation">
+
+<button id="prevBtn">
+
+⬅ Previous
+
+</button>
+
+<button id="nextBtn">
+
+Next ➜
+
+</button>
+
+</div>
+
+<div class="submitArea">
+
+<button id="submitBtn">
+
+Submit Quiz
+
+</button>
+
+</div>
+
+</section>
+
+<!-- Result -->
+
+<section id="resultContainer" class="hidden">
+
+<h2>
+
+🎉 Congratulations!
+
+</h2>
+
+<p>
+
+Your Score
+
+</p>
+
+<h1 id="score">
+
+0 / 10
+
+</h1>
+
+<button id="restartBtn">
+
+Play Again
+
+</button>
+
+<button id="certificateBtn">
+
+Download Certificate
+
+</button>
+
+</section>
+
+<footer>
+
+<p>
+
+Made with ❤️ using HTML, CSS & JavaScript
+
+</p>
+
+</footer>
+
+<script src="questions.js"></script>
+
+<script src="script.js"></script>
+
+</body>
+</html>
