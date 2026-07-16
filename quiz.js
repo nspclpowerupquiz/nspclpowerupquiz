@@ -1,8 +1,6 @@
-// ===============================
-// NSPCL POWER-UP QUIZ ENGINE
-// KBC STYLE + 5 SECOND TIMER
-// ===============================
-
+// ==========================
+// VARIABLES
+// ==========================
 
 let questions = [];
 
@@ -18,50 +16,72 @@ let employee = localStorage.getItem("employee");
 
 
 
-// ===============================
+// ==========================
 // LOGIN CHECK
-// ===============================
+// ==========================
 
-if(employee == null){
+if (employee == null) {
 
     window.location.href = "login.html";
 
 }
-else{
-
-    document.getElementById("welcomeUser").innerHTML =
-    "Welcome <b>"+employee+"</b>";
-
-}
 
 
+// Show employee name
+
+window.onload = function(){
+
+    let user = document.getElementById("welcomeUser");
+
+    if(user){
+
+        user.innerHTML = "Welcome <b>" + employee + "</b>";
+
+    }
+
+};
 
 
-// ===============================
-// LOAD QUESTIONS FROM JSON
-// ===============================
+
+
+// ==========================
+// LOAD QUESTIONS JSON
+// ==========================
+
 
 async function loadQuestions(){
 
+
     try{
 
+
         let response = await fetch("questions.json");
+
+
+        if(!response.ok){
+
+            throw new Error("Questions file not found");
+
+        }
+
 
         questions = await response.json();
 
 
-        console.log("Questions Loaded:", questions.length);
-
-
     }
+
 
     catch(error){
 
-        console.log(error);
 
         alert("Unable to load questions.json");
 
+
+        console.log(error);
+
+
     }
+
 
 }
 
@@ -70,11 +90,15 @@ async function loadQuestions(){
 
 
 
-// ===============================
+
+
+// ==========================
 // START QUIZ
-// ===============================
+// ==========================
+
 
 async function startQuiz(){
+
 
 
     await loadQuestions();
@@ -83,11 +107,15 @@ async function startQuiz(){
 
     if(questions.length === 0){
 
+
         alert("No questions available");
+
 
         return;
 
+
     }
+
 
 
 
@@ -104,11 +132,13 @@ async function startQuiz(){
     document.querySelector(".quiz-intro").style.display="none";
 
 
+
     document.getElementById("quiz-area").style.display="block";
 
 
 
     loadQuestion();
+
 
 
 }
@@ -120,9 +150,12 @@ async function startQuiz(){
 
 
 
-// ===============================
-// DISPLAY QUESTION
-// ===============================
+
+
+// ==========================
+// LOAD QUESTION
+// ==========================
+
 
 function loadQuestion(){
 
@@ -134,18 +167,24 @@ function loadQuestion(){
 
     if(currentQuestion >= questions.length){
 
+
         showResult();
+
 
         return;
 
+
     }
+
 
 
 
     time = 5;
 
 
+
     document.getElementById("time").innerHTML=time;
+
 
 
 
@@ -153,9 +192,13 @@ function loadQuestion(){
 
 
 
+
     document.getElementById("progress").innerHTML =
 
     (currentQuestion+1)+" / "+questions.length;
+
+
+
 
 
 
@@ -166,11 +209,16 @@ function loadQuestion(){
 
 
 
-    let letters=["A","B","C","D"];
+
 
 
 
     let optionHTML="";
+
+
+    let letters=["A","B","C","D"];
+
+
 
 
 
@@ -179,6 +227,7 @@ function loadQuestion(){
 
 
         optionHTML += `
+
 
         <button class="option"
 
@@ -197,14 +246,20 @@ function loadQuestion(){
 
         </button>
 
+
+
         `;
+
 
 
     });
 
 
 
-    document.getElementById("options").innerHTML = optionHTML;
+
+
+    document.getElementById("options").innerHTML=optionHTML;
+
 
 
 
@@ -226,9 +281,10 @@ function loadQuestion(){
 
 
 
-// ===============================
-// 5 SECOND TIMER
-// ===============================
+// ==========================
+// TIMER
+// ==========================
+
 
 function startTimer(){
 
@@ -237,7 +293,9 @@ function startTimer(){
     timer=setInterval(function(){
 
 
+
         time--;
+
 
 
         document.getElementById("time").innerHTML=time;
@@ -247,13 +305,17 @@ function startTimer(){
         if(time<=0){
 
 
+
             clearInterval(timer);
 
 
-            currentQuestion++;
+
+            disableOptions();
 
 
-            loadQuestion();
+
+            nextQuestion();
+
 
 
         }
@@ -261,6 +323,7 @@ function startTimer(){
 
 
     },1000);
+
 
 
 }
@@ -273,9 +336,10 @@ function startTimer(){
 
 
 
-// ===============================
+// ==========================
 // CHECK ANSWER
-// ===============================
+// ==========================
+
 
 function checkAnswer(button,selectedAnswer){
 
@@ -285,13 +349,11 @@ function checkAnswer(button,selectedAnswer){
 
 
 
-    let correctAnswer =
-    questions[currentQuestion].answer;
+    let correctAnswer = questions[currentQuestion].answer;
 
 
 
-    let buttons =
-    document.querySelectorAll(".option");
+    let buttons=document.querySelectorAll(".option");
 
 
 
@@ -314,7 +376,10 @@ function checkAnswer(button,selectedAnswer){
         }
 
 
+
     });
+
+
 
 
 
@@ -323,7 +388,9 @@ function checkAnswer(button,selectedAnswer){
     if(selectedAnswer === correctAnswer){
 
 
+
         score++;
+
 
 
         document.getElementById("liveScore").innerHTML=score;
@@ -335,7 +402,9 @@ function checkAnswer(button,selectedAnswer){
         button.style.color="white";
 
 
+
     }
+
 
     else{
 
@@ -346,6 +415,44 @@ function checkAnswer(button,selectedAnswer){
 
 
     }
+
+
+
+
+    document.getElementById("nextBtn").disabled=false;
+
+
+
+}
+
+
+
+
+
+
+
+
+
+// ==========================
+// DISABLE OPTIONS
+// ==========================
+
+
+function disableOptions(){
+
+
+
+    let buttons=document.querySelectorAll(".option");
+
+
+
+    buttons.forEach(function(btn){
+
+
+        btn.disabled=true;
+
+
+    });
 
 
 
@@ -364,17 +471,21 @@ function checkAnswer(button,selectedAnswer){
 
 
 
-// ===============================
+// ==========================
 // NEXT QUESTION
-// ===============================
+// ==========================
+
 
 function nextQuestion(){
+
 
 
     currentQuestion++;
 
 
+
     loadQuestion();
+
 
 
 }
@@ -387,9 +498,10 @@ function nextQuestion(){
 
 
 
-// ===============================
+// ==========================
 // SHOW RESULT
-// ===============================
+// ==========================
+
 
 function showResult(){
 
@@ -403,7 +515,7 @@ function showResult(){
 
 
 
-    let percentage = Math.round(
+    let percentage=Math.round(
 
         (score/questions.length)*100
 
@@ -411,11 +523,12 @@ function showResult(){
 
 
 
-    document.getElementById("result").innerHTML =
 
 
 
-    `
+    document.getElementById("result").innerHTML = `
+
+
 
     <div class="result-card">
 
@@ -423,32 +536,63 @@ function showResult(){
     <h2>🎉 Congratulations ${employee}</h2>
 
 
+
     <h3>NSPCL Power-Up Quiz Completed</h3>
+
 
 
     <h1>${score} / ${questions.length}</h1>
 
 
+
     <h2>${percentage}%</h2>
 
 
-    <br>
 
 
-    <button onclick="location.reload()">
+    <button onclick="restartQuiz()">
 
-    🔄 Take Quiz Again
+    🔄 Play Again
 
     </button>
 
 
+
     </div>
+
+
 
     `;
 
 
 
+
+
+
     localStorage.setItem("score",score);
+
+
+
+}
+
+
+
+
+
+
+
+
+
+// ==========================
+// RESTART QUIZ
+// ==========================
+
+
+function restartQuiz(){
+
+
+
+    location.reload();
 
 
 
