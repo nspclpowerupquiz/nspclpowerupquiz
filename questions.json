@@ -1,11 +1,81 @@
 [
   {
+    "question": "NSPCL is a joint venture between NTPC and which company?",
+    "options": [
+      "SAIL",
+      "BHEL",
+      "ONGC",
+      "GAIL"
+    ],
+    "answer": "SAIL"
+  },
+  {
+    "question": "Which department handles Contracts and Materials management?",
+    "options": [
+      "C&M",
+      "Finance",
+      "HR",
+      "IT"
+    ],
+    "answer": "C&M"
+  },
+  {
+    "question": "Which gas is essential for human breathing?",
+    "options": [
+      "Carbon dioxide",
+      "Oxygen",
+      "Nitrogen",
+      "Hydrogen"
+    ],
+    "answer": "Oxygen"
+  },
+  {
+    "question": "Capital of India is:",
+    "options": [
+      "Mumbai",
+      "Delhi",
+      "Kolkata",
+      "Chennai"
+    ],
+    "answer": "Delhi"
+  },
+  {
+    "question": "Which planet is called the Red Planet?",
+    "options": [
+      "Earth",
+      "Mars",
+      "Jupiter",
+      "Venus"
+    ],
+    "answer": "Mars"
+  },
+  {
+    "question": "Procurement mainly deals with:",
+    "options": [
+      "Buying goods and services",
+      "Employee training",
+      "Power generation",
+      "Accounting"
+    ],
+    "answer": "Buying goods and services"
+  },
+  {
+    "question": "Inventory management focuses on:",
+    "options": [
+      "Stock control",
+      "Marketing",
+      "Recruitment",
+      "Sales"
+    ],
+    "answer": "Stock control"
+  },
+  {
     "question": "GeM stands for:",
     "options": [
       "Government e-Marketplace",
       "Government e-Management",
-      "Global electronic Market",
-      "None of the above"
+      "Global Electronic Market",
+      "Government e-Merchant"
     ],
     "answer": "Government e-Marketplace"
   },
@@ -18,5 +88,115 @@
       "Ministry of Power"
     ],
     "answer": "Ministry of Commerce & Industry"
+  },
+  {
+    "question": "Direct Purchase in GeM without comparison is allowed up to:",
+    "options": [
+      "₹25,000",
+      "₹50,000",
+      "₹1,00,000",
+      "₹5,00,000"
+    ],
+    "answer": "₹25,000"
+  },
+  {
+    "question": "Which of the following is NOT a GeM facility?",
+    "options": [
+      "Reverse Auction",
+      "e-BG",
+      "Offline Negotiation",
+      "e-Bidding"
+    ],
+    "answer": "Offline Negotiation"
+  },
+  {
+    "question": "Custom Bid on GeM is used when:",
+    "options": [
+      "Product is available in catalogue",
+      "Buyer needs tailor-made specification",
+      "Only one vendor is listed",
+      "Purchase is urgent"
+    ],
+    "answer": "Buyer needs tailor-made specification"
+  },
+  {
+    "question": "GeM promotes:",
+    "options": [
+      "Monopoly of OEMs",
+      "Transparency and competition",
+      "Only foreign vendors",
+      "Manual procurement"
+    ],
+    "answer": "Transparency and competition"
+  },
+  {
+    "question": "Integrity Pact is mandatory in NSPCL tenders above:",
+    "options": [
+      "₹1 crore",
+      "₹5 crore",
+      "₹10 crore",
+      "₹25 crore"
+    ],
+    "answer": "₹10 crore"
+  },
+  {
+    "question": "Two-part bid system is used to:",
+    "options": [
+      "Save time",
+      "Evaluate technical bid before price bid",
+      "Reduce GST",
+      "Avoid tendering"
+    ],
+    "answer": "Evaluate technical bid before price bid"
+  },
+  {
+    "question": "Which is NOT a valid reason for Single Tender Enquiry?",
+    "options": [
+      "PAC item",
+      "Emergency",
+      "OEM supply",
+      "Poor planning"
+    ],
+    "answer": "Poor planning"
+  },
+  {
+    "question": "Which department verifies technical compliance?",
+    "options": [
+      "Indenting Department",
+      "Finance",
+      "Audit",
+      "HR"
+    ],
+    "answer": "Indenting Department"
+  },
+  {
+    "question": "Procurement principle emphasizes:",
+    "options": [
+      "Transparency",
+      "Competition",
+      "Fairness",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "Financial QR generally checks:",
+    "options": [
+      "Turnover",
+      "Net Worth",
+      "Profitability",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "Main justification for OEM/OES procurement:",
+    "options": [
+      "Lower price",
+      "Warranty and compatibility",
+      "Fewer vendors",
+      "Avoid GeM"
+    ],
+    "answer": "Warranty and compatibility"
   }
 ]
