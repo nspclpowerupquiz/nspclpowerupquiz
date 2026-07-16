@@ -3026,3 +3026,322 @@ color:red;
     text-align:center;
 
 }
+/* ==========================
+   NSPCL POWER-UP QUIZ UI UPGRADE
+========================== */
+
+
+/* Background */
+
+body{
+
+background:linear-gradient(135deg,#001f3f,#005bea);
+
+color:white;
+
+}
+
+
+
+
+
+/* Header Improvement */
+
+header{
+
+background:linear-gradient(90deg,#ff9800,#ff5722);
+
+padding:25px;
+
+text-align:center;
+
+border-radius:0 0 25px 25px;
+
+box-shadow:0 5px 20px #0005;
+
+}
+
+
+header h1{
+
+font-size:38px;
+
+}
+
+
+
+
+
+
+/* User Score Card */
+
+
+.user-box{
+
+width:90%;
+
+max-width:900px;
+
+margin:20px auto;
+
+background:white;
+
+color:#003366;
+
+padding:15px 25px;
+
+border-radius:15px;
+
+display:flex;
+
+justify-content:space-between;
+
+box-shadow:0 5px 15px #0005;
+
+}
+
+
+
+
+
+
+
+/* Quiz Container */
+
+
+.quiz-intro,
+#quiz-area{
+
+
+background:rgba(255,255,255,0.15);
+
+backdrop-filter:blur(10px);
+
+width:90%;
+
+max-width:850px;
+
+margin:40px auto;
+
+padding:35px;
+
+border-radius:25px;
+
+box-shadow:0 10px 30px #0006;
+
+text-align:center;
+
+}
+
+
+
+
+
+/* Start Button */
+
+
+button{
+
+background:linear-gradient(45deg,#ff9800,#ff5722);
+
+color:white;
+
+border:none;
+
+padding:15px 35px;
+
+border-radius:50px;
+
+font-size:18px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+
+button:hover{
+
+transform:scale(1.08);
+
+box-shadow:0 0 20px orange;
+
+}
+
+
+
+
+
+/* Question Box */
+
+
+.question-box{
+
+background:#001b35;
+
+padding:25px;
+
+border-radius:20px;
+
+margin-bottom:25px;
+
+}
+
+
+
+
+
+/* Timer */
+
+
+#time{
+
+background:#ff5722;
+
+padding:12px 18px;
+
+border-radius:50%;
+
+font-size:25px;
+
+}
+
+
+
+
+
+/* Options Layout */
+
+
+#options{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:20px;
+
+}
+
+
+
+
+/* Option Buttons */
+
+
+.option{
+
+background:white;
+
+color:#003366;
+
+width:100%;
+
+text-align:left;
+
+padding:18px;
+
+border-radius:15px;
+
+font-size:17px;
+
+}
+
+
+
+.option:hover{
+
+background:#ff9800;
+
+color:white;
+
+}
+
+
+
+
+
+/* Option Letter */
+
+
+.option-letter{
+
+background:#003366;
+
+color:white;
+
+padding:8px 12px;
+
+border-radius:50%;
+
+margin-right:15px;
+
+}
+
+
+
+
+
+/* Result Card */
+
+
+.result-card{
+
+background:white;
+
+color:#003366;
+
+padding:40px;
+
+border-radius:25px;
+
+text-align:center;
+
+margin:40px auto;
+
+max-width:600px;
+
+}
+
+
+.result-card h1{
+
+font-size:60px;
+
+}
+
+
+
+
+
+/* Mobile View */
+
+
+@media(max-width:700px){
+
+#options{
+
+grid-template-columns:1fr;
+
+}
+
+
+.user-box{
+
+flex-direction:column;
+
+gap:10px;
+
+}
+
+
+header h1{
+
+font-size:25px;
+
+}
+
+}
