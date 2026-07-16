@@ -194,7 +194,7 @@ async function loadQuestions(){
         questions = await response.json();
 
         // Shuffle Questions
-        questions.sort(() => Math.random() - 0.5);
+ questions = shuffleArray(questions);
 
     }
 
