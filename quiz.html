@@ -558,7 +558,7 @@ function loadQuestion(){
     // Shuffle options
     let options = [...q.options];
 
-    options.sort(() => Math.random() - 0.5);
+    options = shuffleArray(options);
 
     let html="";
 
