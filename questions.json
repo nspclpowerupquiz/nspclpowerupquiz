@@ -7,8 +7,7 @@
       "Global electronic Market",
       "None of the above"
     ],
-    "answer": "Government e-Marketplace",
-    "category": "GeM"
+    "answer": "Government e-Marketplace"
   },
   {
     "question": "Which ministry operates the GeM portal?",
@@ -18,7 +17,6 @@
       "Ministry of Corporate Affairs",
       "Ministry of Power"
     ],
-    "answer": "Ministry of Commerce & Industry",
-    "category": "GeM"
+    "answer": "Ministry of Commerce & Industry"
   }
 ]
