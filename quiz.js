@@ -1,1 +1,455 @@
+// ===============================
+// NSPCL POWER-UP QUIZ ENGINE
+// KBC STYLE + 5 SECOND TIMER
+// ===============================
 
+
+let questions = [];
+
+let currentQuestion = 0;
+
+let score = 0;
+
+let timer;
+
+let time = 5;
+
+let employee = localStorage.getItem("employee");
+
+
+
+// ===============================
+// LOGIN CHECK
+// ===============================
+
+if(employee == null){
+
+    window.location.href = "login.html";
+
+}
+else{
+
+    document.getElementById("welcomeUser").innerHTML =
+    "Welcome <b>"+employee+"</b>";
+
+}
+
+
+
+
+// ===============================
+// LOAD QUESTIONS FROM JSON
+// ===============================
+
+async function loadQuestions(){
+
+    try{
+
+        let response = await fetch("questions.json");
+
+        questions = await response.json();
+
+
+        console.log("Questions Loaded:", questions.length);
+
+
+    }
+
+    catch(error){
+
+        console.log(error);
+
+        alert("Unable to load questions.json");
+
+    }
+
+}
+
+
+
+
+
+
+// ===============================
+// START QUIZ
+// ===============================
+
+async function startQuiz(){
+
+
+    await loadQuestions();
+
+
+
+    if(questions.length === 0){
+
+        alert("No questions available");
+
+        return;
+
+    }
+
+
+
+    currentQuestion = 0;
+
+    score = 0;
+
+
+
+    document.getElementById("liveScore").innerHTML = score;
+
+
+
+    document.querySelector(".quiz-intro").style.display="none";
+
+
+    document.getElementById("quiz-area").style.display="block";
+
+
+
+    loadQuestion();
+
+
+}
+
+
+
+
+
+
+
+
+// ===============================
+// DISPLAY QUESTION
+// ===============================
+
+function loadQuestion(){
+
+
+
+    clearInterval(timer);
+
+
+
+    if(currentQuestion >= questions.length){
+
+        showResult();
+
+        return;
+
+    }
+
+
+
+    time = 5;
+
+
+    document.getElementById("time").innerHTML=time;
+
+
+
+    let q = questions[currentQuestion];
+
+
+
+    document.getElementById("progress").innerHTML =
+
+    (currentQuestion+1)+" / "+questions.length;
+
+
+
+    document.getElementById("question").innerHTML =
+
+    "Q"+(currentQuestion+1)+". "+q.question;
+
+
+
+
+    let letters=["A","B","C","D"];
+
+
+
+    let optionHTML="";
+
+
+
+    q.options.forEach(function(option,index){
+
+
+
+        optionHTML += `
+
+        <button class="option"
+
+        onclick="checkAnswer(this,'${option}')">
+
+
+        <span class="option-letter">
+
+        ${letters[index]}
+
+        </span>
+
+
+        ${option}
+
+
+        </button>
+
+        `;
+
+
+    });
+
+
+
+    document.getElementById("options").innerHTML = optionHTML;
+
+
+
+    document.getElementById("nextBtn").disabled=true;
+
+
+
+    startTimer();
+
+
+
+}
+
+
+
+
+
+
+
+
+
+// ===============================
+// 5 SECOND TIMER
+// ===============================
+
+function startTimer(){
+
+
+
+    timer=setInterval(function(){
+
+
+        time--;
+
+
+        document.getElementById("time").innerHTML=time;
+
+
+
+        if(time<=0){
+
+
+            clearInterval(timer);
+
+
+            currentQuestion++;
+
+
+            loadQuestion();
+
+
+        }
+
+
+
+    },1000);
+
+
+}
+
+
+
+
+
+
+
+
+
+// ===============================
+// CHECK ANSWER
+// ===============================
+
+function checkAnswer(button,selectedAnswer){
+
+
+
+    clearInterval(timer);
+
+
+
+    let correctAnswer =
+    questions[currentQuestion].answer;
+
+
+
+    let buttons =
+    document.querySelectorAll(".option");
+
+
+
+
+    buttons.forEach(function(btn){
+
+
+        btn.disabled=true;
+
+
+
+        if(btn.innerText.includes(correctAnswer)){
+
+
+            btn.style.background="#16a34a";
+
+            btn.style.color="white";
+
+
+        }
+
+
+    });
+
+
+
+
+
+    if(selectedAnswer === correctAnswer){
+
+
+        score++;
+
+
+        document.getElementById("liveScore").innerHTML=score;
+
+
+
+        button.style.background="#16a34a";
+
+        button.style.color="white";
+
+
+    }
+
+    else{
+
+
+        button.style.background="#dc2626";
+
+        button.style.color="white";
+
+
+    }
+
+
+
+    document.getElementById("nextBtn").disabled=false;
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+// ===============================
+// NEXT QUESTION
+// ===============================
+
+function nextQuestion(){
+
+
+    currentQuestion++;
+
+
+    loadQuestion();
+
+
+}
+
+
+
+
+
+
+
+
+
+// ===============================
+// SHOW RESULT
+// ===============================
+
+function showResult(){
+
+
+
+    clearInterval(timer);
+
+
+
+    document.getElementById("quiz-area").style.display="none";
+
+
+
+    let percentage = Math.round(
+
+        (score/questions.length)*100
+
+    );
+
+
+
+    document.getElementById("result").innerHTML =
+
+
+
+    `
+
+    <div class="result-card">
+
+
+    <h2>🎉 Congratulations ${employee}</h2>
+
+
+    <h3>NSPCL Power-Up Quiz Completed</h3>
+
+
+    <h1>${score} / ${questions.length}</h1>
+
+
+    <h2>${percentage}%</h2>
+
+
+    <br>
+
+
+    <button onclick="location.reload()">
+
+    🔄 Take Quiz Again
+
+    </button>
+
+
+    </div>
+
+    `;
+
+
+
+    localStorage.setItem("score",score);
+
+
+
+}
