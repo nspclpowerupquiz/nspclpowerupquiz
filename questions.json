@@ -1,1 +1,24 @@
-
+[
+  {
+    "question": "GeM stands for:",
+    "options": [
+      "Government e-Marketplace",
+      "Government e-Management",
+      "Global electronic Market",
+      "None of the above"
+    ],
+    "answer": "Government e-Marketplace",
+    "category": "GeM"
+  },
+  {
+    "question": "Which ministry operates the GeM portal?",
+    "options": [
+      "Ministry of Finance",
+      "Ministry of Commerce & Industry",
+      "Ministry of Corporate Affairs",
+      "Ministry of Power"
+    ],
+    "answer": "Ministry of Commerce & Industry",
+    "category": "GeM"
+  }
+]
