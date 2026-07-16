@@ -275,269 +275,33 @@ function startTimer(){
 }
 
 <script>
+<script>
 
+let employee = ...
+let questions = []
 
-// =============================
-// LOGIN CHECK
-// =============================
+async function loadQuestions(){...}
 
-
-let employee =
-localStorage.getItem("employee");
-
-
-if(employee==null){
-
-window.location.href="login.html";
-
-}
-
-
-
-
-document.getElementById("welcomeUser").innerHTML =
-
-"Welcome Employee : <b>" + employee + "</b>";
-
-
-
-
-// =============================
-// QUESTIONS
-// =============================
-
-
-let questions = [];
-async function loadQuestions() {
-
-    try {
-
-        const response = await fetch("questions.json");
-
-        if (!response.ok) {
-            throw new Error("Cannot load questions.json");
-        }
-
-        questions = await response.json();
-
-    } catch (error) {
-
-        alert("Unable to load quiz questions.");
-
-        console.error(error);
-
-    }
-
-}
-
-{
-
-question:"NSPCL is a joint venture between NTPC and which company?",
-
-options:[
-"SAIL",
-"BHEL",
-"ONGC",
-"GAIL"
-],
-
-answer:"SAIL"
-
-},
-
-
-{
-
-question:"Which department handles Contracts and Materials management?",
-
-options:[
-"C&M",
-"Finance",
-"HR",
-"IT"
-],
-
-answer:"C&M"
-
-},
-
-
-{
-
-question:"Which gas is essential for human breathing?",
-
-options:[
-"Carbon dioxide",
-"Oxygen",
-"Nitrogen",
-"Hydrogen"
-],
-
-answer:"Oxygen"
-
-},
-
-
-{
-
-question:"Capital of India is:",
-
-options:[
-"Mumbai",
-"Delhi",
-"Kolkata",
-"Chennai"
-],
-
-answer:"Delhi"
-
-},
-
-
-{
-
-question:"Which planet is called the Red Planet?",
-
-options:[
-"Earth",
-"Mars",
-"Jupiter",
-"Venus"
-],
-
-answer:"Mars"
-
-},
-
-
-{
-
-question:"Procurement mainly deals with:",
-
-options:[
-"Buying goods and services",
-"Employee training",
-"Power generation",
-"Accounting"
-],
-
-answer:"Buying goods and services"
-
-},
-
-
-{
-
-question:"Inventory management focuses on:",
-
-options:[
-"Stock control",
-"Marketing",
-"Recruitment",
-"Sales"
-],
-
-answer:"Stock control"
-
-}
-
-
-];
-
-
-
-
-
-// =============================
-// VARIABLES
-// =============================
-
-
-let currentQuestion=0;
-
-let score=0;
-
-let time=60;
-
+let currentQuestion = 0;
+let score = 0;
+let time = 60;
 let timer;
 
+async function startQuiz(){...}
 
+function startTimer(){...}
 
+function loadQuestion(){...}
 
+function checkAnswer(){...}
 
+function nextQuestion(){...}
 
-// =============================
-// START QUIZ
-// =============================
+function showResult(){...}
 
+function shuffleArray(){...}
 
-async function startQuiz(){
-
-    await loadQuestions();
-
-    if(questions.length===0){
-        return;
-    }
-
-    document.querySelector(".quiz-intro").style.display="none";
-
-    document.getElementById("quiz-area").style.display="block";
-
-    startTimer();
-
-    loadQuestion();
-
-}
-
-
-document.querySelector(".quiz-intro").style.display="none";
-
-
-document.getElementById("quiz-area").style.display="block";
-
-
-startTimer();
-
-
-loadQuestion();
-
-
-}
-
-
-// =============================
-// TIMER
-// =============================
-
-
-function startTimer(){
-
-
-timer=setInterval(function(){
-
-
-time--;
-
-
-document.getElementById("time").innerHTML=time;
-
-
-
-if(time<=0){
-
-
-clearInterval(timer);
-
-
-showResult();
-
-
-}
-
-
-},1000);
-
-
+</script>
 }
 // =======================================
 // LOAD QUESTION
