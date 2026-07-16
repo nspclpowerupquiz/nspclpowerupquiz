@@ -4096,3 +4096,149 @@ background-position:0% 50%;
 }
 
 }
+/* ================= LARGE HOMEPAGE FONT ================= */
+
+
+/* Main Hero Title */
+
+.hero-content h1{
+
+font-size:72px;
+font-weight:900;
+letter-spacing:3px;
+
+}
+
+
+
+/* Hero Subtitle */
+
+.hero-content h2{
+
+font-size:42px;
+font-weight:700;
+
+}
+
+
+
+/* Hero Description */
+
+.hero-content p{
+
+font-size:26px;
+line-height:1.8;
+max-width:1000px;
+
+}
+
+
+
+/* Header Logo */
+
+.logo h2{
+
+font-size:34px;
+
+}
+
+
+.logo span{
+
+font-size:17px;
+
+}
+
+
+
+/* Navigation Tabs */
+
+.header nav a{
+
+font-size:18px;
+font-weight:700;
+
+}
+
+
+
+/* About NSPCL Heading */
+
+.about-section h2{
+
+font-size:45px;
+
+}
+
+
+
+/* About Text */
+
+.about-section p{
+
+font-size:22px;
+line-height:1.9;
+max-width:1100px;
+
+}
+
+
+
+/* Feature Section Heading */
+
+.features h2{
+
+font-size:45px;
+
+}
+
+
+
+/* Feature Card Heading */
+
+.feature-card h3{
+
+font-size:26px;
+
+}
+
+
+
+/* Feature Card Description */
+
+.feature-card p{
+
+font-size:19px;
+line-height:1.7;
+
+}
+
+
+
+/* Statistics */
+
+.stat-card h2{
+
+font-size:45px;
+
+}
+
+
+.stat-card p{
+
+font-size:22px;
+font-weight:700;
+
+}
+
+
+
+/* Start Quiz Button */
+
+.cta button{
+
+font-size:28px;
+
+padding:18px 55px;
+
+}
