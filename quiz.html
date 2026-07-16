@@ -168,11 +168,21 @@ async function loadQuestions(){
 
         questions = await response.json();
 
-console.log("Questions Loaded:", questions.length);
+        console.log("Questions Loaded:", questions.length);
 
-shuffleArray(questions);
+        shuffleArray(questions);
 
     }
+
+    catch(error){
+
+        alert("Unable to load questions.");
+
+        console.error(error);
+
+    }
+
+}
 
     catch(error){
 
