@@ -234,11 +234,21 @@ function startTimer(){
 
         document.getElementById("time").innerHTML = time;
 
-        if(time<=0){
+        if(time <= 0){
 
             clearInterval(timer);
 
-            showResult();
+            currentQuestion++;
+
+            if(currentQuestion < questions.length){
+
+                loadQuestion();
+
+            }else{
+
+                showResult();
+
+            }
 
         }
 
