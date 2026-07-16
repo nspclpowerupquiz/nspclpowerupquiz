@@ -3794,3 +3794,305 @@ font-size:30px;
 font-size:20px;
 
 }
+/* ================= HERO ANIMATIONS ================= */
+
+
+.hero-content h1{
+
+animation: slideDown 1.5s ease;
+}
+
+
+.hero-content h2{
+
+animation: fadeIn 2s ease;
+}
+
+
+
+.hero-content p{
+
+animation: fadeUp 2.5s ease;
+
+}
+
+
+
+
+@keyframes slideDown{
+
+from{
+
+opacity:0;
+transform:translateY(-60px);
+
+}
+
+to{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
+}
+
+
+
+
+@keyframes fadeIn{
+
+from{
+
+opacity:0;
+
+}
+
+to{
+
+opacity:1;
+
+}
+
+}
+
+
+
+
+@keyframes fadeUp{
+
+from{
+
+opacity:0;
+transform:translateY(50px);
+
+}
+
+to{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
+}
+
+
+
+
+
+/* ================= GLOWING POWER TITLE ================= */
+
+
+.hero-content h1{
+
+text-shadow:
+
+0 0 10px #00bfff,
+0 0 20px #00bfff,
+0 0 40px #0066ff;
+
+animation:pulseGlow 3s infinite;
+
+}
+
+
+
+@keyframes pulseGlow{
+
+0%{
+
+text-shadow:
+0 0 10px #00bfff;
+
+}
+
+
+50%{
+
+text-shadow:
+0 0 30px #00ffff,
+0 0 60px #0066ff;
+
+}
+
+
+100%{
+
+text-shadow:
+0 0 10px #00bfff;
+
+}
+
+}
+
+
+
+
+
+
+/* ================= START QUIZ BUTTON ANIMATION ================= */
+
+
+.cta button,
+.quiz-btn{
+
+
+animation:floatButton 2s infinite;
+
+}
+
+
+
+@keyframes floatButton{
+
+
+0%,100%{
+
+transform:translateY(0);
+
+}
+
+
+50%{
+
+transform:translateY(-8px);
+
+}
+
+
+}
+
+
+
+
+
+/* ================= FEATURE CARD ANIMATION ================= */
+
+
+.feature-card{
+
+
+transition:0.4s;
+
+animation:cardAppear 1s ease;
+
+}
+
+
+
+.feature-card:hover{
+
+
+transform:translateY(-15px) scale(1.03);
+
+box-shadow:
+
+0 15px 35px rgba(0,102,255,0.3);
+
+}
+
+
+
+
+@keyframes cardAppear{
+
+
+from{
+
+opacity:0;
+
+transform:translateY(40px);
+
+}
+
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+
+
+
+
+/* ================= STAT CARD EFFECT ================= */
+
+
+.stat-card{
+
+
+transition:0.3s;
+
+}
+
+
+
+.stat-card:hover{
+
+
+transform:scale(1.1);
+
+background:#003366;
+
+color:white;
+
+}
+
+
+
+
+
+/* ================= ENERGY MOVING OVERLAY ================= */
+
+
+.hero-overlay{
+
+
+background:
+
+linear-gradient(
+120deg,
+rgba(0,51,102,.75),
+rgba(0,153,255,.45),
+rgba(0,51,102,.75)
+);
+
+
+background-size:300% 300%;
+
+animation:energyMove 8s infinite;
+
+}
+
+
+
+@keyframes energyMove{
+
+
+0%{
+
+background-position:0% 50%;
+
+}
+
+
+50%{
+
+background-position:100% 50%;
+
+}
+
+
+100%{
+
+background-position:0% 50%;
+
+}
+
+}
