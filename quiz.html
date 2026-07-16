@@ -203,20 +203,17 @@ async function startQuiz(){
 
     await loadQuestions();
 
-    if(questions.length===0){
-
+    if(questions.length === 0){
+        alert("No questions loaded.");
         return;
-
     }
 
     currentQuestion = 0;
     score = 0;
-    time = 60;
 
     document.getElementById("liveScore").innerHTML = score;
 
     document.querySelector(".quiz-intro").style.display = "none";
-
     document.getElementById("quiz-area").style.display = "block";
 
     loadQuestion();
@@ -255,29 +252,24 @@ function startTimer(){
 
 function loadQuestion(){
 
-    // Stop previous timer
     clearInterval(timer);
 
-    // Reset timer for every question
     time = 5;
-
     document.getElementById("time").innerHTML = time;
 
-    // Start 5-second timer
-    startTimer();
-
-    // Load current question
     let q = questions[currentQuestion];
 
-    // Update progress
+    if(!q){
+        showResult();
+        return;
+    }
+
     document.getElementById("progress").innerHTML =
-    (currentQuestion + 1) + " / " + questions.length;
+        (currentQuestion + 1) + " / " + questions.length;
 
-    // Display question
     document.getElementById("question").innerHTML =
-    (currentQuestion + 1) + ". " + q.question;
+        (currentQuestion + 1) + ". " + q.question;
 
-    // Copy and shuffle options
     let options = [...q.options];
 
     shuffleArray(options);
@@ -289,19 +281,17 @@ function loadQuestion(){
         html += `
         <button class="option"
         onclick="checkAnswer(this,'${option}')">
-
-            ${option}
-
+        ${option}
         </button>
         `;
 
     });
 
-    // Display options
     document.getElementById("options").innerHTML = html;
 
-    // Disable Next button until an answer is selected
     document.getElementById("nextBtn").disabled = true;
+
+    startTimer();
 
 }
 // ==========================
