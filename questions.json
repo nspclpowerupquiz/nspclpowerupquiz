@@ -130,73 +130,73 @@
     "answer": "Transparency and competition"
   },
   {
-    "question": "Integrity Pact is mandatory in NSPCL tenders above:",
+    "question": "Integrity Pact is mandatory in high-value tenders to ensure:",
     "options": [
-      "₹1 crore",
-      "₹5 crore",
-      "₹10 crore",
-      "₹25 crore"
+      "Transparency",
+      "Fast payment",
+      "Lower taxes",
+      "Higher prices"
     ],
-    "answer": "₹10 crore"
+    "answer": "Transparency"
   },
   {
-    "question": "Two-part bid system is used to:",
+    "question": "Two-part bidding consists of:",
     "options": [
-      "Save time",
-      "Evaluate technical bid before price bid",
-      "Reduce GST",
-      "Avoid tendering"
+      "Technical Bid and Price Bid",
+      "Online and Offline Bid",
+      "Single Bid and Reverse Auction",
+      "Financial Bid and HR Bid"
     ],
-    "answer": "Evaluate technical bid before price bid"
+    "answer": "Technical Bid and Price Bid"
   },
   {
-    "question": "Which is NOT a valid reason for Single Tender Enquiry?",
+    "question": "Which document specifies the technical requirements of an item?",
     "options": [
-      "PAC item",
-      "Emergency",
-      "OEM supply",
-      "Poor planning"
+      "Specification",
+      "Invoice",
+      "Receipt",
+      "Voucher"
     ],
-    "answer": "Poor planning"
+    "answer": "Specification"
   },
   {
-    "question": "Which department verifies technical compliance?",
+    "question": "Which department usually raises the purchase indent?",
     "options": [
       "Indenting Department",
       "Finance",
-      "Audit",
-      "HR"
+      "HR",
+      "Security"
     ],
     "answer": "Indenting Department"
   },
   {
-    "question": "Procurement principle emphasizes:",
+    "question": "The main objective of inventory management is:",
+    "options": [
+      "Maintain optimum stock",
+      "Increase waste",
+      "Reduce quality",
+      "Delay procurement"
+    ],
+    "answer": "Maintain optimum stock"
+  },
+  {
+    "question": "Which of the following is a principle of public procurement?",
     "options": [
       "Transparency",
-      "Competition",
-      "Fairness",
+      "Fair Competition",
+      "Value for Money",
       "All of the above"
     ],
     "answer": "All of the above"
   },
   {
-    "question": "Financial QR generally checks:",
+    "question": "Which safety equipment should always be worn while working in industrial areas?",
     "options": [
-      "Turnover",
-      "Net Worth",
-      "Profitability",
+      "Helmet",
+      "Safety Shoes",
+      "Safety Goggles",
       "All of the above"
     ],
     "answer": "All of the above"
-  },
-  {
-    "question": "Main justification for OEM/OES procurement:",
-    "options": [
-      "Lower price",
-      "Warranty and compatibility",
-      "Fewer vendors",
-      "Avoid GeM"
-    ],
-    "answer": "Warranty and compatibility"
   }
 ]
