@@ -13,29 +13,19 @@
 
 </head>
 
-
 <body>
-
 
 <!-- ================= HEADER ================= -->
 
-
 <header class="header">
 
+<h1>⚡ NSPCL Power-Up Quiz</h1>
 
-<h1>
-⚡ NSPCL Power-Up Quiz
-</h1>
-
-
-<p>
-Learn • Compete • Achieve
-</p>
-
+<p>Learn • Compete • Achieve</p>
 
 <nav>
 
-<a href="index.html">Home</a>
+<a href="index.html">🏠 Home</a>
 
 <a href="about.html">About</a>
 
@@ -47,31 +37,24 @@ Learn • Compete • Achieve
 
 <a href="certificate.html">📜 Certificate</a>
 
-
 </nav>
-
 
 </header>
 
-
-
-
-
 <!-- ================= QUIZ INTRO ================= -->
-
 
 <section class="quiz-intro">
 
+<h2>🚀 Welcome to NSPCL Power-Up Challenge</h2>
 
-<h2>
-🚀 Welcome to NSPCL Power-Up Challenge
-</h2>
+<p id="welcomeUser"></p>
 
+<p>
 
-<p id="welcomeUser">
+Test your knowledge on NSPCL, Procurement, GeM, Safety,
+Electrical, Mechanical and C&M.
 
 </p>
-
 
 <button onclick="startQuiz()">
 
@@ -79,95 +62,81 @@ Learn • Compete • Achieve
 
 </button>
 
-
 </section>
 
-
-
-
-
-<!-- ================= ONLINE QUIZ ================= -->
-
+<!-- ================= QUIZ ================= -->
 
 <section class="online-quiz">
 
-
 <div id="quiz-area" style="display:none;">
 
+<h2>NSPCL Knowledge Challenge</h2>
 
-
-<h2>
-NSPCL Knowledge Challenge
-</h2>
-
-
+<div class="quiz-info">
 
 <div class="timer">
 
+⏱ Time Left :
 
-⏱ Time Left:
-
-<span id="time">
-60
-</span>
-
-seconds
-
+<span id="time">60</span> sec
 
 </div>
 
+<div class="progress">
 
+Question
 
+<span id="progress">
+
+1 / 20
+
+</span>
+
+</div>
+
+<div class="score">
+
+Score :
+
+<span id="liveScore">
+
+0
+
+</span>
+
+</div>
+
+</div>
 
 <div class="question-card">
 
+<h3 id="question"></h3>
 
-<h3 id="question">
+<div id="options"></div>
 
-</h3>
+<br>
 
+<button id="nextBtn"
 
-<div id="options">
+onclick="nextQuestion()"
 
-</div>
+disabled>
 
-
-
-<button onclick="nextQuestion()">
-
-Next Question ➡️
+Next Question ➜
 
 </button>
 
-
+</div>
 
 </div>
 
-
-</div>
-
-
-
-
-<h2 id="result">
-
-</h2>
-
-
+<h2 id="result"></h2>
 
 </section>
 
-
-
-
-
-
-
 <!-- ================= FOOTER ================= -->
 
-
 <footer>
-
 
 <p>
 
@@ -175,21 +144,37 @@ Next Question ➡️
 
 </p>
 
-
 <p>
 
 Learn • Compete • Grow ⚡
 
 </p>
 
-
 </footer>
 
+<script>
 
+// =======================================
+// LOGIN CHECK
+// =======================================
 
+let employee = localStorage.getItem("employee");
 
+if(employee==null){
 
+window.location.href="login.html";
 
+}
+
+document.getElementById("welcomeUser").innerHTML=
+
+"Welcome <b>"+employee+"</b>";
+
+// =======================================
+// QUESTIONS WILL BE LOADED FROM JSON
+// =======================================
+
+let questions=[];
 
 <script>
 
