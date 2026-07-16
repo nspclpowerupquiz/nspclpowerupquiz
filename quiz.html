@@ -1,416 +1,413 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>NSPCL Power-Up Quiz</title>
-
-<link rel="stylesheet" href="style.css">
-
-</head>
-
-<body>
-
-<!-- ================= HEADER ================= -->
-
-<header class="header">
-
-<h1>⚡ NSPCL Power-Up Quiz</h1>
-
-<p>Learn • Compete • Achieve</p>
-
-<nav>
-
-<a href="index.html">🏠 Home</a>
-
-<a href="about.html">About</a>
-
-<a href="login.html">Quiz</a>
-
-<a href="leaderboard.html">🏆 Leaderboard</a>
-
-<a href="gallery.html">🖼 Gallery</a>
-
-<a href="certificate.html">📜 Certificate</a>
-
-</nav>
-
-</header>
-
-<!-- ================= QUIZ INTRO ================= -->
-
-<section class="quiz-intro">
-
-<h2>🚀 Welcome to NSPCL Power-Up Challenge</h2>
-
-<p id="welcomeUser"></p>
-
-<p>
-
-Test your knowledge of NSPCL, C&M, GeM, Safety,
-Electrical and Mechanical Engineering.
-
-</p>
-
-<button onclick="startQuiz()">
-
-🚀 Start Quiz
-
-</button>
-
-</section>
-
-<!-- ================= QUIZ AREA ================= -->
-
-<section class="online-quiz">
-
-<div id="quiz-area" style="display:none;">
-
-<h2>NSPCL Knowledge Challenge</h2>
-
-<div class="quiz-info">
-
-<div class="timer">
-
-⏱ Time Left :
-<span id="time">60</span> sec
-
-</div>
-
-<div class="progress">
-
-Question :
-<span id="progress">0/0</span>
-
-</div>
-
-<div class="score">
-
-Score :
-<span id="liveScore">0</span>
-
-</div>
-
-</div>
-
-<div class="question-card">
-
-<h3 id="question"></h3>
-
-<div id="options"></div>
-
-<br>
-
-<button id="nextBtn"
-
-onclick="nextQuestion()"
-
-disabled>
-
-Next Question ➜
-
-</button>
-
-</div>
-
-</div>
-
-<h2 id="result"></h2>
-
-</section>
-
-<footer>
-
-<p>© 2026 NSPCL Power-Up Quiz</p>
-
-<p>Learn • Compete • Grow ⚡</p>
-
-</footer>
-
-<script>
-
-// ==========================
-// LOGIN CHECK
-// ==========================
-
-let employee = localStorage.getItem("employee");
-
-if(employee==null){
-
-window.location.href="login.html";
-
-}
-
-document.getElementById("welcomeUser").innerHTML =
-"Welcome <b>"+employee+"</b>";
-
-
 // ==========================
 // VARIABLES
 // ==========================
+
+let questions = [];
 
 let currentQuestion = 0;
 
 let score = 0;
 
+let timer;
+
 let time = 5;
 
-let timer;
+let employee = localStorage.getItem("employee");
+
+
+// ==========================
+// LOGIN CHECK
+// ==========================
+
+if(employee == null){
+
+    window.location.href="login.html";
+
+}
+
+
+document.getElementById("welcomeUser").innerHTML =
+"Welcome <b>"+employee+"</b>";
+
+
+
+// ==========================
+// LOAD JSON QUESTIONS
+// ==========================
+
+async function loadQuestions(){
+
+    let response = await fetch("questions.json");
+
+    questions = await response.json();
+
+}
+
+
+
 // ==========================
 // START QUIZ
 // ==========================
 
+
 async function startQuiz(){
+
 
     await loadQuestions();
 
-    if(questions.length === 0){
-        alert("No questions loaded.");
+
+    if(questions.length==0){
+
+        alert("Questions not found");
+
         return;
+
     }
 
-    currentQuestion = 0;
-    score = 0;
 
-    document.getElementById("liveScore").innerHTML = score;
 
-    document.querySelector(".quiz-intro").style.display = "none";
-    document.getElementById("quiz-area").style.display = "block";
+    currentQuestion=0;
+
+    score=0;
+
+
+
+    document.getElementById("liveScore").innerHTML=score;
+
+
+    document.querySelector(".quiz-intro").style.display="none";
+
+
+    document.getElementById("quiz-area").style.display="block";
+
+
 
     loadQuestion();
 
-}
-
-// ==========================
-// TIMER
-// ==========================
-
-function startTimer(){
-
-    clearInterval(timer);
-
-    timer = setInterval(function(){
-
-        time--;
-
-        document.getElementById("time").innerHTML = time;
-
-        if(time <= 0){
-
-            clearInterval(timer);
-
-            currentQuestion++;
-
-            if(currentQuestion < questions.length){
-
-                loadQuestion();
-
-            }else{
-
-                showResult();
-
-            }
-
-        }
-
-    },1000);
 
 }
+
+
+
+
+
+
 // ==========================
-// LOAD QUESTION
+// LOAD QUESTION (KBC STYLE)
 // ==========================
+
 
 function loadQuestion(){
 
+
     clearInterval(timer);
 
-    time = 5;
-    document.getElementById("time").innerHTML = time;
 
-    let q = questions[currentQuestion];
 
-    if(!q){
+    if(currentQuestion >= questions.length){
+
         showResult();
+
         return;
+
     }
 
-    document.getElementById("progress").innerHTML =
-        (currentQuestion + 1) + " / " + questions.length;
 
-    document.getElementById("question").innerHTML =
-        (currentQuestion + 1) + ". " + q.question;
 
-    let options = [...q.options];
+    time=5;
 
-    shuffleArray(options);
 
-    let html = "";
+    document.getElementById("time").innerHTML=time;
 
-    options.forEach(function(option){
+
+
+    let q=questions[currentQuestion];
+
+
+
+    document.getElementById("progress").innerHTML=
+
+    (currentQuestion+1)+" / "+questions.length;
+
+
+
+    document.getElementById("question").innerHTML=
+
+    "Q"+(currentQuestion+1)+". "+q.question;
+
+
+
+
+    let letters=["A","B","C","D"];
+
+
+    let html="";
+
+
+
+    q.options.forEach(function(option,index){
+
 
         html += `
+
         <button class="option"
+
         onclick="checkAnswer(this,'${option}')">
+
+
+        <span class="option-letter">
+
+        ${letters[index]}
+
+        </span>
+
+
         ${option}
+
+
         </button>
+
+
         `;
+
 
     });
 
-    document.getElementById("options").innerHTML = html;
 
-    document.getElementById("nextBtn").disabled = true;
+
+    document.getElementById("options").innerHTML=html;
+
+
+
+    document.getElementById("nextBtn").disabled=true;
+
+
 
     startTimer();
 
+
 }
+
+
+
+
+
+
+
+// ==========================
+// 5 SECOND TIMER
+// ==========================
+
+
+function startTimer(){
+
+
+timer=setInterval(function(){
+
+
+time--;
+
+
+document.getElementById("time").innerHTML=time;
+
+
+
+if(time<=0){
+
+
+clearInterval(timer);
+
+
+nextQuestion();
+
+
+}
+
+
+
+},1000);
+
+
+
+}
+
+
+
+
+
+
+
+
 // ==========================
 // CHECK ANSWER
 // ==========================
 
-function checkAnswer(button, selectedAnswer){
 
-    let buttons = document.querySelectorAll(".option");
+function checkAnswer(button,selectedAnswer){
 
-    buttons.forEach(function(btn){
 
-        btn.disabled = true;
+clearInterval(timer);
 
-        if(btn.textContent.trim() === questions[currentQuestion].answer)
 
-            btn.style.background = "#28a745";
-            btn.style.color = "white";
 
-        }
+let correctAnswer = questions[currentQuestion].answer;
 
-    });
 
-    if(selectedAnswer === questions[currentQuestion].answer){
 
-        score++;
+let buttons=document.querySelectorAll(".option");
 
-        document.getElementById("liveScore").innerHTML = score;
 
-    }
-    else{
 
-        button.style.background = "#dc3545";
-        button.style.color = "white";
+buttons.forEach(function(btn){
 
-    }
 
-    document.getElementById("nextBtn").disabled = false;
+btn.disabled=true;
+
+
+
+if(btn.innerText.includes(correctAnswer)){
+
+
+btn.style.background="#16a34a";
+
+btn.style.color="white";
+
 
 }
+
+
+
+});
+
+
+
+
+
+if(selectedAnswer==correctAnswer){
+
+
+score++;
+
+
+document.getElementById("liveScore").innerHTML=score;
+
+
+button.style.background="#16a34a";
+
+button.style.color="white";
+
+
+}
+
+else{
+
+
+button.style.background="#dc2626";
+
+button.style.color="white";
+
+
+}
+
+
+
+document.getElementById("nextBtn").disabled=false;
+
+
+}
+
+
+
+
+
+
+
 
 // ==========================
 // NEXT QUESTION
 // ==========================
 
+
 function nextQuestion(){
 
-    currentQuestion++;
 
-    if(currentQuestion < questions.length){
+currentQuestion++;
 
-        loadQuestion();
 
-    }
-    else{
+loadQuestion();
 
-        showResult();
-
-    }
 
 }
 
+
+
+
+
+
+
 // ==========================
-// SHOW RESULT
+// RESULT
 // ==========================
+
 
 function showResult(){
 
-    clearInterval(timer);
 
-    document.getElementById("quiz-area").style.display="none";
+clearInterval(timer);
 
-    let percentage = Math.round((score/questions.length)*100);
 
-    let message="";
 
-    if(percentage>=80){
+document.getElementById("quiz-area").style.display="none";
 
-        message="🏆 Excellent Performance!";
 
-    }
-    else if(percentage>=60){
 
-        message="🎉 Good Job!";
+let percentage=Math.round(
 
-    }
-    else if(percentage>=40){
+(score/questions.length)*100
 
-        message="👍 Keep Practicing!";
+);
 
-    }
-    else{
 
-        message="📚 Please Study More.";
 
-    }
+document.getElementById("result").innerHTML=
 
-    document.getElementById("result").innerHTML =
 
-    `
-    <div class="result-card">
+`
 
-        <h2>Congratulations ${employee}</h2>
+<div class="result-card">
 
-        <h3>${message}</h3>
 
-        <br>
+<h2>🎉 Congratulations ${employee}</h2>
 
-        <h1>${score} / ${questions.length}</h1>
 
-        <h2>${percentage}%</h2>
+<h3>NSPCL Power-Up Quiz Completed</h3>
 
-        <br>
 
-        <button onclick="location.reload()">
+<h1>${score}/${questions.length}</h1>
 
-        🔄 Take Quiz Again
 
-        </button>
+<h2>${percentage}%</h2>
 
-    </div>
-    `;
 
-    localStorage.setItem("score",score);
+<br>
 
-}
 
-// ==========================
-// SHUFFLE ARRAY
-// ==========================
+<button onclick="location.reload()">
 
-function shuffleArray(array){
+🔄 Play Again
 
-    for(let i=array.length-1;i>0;i--){
+</button>
 
-        let j=Math.floor(Math.random()*(i+1));
 
-        [array[i],array[j]]=[array[j],array[i]];
+</div>
 
-    }
+
+`;
+
+
+
+localStorage.setItem("score",score);
+
+
 
 }
-
-</script>
-
-</body>
-
-</html>
