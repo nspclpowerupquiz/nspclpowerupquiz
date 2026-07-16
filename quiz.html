@@ -388,7 +388,23 @@ let timer;
 // =============================
 
 
-function startQuiz(){
+async function startQuiz(){
+
+    await loadQuestions();
+
+    if(questions.length===0){
+        return;
+    }
+
+    document.querySelector(".quiz-intro").style.display="none";
+
+    document.getElementById("quiz-area").style.display="block";
+
+    startTimer();
+
+    loadQuestion();
+
+}
 
 
 document.querySelector(".quiz-intro").style.display="none";
@@ -404,11 +420,6 @@ loadQuestion();
 
 
 }
-
-
-
-
-
 
 
 // =============================
