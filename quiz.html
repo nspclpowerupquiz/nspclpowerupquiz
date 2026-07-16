@@ -1,400 +1,91 @@
-// ==========================
-// VARIABLES
-// ==========================
+<!DOCTYPE html>
+<html lang="en">
 
-let questions = [];
+<head>
 
-let currentQuestion = 0;
+<meta charset="UTF-8">
 
-let score = 0;
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-let timer;
+<title>NSPCL Power-Up Quiz</title>
 
-let time = 5;
 
-let employee = localStorage.getItem("employee");
+<link rel="stylesheet" href="style.css">
 
 
-// ==========================
-// LOGIN CHECK
-// ==========================
+</head>
 
-if(employee == null){
 
-    window.location.href="login.html";
+<body>
 
-}
 
+<!-- ================= HEADER ================= -->
 
-document.getElementById("welcomeUser").innerHTML =
-"Welcome <b>"+employee+"</b>";
 
+<header>
 
+<h1>⚡ NSPCL Power-Up Quiz</h1>
 
-// ==========================
-// LOAD JSON QUESTIONS
-// ==========================
+<p>Learn • Compete • Excel</p>
 
-async function loadQuestions(){
 
-    let response = await fetch("questions.json");
+</header>
 
-    questions = await response.json();
 
-}
 
 
 
-// ==========================
-// START QUIZ
-// ==========================
+<!-- ================= USER SECTION ================= -->
 
 
-async function startQuiz(){
+<div class="user-box">
 
+<h3 id="welcomeUser">
+Welcome
+</h3>
 
-    await loadQuestions();
 
+<h3>
+Score : 
+<span id="liveScore">0</span>
+</h3>
 
-    if(questions.length==0){
 
-        alert("Questions not found");
+</div>
 
-        return;
 
-    }
 
 
 
-    currentQuestion=0;
 
-    score=0;
 
+<!-- ================= QUIZ INTRO ================= -->
 
 
-    document.getElementById("liveScore").innerHTML=score;
+<div class="quiz-intro">
 
 
-    document.querySelector(".quiz-intro").style.display="none";
+<h2>🚀 Welcome to NSPCL Power-Up Quiz</h2>
 
 
-    document.getElementById("quiz-area").style.display="block";
+<p>
 
+Test your knowledge with KBC style quiz.
 
+</p>
 
-    loadQuestion();
 
+<p>
 
-}
+⏱ Each question has 5 seconds.
 
+</p>
 
 
 
+<button onclick="startQuiz()">
 
-
-// ==========================
-// LOAD QUESTION (KBC STYLE)
-// ==========================
-
-
-function loadQuestion(){
-
-
-    clearInterval(timer);
-
-
-
-    if(currentQuestion >= questions.length){
-
-        showResult();
-
-        return;
-
-    }
-
-
-
-    time=5;
-
-
-    document.getElementById("time").innerHTML=time;
-
-
-
-    let q=questions[currentQuestion];
-
-
-
-    document.getElementById("progress").innerHTML=
-
-    (currentQuestion+1)+" / "+questions.length;
-
-
-
-    document.getElementById("question").innerHTML=
-
-    "Q"+(currentQuestion+1)+". "+q.question;
-
-
-
-
-    let letters=["A","B","C","D"];
-
-
-    let html="";
-
-
-
-    q.options.forEach(function(option,index){
-
-
-        html += `
-
-        <button class="option"
-
-        onclick="checkAnswer(this,'${option}')">
-
-
-        <span class="option-letter">
-
-        ${letters[index]}
-
-        </span>
-
-
-        ${option}
-
-
-        </button>
-
-
-        `;
-
-
-    });
-
-
-
-    document.getElementById("options").innerHTML=html;
-
-
-
-    document.getElementById("nextBtn").disabled=true;
-
-
-
-    startTimer();
-
-
-}
-
-
-
-
-
-
-
-// ==========================
-// 5 SECOND TIMER
-// ==========================
-
-
-function startTimer(){
-
-
-timer=setInterval(function(){
-
-
-time--;
-
-
-document.getElementById("time").innerHTML=time;
-
-
-
-if(time<=0){
-
-
-clearInterval(timer);
-
-
-nextQuestion();
-
-
-}
-
-
-
-},1000);
-
-
-
-}
-
-
-
-
-
-
-
-
-// ==========================
-// CHECK ANSWER
-// ==========================
-
-
-function checkAnswer(button,selectedAnswer){
-
-
-clearInterval(timer);
-
-
-
-let correctAnswer = questions[currentQuestion].answer;
-
-
-
-let buttons=document.querySelectorAll(".option");
-
-
-
-buttons.forEach(function(btn){
-
-
-btn.disabled=true;
-
-
-
-if(btn.innerText.includes(correctAnswer)){
-
-
-btn.style.background="#16a34a";
-
-btn.style.color="white";
-
-
-}
-
-
-
-});
-
-
-
-
-
-if(selectedAnswer==correctAnswer){
-
-
-score++;
-
-
-document.getElementById("liveScore").innerHTML=score;
-
-
-button.style.background="#16a34a";
-
-button.style.color="white";
-
-
-}
-
-else{
-
-
-button.style.background="#dc2626";
-
-button.style.color="white";
-
-
-}
-
-
-
-document.getElementById("nextBtn").disabled=false;
-
-
-}
-
-
-
-
-
-
-
-
-// ==========================
-// NEXT QUESTION
-// ==========================
-
-
-function nextQuestion(){
-
-
-currentQuestion++;
-
-
-loadQuestion();
-
-
-}
-
-
-
-
-
-
-
-// ==========================
-// RESULT
-// ==========================
-
-
-function showResult(){
-
-
-clearInterval(timer);
-
-
-
-document.getElementById("quiz-area").style.display="none";
-
-
-
-let percentage=Math.round(
-
-(score/questions.length)*100
-
-);
-
-
-
-document.getElementById("result").innerHTML=
-
-
-`
-
-<div class="result-card">
-
-
-<h2>🎉 Congratulations ${employee}</h2>
-
-
-<h3>NSPCL Power-Up Quiz Completed</h3>
-
-
-<h1>${score}/${questions.length}</h1>
-
-
-<h2>${percentage}%</h2>
-
-
-<br>
-
-
-<button onclick="location.reload()">
-
-🔄 Play Again
+START QUIZ
 
 </button>
 
@@ -402,12 +93,144 @@ document.getElementById("result").innerHTML=
 </div>
 
 
-`;
 
 
 
-localStorage.setItem("score",score);
 
 
 
-}
+
+<!-- ================= QUIZ AREA ================= -->
+
+
+<div id="quiz-area" style="display:none;">
+
+
+
+<div class="top-bar">
+
+
+<h3>
+
+Question :
+
+<span id="progress">
+
+0 / 0
+
+</span>
+
+
+</h3>
+
+
+
+<h3>
+
+⏳
+
+<span id="time">
+
+5
+
+</span>
+
+sec
+
+</h3>
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- QUESTION -->
+
+<div class="question-box">
+
+
+<h2 id="question">
+
+Question will appear here
+
+</h2>
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- OPTIONS -->
+
+
+<div id="options">
+
+
+</div>
+
+
+
+
+
+
+
+<br>
+
+
+<button id="nextBtn" onclick="nextQuestion()" disabled>
+
+NEXT ➡️
+
+</button>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- ================= RESULT ================= -->
+
+
+<div id="result">
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- ================= SCRIPT ================= -->
+
+
+<script src="quiz.js"></script>
+
+
+
+</body>
+
+
+</html>
