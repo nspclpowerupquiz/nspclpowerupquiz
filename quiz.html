@@ -175,6 +175,104 @@ document.getElementById("welcomeUser").innerHTML=
 // =======================================
 
 let questions=[];
+    // =======================================
+// LOAD QUESTIONS FROM JSON
+// =======================================
+
+async function loadQuestions(){
+
+    try{
+
+        const response = await fetch("questions.json");
+
+        if(!response.ok){
+
+            throw new Error("Unable to load questions.");
+
+        }
+
+        questions = await response.json();
+
+        // Shuffle Questions
+        questions.sort(() => Math.random() - 0.5);
+
+    }
+
+    catch(error){
+
+        alert("Unable to load questions.json");
+
+        console.error(error);
+
+    }
+
+}
+
+// =======================================
+// VARIABLES
+// =======================================
+
+let currentQuestion = 0;
+
+let score = 0;
+
+let time = 60;
+
+let timer;
+
+// =======================================
+// START QUIZ
+// =======================================
+
+async function startQuiz(){
+
+    await loadQuestions();
+
+    if(questions.length==0){
+
+        return;
+
+    }
+
+    document.querySelector(".quiz-intro").style.display="none";
+
+    document.getElementById("quiz-area").style.display="block";
+
+    document.getElementById("liveScore").innerHTML=score;
+
+    document.getElementById("progress").innerHTML=
+
+    (currentQuestion+1)+" / "+questions.length;
+
+    startTimer();
+
+    loadQuestion();
+
+}
+
+// =======================================
+// TIMER
+// =======================================
+
+function startTimer(){
+
+    timer = setInterval(function(){
+
+        time--;
+
+        document.getElementById("time").innerHTML=time;
+
+        if(time<=0){
+
+            clearInterval(timer);
+
+            showResult();
+
+        }
+
+    },1000);
+
+}
 
 <script>
 
