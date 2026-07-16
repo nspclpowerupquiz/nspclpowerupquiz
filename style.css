@@ -4242,3 +4242,200 @@ font-size:28px;
 padding:18px 55px;
 
 }
+/* ================= IMPROVED HEADER DESIGN ================= */
+
+
+.header{
+
+display:flex;
+align-items:center;
+justify-content:space-between;
+
+padding:18px 5%;
+
+background:linear-gradient(
+90deg,
+#003366,
+#00509e
+);
+
+box-shadow:0 4px 15px rgba(0,0,0,0.25);
+
+}
+
+
+/* LOGO AREA */
+
+
+.logo{
+
+display:flex;
+flex-direction:column;
+
+}
+
+
+.logo h2{
+
+font-size:32px;
+
+color:white;
+
+margin:0;
+
+font-weight:800;
+
+letter-spacing:1px;
+
+}
+
+
+.logo span{
+
+font-size:16px;
+
+color:#ffd166;
+
+margin-top:5px;
+
+font-weight:600;
+
+}
+
+
+
+
+/* NAVIGATION */
+
+
+.header nav{
+
+display:flex;
+
+align-items:center;
+
+gap:12px;
+
+}
+
+
+
+.header nav a{
+
+
+font-size:18px;
+
+font-weight:700;
+
+color:white;
+
+text-decoration:none;
+
+padding:12px 16px;
+
+border-radius:25px;
+
+transition:all 0.3s ease;
+
+
+}
+
+
+
+
+/* HOVER EFFECT */
+
+
+.header nav a:hover{
+
+
+background:#ff9800;
+
+color:white;
+
+transform:translateY(-3px);
+
+box-shadow:0 5px 15px rgba(0,0,0,0.25);
+
+}
+
+
+
+
+
+/* ACTIVE HOME TAB */
+
+
+.header nav a:first-child{
+
+
+background:rgba(255,255,255,0.15);
+
+border:1px solid rgba(255,255,255,0.3);
+
+}
+
+
+
+
+/* THEME BUTTON */
+
+
+#themeToggle{
+
+
+font-size:22px;
+
+border:none;
+
+background:white;
+
+width:45px;
+
+height:45px;
+
+border-radius:50%;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+
+
+#themeToggle:hover{
+
+
+transform:rotate(20deg) scale(1.1);
+
+}
+
+
+
+
+/* MOBILE RESPONSIVE */
+
+
+@media(max-width:1100px){
+
+
+.header{
+
+flex-direction:column;
+
+gap:20px;
+
+}
+
+
+.header nav{
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+}
+
+
+}
