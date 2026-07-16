@@ -3,273 +3,411 @@
 
 <head>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>NSPCL Power-Up Quiz</title>
+<title>NSPCL Power-Up Quiz</title>
 
-    <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css">
 
 </head>
 
+
 <body>
+
 
 <!-- ================= HEADER ================= -->
 
 <header class="header">
 
-    <div class="logo">
 
-        <h2>⚡ NSPCL Power-Up Quiz</h2>
+<div class="logo">
 
-        <span>Knowledge • Innovation • Excellence</span>
+<h2>⚡ NSPCL Power-Up Quiz</h2>
 
-    </div>
+<span>Knowledge • Innovation • Excellence</span>
 
-    <nav>
+</div>
 
-        <a href="index.html">Home</a>
 
-        <a href="about.html">About</a>
 
-        <a href="leaderboard.html">🏆 Leaderboard</a>
+<nav>
 
-        <a href="analytics.html">📈 Analytics</a>
+<a href="index.html">Home</a>
 
-        <a href="daily.html">🔥 Daily Challenge</a>
+<a href="about.html">About</a>
 
-        <a href="certificate.html">📜 Certificate</a>
+<a href="leaderboard.html">🏆 Leaderboard</a>
 
-        <a href="admin.html">⚙️ Admin</a>
-        <a href="gallery.html">Gallery</a>
-        <button id="themeToggle">🌙</button>
+<a href="analytics.html">📈 Analytics</a>
 
-    </nav>
+<a href="daily.html">🔥 Daily Challenge</a>
+
+<a href="certificate.html">📜 Certificate</a>
+
+<a href="admin.html">⚙️ Admin</a>
+
+<a href="gallery.html">Gallery</a>
+
+<button id="themeToggle">🌙</button>
+
+
+</nav>
+
 
 </header>
 
-<!-- ================= HERO ================= -->
 
-.hero{
 
-min-height:650px;
 
-display:flex;
 
-justify-content:center;
+<!-- ================= HERO VIDEO SECTION ================= -->
 
-align-items:center;
 
-padding:80px 8%;
+<section class="hero">
 
-background:
-linear-gradient(
-rgba(0,51,102,.75),
-rgba(0,51,102,.75)
-),
-url("images/powerplant.png");
 
-background-size:cover;
+<video autoplay muted loop class="hero-video">
 
-background-position:center;
 
-background-repeat:no-repeat;
+<source src="powerplant.mp4" type="video/mp4">
 
-color:white;
 
-}
+</video>
+
+
+
+<div class="hero-overlay"></div>
+
+
+
+<div class="hero-content">
+
+
+<h1>
+⚡ NSPCL Power-Up Quiz
+</h1>
+
+
+<h2>
+Learn • Compete • Excel
+</h2>
+
+
+<p>
+
+A digital learning platform to enhance technical knowledge,
+power sector awareness and continuous learning culture.
+
+</p>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<!-- ================= ABOUT NSPCL ================= -->
+
+
+<section class="about-section">
+
+
+<h2>About NSPCL</h2>
+
+
+<p>
+
+
+NTPC-SAIL Power Company Limited (NSPCL) is a joint venture
+between NTPC Limited and Steel Authority of India Limited (SAIL).
+
+
+<br><br>
+
+
+NSPCL operates captive power plants and contributes towards
+reliable and efficient power generation for industrial growth.
+
+
+<br><br>
+
+
+With focus on safety, sustainability, operational excellence
+and innovation, NSPCL continues to strengthen India's power sector.
+
+
+</p>
+
+
+</section>
+
+
+
+
+
 
 <!-- ================= DASHBOARD STATS ================= -->
 
+
 <section class="stats">
 
-    <div class="stat-card">
 
-        <h2>⚡</h2>
+<div class="stat-card">
 
-        <p>Power Learning</p>
+<h2>⚡</h2>
 
-    </div>
+<p>Power Learning</p>
 
-    <div class="stat-card">
+</div>
 
-        <h2>🏆</h2>
 
-        <p>Competition</p>
 
-    </div>
+<div class="stat-card">
 
-    <div class="stat-card">
+<h2>🏆</h2>
 
-        <h2>📊</h2>
+<p>Competition</p>
 
-        <p>Analytics</p>
+</div>
 
-    </div>
 
-    <div class="stat-card">
 
-        <h2>🏅</h2>
+<div class="stat-card">
 
-        <p id="badgeDisplay">Badges</p>
+<h2>📊</h2>
 
-    </div>
+<p>Analytics</p>
+
+</div>
+
+
+
+<div class="stat-card">
+
+<h2>🏅</h2>
+
+<p id="badgeDisplay">
+Badges
+</p>
+
+</div>
+
 
 </section>
 
-<!-- FEATURES SECTION -->
+
+
+
+
+
+
+<!-- ================= FEATURES ================= -->
+
 
 <section class="features">
 
-<h2>⚡ NSPCL Power-Up Quiz Features</h2>
+
+<h2>
+⚡ NSPCL Power-Up Quiz Features
+</h2>
+
+
 
 <div class="feature-container">
 
-<div class="feature-card">
-<div class="icon">🎯</div>
-<h3>Interactive Quiz</h3>
-<p>Test your knowledge with engaging SSC C&M technical quizzes in KBC style format.</p>
-<a href="quiz.html">Start Quiz</a>
-</div>
 
 
 <div class="feature-card">
-<div class="icon">⏱️</div>
-<h3>5 Second Challenge</h3>
-<p>Every question comes with a timer to make learning exciting and competitive.</p>
+
+<div class="icon">
+🎯
 </div>
+
+<h3>
+Interactive Quiz
+</h3>
+
+<p>
+Test your technical knowledge through KBC style quiz format.
+</p>
+
+</div>
+
+
 
 
 <div class="feature-card">
-<div class="icon">🏆</div>
-<h3>Leaderboard</h3>
-<p>Track your performance and compare scores with other participants.</p>
+
+<div class="icon">
+⏱️
 </div>
+
+<h3>
+5 Second Challenge
+</h3>
+
+<p>
+Fast paced questions to improve knowledge and decision making.
+</p>
+
+</div>
+
+
+
 
 
 <div class="feature-card">
-<div class="icon">📚</div>
-<h3>Technical Learning</h3>
-<p>Improve your knowledge about power generation, operations and maintenance.</p>
+
+<div class="icon">
+🏆
 </div>
+
+<h3>
+Leaderboard
+</h3>
+
+<p>
+Track performance and compete with colleagues.
+</p>
+
+</div>
+
+
+
 
 
 <div class="feature-card">
-<div class="icon">⚡</div>
-<h3>Power Sector Knowledge</h3>
-<p>Learn about NSPCL, thermal power plants and energy excellence.</p>
+
+<div class="icon">
+📚
 </div>
+
+<h3>
+Technical Learning
+</h3>
+
+<p>
+Learn about power generation, operation and maintenance.
+</p>
+
+</div>
+
+
+
 
 
 <div class="feature-card">
-<div class="icon">📜</div>
-<h3>Certificates</h3>
-<p>Recognize achievements with digital certificates for top performers.</p>
+
+<div class="icon">
+⚡
 </div>
 
+<h3>
+Power Sector Knowledge
+</h3>
+
+<p>
+Explore NSPCL plants and energy excellence.
+</p>
+
 </div>
+
+
+
+
+
+<div class="feature-card">
+
+<div class="icon">
+📜
+</div>
+
+<h3>
+Certificates
+</h3>
+
+<p>
+Recognize achievements and excellence.
+</p>
+
+</div>
+
+
+</div>
+
 
 </section>
-    
-<!-- ================= FEATURES ================= -->
 
-<section class="features">
 
-    <h2>Explore NSPCL Quiz Platform</h2>
 
-    <div class="feature-container">
 
-        <div class="card">
 
-            <h3>📚 Quiz</h3>
 
-            <p>Test your technical and general knowledge.</p>
 
-            <a href="login.html">Start Quiz 🚀</a>
+<!-- ================= FINAL START QUIZ ================= -->
 
-        </div>
-
-        <div class="card">
-
-            <h3>🏆 Leaderboard</h3>
-
-            <p>View top performers and rankings.</p>
-
-            <a href="leaderboard.html">View Ranking →</a>
-
-        </div>
-
-        <div class="card">
-
-            <h3>🔥 Daily Challenge</h3>
-
-            <p>Complete daily challenges and earn badges.</p>
-
-            <a href="daily.html">Take Challenge →</a>
-
-        </div>
-
-        <div class="card">
-
-            <h3>📈 Analytics</h3>
-
-            <p>Track performance and improvement.</p>
-
-            <a href="analytics.html">View Dashboard →</a>
-
-        </div>
-
-        <div class="card">
-
-            <h3>📜 Certificate</h3>
-
-            <p>Download your achievement certificate.</p>
-
-            <a href="certificate.html">Get Certificate →</a>
-
-        </div>
-
-        <div class="card">
-
-            <h3>⚙️ Admin Panel</h3>
-
-            <p>Manage questions and quiz database.</p>
-
-            <a href="admin.html">Open Admin →</a>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ================= CALL TO ACTION ================= -->
 
 <section class="cta">
 
-    <h2>Ready to Power Up?</h2>
 
-    <p>
-        Challenge yourself and become a knowledge champion.
-    </p>
+<h2>
+Ready to Power Up?
+</h2>
 
-    <button onclick="location.href='quiz.html'">
-        Start Quiz 🚀
-    </button>
+
+<p>
+Challenge yourself and become a knowledge champion.
+</p>
+
+
+
+<button onclick="location.href='login.html'">
+
+🚀 Start Quiz
+
+</button>
+
 
 </section>
 
+
+
+
+
+
+
 <!-- ================= FOOTER ================= -->
+
 
 <footer>
 
-    <p>© 2026 NSPCL Power-Up Quiz</p>
 
-    <p>Built for continuous learning and excellence ⚡</p>
+<p>
+© 2026 NSPCL Power-Up Quiz
+</p>
+
+
+<p>
+Built for continuous learning and excellence ⚡
+</p>
+
 
 </footer>
 
+
+
+
+
+
 <!-- ================= SCRIPTS ================= -->
+
 
 <script src="js/script.js"></script>
 
@@ -277,5 +415,7 @@ color:white;
 
 <script src="js/badge.js"></script>
 
+
 </body>
+
 </html>
