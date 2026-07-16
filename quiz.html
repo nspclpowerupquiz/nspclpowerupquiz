@@ -225,7 +225,27 @@ document.getElementById("welcomeUser").innerHTML =
 
 
 let questions = [];
+async function loadQuestions() {
 
+    try {
+
+        const response = await fetch("questions.json");
+
+        if (!response.ok) {
+            throw new Error("Cannot load questions.json");
+        }
+
+        questions = await response.json();
+
+    } catch (error) {
+
+        alert("Unable to load quiz questions.");
+
+        console.error(error);
+
+    }
+
+}
 
 {
 
