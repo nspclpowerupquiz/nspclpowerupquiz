@@ -302,7 +302,7 @@ function checkAnswer(button, selectedAnswer){
 
         btn.disabled = true;
 
-        if(btn.innerHTML === questions[currentQuestion].answer){
+        if(btn.textContent.trim() === questions[currentQuestion].answer)
 
             btn.style.background = "#28a745";
             btn.style.color = "white";
