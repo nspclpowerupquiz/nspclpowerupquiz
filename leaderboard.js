@@ -1,122 +1,220 @@
-// =========================================
+// ==========================================
 // NSPCL POWER-UP QUIZ
 // LEADERBOARD
-// =========================================
+// ==========================================
 
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxaFLlnAhREGmXNi7YJtpSojqZKujF-MPr_7jvToyEohlKckrdm_f5-jhDA5JBwfTFqXg/exec";
+const SCRIPT_URL =
+"https://script.google.com/macros/s/AKfycbxaFLlnAhREGmXNi7YJtpSojqZKujF-MPr_7jvToyEohlKckrdm_f5-jhDA5JBwfTFqXg/exec";
 
-// Load leaderboard
-window.onload = loadLeaderboard;
+let leaderboardData = [];
 
-function loadLeaderboard() {
+window.onload = function () {
 
-    console.log("Loading Leaderboard...");
+    loadLeaderboard();
 
-    const table = document.getElementById("leaderboardTable");
+    // Auto refresh every 30 seconds
+    setInterval(loadLeaderboard,30000);
 
-    if (!table) {
-        console.error("leaderboardTable not found!");
-        return;
+    // Search
+    document.getElementById("searchBox")
+    .addEventListener("keyup",searchLeaderboard);
+
+};
+
+
+// ==========================================
+// LOAD LEADERBOARD
+// ==========================================
+
+function loadLeaderboard(){
+
+    const table=document.getElementById("leaderboardTable");
+
+    table.innerHTML=`
+    <tr>
+        <td colspan="7">
+            Loading Leaderboard...
+        </td>
+    </tr>`;
+
+    fetch(SCRIPT_URL+"?action=leaderboard")
+
+    .then(response=>{
+
+        if(!response.ok){
+
+            throw new Error("Unable to fetch leaderboard");
+
+        }
+
+        return response.json();
+
+    })
+
+    .then(data=>{
+
+        leaderboardData=data;
+
+        updateWinnerCards(data);
+
+        updateStatistics(data);
+
+        displayTable(data);
+
+    })
+
+    .catch(error=>{
+
+        console.error(error);
+
+        table.innerHTML=`
+        <tr>
+            <td colspan="7">
+            ❌ Unable to load leaderboard
+            </td>
+        </tr>`;
+
+    });
+
+}
+
+
+
+// ==========================================
+// WINNER PODIUM
+// ==========================================
+
+function updateWinnerCards(data){
+
+    if(data.length>0){
+
+        document.getElementById("winner1").innerHTML=
+        `<strong>${data[0].employeeName}</strong><br>
+        ${data[0].score}/${data[0].totalQuestions}`;
+
     }
 
-    fetch(SCRIPT_URL + "?action=leaderboard")
+    if(data.length>1){
 
-        .then(response => {
+        document.getElementById("winner2").innerHTML=
+        `<strong>${data[1].employeeName}</strong><br>
+        ${data[1].score}/${data[1].totalQuestions}`;
 
-            console.log("HTTP Status :", response.status);
+    }
 
-            if (!response.ok) {
-                throw new Error("Unable to fetch leaderboard");
-            }
+    if(data.length>2){
 
-            return response.json();
+        document.getElementById("winner3").innerHTML=
+        `<strong>${data[2].employeeName}</strong><br>
+        ${data[2].score}/${data[2].totalQuestions}`;
 
-        })
+    }
 
-        .then(data => {
+}
 
-            console.log("Leaderboard Data :", data);
 
-            // Clear loading row
-            table.innerHTML = "";
 
-            // No data
-            if (data.length === 0) {
+// ==========================================
+// STATISTICS
+// ==========================================
 
-                table.innerHTML = `
-                <tr>
-                    <td colspan="7">
-                        No Quiz Attempts Found
-                    </td>
-                </tr>
-                `;
+function updateStatistics(data){
 
-                return;
-            }
+    document.getElementById("totalPlayers").textContent=data.length;
 
-            // ==========================
-            // TOP 3 WINNERS
-            // ==========================
+    if(data.length>0){
 
-            const w1 = document.getElementById("winner1");
-            const w2 = document.getElementById("winner2");
-            const w3 = document.getElementById("winner3");
+        document.getElementById("highestScore").textContent=data[0].score;
 
-            if (w1 && data.length > 0) {
-                w1.innerHTML =
-                    `<strong>${data[0].employeeName}</strong><br>
-                     Score : ${data[0].score}/${data[0].totalQuestions}`;
-            }
+    }
 
-            if (w2 && data.length > 1) {
-                w2.innerHTML =
-                    `<strong>${data[1].employeeName}</strong><br>
-                     Score : ${data[1].score}/${data[1].totalQuestions}`;
-            }
+    document.getElementById("lastUpdated").textContent=
+    new Date().toLocaleTimeString();
 
-            if (w3 && data.length > 2) {
-                w3.innerHTML =
-                    `<strong>${data[2].employeeName}</strong><br>
-                     Score : ${data[2].score}/${data[2].totalQuestions}`;
-            }
+}
 
-            // ==========================
-            // LEADERBOARD TABLE
-            // ==========================
 
-            data.forEach((player, index) => {
 
-                const row = table.insertRow();
+// ==========================================
+// TABLE
+// ==========================================
 
-                row.insertCell(0).textContent = index + 1;
-                row.insertCell(1).textContent = player.employeeId;
-                row.insertCell(2).textContent = player.employeeName;
-                row.insertCell(3).textContent = player.score;
-                row.insertCell(4).textContent = player.totalQuestions;
-                row.insertCell(5).textContent =
-                    Math.round(player.percentage * 100) + "%";
+function displayTable(data){
 
-                row.insertCell(6).textContent =
-                    new Date(player.dateTime).toLocaleString();
+    const table=document.getElementById("leaderboardTable");
 
-            });
+    table.innerHTML="";
 
-            console.log("Rows Added :", table.rows.length);
+    if(data.length===0){
 
-        })
+        table.innerHTML=`
+        <tr>
+            <td colspan="7">
+            No Quiz Attempts Found
+            </td>
+        </tr>`;
 
-        .catch(error => {
+        return;
 
-            console.error("Leaderboard Error :", error);
+    }
 
-            table.innerHTML = `
-            <tr>
-                <td colspan="7">
-                    ❌ Unable to load leaderboard
-                </td>
-            </tr>
-            `;
+    data.forEach((player,index)=>{
 
-        });
+        let row=document.createElement("tr");
+
+        row.innerHTML=`
+
+        <td>${index+1}</td>
+
+        <td>${player.employeeId}</td>
+
+        <td>${player.employeeName}</td>
+
+        <td>${player.score}</td>
+
+        <td>${player.totalQuestions}</td>
+
+        <td>${Math.round(player.percentage*100)}%</td>
+
+        <td>${new Date(player.dateTime).toLocaleDateString()}</td>
+
+        `;
+
+        table.appendChild(row);
+
+    });
+
+}
+
+
+
+// ==========================================
+// SEARCH
+// ==========================================
+
+function searchLeaderboard(){
+
+    let value=document
+    .getElementById("searchBox")
+    .value
+    .toLowerCase();
+
+    let filtered=leaderboardData.filter(player=>{
+
+        return (
+
+            String(player.employeeId).includes(value)
+
+            ||
+
+            player.employeeName
+            .toLowerCase()
+            .includes(value)
+
+        );
+
+    });
+
+    displayTable(filtered);
 
 }
