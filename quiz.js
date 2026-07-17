@@ -489,13 +489,15 @@ function nextQuestion(){
 function submitScore(score, percentage){
 
 
+    let employeeId = localStorage.getItem("employeeId");
+
     let employeeName = localStorage.getItem("employeeName");
 
 
     let data = {
 
 
-        employeeId: employee,
+        employeeId: employeeId,
 
 
         employeeName: employeeName,
@@ -517,47 +519,32 @@ function submitScore(score, percentage){
 
 
 
+    console.log(data);
+
+
+
     fetch(sheetURL, {
 
 
-        method: "POST",
+        method:"POST",
 
 
-        mode: "no-cors",
+        mode:"no-cors",
 
 
-        headers: {
+        headers:{
 
 
-            "Content-Type": "application/json"
+            "Content-Type":"application/json"
 
 
         },
 
 
-        body: JSON.stringify(data)
-
-
-    })
-
-
-    .then(function(){
-
-
-        console.log("Score sent to Google Sheet");
-
-
-    })
-
-
-    .catch(function(error){
-
-
-        console.log("Google Sheet Error:", error);
+        body:JSON.stringify(data)
 
 
     });
-
 
 
 }
@@ -641,13 +628,6 @@ function showResult(){
 
 
 }
-
-
-
-
-
-
-
 
 
 // ==========================
