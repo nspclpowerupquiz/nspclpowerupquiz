@@ -44,6 +44,31 @@ function loadLeaderboard(){
 
     .then(data => {
 
+    // Top 3 Winners
+
+if(data.length >= 1){
+
+document.getElementById("winner1").innerHTML =
+data[0].employeeName + "<br>Score: " + data[0].score;
+
+}
+
+
+if(data.length >= 2){
+
+document.getElementById("winner2").innerHTML =
+data[1].employeeName + "<br>Score: " + data[1].score;
+
+}
+
+
+if(data.length >= 3){
+
+document.getElementById("winner3").innerHTML =
+data[2].employeeName + "<br>Score: " + data[2].score;
+
+}
+
 
         console.log("Leaderboard Data:", data);
 
