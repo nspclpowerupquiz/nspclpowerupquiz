@@ -15,28 +15,29 @@ function login(){
     const employees = [
 
 
-{
-id:"100106",
-password:"NSPCL@100106",
-name:"Rajesh Kumar"
-},
+        {
+            id:"100106",
+            password:"NSPCL@100106",
+            name:"Rajesh Kumar"
+        },
 
 
-{
-id:"100107",
-password:"NSPCL@100107",
-name:"Amit Sharma"
-},
+        {
+            id:"100107",
+            password:"NSPCL@100107",
+            name:"Amit Sharma"
+        },
 
 
-{
-id:"100108",
-password:"NSPCL@100108",
-name:"Suresh Verma"
-}
+        {
+            id:"100108",
+            password:"NSPCL@100108",
+            name:"Suresh Verma"
+        }
 
 
-];
+    ];
+
 
 
     if(employeeId === "" || password === ""){
@@ -69,6 +70,7 @@ name:"Suresh Verma"
     if(user){
 
 
+        // Save employee details
 
         localStorage.setItem("employeeId", user.id);
 
@@ -84,7 +86,9 @@ name:"Suresh Verma"
         setTimeout(function(){
 
 
-            window.location.href = "quiz.html";
+            // Go to participant name page
+
+            window.location.href = "participant.html";
 
 
         },1000);
