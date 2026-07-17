@@ -3,67 +3,113 @@
 // =================================
 
 
-// YOUR GOOGLE APPS SCRIPT URL
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwBbn0mA_VbQG3A4lz7nDGWZm66P6jKBx12zXbYZ-OoCudVBzIvK-MkuZEXxLcECl5wdw/exec";
+// GOOGLE APPS SCRIPT URL
+
+const SCRIPT_URL =
+"https://script.google.com/macros/s/AKfycbwBbn0mA_VbQG3A4lz7nDGWZm66P6jKBx12zXbYZ-OoCudVBzIvK-MkuZEXxLcECl5wdw/exec";
 
 
 
+
+// =================================
 // LOAD ANALYTICS
-window.onload = function(){
+// =================================
 
-fetch(SCRIPT_URL + "?action=leaderboard")
-
-.then(response => response.json())
-
-.then(data => {
+window.onload=function(){
 
 
-console.log(data);
+fetch(
+SCRIPT_URL+"?action=leaderboard"
+)
+
+
+.then(response=>response.json())
+
+
+.then(data=>{
+
+
+console.log(
+"Analytics Data:",
+data
+);
+
+
+
+// SORT DATA
+
+data.sort(
+(a,b)=>Number(b.score)-Number(a.score)
+);
+
+
 
 
 // TOTAL USERS
 
-let totalUsers = 
+let totalUsers =
 [...new Set(
-data.map(x=>x.employeeId)
+
+data.map(
+x=>x.employeeId
+)
+
 )].length;
+
+
 
 
 
 // TOTAL ATTEMPTS
 
-let totalAttempts = data.length;
+let totalAttempts =
+data.length;
+
+
+
 
 
 
 // AVERAGE SCORE
 
-let average = 0;
+let average=0;
 
-let highest = 0;
-
-
-
-if(data.length > 0){
+let highest=0;
 
 
-average = Math.round(
+
+if(data.length>0){
+
+
+
+average=Math.round(
 
 data.reduce(
 
-(sum,x)=>sum + Number(x.percentage),
+(sum,x)=>
+
+sum+Number(x.percentage),
 
 0
 
-) / data.length
+)
+
+/
+
+data.length
 
 );
 
 
 
-highest = Math.max(
 
-...data.map(x=>Number(x.percentage))
+highest=Math.max(
+
+...data.map(
+
+x=>Number(x.percentage)
+
+)
 
 );
 
@@ -74,35 +120,81 @@ highest = Math.max(
 
 
 
-// DISPLAY VALUES
 
+
+// DISPLAY DATA
+
+let users =
 document.getElementById(
 "totalUsers"
-).innerHTML = totalUsers;
+);
+
+
+if(users){
+
+users.innerHTML=
+totalUsers;
+
+}
 
 
 
+
+
+let attempts =
 document.getElementById(
 "totalAttempts"
-).innerHTML = totalAttempts;
+);
+
+
+if(attempts){
+
+attempts.innerHTML=
+totalAttempts;
+
+}
 
 
 
+
+
+let avg =
 document.getElementById(
 "averageScore"
-).innerHTML = average + "%";
+);
+
+
+if(avg){
+
+avg.innerHTML=
+average+"%";
+
+}
 
 
 
+
+
+let high =
 document.getElementById(
 "highestScore"
-).innerHTML = highest + "%";
+);
+
+
+if(high){
+
+high.innerHTML=
+highest+"%";
+
+}
 
 
 
 
 
-// CATEGORY ANALYSIS
+
+
+// CATEGORY
 
 loadCategory();
 
@@ -110,14 +202,19 @@ loadCategory();
 
 })
 
+
+
 .catch(error=>{
+
 
 console.log(
 "Analytics Error:",
 error
 );
 
+
 });
+
 
 
 };
@@ -126,21 +223,41 @@ error
 
 
 
+
+
+
+
+// =================================
 // CATEGORY ANALYSIS
+// =================================
 
 function loadCategory(){
 
 
-if(typeof questions === "undefined"){
 
+if(typeof questions==="undefined"){
+
+
+let box =
 document.getElementById(
 "categoryStats"
-).innerHTML =
+);
+
+
+if(box){
+
+box.innerHTML=
 "No question data found";
+
+}
+
 
 return;
 
+
 }
+
+
 
 
 
@@ -153,15 +270,21 @@ questions.forEach(q=>{
 
 if(!category[q.category]){
 
+
 category[q.category]=0;
 
+
 }
+
 
 
 category[q.category]++;
 
 
+
 });
+
+
 
 
 
@@ -169,28 +292,55 @@ let output="";
 
 
 
+
+
 for(let c in category){
 
 
-output += `
+
+output +=`
+
 
 <p>
 
-<strong>${c}</strong>
+<strong>
+${c}
+</strong>
 
-: ${category[c]} Questions
+:
+${category[c]}
+Questions
+
 
 </p>
 
+
 `;
+
+
 
 }
 
 
 
+
+
+let categoryBox =
 document.getElementById(
 "categoryStats"
-).innerHTML=output;
+);
+
+
+
+if(categoryBox){
+
+
+categoryBox.innerHTML=
+output;
+
+
+}
+
 
 
 }
