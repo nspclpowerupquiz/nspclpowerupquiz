@@ -12,33 +12,35 @@ function login(){
 
 
 
+    // Login credentials database
+    // Add more employees here if required
+
     const employees = [
 
 
         {
             id:"100106",
-            password:"NSPCL@100106",
-            name:"Rajesh Kumar"
+            password:"NSPCL@100106"
         },
 
 
         {
             id:"100107",
-            password:"NSPCL@100107",
-            name:"Amit Sharma"
+            password:"NSPCL@100107"
         },
 
 
         {
             id:"100108",
-            password:"NSPCL@100108",
-            name:"Suresh Verma"
+            password:"NSPCL@100108"
         }
 
 
     ];
 
 
+
+    // Check empty fields
 
     if(employeeId === "" || password === ""){
 
@@ -53,6 +55,7 @@ function login(){
 
 
 
+    // Verify login
 
     let user = employees.find(function(emp){
 
@@ -70,11 +73,15 @@ function login(){
     if(user){
 
 
-        // Save employee details
+        // Save employee ID only
 
         localStorage.setItem("employeeId", user.id);
 
-        localStorage.setItem("employeeName", user.name);
+
+
+        // Remove old saved name (important)
+
+        localStorage.removeItem("employeeName");
 
 
 
@@ -86,7 +93,7 @@ function login(){
         setTimeout(function(){
 
 
-            // Go to participant name page
+            // Go to name entry page
 
             window.location.href = "participant.html";
 
