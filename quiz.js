@@ -46,8 +46,7 @@ window.onload = function(){
 
     if(user){
 
-        user.innerHTML = "Welcome <b>" + employee + "</b>";
-
+       user.innerHTML = "Welcome <b>" + employeeName + " (" + employee + ")</b>";
     }
 
 };
