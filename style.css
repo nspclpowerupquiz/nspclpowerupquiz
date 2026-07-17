@@ -7156,3 +7156,142 @@ transform:translateY(-20px);
 }
 
 }
+/* ================================
+   LEADERBOARD IMPROVEMENT
+================================ */
+
+
+.leaderboard-container {
+
+    width:90%;
+    max-width:1200px;
+    margin:40px auto;
+
+    background:white;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,0.25);
+
+}
+
+
+
+/* Table spacing */
+
+.leaderboard-table {
+
+    width:100%;
+
+}
+
+
+
+/* Empty space fix */
+
+.leaderboard-table tbody:empty {
+
+    display:none;
+
+}
+
+
+
+/* Rows */
+
+.leaderboard-table tbody tr {
+
+    background:white;
+
+    transition:0.4s;
+
+}
+
+
+
+.leaderboard-table tbody tr:hover {
+
+    transform:scale(1.02);
+
+    background:#e3f2fd;
+
+}
+
+
+
+/* Rank badges */
+
+.leaderboard-table td:first-child {
+
+    font-size:24px;
+
+    font-weight:bold;
+
+}
+
+
+
+.leaderboard-table tbody tr:nth-child(1) td:first-child::before {
+
+    content:"🥇 ";
+
+}
+
+
+.leaderboard-table tbody tr:nth-child(2) td:first-child::before {
+
+    content:"🥈 ";
+
+}
+
+
+.leaderboard-table tbody tr:nth-child(3) td:first-child::before {
+
+    content:"🥉 ";
+
+}
+
+
+
+/* Header curve */
+
+header {
+
+    border-bottom-left-radius:40px;
+
+    border-bottom-right-radius:40px;
+
+}
+
+
+
+/* Floating trophy */
+
+header::before {
+
+    content:"🏆";
+
+    display:block;
+
+    font-size:35px;
+
+    animation:float 2s infinite;
+
+}
+
+
+
+@keyframes float {
+
+
+50% {
+
+transform:translateY(-12px);
+
+}
+
+
+}
