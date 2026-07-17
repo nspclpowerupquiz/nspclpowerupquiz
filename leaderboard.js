@@ -5,7 +5,7 @@
 
 
 // Google Apps Script URL
-const SCRIPT_URL = "YOUR_SCRIPT_URL";
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycb.../exec";
 
 
 // Load leaderboard when page opens
