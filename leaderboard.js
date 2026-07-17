@@ -1,57 +1,137 @@
 // =====================================
 // NSPCL POWER-UP QUIZ
-// Leaderboard System
+// GOOGLE SHEET LEADERBOARD SYSTEM
 // =====================================
 
 
-const leaderboardTable = document.getElementById("leaderboardTable");
+// Google Apps Script URL
+
+const leaderboardURL =
+"https://script.google.com/macros/s/AKfycbxaFLlnAhREGmXNi7YJtpSojqZKujF-MPr_7jvToyEohlKckrdm_f5-jhDA5JBwfTFqXg/exec?action=leaderboard";
+
+
+
+const leaderboardTable =
+document.getElementById("leaderboardTable");
+
+
+
+const topThree =
+document.getElementById("topThree");
+
+
+
 
 
 function loadLeaderboard(){
 
 
-    let data = JSON.parse(
 
-        localStorage.getItem("leaderboard")
-
-    ) || [];
+fetch(leaderboardURL)
 
 
+.then(response => response.json())
 
-    // Sort highest percentage first
 
-    data.sort((a,b)=>{
-
-        return b.percentage - a.percentage;
-
-    });
+.then(data => {
 
 
 
-    leaderboardTable.innerHTML="";
+    // Clear loading text
+
+    topThree.innerHTML="";
 
 
 
-    data.forEach((player,index)=>{
+    // Clear old rows except header
+
+    leaderboardTable.innerHTML = `
+
+    <tr>
+
+    <th>Rank</th>
+
+    <th>Employee Name</th>
+
+    <th>Score</th>
+
+    <th>Total Questions</th>
+
+    <th>Percentage</th>
+
+    <th>Date</th>
+
+    </tr>
+
+    `;
 
 
-        let row=document.createElement("tr");
 
 
 
-        row.innerHTML=`
+    data.forEach(function(player,index){
 
-        <td>${index+1}</td>
 
-        <td>${player.name}</td>
 
-        <td>${player.id}</td>
+        // Top 3 cards
+
+        if(index < 3){
+
+
+            let medal = ["🥇","🥈","🥉"][index];
+
+
+            topThree.innerHTML += `
+
+
+            <div class="winner">
+
+            <h1>${medal}</h1>
+
+            <h2>${player.employeeName}</h2>
+
+            <h3>${player.percentage}</h3>
+
+            </div>
+
+
+            `;
+
+
+        }
+
+
+
+
+
+
+        // Table rows
+
+        let row = document.createElement("tr");
+
+
+
+        row.innerHTML = `
+
+
+        <td>${player.rank}</td>
+
+
+        <td>${player.employeeName}</td>
+
 
         <td>${player.score}</td>
 
-        <td>${player.percentage}%</td>
 
-        <td>${player.date}</td>
+        <td>${player.totalQuestions}</td>
+
+
+        <td>${player.percentage}</td>
+
+
+        <td>${player.dateTime}</td>
+
+
 
         `;
 
@@ -65,7 +145,22 @@ function loadLeaderboard(){
 
 
 
+})
+
+
+.catch(error=>{
+
+
+console.log("Leaderboard Error:",error);
+
+
+});
+
+
+
 }
+
+
 
 
 
