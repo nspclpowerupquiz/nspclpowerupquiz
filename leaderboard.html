@@ -6,233 +6,174 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>NSPCL Power-Up Quiz Leaderboard</title>
+<title>NSPCL Power-Up Quiz | Leaderboard</title>
 
-<link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="leaderboard.css">
 
 </head>
 
-
 <body>
 
+<header class="header">
 
-<!-- HEADER -->
+<div class="header-content">
 
-<header class="leaderboard-header">
+<h1>⚡ NSPCL Power-Up Quiz</h1>
 
-<div class="trophy-icon">
-🏆
+<p>Power Champions Leaderboard</p>
+
+<a href="index.html" class="home-btn">🏠 Home</a>
+
 </div>
-
-
-<h1>
-NSPCL Power-Up Quiz
-</h1>
-
-
-<h2>
-⚡ Power Champions ⚡
-</h2>
-
-
-<p>
-Celebrating Excellence in NSPCL Power-Up Quiz
-</p>
-
 
 </header>
 
 
+<section class="hero">
 
-<!-- NAVIGATION -->
+<h2>🏆 Hall of Fame 🏆</h2>
 
-<nav class="top-nav">
-
-<a href="index.html" class="home-btn">
-🏠 Home
-</a>
-
-</nav>
-
-
-
-
-
-<!-- WINNER PODIUM -->
-
-<section class="winner-section">
-
-
-<div class="winner-card gold">
-
-<div class="medal">
-🥇
-</div>
-
-<h3>
-Champion
-</h3>
-
-<p id="winner1">
-Loading...
-</p>
-
-</div>
-
-
-
-<div class="winner-card silver">
-
-<div class="medal">
-🥈
-</div>
-
-<h3>
-Runner Up
-</h3>
-
-<p id="winner2">
-Loading...
-</p>
-
-</div>
-
-
-
-
-<div class="winner-card bronze">
-
-<div class="medal">
-🥉
-</div>
-
-<h3>
-Third Place
-</h3>
-
-<p id="winner3">
-Loading...
-</p>
-
-</div>
-
-
+<p>Celebrating the Best Performers</p>
 
 </section>
 
 
+<!-- Top 3 Winners -->
+
+<section class="podium">
+
+<div class="winner silver">
+
+<div class="medal">🥈</div>
+
+<h3>Runner Up</h3>
+
+<p id="winner2">Loading...</p>
+
+</div>
 
 
+<div class="winner gold">
+
+<div class="crown">👑</div>
+
+<div class="medal">🥇</div>
+
+<h3>Champion</h3>
+
+<p id="winner1">Loading...</p>
+
+</div>
 
 
-<!-- LEADERBOARD TABLE -->
+<div class="winner bronze">
 
-<div class="leaderboard-container">
+<div class="medal">🥉</div>
+
+<h3>Third Place</h3>
+
+<p id="winner3">Loading...</p>
+
+</div>
+
+</section>
 
 
-<h2>
-🏆 Complete Leaderboard
-</h2>
+<!-- Statistics -->
+
+<section class="stats">
+
+<div class="stat-card">
+
+<h3>Total Participants</h3>
+
+<h2 id="totalPlayers">0</h2>
+
+</div>
+
+<div class="stat-card">
+
+<h3>Highest Score</h3>
+
+<h2 id="highestScore">0</h2>
+
+</div>
+
+<div class="stat-card">
+
+<h3>Last Updated</h3>
+
+<h2 id="lastUpdated">--</h2>
+
+</div>
+
+</section>
 
 
+<!-- Search -->
+
+<section class="search-section">
+
+<input
+type="text"
+id="searchBox"
+placeholder="🔍 Search Employee ID or Name">
+
+</section>
+
+
+<!-- Leaderboard -->
+
+<section class="table-section">
 
 <table class="leaderboard-table">
-
 
 <thead>
 
 <tr>
 
-<th>
-Rank
-</th>
-
-
-<th>
-Employee ID
-</th>
-
-
-<th>
-Name
-</th>
-
-
-<th>
-Score
-</th>
-
-
-<th>
-Total
-</th>
-
-
-<th>
-Percentage
-</th>
-
-
-<th>
-Date
-</th>
-
+<th>Rank</th>
+<th>Employee ID</th>
+<th>Name</th>
+<th>Score</th>
+<th>Total</th>
+<th>%</th>
+<th>Date</th>
 
 </tr>
 
-
 </thead>
 
-
-
 <tbody id="leaderboardTable">
-
 
 <tr>
 
 <td colspan="7">
 
-<div class="loader">
-
-Loading Leaderboard...
-
-</div>
+Loading leaderboard...
 
 </td>
 
-
 </tr>
-
 
 </tbody>
 
-
-
 </table>
 
-
-</div>
-
-
-
+</section>
 
 
 <footer>
 
 <p>
-⚡ NSPCL Power-Up Quiz | Knowledge • Energy • Excellence ⚡
-</p>
 
+⚡ NSPCL Power-Up Quiz
+
+</p>
 
 </footer>
 
-
-
-
-
 <script src="leaderboard.js"></script>
-
 
 </body>
 
