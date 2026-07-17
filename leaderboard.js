@@ -3,23 +3,52 @@
 // LEADERBOARD
 // ==========================================
 
+
+// GOOGLE APPS SCRIPT URL
+
 const SCRIPT_URL =
-"https://script.google.com/macros/s/AKfycbwBbn0mA_VbQG3A4lz7nDGWZm66P6jKBx12zXbYZ-OoCudVBzIvK-MkuZEXxLcECl5wdw/exec"
+"https://script.google.com/macros/s/AKfycbwBbn0mA_VbQG3A4lz7nDGWZm66P6jKBx12zXbYZ-OoCudVBzIvK-MkuZEXxLcECl5wdw/exec";
+
+
 
 let leaderboardData = [];
 
-window.onload = function () {
+
+
+// ==========================================
+// PAGE LOAD
+// ==========================================
+
+window.onload = function(){
+
 
     loadLeaderboard();
 
+
     // Auto refresh every 30 seconds
+
     setInterval(loadLeaderboard,30000);
 
-    // Search
-    document.getElementById("searchBox")
-    .addEventListener("keyup",searchLeaderboard);
+
+
+    let search=document.getElementById("searchBox");
+
+
+    if(search){
+
+        search.addEventListener(
+            "keyup",
+            searchLeaderboard
+        );
+
+    }
+
 
 };
+
+
+
+
 
 
 // ==========================================
@@ -28,55 +57,129 @@ window.onload = function () {
 
 function loadLeaderboard(){
 
-    const table=document.getElementById("leaderboardTable");
 
-    table.innerHTML=`
-    <tr>
-        <td colspan="7">
-            Loading Leaderboard...
-        </td>
-    </tr>`;
+const table=document.getElementById(
+"leaderboardTable"
+);
 
-    fetch(SCRIPT_URL+"?action=leaderboard")
 
-    .then(response=>{
 
-        if(!response.ok){
+table.innerHTML=`
 
-            throw new Error("Unable to fetch leaderboard");
+<tr>
 
-        }
+<td colspan="7">
 
-        return response.json();
+Loading Leaderboard...
 
-    })
+</td>
 
-    .then(data=>{
+</tr>
 
-        leaderboardData=data;
+`;
 
-        updateWinnerCards(data);
 
-        updateStatistics(data);
 
-        displayTable(data);
 
-    })
 
-    .catch(error=>{
+fetch(
+SCRIPT_URL+"?action=leaderboard"
+)
 
-        console.error(error);
 
-        table.innerHTML=`
-        <tr>
-            <td colspan="7">
-            ❌ Unable to load leaderboard
-            </td>
-        </tr>`;
 
-    });
+.then(response=>{
+
+
+if(!response.ok){
+
+throw new Error(
+"Unable to fetch leaderboard"
+);
 
 }
+
+
+return response.json();
+
+
+})
+
+
+
+.then(data=>{
+
+
+console.log(data);
+
+
+// SORT BY SCORE DESCENDING
+
+leaderboardData=data.sort(
+
+(a,b)=>Number(b.score)-Number(a.score)
+
+);
+
+
+
+updateWinnerCards(
+leaderboardData
+);
+
+
+
+updateStatistics(
+leaderboardData
+);
+
+
+
+displayTable(
+leaderboardData
+);
+
+
+
+})
+
+
+
+.catch(error=>{
+
+
+console.error(
+error
+);
+
+
+
+table.innerHTML=`
+
+<tr>
+
+<td colspan="7">
+
+❌ Unable to load leaderboard
+
+</td>
+
+</tr>
+
+`;
+
+
+
+});
+
+
+
+}
+
+
+
+
+
 
 
 
@@ -86,31 +189,93 @@ function loadLeaderboard(){
 
 function updateWinnerCards(data){
 
-    if(data.length>0){
 
-        document.getElementById("winner1").innerHTML=
-        `<strong>${data[0].employeeName}</strong><br>
-        ${data[0].score}/${data[0].totalQuestions}`;
 
-    }
+if(data.length>0){
 
-    if(data.length>1){
 
-        document.getElementById("winner2").innerHTML=
-        `<strong>${data[1].employeeName}</strong><br>
-        ${data[1].score}/${data[1].totalQuestions}`;
+document.getElementById(
+"winner1"
+).innerHTML=
 
-    }
 
-    if(data.length>2){
+`
 
-        document.getElementById("winner3").innerHTML=
-        `<strong>${data[2].employeeName}</strong><br>
-        ${data[2].score}/${data[2].totalQuestions}`;
+<strong>
+${data[0].employeeName}
+</strong>
 
-    }
+<br>
+
+${data[0].score}/${data[0].totalQuestions}
+
+`;
+
+
 
 }
+
+
+
+if(data.length>1){
+
+
+document.getElementById(
+"winner2"
+).innerHTML=
+
+
+`
+
+<strong>
+${data[1].employeeName}
+</strong>
+
+<br>
+
+${data[1].score}/${data[1].totalQuestions}
+
+`;
+
+
+
+}
+
+
+
+if(data.length>2){
+
+
+document.getElementById(
+"winner3"
+).innerHTML=
+
+
+`
+
+<strong>
+${data[2].employeeName}
+</strong>
+
+<br>
+
+${data[2].score}/${data[2].totalQuestions}
+
+`;
+
+
+
+}
+
+
+
+}
+
+
+
+
+
+
 
 
 
@@ -120,71 +285,202 @@ function updateWinnerCards(data){
 
 function updateStatistics(data){
 
-    document.getElementById("totalPlayers").textContent=data.length;
 
-    if(data.length>0){
 
-        document.getElementById("highestScore").textContent=data[0].score;
+let players =
+document.getElementById(
+"totalPlayers"
+);
 
-    }
 
-    document.getElementById("lastUpdated").textContent=
-    new Date().toLocaleTimeString();
+
+let highest =
+document.getElementById(
+"highestScore"
+);
+
+
+
+let updated =
+document.getElementById(
+"lastUpdated"
+);
+
+
+
+if(players){
+
+players.textContent=data.length;
 
 }
 
 
 
+if(highest && data.length>0){
+
+
+highest.textContent =
+data[0].score +
+"/"+
+data[0].totalQuestions;
+
+
+}
+
+
+
+if(updated){
+
+
+updated.textContent =
+new Date().toLocaleTimeString();
+
+
+}
+
+
+
+}
+
+
+
+
+
+
+
+
+
 // ==========================================
-// TABLE
+// DISPLAY TABLE
 // ==========================================
 
 function displayTable(data){
 
-    const table=document.getElementById("leaderboardTable");
 
-    table.innerHTML="";
 
-    if(data.length===0){
+const table=document.getElementById(
+"leaderboardTable"
+);
 
-        table.innerHTML=`
-        <tr>
-            <td colspan="7">
-            No Quiz Attempts Found
-            </td>
-        </tr>`;
 
-        return;
 
-    }
+table.innerHTML="";
 
-    data.forEach((player,index)=>{
 
-        let row=document.createElement("tr");
 
-        row.innerHTML=`
 
-        <td>${index+1}</td>
 
-        <td>${player.employeeId}</td>
+if(data.length===0){
 
-        <td>${player.employeeName}</td>
 
-        <td>${player.score}</td>
+table.innerHTML=`
 
-        <td>${player.totalQuestions}</td>
+<tr>
 
-        <td>${Math.round(player.percentage*100)}%</td>
+<td colspan="7">
 
-        <td>${new Date(player.dateTime).toLocaleDateString()}</td>
+No Quiz Attempts Found
 
-        `;
+</td>
 
-        table.appendChild(row);
+</tr>
 
-    });
+`;
+
+return;
+
 
 }
+
+
+
+
+
+
+
+data.forEach(
+(player,index)=>{
+
+
+let row=document.createElement(
+"tr"
+);
+
+
+
+row.innerHTML=`
+
+<td>
+
+${index+1}
+
+</td>
+
+
+<td>
+
+${player.employeeId}
+
+</td>
+
+
+<td>
+
+${player.employeeName}
+
+</td>
+
+
+<td>
+
+${player.score}
+
+</td>
+
+
+<td>
+
+${player.totalQuestions}
+
+</td>
+
+
+<td>
+
+${Math.round(player.percentage)}%
+
+</td>
+
+
+<td>
+
+${new Date(
+player.dateTime
+).toLocaleString()}
+
+</td>
+
+
+`;
+
+
+
+table.appendChild(row);
+
+
+
+}
+
+);
+
+
+
+}
+
+
+
+
+
 
 
 
@@ -194,27 +490,52 @@ function displayTable(data){
 
 function searchLeaderboard(){
 
-    let value=document
-    .getElementById("searchBox")
-    .value
-    .toLowerCase();
 
-    let filtered=leaderboardData.filter(player=>{
 
-        return (
+let value=document
 
-            String(player.employeeId).includes(value)
+.getElementById(
+"searchBox"
+)
 
-            ||
+.value
 
-            player.employeeName
-            .toLowerCase()
-            .includes(value)
+.toLowerCase();
 
-        );
 
-    });
 
-    displayTable(filtered);
+
+
+
+let filtered =
+leaderboardData.filter(player=>{
+
+
+return(
+
+String(player.employeeId)
+.includes(value)
+
+
+||
+
+
+player.employeeName
+.toLowerCase()
+.includes(value)
+
+
+);
+
+
+});
+
+
+
+
+
+displayTable(filtered);
+
+
 
 }
