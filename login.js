@@ -15,29 +15,28 @@ function login(){
     const employees = [
 
 
-        {
-            id:"100106",
-            password:"NSPCL@100106",
-            name:"Employee 100106"
-        },
+{
+id:"100106",
+password:"NSPCL@100106",
+name:"Rajesh Kumar"
+},
 
 
-        {
-            id:"100107",
-            password:"NSPCL@100107",
-            name:"Employee 100107"
-        },
+{
+id:"100107",
+password:"NSPCL@100107",
+name:"Amit Sharma"
+},
 
 
-        {
-            id:"100108",
-            password:"NSPCL@100108",
-            name:"Employee 100108"
-        }
+{
+id:"100108",
+password:"NSPCL@100108",
+name:"Suresh Verma"
+}
 
 
-    ];
-
+];
 
 
     if(employeeId === "" || password === ""){
