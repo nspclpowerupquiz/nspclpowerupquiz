@@ -1,86 +1,176 @@
-const SCRIPT_URL = "PASTE_YOUR_APPS_SCRIPT_URL_HERE";
+// =====================================
+// NSPCL POWER-UP QUIZ
+// LEADERBOARD JAVASCRIPT
+// =====================================
 
 
-async function loadLeaderboard(){
+// Your Google Apps Script Web App URL
+const SCRIPT_URL = "YOUR_SCRIPT_URL";
 
 
-try{
+// Load leaderboard when page opens
+window.onload = function(){
 
+    loadLeaderboard();
 
-let response = await fetch(
-SCRIPT_URL + "?action=leaderboard"
-);
-
-
-let data = await response.json();
-
-
-console.log(data);
-
-
-
-let table = document.getElementById(
-"leaderboardTable"
-);
-
-
-table.innerHTML = "";
+};
 
 
 
-data.forEach((player)=>{
+// =====================================
+// LOAD LEADERBOARD DATA
+// =====================================
+
+function loadLeaderboard(){
+
+    const tableBody = document.getElementById("leaderboardBody");
 
 
-table.innerHTML += `
+    if(!tableBody){
 
-<tr>
+        console.log("Leaderboard table body not found");
+        return;
 
-<td>${player.rank}</td>
+    }
 
-<td>${player.employeeId}</td>
 
-<td>${player.employeeName}</td>
+    tableBody.innerHTML = `
+        <tr>
+            <td colspan="7">
+                Loading leaderboard...
+            </td>
+        </tr>
+    `;
 
-<td>${player.score}</td>
 
-<td>${player.totalQuestions}</td>
 
-<td>${Math.round(player.percentage*100)}%</td>
+    fetch(SCRIPT_URL + "?action=leaderboard")
 
-<td>${new Date(player.dateTime).toLocaleDateString()}</td>
+    .then(response => response.json())
 
-</tr>
+    .then(data => {
 
-`;
 
-});
+        console.log("Leaderboard Data:", data);
+
+
+
+        if(data.length === 0){
+
+            tableBody.innerHTML = `
+            <tr>
+                <td colspan="7">
+                    No records found
+                </td>
+            </tr>
+            `;
+
+            return;
+
+        }
+
+
+
+        tableBody.innerHTML = "";
+
+
+
+        data.forEach((player,index)=>{
+
+
+            let percentage = 
+            Math.round(player.percentage * 100);
+
+
+
+            let date = new Date(player.dateTime)
+            .toLocaleString();
+
+
+
+            let row = `
+
+            <tr>
+
+                <td>
+                    ${index + 1}
+                </td>
+
+
+                <td>
+                    ${player.employeeId}
+                </td>
+
+
+                <td>
+                    ${player.employeeName}
+                </td>
+
+
+                <td>
+                    ${player.score}
+                </td>
+
+
+                <td>
+                    ${player.totalQuestions}
+                </td>
+
+
+                <td>
+                    ${percentage}%
+                </td>
+
+
+                <td>
+                    ${date}
+                </td>
+
+
+            </tr>
+
+
+            `;
+
+
+
+            tableBody.innerHTML += row;
+
+
+
+        });
+
+
+
+    })
+
+
+
+    .catch(error=>{
+
+
+        console.error(
+            "Leaderboard Error:",
+            error
+        );
+
+
+        tableBody.innerHTML = `
+
+        <tr>
+
+        <td colspan="7">
+
+        Unable to load leaderboard
+
+        </td>
+
+        </tr>
+
+        `;
+
+
+    });
 
 
 }
-
-catch(error){
-
-
-console.log(error);
-
-
-document.getElementById(
-"leaderboardTable"
-).innerHTML =
-
-`
-<tr>
-<td colspan="7">
-Error loading leaderboard
-</td>
-</tr>
-`;
-
-}
-
-
-}
-
-
-
-loadLeaderboard();
