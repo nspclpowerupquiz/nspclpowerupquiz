@@ -15,23 +15,33 @@ let time = 5;
 let employee = localStorage.getItem("employee");
 
 
+// Google Sheet Web App URL
+
+const sheetURL = "https://script.google.com/macros/s/AKfycbxaFLlnAhREGmXNi7YJtpSojqZKujF-MPr_7jvToyEohlKckrdm_f5-jhDA5JBwfTFqXg/exec";
+
+
+
 
 // ==========================
 // LOGIN CHECK
 // ==========================
 
-if (employee == null) {
+if(employee == null){
 
     window.location.href = "login.html";
 
 }
 
 
-// Show employee name
+
+// ==========================
+// SHOW EMPLOYEE NAME
+// ==========================
 
 window.onload = function(){
 
     let user = document.getElementById("welcomeUser");
+
 
     if(user){
 
@@ -44,13 +54,12 @@ window.onload = function(){
 
 
 
+
 // ==========================
 // LOAD QUESTIONS JSON
 // ==========================
 
-
 async function loadQuestions(){
-
 
     try{
 
@@ -60,16 +69,17 @@ async function loadQuestions(){
 
         if(!response.ok){
 
-            throw new Error("Questions file not found");
+            throw new Error("questions.json not found");
 
         }
+
 
 
         questions = await response.json();
 
 
-    }
 
+    }
 
     catch(error){
 
@@ -96,16 +106,14 @@ async function loadQuestions(){
 // START QUIZ
 // ==========================
 
-
 async function startQuiz(){
-
 
 
     await loadQuestions();
 
 
 
-    if(questions.length === 0){
+    if(questions.length == 0){
 
 
         alert("No questions available");
@@ -115,7 +123,6 @@ async function startQuiz(){
 
 
     }
-
 
 
 
@@ -132,7 +139,6 @@ async function startQuiz(){
     document.querySelector(".quiz-intro").style.display="none";
 
 
-
     document.getElementById("quiz-area").style.display="block";
 
 
@@ -140,9 +146,7 @@ async function startQuiz(){
     loadQuestion();
 
 
-
 }
-
 
 
 
@@ -156,9 +160,7 @@ async function startQuiz(){
 // LOAD QUESTION
 // ==========================
 
-
 function loadQuestion(){
-
 
 
     clearInterval(timer);
@@ -182,14 +184,11 @@ function loadQuestion(){
     time = 5;
 
 
-
     document.getElementById("time").innerHTML=time;
 
 
 
-
     let q = questions[currentQuestion];
-
 
 
 
@@ -199,26 +198,15 @@ function loadQuestion(){
 
 
 
-
-
-
     document.getElementById("question").innerHTML =
 
     "Q"+(currentQuestion+1)+". "+q.question;
 
 
 
+    let optionHTML = "";
 
-
-
-
-
-    let optionHTML="";
-
-
-    let letters=["A","B","C","D"];
-
-
+    let letters = ["A","B","C","D"];
 
 
 
@@ -247,7 +235,6 @@ function loadQuestion(){
         </button>
 
 
-
         `;
 
 
@@ -256,19 +243,15 @@ function loadQuestion(){
 
 
 
-
-
-    document.getElementById("options").innerHTML=optionHTML;
-
+    document.getElementById("options").innerHTML = optionHTML;
 
 
 
-    document.getElementById("nextBtn").disabled=true;
+    document.getElementById("nextBtn").disabled = true;
 
 
 
     startTimer();
-
 
 
 }
@@ -285,12 +268,11 @@ function loadQuestion(){
 // TIMER
 // ==========================
 
-
 function startTimer(){
 
 
 
-    timer=setInterval(function(){
+    timer = setInterval(function(){
 
 
 
@@ -302,7 +284,7 @@ function startTimer(){
 
 
 
-        if(time<=0){
+        if(time <= 0){
 
 
 
@@ -314,7 +296,7 @@ function startTimer(){
 
 
 
-            nextQuestion();
+            document.getElementById("nextBtn").disabled=false;
 
 
 
@@ -336,10 +318,11 @@ function startTimer(){
 
 
 
+
+
 // ==========================
 // CHECK ANSWER
 // ==========================
-
 
 function checkAnswer(button,selectedAnswer){
 
@@ -353,7 +336,7 @@ function checkAnswer(button,selectedAnswer){
 
 
 
-    let buttons=document.querySelectorAll(".option");
+    let buttons = document.querySelectorAll(".option");
 
 
 
@@ -361,25 +344,24 @@ function checkAnswer(button,selectedAnswer){
     buttons.forEach(function(btn){
 
 
-        btn.disabled=true;
+
+        btn.disabled = true;
 
 
 
         if(btn.innerText.includes(correctAnswer)){
 
 
+
             btn.style.background="#16a34a";
 
             btn.style.color="white";
-
 
         }
 
 
 
     });
-
-
 
 
 
@@ -402,9 +384,7 @@ function checkAnswer(button,selectedAnswer){
         button.style.color="white";
 
 
-
     }
-
 
     else{
 
@@ -418,12 +398,14 @@ function checkAnswer(button,selectedAnswer){
 
 
 
-
     document.getElementById("nextBtn").disabled=false;
 
 
 
 }
+
+
+
 
 
 
@@ -437,7 +419,6 @@ function checkAnswer(button,selectedAnswer){
 // DISABLE OPTIONS
 // ==========================
 
-
 function disableOptions(){
 
 
@@ -445,23 +426,34 @@ function disableOptions(){
     let buttons=document.querySelectorAll(".option");
 
 
+    let correctAnswer = questions[currentQuestion].answer;
+
+
 
     buttons.forEach(function(btn){
 
 
+
         btn.disabled=true;
+
+
+
+        if(btn.innerText.includes(correctAnswer)){
+
+
+            btn.style.background="#16a34a";
+
+            btn.style.color="white";
+
+
+        }
 
 
     });
 
 
 
-    document.getElementById("nextBtn").disabled=false;
-
-
-
 }
-
 
 
 
@@ -475,16 +467,98 @@ function disableOptions(){
 // NEXT QUESTION
 // ==========================
 
-
 function nextQuestion(){
-
 
 
     currentQuestion++;
 
 
-
     loadQuestion();
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+// ==========================
+// SEND RESULT TO GOOGLE SHEET
+// ==========================
+
+function submitScore(score,percentage){
+
+
+
+    let data = {
+
+
+        employee: employee,
+
+
+        score: score,
+
+
+        total: questions.length,
+
+
+        percentage: percentage,
+
+
+        date: new Date().toLocaleString()
+
+
+
+    };
+
+
+
+
+    fetch(sheetURL,{
+
+
+        method:"POST",
+
+
+        mode:"no-cors",
+
+
+        headers:{
+
+
+            "Content-Type":"application/json"
+
+
+        },
+
+
+        body:JSON.stringify(data)
+
+
+
+    })
+
+    .then(()=>{
+
+
+        console.log("Score submitted");
+
+
+    })
+
+    .catch(error=>{
+
+
+        console.log("Sheet error:",error);
+
+
+    });
 
 
 
@@ -498,13 +572,14 @@ function nextQuestion(){
 
 
 
+
+
+
 // ==========================
 // SHOW RESULT
 // ==========================
 
-
 function showResult(){
-
 
 
     clearInterval(timer);
@@ -515,12 +590,17 @@ function showResult(){
 
 
 
-    let percentage=Math.round(
+    let percentage = Math.round(
 
         (score/questions.length)*100
 
     );
 
+
+
+    // Send score to Google Sheet
+
+    submitScore(score,percentage);
 
 
 
@@ -531,6 +611,7 @@ function showResult(){
 
 
     <div class="result-card">
+
 
 
     <h2>🎉 Congratulations ${employee}</h2>
@@ -566,9 +647,6 @@ function showResult(){
 
 
 
-
-
-
     localStorage.setItem("score",score);
 
 
@@ -587,13 +665,10 @@ function showResult(){
 // RESTART QUIZ
 // ==========================
 
-
 function restartQuiz(){
 
 
-
     location.reload();
-
 
 
 }
