@@ -12,14 +12,17 @@ let timer;
 
 let time = 5;
 
+
 let employee = localStorage.getItem("employeeId");
 
 let employeeName = localStorage.getItem("employeeName");
 
 
+
 // Google Sheet Web App URL
 
 const sheetURL = "https://script.google.com/macros/s/AKfycbxaFLlnAhREGmXNi7YJtpSojqZKujF-MPr_7jvToyEohlKckrdm_f5-jhDA5JBwfTFqXg/exec";
+
 
 
 
@@ -36,21 +39,35 @@ if(employee == null){
 
 
 
+
+
 // ==========================
 // SHOW EMPLOYEE NAME
 // ==========================
 
 window.onload = function(){
 
+
     let user = document.getElementById("welcomeUser");
 
 
     if(user){
 
-      user.innerHTML = 
-"Welcome <b>" + employeeName + "</b> (" + employee + ")";
+
+        user.innerHTML =
+        "Welcome <b>" + employeeName + "</b> (" + employee + ")";
+
+
+    }
+
 
 };
+
+
+
+
+
+
 
 
 // ==========================
@@ -58,6 +75,7 @@ window.onload = function(){
 // ==========================
 
 async function loadQuestions(){
+
 
     try{
 
@@ -78,6 +96,7 @@ async function loadQuestions(){
 
 
     }
+
 
     catch(error){
 
@@ -107,11 +126,12 @@ async function loadQuestions(){
 async function startQuiz(){
 
 
+
     await loadQuestions();
 
 
 
-    if(questions.length == 0){
+    if(questions.length === 0){
 
 
         alert("No questions available");
@@ -142,6 +162,7 @@ async function startQuiz(){
 
 
     loadQuestion();
+
 
 
 }
@@ -178,7 +199,6 @@ function loadQuestion(){
 
 
 
-
     time = 5;
 
 
@@ -199,6 +219,8 @@ function loadQuestion(){
     document.getElementById("question").innerHTML =
 
     "Q"+(currentQuestion+1)+". "+q.question;
+
+
 
 
 
@@ -236,7 +258,6 @@ function loadQuestion(){
         `;
 
 
-
     });
 
 
@@ -262,6 +283,8 @@ function loadQuestion(){
 
 
 
+
+
 // ==========================
 // TIMER
 // ==========================
@@ -269,13 +292,10 @@ function loadQuestion(){
 function startTimer(){
 
 
-
     timer = setInterval(function(){
 
 
-
         time--;
-
 
 
         document.getElementById("time").innerHTML=time;
@@ -285,17 +305,13 @@ function startTimer(){
         if(time <= 0){
 
 
-
             clearInterval(timer);
-
 
 
             disableOptions();
 
 
-
             document.getElementById("nextBtn").disabled=false;
-
 
 
         }
@@ -307,6 +323,7 @@ function startTimer(){
 
 
 }
+
 
 
 
@@ -338,28 +355,26 @@ function checkAnswer(button,selectedAnswer){
 
 
 
-
     buttons.forEach(function(btn){
 
 
-
-        btn.disabled = true;
+        btn.disabled=true;
 
 
 
         if(btn.innerText.includes(correctAnswer)){
 
 
-
             btn.style.background="#16a34a";
 
             btn.style.color="white";
 
+
         }
 
 
-
     });
+
 
 
 
@@ -383,6 +398,7 @@ function checkAnswer(button,selectedAnswer){
 
 
     }
+
 
     else{
 
@@ -412,13 +428,11 @@ function checkAnswer(button,selectedAnswer){
 
 
 
-
 // ==========================
 // DISABLE OPTIONS
 // ==========================
 
 function disableOptions(){
-
 
 
     let buttons=document.querySelectorAll(".option");
@@ -429,7 +443,6 @@ function disableOptions(){
 
 
     buttons.forEach(function(btn){
-
 
 
         btn.disabled=true;
@@ -461,6 +474,8 @@ function disableOptions(){
 
 
 
+
+
 // ==========================
 // NEXT QUESTION
 // ==========================
@@ -478,22 +493,27 @@ function nextQuestion(){
 
 
 
+
+
+
+
+
+
+
+
+
 // ==========================
 // SEND RESULT TO GOOGLE SHEET
 // ==========================
 
-function submitScore(score, percentage){
+function submitScore(score,percentage){
 
-
-    let employeeId = localStorage.getItem("employeeId");
-
-    let employeeName = localStorage.getItem("employeeName");
 
 
     let data = {
 
 
-        employeeId: employeeId,
+        employeeId: employee,
 
 
         employeeName: employeeName,
@@ -519,7 +539,7 @@ function submitScore(score, percentage){
 
 
 
-    fetch(sheetURL, {
+    fetch(sheetURL,{
 
 
         method:"POST",
@@ -543,7 +563,17 @@ function submitScore(score, percentage){
     });
 
 
+
 }
+
+
+
+
+
+
+
+
+
 
 
 
@@ -552,6 +582,7 @@ function submitScore(score, percentage){
 // ==========================
 
 function showResult(){
+
 
 
     clearInterval(timer);
@@ -570,8 +601,6 @@ function showResult(){
 
 
 
-    // Send score to Google Sheet
-
     submitScore(score,percentage);
 
 
@@ -585,21 +614,16 @@ function showResult(){
     <div class="result-card">
 
 
-
-    <h2>🎉 Congratulations ${employee}</h2>
-
+    <h2>🎉 Congratulations ${employeeName} (${employee})</h2>
 
 
     <h3>NSPCL Power-Up Quiz Completed</h3>
 
 
-
     <h1>${score} / ${questions.length}</h1>
 
 
-
     <h2>${percentage}%</h2>
-
 
 
 
@@ -608,7 +632,6 @@ function showResult(){
     🔄 Play Again
 
     </button>
-
 
 
     </div>
@@ -624,6 +647,15 @@ function showResult(){
 
 
 }
+
+
+
+
+
+
+
+
+
 
 
 // ==========================
