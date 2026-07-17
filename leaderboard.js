@@ -1,125 +1,86 @@
-// =====================================
-// NSPCL POWER-UP QUIZ
-// Dynamic Leaderboard
-// =====================================
+const SCRIPT_URL = "PASTE_YOUR_APPS_SCRIPT_URL_HERE";
 
 
-const leaderboardURL =
-"https://script.google.com/macros/s/AKfycbxaFLlnAhREGmXNi7YJtpSojqZKujF-MPr_7jvToyEohlKckrdm_f5-jhDA5JBwfTFqXg/exec?action=leaderboard";
+async function loadLeaderboard(){
 
 
+try{
 
-const leaderboardTable =
-document.getElementById("leaderboardTable");
 
+let response = await fetch(
+SCRIPT_URL + "?action=leaderboard"
+);
 
-const topThree =
-document.getElementById("topThree");
 
+let data = await response.json();
 
 
+console.log(data);
 
 
-fetch(leaderboardURL)
 
+let table = document.getElementById(
+"leaderboardTable"
+);
 
-.then(response => response.json())
 
+table.innerHTML = "";
 
-.then(data => {
 
 
+data.forEach((player)=>{
 
-    topThree.innerHTML = "";
 
+table.innerHTML += `
 
+<tr>
 
-    leaderboardTable.innerHTML = `
+<td>${player.rank}</td>
 
-    <tr>
-    <th>Rank</th>
-    <th>Employee Name</th>
-    <th>Score</th>
-    <th>Total Questions</th>
-    <th>Percentage</th>
-    <th>Date</th>
-    </tr>
+<td>${player.employeeId}</td>
 
-    `;
+<td>${player.employeeName}</td>
 
+<td>${player.score}</td>
 
+<td>${player.totalQuestions}</td>
 
+<td>${Math.round(player.percentage*100)}%</td>
 
-    data.forEach(function(player,index){
+<td>${new Date(player.dateTime).toLocaleDateString()}</td>
 
+</tr>
 
-
-        let percentage = Math.round(player.percentage * 100);
-
-
-
-        // Top 3 cards
-
-        if(index < 3){
-
-
-            let medal = ["🥇","🥈","🥉"][index];
-
-
-            topThree.innerHTML += `
-
-            <div class="winner">
-
-            <h1>${medal}</h1>
-
-            <h2>${player.employeeName}</h2>
-
-            <h3>${percentage}%</h3>
-
-            </div>
-
-            `;
-
-
-        }
-
-
-
-
-
-        // Table rows
-
-        let row = leaderboardTable.insertRow();
-
-
-
-        row.innerHTML = `
-
-        <td>${player.rank}</td>
-
-        <td>${player.employeeName}</td>
-
-        <td>${player.score}</td>
-
-        <td>${player.totalQuestions}</td>
-
-        <td>${percentage}%</td>
-
-        <td>${new Date(player.dateTime).toLocaleDateString()}</td>
-
-        `;
-
-
-
-    });
-
-
-
-})
-
-
-.catch(error=>{
-
-console.log("Leaderboard Error:",error);
+`;
 
 });
+
+
+}
+
+catch(error){
+
+
+console.log(error);
+
+
+document.getElementById(
+"leaderboardTable"
+).innerHTML =
+
+`
+<tr>
+<td colspan="7">
+Error loading leaderboard
+</td>
+</tr>
+`;
+
+}
+
+
+}
+
+
+
+loadLeaderboard();
