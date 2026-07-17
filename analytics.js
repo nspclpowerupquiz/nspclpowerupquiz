@@ -3,64 +3,70 @@
 // =================================
 
 
-
-let data = JSON.parse(
-
-localStorage.getItem("leaderboard")
-
-)||[];
+// YOUR GOOGLE APPS SCRIPT URL
+const SCRIPT_URL = "YOUR_SCRIPT_URL_HERE";
 
 
 
+// LOAD ANALYTICS
+window.onload = function(){
+
+fetch(SCRIPT_URL + "?action=leaderboard")
+
+.then(response => response.json())
+
+.then(data => {
 
 
-let totalUsers =
+console.log(data);
 
+
+// TOTAL USERS
+
+let totalUsers = 
 [...new Set(
-
-data.map(x=>x.id)
-
+data.map(x=>x.employeeId)
 )].length;
 
 
 
+// TOTAL ATTEMPTS
 
-let totalAttempts=data.length;
-
-
-
-let average=0;
-
-let highest=0;
+let totalAttempts = data.length;
 
 
 
-if(data.length>0){
+// AVERAGE SCORE
+
+let average = 0;
+
+let highest = 0;
 
 
-average=
 
-Math.round(
+if(data.length > 0){
+
+
+average = Math.round(
 
 data.reduce(
 
-(sum,x)=>sum+x.percentage,
+(sum,x)=>sum + Number(x.percentage),
 
 0
 
-)/data.length
+) / data.length
 
 );
 
 
 
-highest=
+highest = Math.max(
 
-Math.max(
-
-...data.map(x=>x.percentage)
+...data.map(x=>Number(x.percentage))
 
 );
+
 
 
 }
@@ -68,39 +74,74 @@ Math.max(
 
 
 
+// DISPLAY VALUES
 
 document.getElementById(
 "totalUsers"
-).innerHTML=totalUsers;
+).innerHTML = totalUsers;
 
 
 
 document.getElementById(
 "totalAttempts"
-).innerHTML=totalAttempts;
+).innerHTML = totalAttempts;
 
 
 
 document.getElementById(
 "averageScore"
-).innerHTML=
-
-average+"%";
+).innerHTML = average + "%";
 
 
 
 document.getElementById(
 "highestScore"
-).innerHTML=
-
-highest+"%";
+).innerHTML = highest + "%";
 
 
 
 
 
+// CATEGORY ANALYSIS
 
-// Category Analysis
+loadCategory();
+
+
+
+})
+
+.catch(error=>{
+
+console.log(
+"Analytics Error:",
+error
+);
+
+});
+
+
+};
+
+
+
+
+
+// CATEGORY ANALYSIS
+
+function loadCategory(){
+
+
+if(typeof questions === "undefined"){
+
+document.getElementById(
+"categoryStats"
+).innerHTML =
+"No question data found";
+
+return;
+
+}
+
 
 
 let category={};
@@ -131,7 +172,7 @@ let output="";
 for(let c in category){
 
 
-output+=`
+output += `
 
 <p>
 
@@ -141,9 +182,7 @@ output+=`
 
 </p>
 
-
 `;
-
 
 }
 
@@ -152,3 +191,6 @@ output+=`
 document.getElementById(
 "categoryStats"
 ).innerHTML=output;
+
+
+}
