@@ -12,7 +12,8 @@ let timer;
 
 let time = 5;
 
-let employee = localStorage.getItem("employee");
+let employee = localStorage.getItem("employeeId");
+let employeeName = localStorage.getItem("employeeName");
 
 
 // Google Sheet Web App URL
