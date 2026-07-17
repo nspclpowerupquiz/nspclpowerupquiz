@@ -1,9 +1,11 @@
 function saveParticipant(){
 
+
     let name = document.getElementById("participantName").value.trim();
 
 
-    if(name==""){
+
+    if(name === ""){
 
         alert("Please enter your name");
 
@@ -12,9 +14,12 @@ function saveParticipant(){
     }
 
 
+
     localStorage.setItem("employeeName", name);
 
 
-    window.location.href="quiz.html";
+
+    window.location.href = "quiz.html";
+
 
 }
