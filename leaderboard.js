@@ -1,10 +1,10 @@
 // =====================================
 // NSPCL POWER-UP QUIZ
-// LEADERBOARD JAVASCRIPT
+// LEADERBOARD SYSTEM
 // =====================================
 
 
-// Your Google Apps Script Web App URL
+// Google Apps Script URL
 const SCRIPT_URL = "YOUR_SCRIPT_URL";
 
 
@@ -18,35 +18,29 @@ window.onload = function(){
 
 
 // =====================================
-// LOAD LEADERBOARD DATA
+// FETCH LEADERBOARD DATA
 // =====================================
 
 function loadLeaderboard(){
 
-    const tableBody = document.getElementById("leaderboardBody");
+
+    const table = document.getElementById("leaderboardTable");
 
 
-    if(!tableBody){
+    if(!table){
 
-        console.log("Leaderboard table body not found");
+        console.log("Leaderboard table not found");
         return;
 
     }
 
 
-    tableBody.innerHTML = `
-        <tr>
-            <td colspan="7">
-                Loading leaderboard...
-            </td>
-        </tr>
-    `;
-
-
 
     fetch(SCRIPT_URL + "?action=leaderboard")
 
+
     .then(response => response.json())
+
 
     .then(data => {
 
@@ -57,13 +51,21 @@ function loadLeaderboard(){
 
         if(data.length === 0){
 
-            tableBody.innerHTML = `
+
+            table.innerHTML = `
+
             <tr>
-                <td colspan="7">
-                    No records found
-                </td>
+
+            <td colspan="7">
+
+            No Quiz Attempts Found
+
+            </td>
+
             </tr>
+
             `;
+
 
             return;
 
@@ -71,7 +73,7 @@ function loadLeaderboard(){
 
 
 
-        tableBody.innerHTML = "";
+        table.innerHTML = "";
 
 
 
@@ -83,48 +85,50 @@ function loadLeaderboard(){
 
 
 
-            let date = new Date(player.dateTime)
-            .toLocaleString();
+            let quizDate = new Date(player.dateTime)
+            .toLocaleDateString();
 
 
 
             let row = `
 
+
             <tr>
 
-                <td>
-                    ${index + 1}
-                </td>
+
+            <td>
+            🏆 ${index + 1}
+            </td>
 
 
-                <td>
-                    ${player.employeeId}
-                </td>
+            <td>
+            ${player.employeeId}
+            </td>
 
 
-                <td>
-                    ${player.employeeName}
-                </td>
+            <td>
+            ${player.employeeName}
+            </td>
 
 
-                <td>
-                    ${player.score}
-                </td>
+            <td>
+            ${player.score}
+            </td>
 
 
-                <td>
-                    ${player.totalQuestions}
-                </td>
+            <td>
+            ${player.totalQuestions}
+            </td>
 
 
-                <td>
-                    ${percentage}%
-                </td>
+            <td>
+            ${percentage}%
+            </td>
 
 
-                <td>
-                    ${date}
-                </td>
+            <td>
+            ${quizDate}
+            </td>
 
 
             </tr>
@@ -134,7 +138,7 @@ function loadLeaderboard(){
 
 
 
-            tableBody.innerHTML += row;
+            table.innerHTML += row;
 
 
 
@@ -143,7 +147,6 @@ function loadLeaderboard(){
 
 
     })
-
 
 
     .catch(error=>{
@@ -155,22 +158,26 @@ function loadLeaderboard(){
         );
 
 
-        tableBody.innerHTML = `
+
+        table.innerHTML = `
+
 
         <tr>
 
         <td colspan="7">
 
-        Unable to load leaderboard
+        ❌ Unable to load leaderboard
 
         </td>
 
         </tr>
 
+
         `;
 
 
     });
+
 
 
 }
