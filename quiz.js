@@ -1,4 +1,10 @@
 // ==========================
+// NSPCL POWER-UP QUIZ
+// QUIZ.JS
+// ==========================
+
+
+// ==========================
 // VARIABLES
 // ==========================
 
@@ -18,11 +24,11 @@ let employee = localStorage.getItem("employeeId");
 let employeeName = localStorage.getItem("employeeName");
 
 
+// ==========================
+// GOOGLE SHEET WEB APP URL
+// ==========================
 
-// Google Sheet Web App URL
-
-const sheetURL = "https://script.google.com/macros/s/AKfycbwBbn0mA_VbQG3A4lz7nDGWZm66P6jKBx12zXbYZ-OoCudVBzIvK-MkuZEXxLcECl5wdw/exec"
-
+const sheetURL = "https://script.google.com/macros/s/AKfycbwBbn0mA_VbQG3A4lz7nDGWZm66P6jKBx12zXbYZ-OoCudVBzIvK-MkuZEXxLcECl5wdw/exec";
 
 
 
@@ -33,10 +39,16 @@ const sheetURL = "https://script.google.com/macros/s/AKfycbwBbn0mA_VbQG3A4lz7nDG
 
 if(employee == null){
 
-    window.location.href = "login.html";
+    window.location.href="login.html";
 
 }
 
+
+if(employeeName == null){
+
+    employeeName="Employee";
+
+}
 
 
 
@@ -45,20 +57,18 @@ if(employee == null){
 // SHOW EMPLOYEE NAME
 // ==========================
 
-window.onload = function(){
+window.onload=function(){
 
 
-    let user = document.getElementById("welcomeUser");
+let user=document.getElementById("welcomeUser");
 
 
-    if(user){
+if(user){
 
+user.innerHTML =
+"Welcome <b>"+employeeName+"</b> ("+employee+")";
 
-        user.innerHTML =
-        "Welcome <b>" + employeeName + "</b> (" + employee + ")";
-
-
-    }
+}
 
 
 };
@@ -67,53 +77,44 @@ window.onload = function(){
 
 
 
-
-
-
 // ==========================
-// LOAD QUESTIONS JSON
+// LOAD QUESTIONS
 // ==========================
 
 async function loadQuestions(){
 
 
-    try{
+try{
 
 
-        let response = await fetch("questions.json");
+let response = await fetch("questions.json");
 
 
-        if(!response.ok){
+if(!response.ok){
 
-            throw new Error("questions.json not found");
+throw new Error("questions.json missing");
 
-        }
-
-
-
-        questions = await response.json();
+}
 
 
-
-    }
-
-
-    catch(error){
-
-
-        alert("Unable to load questions.json");
-
-
-        console.log(error);
-
-
-    }
+questions = await response.json();
 
 
 }
 
 
+catch(error){
 
+
+console.log(error);
+
+alert("Unable to load questions");
+
+
+}
+
+
+}
 
 
 
@@ -126,50 +127,38 @@ async function loadQuestions(){
 async function startQuiz(){
 
 
-
-    await loadQuestions();
-
+await loadQuestions();
 
 
-    if(questions.length === 0){
+if(questions.length==0){
 
+alert("No questions available");
 
-        alert("No questions available");
-
-
-        return;
-
-
-    }
-
-
-
-    currentQuestion = 0;
-
-    score = 0;
-
-
-
-    document.getElementById("liveScore").innerHTML = score;
-
-
-
-    document.querySelector(".quiz-intro").style.display="none";
-
-
-    document.getElementById("quiz-area").style.display="block";
-
-
-
-    loadQuestion();
-
-
+return;
 
 }
 
 
 
+currentQuestion=0;
 
+score=0;
+
+
+document.getElementById("liveScore").innerHTML=score;
+
+
+
+document.querySelector(".quiz-intro").style.display="none";
+
+
+document.getElementById("quiz-area").style.display="block";
+
+
+loadQuestion();
+
+
+}
 
 
 
@@ -182,102 +171,94 @@ async function startQuiz(){
 function loadQuestion(){
 
 
-    clearInterval(timer);
+clearInterval(timer);
 
 
 
-    if(currentQuestion >= questions.length){
+if(currentQuestion >= questions.length){
 
 
-        showResult();
+showResult();
 
-
-        return;
-
-
-    }
-
-
-
-    time = 5;
-
-
-    document.getElementById("time").innerHTML=time;
-
-
-
-    let q = questions[currentQuestion];
-
-
-
-    document.getElementById("progress").innerHTML =
-
-    (currentQuestion+1)+" / "+questions.length;
-
-
-
-    document.getElementById("question").innerHTML =
-
-    "Q"+(currentQuestion+1)+". "+q.question;
-
-
-
-
-
-    let optionHTML = "";
-
-    let letters = ["A","B","C","D"];
-
-
-
-    q.options.forEach(function(option,index){
-
-
-
-        optionHTML += `
-
-
-        <button class="option"
-
-        onclick="checkAnswer(this,'${option}')">
-
-
-        <span class="option-letter">
-
-        ${letters[index]}
-
-        </span>
-
-
-        ${option}
-
-
-        </button>
-
-
-        `;
-
-
-    });
-
-
-
-    document.getElementById("options").innerHTML = optionHTML;
-
-
-
-    document.getElementById("nextBtn").disabled = true;
-
-
-
-    startTimer();
+return;
 
 
 }
 
 
 
+time=5;
 
+
+document.getElementById("time").innerHTML=time;
+
+
+
+let q=questions[currentQuestion];
+
+
+
+document.getElementById("progress").innerHTML=
+
+(currentQuestion+1)+" / "+questions.length;
+
+
+
+document.getElementById("question").innerHTML=
+
+"Q"+(currentQuestion+1)+". "+q.question;
+
+
+
+let optionHTML="";
+
+
+let letters=["A","B","C","D"];
+
+
+
+q.options.forEach(function(option,index){
+
+
+optionHTML+=`
+
+<button class="option"
+onclick="checkAnswer(this,'${option}')">
+
+
+<span class="option-letter">
+
+${letters[index]}
+
+</span>
+
+
+${option}
+
+
+</button>
+
+
+`;
+
+
+
+});
+
+
+
+document.getElementById("options").innerHTML=optionHTML;
+
+
+
+document.getElementById("nextBtn").disabled=true;
+
+
+
+startTimer();
+
+
+}
 
 
 
@@ -292,42 +273,35 @@ function loadQuestion(){
 function startTimer(){
 
 
-    timer = setInterval(function(){
+timer=setInterval(function(){
 
 
-        time--;
+time--;
 
 
-        document.getElementById("time").innerHTML=time;
-
-
-
-        if(time <= 0){
-
-
-            clearInterval(timer);
-
-
-            disableOptions();
-
-
-            document.getElementById("nextBtn").disabled=false;
-
-
-        }
+document.getElementById("time").innerHTML=time;
 
 
 
-    },1000);
+if(time<=0){
 
+
+clearInterval(timer);
+
+
+disableOptions();
+
+
+document.getElementById("nextBtn").disabled=false;
 
 
 }
 
 
+},1000);
 
 
-
+}
 
 
 
@@ -342,85 +316,78 @@ function startTimer(){
 function checkAnswer(button,selectedAnswer){
 
 
-
-    clearInterval(timer);
-
-
-
-    let correctAnswer = questions[currentQuestion].answer;
+clearInterval(timer);
 
 
 
-    let buttons = document.querySelectorAll(".option");
+let correctAnswer =
+questions[currentQuestion].answer;
 
 
 
-    buttons.forEach(function(btn){
-
-
-        btn.disabled=true;
+let buttons=document.querySelectorAll(".option");
 
 
 
-        if(btn.innerText.includes(correctAnswer)){
+buttons.forEach(function(btn){
 
 
-            btn.style.background="#16a34a";
-
-            btn.style.color="white";
-
-
-        }
-
-
-    });
+btn.disabled=true;
 
 
 
+if(btn.innerText.trim().endsWith(correctAnswer.trim())){
 
 
+btn.style.background="#16a34a";
 
-    if(selectedAnswer === correctAnswer){
-
-
-
-        score++;
-
-
-
-        document.getElementById("liveScore").innerHTML=score;
-
-
-
-        button.style.background="#16a34a";
-
-        button.style.color="white";
-
-
-    }
-
-
-    else{
-
-
-        button.style.background="#dc2626";
-
-        button.style.color="white";
-
-
-    }
-
-
-
-    document.getElementById("nextBtn").disabled=false;
-
+btn.style.color="white";
 
 
 }
 
 
 
+});
 
+
+
+
+
+if(selectedAnswer.trim()==correctAnswer.trim()){
+
+
+
+score++;
+
+
+document.getElementById("liveScore").innerHTML=score;
+
+
+button.style.background="#16a34a";
+
+button.style.color="white";
+
+
+}
+
+else{
+
+
+button.style.background="#dc2626";
+
+button.style.color="white";
+
+
+}
+
+
+
+document.getElementById("nextBtn").disabled=false;
+
+
+
+}
 
 
 
@@ -435,40 +402,36 @@ function checkAnswer(button,selectedAnswer){
 function disableOptions(){
 
 
-    let buttons=document.querySelectorAll(".option");
+let buttons=document.querySelectorAll(".option");
 
 
-    let correctAnswer = questions[currentQuestion].answer;
-
-
-
-    buttons.forEach(function(btn){
-
-
-        btn.disabled=true;
+let correctAnswer=
+questions[currentQuestion].answer;
 
 
 
-        if(btn.innerText.includes(correctAnswer)){
+buttons.forEach(function(btn){
 
 
-            btn.style.background="#16a34a";
-
-            btn.style.color="white";
+btn.disabled=true;
 
 
-        }
+
+if(btn.innerText.trim().endsWith(correctAnswer.trim())){
 
 
-    });
+btn.style.background="#16a34a";
 
+btn.style.color="white";
 
 
 }
 
 
+});
 
 
+}
 
 
 
@@ -483,10 +446,10 @@ function disableOptions(){
 function nextQuestion(){
 
 
-    currentQuestion++;
+currentQuestion++;
 
 
-    loadQuestion();
+loadQuestion();
 
 
 }
@@ -497,79 +460,62 @@ function nextQuestion(){
 
 
 
-
-
-
-
-
 // ==========================
-// SEND RESULT TO GOOGLE SHEET
+// SEND SCORE TO GOOGLE SHEET
 // ==========================
 
 function submitScore(score,percentage){
 
 
 
-    let data = {
+let data={
 
 
-        employeeId: employee,
+employeeId:employee,
 
 
-        employeeName: employeeName,
+employeeName:employeeName,
 
 
-        score: score,
+score:score,
 
 
-        totalQuestions: questions.length,
+totalQuestions:questions.length,
 
 
-        percentage: percentage,
+percentage:percentage,
 
 
-        dateTime: new Date().toLocaleString()
+dateTime:new Date().toISOString()
 
 
-    };
-
-
-
-    console.log(data);
+};
 
 
 
-    fetch(sheetURL,{
+console.log("Sending:",data);
 
 
-        method:"POST",
+
+fetch(sheetURL,{
+
+method:"POST",
+
+mode:"no-cors",
+
+headers:{
+
+"Content-Type":"application/json"
+
+},
+
+body:JSON.stringify(data)
 
 
-        mode:"no-cors",
-
-
-        headers:{
-
-
-            "Content-Type":"application/json"
-
-
-        },
-
-
-        body:JSON.stringify(data)
-
-
-    });
-
+});
 
 
 }
-
-
-
-
-
 
 
 
@@ -584,73 +530,64 @@ function submitScore(score,percentage){
 function showResult(){
 
 
-
-    clearInterval(timer);
-
-
-
-    document.getElementById("quiz-area").style.display="none";
+clearInterval(timer);
 
 
 
-    let percentage = Math.round(
-
-        (score/questions.length)*100
-
-    );
+document.getElementById("quiz-area").style.display="none";
 
 
 
-    submitScore(score,percentage);
+let percentage=Math.round(
 
+(score/questions.length)*100
+
+);
+
+
+
+submitScore(score,percentage);
 
 
 
 
-    document.getElementById("result").innerHTML = `
+document.getElementById("result").innerHTML=`
+
+
+<div class="result-card">
+
+
+<h2>🎉 Congratulations ${employeeName} (${employee})</h2>
+
+
+<h3>NSPCL Power-Up Quiz Completed</h3>
+
+
+<h1>${score} / ${questions.length}</h1>
+
+
+<h2>${percentage}%</h2>
 
 
 
-    <div class="result-card">
+<button onclick="restartQuiz()">
+
+🔄 Play Again
+
+</button>
 
 
-    <h2>🎉 Congratulations ${employeeName} (${employee})</h2>
+</div>
 
 
-    <h3>NSPCL Power-Up Quiz Completed</h3>
-
-
-    <h1>${score} / ${questions.length}</h1>
-
-
-    <h2>${percentage}%</h2>
-
-
-
-    <button onclick="restartQuiz()">
-
-    🔄 Play Again
-
-    </button>
-
-
-    </div>
+`;
 
 
 
-    `;
-
-
-
-    localStorage.setItem("score",score);
-
+localStorage.setItem("score",score);
 
 
 }
-
-
-
-
 
 
 
@@ -665,7 +602,7 @@ function showResult(){
 function restartQuiz(){
 
 
-    location.reload();
+location.reload();
 
 
 }
