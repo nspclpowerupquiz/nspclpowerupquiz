@@ -7456,3 +7456,39 @@ footer{
     }
 
 }
+/* Leaderboard table body */
+.leaderboard-table tbody td {
+    background: #ffffff;
+    color: #000000 !important;
+    font-weight: 600;
+    border: 1px solid #dcdcdc;
+}
+
+/* Alternate row color */
+.leaderboard-table tbody tr:nth-child(even) td {
+    background: #f5f9ff;
+}
+
+/* Hover effect */
+.leaderboard-table tbody tr:hover td {
+    background: #d9ecff;
+}
+
+/* Header */
+.leaderboard-table thead th {
+    background: #003b7a;
+    color: #ffffff;
+}
+
+/* Entire table */
+.leaderboard-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Cell padding */
+.leaderboard-table th,
+.leaderboard-table td {
+    padding: 14px;
+    text-align: center;
+}
