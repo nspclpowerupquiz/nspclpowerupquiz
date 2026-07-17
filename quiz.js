@@ -480,82 +480,78 @@ function nextQuestion(){
 
 
 
-
-
-
-
-
-
-
-
 // ==========================
 // SEND RESULT TO GOOGLE SHEET
 // ==========================
 
-function submitScore(score,percentage){
+function submitScore(score, percentage){
 
+
+    let employeeName = localStorage.getItem("employeeName");
 
 
     let data = {
 
 
-        employee: employee,
+        employeeId: employee,
+
+
+        employeeName: employeeName,
 
 
         score: score,
 
 
-        total: questions.length,
+        totalQuestions: questions.length,
 
 
         percentage: percentage,
 
 
-        date: new Date().toLocaleString()
-
+        dateTime: new Date().toLocaleString()
 
 
     };
 
 
 
-
-    fetch(sheetURL,{
-
-
-        method:"POST",
+    fetch(sheetURL, {
 
 
-        mode:"no-cors",
+        method: "POST",
 
 
-        headers:{
+        mode: "no-cors",
 
 
-            "Content-Type":"application/json"
+        headers: {
+
+
+            "Content-Type": "application/json"
 
 
         },
 
 
-        body:JSON.stringify(data)
-
-
-
-    })
-
-    .then(()=>{
-
-
-        console.log("Score submitted");
+        body: JSON.stringify(data)
 
 
     })
 
-    .catch(error=>{
+
+    .then(function(){
 
 
-        console.log("Sheet error:",error);
+        console.log("Score sent to Google Sheet");
+
+
+    })
+
+
+    .catch(function(error){
+
+
+        console.log("Google Sheet Error:", error);
 
 
     });
@@ -563,15 +559,6 @@ function submitScore(score,percentage){
 
 
 }
-
-
-
-
-
-
-
-
-
 
 
 
