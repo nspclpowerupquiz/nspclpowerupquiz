@@ -1717,3 +1717,36 @@ img{
     }
 
 }
+@media print {
+
+    body * {
+        visibility: hidden;
+    }
+
+
+    #certificate,
+    #certificate * {
+        visibility: visible;
+    }
+
+
+    #certificate {
+
+        position:absolute;
+
+        left:0;
+
+        top:0;
+
+        width:100%;
+
+    }
+
+
+    .buttons {
+
+        display:none;
+
+    }
+
+}
