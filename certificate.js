@@ -55,18 +55,14 @@ window.onload = function(){
 
 async function loadCertificate(){
 
-
 try{
-
-
-console.log("Loading certificate...");
 
 
 const response = await fetch(
 
-    SCRIPT_URL +
-    "?action=certificate&id=" +
-    employeeId
+SCRIPT_URL +
+"?action=certificate&id=" +
+employeeId
 
 );
 
@@ -74,16 +70,115 @@ const response = await fetch(
 const data = await response.json();
 
 
-console.log("Certificate Data:", data);
+console.log("Certificate Data:",data);
 
 
 
 if(data.status !== "success"){
 
+alert("Certificate not found");
 
-    alert("Certificate data not found.");
+return;
 
-    return;
+}
+
+
+
+// NAME
+
+document.getElementById("name").textContent =
+data.employeeName;
+
+
+
+// ID
+
+document.getElementById("empid").textContent =
+data.employeeId;
+
+
+
+// SCORE
+
+document.getElementById("score").textContent =
+
+data.score +
+" / " +
+data.totalQuestions;
+
+
+
+// PERCENTAGE
+
+document.getElementById("percentage").textContent =
+
+data.percentage + "%";
+
+
+
+
+// GRADE
+
+document.getElementById("grade").textContent =
+
+data.grade;
+
+
+
+// CERTIFICATE NUMBER
+
+document.getElementById("certno").textContent =
+
+data.certificateNo;
+
+
+
+// DATE
+
+document.getElementById("date").textContent =
+
+new Date(data.dateTime).toLocaleDateString(
+"en-IN",
+{
+day:"numeric",
+month:"long",
+year:"numeric"
+}
+);
+
+
+
+// BADGE
+
+document.getElementById("badge").innerHTML =
+
+"⭐ " + data.grade.toUpperCase();
+
+
+
+
+// CONFETTI
+
+confetti({
+
+particleCount:150,
+
+spread:120
+
+});
+
+
+
+}
+
+catch(error){
+
+console.log(
+"Certificate Error:",
+error
+);
+
+}
 
 }
 
