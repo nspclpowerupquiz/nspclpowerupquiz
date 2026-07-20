@@ -4,8 +4,8 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Analytics | NSPCL Power-Up Quiz</title>
 
@@ -13,11 +13,14 @@ content="width=device-width, initial-scale=1.0">
 
 </head>
 
+
 <body>
+
 
 <header class="header">
 
 <h2>📈 Analytics Dashboard</h2>
+
 
 <nav>
 
@@ -29,83 +32,125 @@ content="width=device-width, initial-scale=1.0">
 
 </nav>
 
+
 </header>
+
+
 
 <section class="analytics">
 
+
 <h1>Performance Dashboard</h1>
 
+
+
 <div class="analytics-grid">
+
+
 
 <div class="analytics-card">
 
 <h2>👨‍💼</h2>
 
-<h3>325</h3>
+<h3 id="totalParticipants">
+0
+</h3>
 
-<p>Employees</p>
+<p>Total Participants</p>
 
 </div>
+
+
+
+
 
 <div class="analytics-card">
 
-<h2>❓</h2>
+<h2>📝</h2>
 
-<h3>120+</h3>
+<h3 id="totalAttempts">
+0
+</h3>
 
-<p>Questions</p>
+<p>Total Attempts</p>
 
 </div>
+
+
+
+
 
 <div class="analytics-card">
 
 <h2>🏆</h2>
 
-<h3>86%</h3>
+<h3 id="averageScore">
+0
+</h3>
 
 <p>Average Score</p>
 
 </div>
 
+
+
+
+
 <div class="analytics-card">
 
 <h2>⭐</h2>
 
-<h3>98%</h3>
+<h3 id="highestScore">
+0
+</h3>
 
 <p>Highest Score</p>
 
 </div>
 
+
+
+
+<div class="analytics-card">
+
+<h2>✅</h2>
+
+<h3 id="passPercentage">
+0%
+</h3>
+
+<p>Pass Percentage</p>
+
 </div>
 
-<h2>Quiz Completion</h2>
 
-<div class="progress">
 
-<div class="progress-fill">
-
-82%
 
 </div>
 
-</div>
 
-<h2>Recent Activities</h2>
+
+
+<h2>Latest Update</h2>
+
 
 <div class="activity">
 
-<p>✅ EMP102 completed SSC C&M Quiz</p>
+<p id="lastUpdated">
+Loading...
+</p>
 
-<p>🏆 EMP220 scored 98%</p>
-
-<p>📜 20 Certificates Generated</p>
-
-<p>🔥 Daily Challenge Completed</p>
 
 </div>
 
+
+
 </section>
+
+
+
+<script src="analytics.js"></script>
+
 
 </body>
 
