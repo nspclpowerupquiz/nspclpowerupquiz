@@ -1,62 +1,86 @@
+// ==========================================
+// NSPCL POWER-UP QUIZ
+// ADMIN DASHBOARD
+// ==========================================
+
+
+// GOOGLE APPS SCRIPT URL
+
 const SCRIPT_URL =
 "https://script.google.com/macros/s/AKfycbwBbn0mA_VbQG3A4lz7nDGWZm66P6jKBx12zXbYZ-OoCudVBzIvK-MkuZEXxLcECl5wdw/exec";
 
 
 
-let results=[];
+let employeeData=[];
 
 
+
+// ==========================================
+// PAGE LOAD
+// ==========================================
 
 window.onload=function(){
 
-loadAdmin();
+    loadDashboard();
 
-document
-.getElementById("search")
-.addEventListener(
-"keyup",
-searchData
-);
+    document
+    .getElementById("search")
+    .addEventListener(
+        "keyup",
+        searchEmployee
+    );
 
 };
 
 
 
 
+// ==========================================
+// LOAD DASHBOARD
+// ==========================================
 
-function loadAdmin(){
+async function loadDashboard(){
 
+try{
 
-fetch(
-SCRIPT_URL+"?action=leaderboard"
-)
+    // Leaderboard Data
 
-.then(res=>res.json())
+    const response=
+    await fetch(
+        SCRIPT_URL+"?action=leaderboard"
+    );
 
-.then(data=>{
+    const data=
+    await response.json();
 
+    employeeData=data;
 
-console.log(data);
+    updateCards(data);
 
+    loadTable(data);
 
-results=data;
+    loadCharts(data);
 
+}
+catch(error){
 
-updateCards(data);
+    console.log(error);
 
+    document.getElementById("resultTable").innerHTML=`
 
-showTable(data);
+    <tr>
 
+        <td colspan="7">
 
+        Unable to load data
 
-})
+        </td>
 
-.catch(err=>{
+    </tr>
 
-console.log(err);
+    `;
 
-});
-
+}
 
 }
 
@@ -64,42 +88,32 @@ console.log(err);
 
 
 
+// ==========================================
+// DASHBOARD CARDS
+// ==========================================
 
 function updateCards(data){
 
+document.getElementById("participants").innerHTML=data.length;
 
-document.getElementById("participants")
-.innerHTML=data.length;
+document.getElementById("attempts").innerHTML=data.length;
 
-
-document.getElementById("attempts")
-.innerHTML=data.length;
+document.getElementById("certificates").innerHTML=data.length;
 
 
+let highest=0;
 
-let high=0;
+data.forEach(function(emp){
 
+    if(Number(emp.score)>highest){
 
-data.forEach(x=>{
+        highest=Number(emp.score);
 
-
-if(Number(x.score)>high)
-
-high=x.score;
-
+    }
 
 });
 
-
-document.getElementById("highest")
-.innerHTML=high;
-
-
-
-document.getElementById("certificates")
-.innerHTML=data.length;
-
-
+document.getElementById("highest").innerHTML=highest;
 
 }
 
@@ -107,45 +121,81 @@ document.getElementById("certificates")
 
 
 
-function showTable(data){
+// ==========================================
+// EMPLOYEE TABLE
+// ==========================================
 
+function loadTable(data){
 
-let table=
+const table=
 document.getElementById("resultTable");
-
 
 table.innerHTML="";
 
 
+if(data.length===0){
 
-data.forEach((x,i)=>{
+table.innerHTML=`
+
+<tr>
+
+<td colspan="7">
+
+No Records Found
+
+</td>
+
+</tr>
+
+`;
+
+return;
+
+}
+
+
+data.forEach(function(emp,index){
+
+let percentage=emp.percentage;
+
+// Handle both "75%" and 0.75 formats
+if(typeof percentage==="string"){
+
+    percentage=percentage;
+
+}
+else{
+
+    percentage=Math.round(Number(percentage)*100)+"%";
+
+}
 
 
 table.innerHTML+=`
 
-
 <tr>
 
-<td>${i+1}</td>
+<td>${index+1}</td>
 
-<td>${x.employeeId}</td>
+<td>${emp.employeeId}</td>
 
-<td>${x.employeeName}</td>
+<td>${emp.employeeName}</td>
 
-<td>${x.score}</td>
+<td>${emp.score}</td>
 
-<td>${x.totalQuestions}</td>
+<td>${emp.totalQuestions}</td>
 
-<td>${Math.round(Number(x.percentage)*100)}%</td>
+<td>${percentage}</td>
 
-<td>${new Date(x.dateTime).toLocaleDateString()}</td>
+<td>
 
+${new Date(emp.dateTime).toLocaleDateString("en-IN")}
+
+</td>
 
 </tr>
 
-
 `;
-
 
 });
 
@@ -156,43 +206,48 @@ table.innerHTML+=`
 
 
 
+// ==========================================
+// SEARCH
+// ==========================================
 
-function searchData(){
+function searchEmployee(){
 
+const value=
 
-let value=
 document
+
 .getElementById("search")
+
 .value
+
 .toLowerCase();
 
 
 
-let filtered=
-results.filter(x=>{
+const filtered=
 
+employeeData.filter(function(emp){
 
-return (
+return(
 
-String(x.employeeId)
+String(emp.employeeId)
+
 .includes(value)
 
 ||
 
-x.employeeName
+emp.employeeName
+
 .toLowerCase()
+
 .includes(value)
 
-
 );
-
 
 });
 
 
 
-showTable(filtered);
-
-
+loadTable(filtered);
 
 }
