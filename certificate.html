@@ -3,291 +3,517 @@
 
 <head>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>NSPCL Power-Up Quiz | Certificate</title>
+<title>NSPCL Power-Up Quiz | Certificate</title>
 
-    <link rel="stylesheet" href="certificate.css">
+<link rel="stylesheet" href="certificate.css">
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- html2canvas -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
-    <!-- jsPDF -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<!-- Font Awesome -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-    <!-- Confetti -->
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+<!-- html2canvas -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+
+<!-- jsPDF -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+
+<!-- Confetti -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
 
 </head>
 
+
+
 <body>
+
 
 <div class="page">
 
-    <div class="certificate" id="certificate">
 
-        <!-- Decorative Corners -->
-        <span class="corner tl"></span>
-        <span class="corner tr"></span>
-        <span class="corner bl"></span>
-        <span class="corner br"></span>
 
-        <!-- Watermark -->
-        <div class="watermark">
-            ⚡ NSPCL ⚡
-        </div>
+<div class="certificate" id="certificate">
 
-        <!-- Header -->
-       <div class="header">
 
-    <img src="images/nspcl.png" class="logo">
 
-    <div class="title">
+<!-- Decorative Corners -->
 
-        <div class="company">
-            NTPC SAIL POWER COMPANY LIMITED
-        </div>
+<span class="corner tl"></span>
+<span class="corner tr"></span>
+<span class="corner bl"></span>
+<span class="corner br"></span>
 
-        <div class="heading">
-            CERTIFICATE OF ACHIEVEMENT
-        </div>
 
-        <div class="subheading">
-            NSPCL POWER-UP QUIZ
-        </div>
 
-    </div>
+<!-- Watermark -->
+
+<div class="watermark">
+⚡ NSPCL ⚡
+</div>
+
+
+
+
+<!-- Header -->
+
+<div class="header">
+
+
+<img src="images/nspcl.png" class="logo">
+
+
+
+<div class="title">
+
+
+<div class="company">
+NTPC SAIL POWER COMPANY LIMITED
+</div>
+
+
+<div class="heading">
+CERTIFICATE OF ACHIEVEMENT
+</div>
+
+
+<div class="subheading">
+NSPCL POWER-UP QUIZ
+</div>
+
+
 
 </div>
-        <!-- Golden Ribbon -->
-        <div class="ribbon">
-            ★ Excellence in Learning ★
-        </div>
 
-        <!-- Presented -->
-        <div class="presented">
-            THIS CERTIFICATE IS PROUDLY PRESENTED TO
-        </div>
 
-        <!-- Employee -->
-        <div class="employeeName" id="name">
-            Employee Name
-        </div>
+</div>
 
-        <div class="employeeID">
-            Employee ID :
-            <span id="empid">
-                100106
-            </span>
-        </div>
 
-        <!-- Appreciation -->
-        <div class="appreciation">
 
-            In recognition of your sincere participation and outstanding
-            enthusiasm in the <strong>NSPCL Power-Up Quiz</strong>.
 
-            <br><br>
 
-            Your commitment towards continuous learning,
-            professional development and knowledge enhancement
-            is highly appreciated.
+<!-- Ribbon -->
 
-            <br><br>
+<div class="ribbon">
 
-            We congratulate you on your achievement and encourage
-            you to continue striving for excellence.
+★ Excellence in Learning ★
 
-        </div>
+</div>
 
-        <!-- Achievement Badge -->
-        <div class="badge" id="badge">
-            GOLD ACHIEVER
-        </div>
 
-        <!-- Score Section -->
-        <div class="scoreSection">
 
-            <div class="scoreBox">
 
-                <div class="scoreTitle">
-                    SCORE
-                </div>
 
-                <div class="scoreValue" id="score">
-                    20 / 20
-                </div>
+<!-- Presented -->
 
-            </div>
+<div class="presented">
 
-            <div class="scoreBox">
+THIS CERTIFICATE IS PROUDLY PRESENTED TO
 
-                <div class="scoreTitle">
-                    PERCENTAGE
-                </div>
+</div>
 
-                <div class="scoreValue" id="percentage">
-                    100%
-                </div>
 
-            </div>
 
-            <div class="scoreBox">
 
-                <div class="scoreTitle">
-                    GRADE
-                </div>
 
-                <div class="scoreValue" id="grade">
-                    GOLD
-                </div>
+<!-- Employee Name -->
 
-            </div>
 
-        </div>
+<div class="employeeName" id="name">
 
-        <!-- Certificate Info -->
-        <div class="details">
+Employee Name
 
-            <div>
+</div>
 
-                <div class="detailHeading">
-                    Certificate No.
-                </div>
 
-                <div id="certno">
-                    NSPCL-000000
-                </div>
 
-            </div>
+<div class="employeeID">
 
-            <div>
+Employee ID :
 
-                <div class="detailHeading">
-                    Date
-                </div>
+<span id="empid">
 
-                <div id="date">
-                    20 July 2026
-                </div>
+100106
 
-            </div>
+</span>
 
-        </div>
 
-        <!-- Footer -->
-        <div class="footer">
+</div>
 
-            <div class="signature">
 
-                <div class="line"></div>
 
-                <strong>SSC-C&M</strong>
 
-            </div>
 
-            <div class="seal">
 
-                <i class="fa-solid fa-award"></i>
+<!-- Appreciation -->
 
-                <div>
-                    Official
-                </div>
 
-            </div>
+<div class="appreciation">
 
-            <div class="signature">
 
-                <div class="line"></div>
+In recognition of your sincere participation and outstanding enthusiasm in the
 
-                <strong>ED/BUH</strong>
+<strong>NSPCL Power-Up Quiz</strong>.
 
-                <br>
 
-                NSPCL Bhilai
+<br><br>
 
-            </div>
 
-        </div>
+Your commitment towards continuous learning,
+professional development and knowledge enhancement
+is highly appreciated.
 
-        <!-- Bottom Note -->
-        <div class="bottomText">
 
-            This certificate has been digitally generated through the
-            <strong>NSPCL Power-Up Quiz Portal</strong> and does not require a physical signature.
+<br><br>
 
-        </div>
 
-    </div>
+We congratulate you on your achievement and encourage
+you to continue striving for excellence.
 
-    // ==========================================
-// DOWNLOAD PDF
-// ==========================================
 
-async function downloadPDF(){
 
+</div>
 
-    console.log("PDF button clicked");
 
 
-    const certificate =
-    document.getElementById("certificate");
 
 
-    const canvas =
-    await html2canvas(
-        certificate,
-        {
-            scale:3,
-            useCORS:true,
-            allowTaint:true
-        }
-    );
 
 
-    const imgData =
-    canvas.toDataURL("image/png");
+<!-- Badge -->
 
 
-    const { jsPDF } =
-    window.jspdf;
+<div class="badge" id="badge">
 
+GOLD ACHIEVER
 
-    const pdf =
-    new jsPDF(
-        "landscape",
-        "mm",
-        "a4"
-    );
+</div>
 
 
-    const imgWidth = 280;
 
-    const imgHeight =
-    canvas.height * imgWidth / canvas.width;
 
 
-    pdf.addImage(
-        imgData,
-        "PNG",
-        10,
-        10,
-        imgWidth,
-        imgHeight
-    );
 
 
-    pdf.save(
-        "NSPCL_Certificate_" + employeeId + ".pdf"
-    );
 
+<!-- Score Section -->
 
-}
+
+<div class="scoreSection">
+
+
+
+<div class="scoreBox">
+
+
+<div class="scoreTitle">
+
+SCORE
+
+</div>
+
+
+<div class="scoreValue" id="score">
+
+20 / 20
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="scoreBox">
+
+
+<div class="scoreTitle">
+
+PERCENTAGE
+
+</div>
+
+
+<div class="scoreValue" id="percentage">
+
+100%
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<div class="scoreBox">
+
+
+<div class="scoreTitle">
+
+GRADE
+
+</div>
+
+
+<div class="scoreValue" id="grade">
+
+GOLD
+
+</div>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+<!-- Certificate Details -->
+
+
+<div class="details">
+
+
+
+<div>
+
+
+<div class="detailHeading">
+
+Certificate No.
+
+</div>
+
+
+<div id="certno">
+
+NSPCL-000000
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div>
+
+
+<div class="detailHeading">
+
+Date
+
+</div>
+
+
+<div id="date">
+
+20 July 2026
+
+</div>
+
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- Footer -->
+
+
+<div class="footer">
+
+
+
+<div class="signature">
+
+
+<div class="line"></div>
+
+
+<strong>
+SSC-C&M
+</strong>
+
+
+</div>
+
+
+
+
+
+<div class="seal">
+
+
+<i class="fa-solid fa-award"></i>
+
+
+<div>
+
+Official
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="signature">
+
+
+<div class="line"></div>
+
+
+<strong>
+ED/BUH
+</strong>
+
+
+<br>
+
+
+NSPCL Bhilai
+
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- Bottom Note -->
+
+
+<div class="bottomText">
+
+
+This certificate has been digitally generated through the
+
+<strong>NSPCL Power-Up Quiz Portal</strong>
+
+and does not require a physical signature.
+
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- Buttons -->
+
+
+<div class="buttons">
+
+
+
+<button onclick="downloadPDF()">
+
+<i class="fa-solid fa-download"></i>
+
+Download PDF
+
+</button>
+
+
+
+
+
+<button onclick="window.print()">
+
+<i class="fa-solid fa-print"></i>
+
+Print
+
+</button>
+
+
+
+
+
+<button onclick="location.href='index.html'">
+
+<i class="fa-solid fa-house"></i>
+
+Home
+
+</button>
+
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+
+
+<!-- Certificate JS -->
+
+<script src="certificate.js"></script>
+
+
+
+</body>
+
+
+</html>
