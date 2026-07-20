@@ -1,6 +1,6 @@
 // ==========================================
 // NSPCL POWER-UP QUIZ
-// LEADERBOARD
+// LEADERBOARD.JS (REVISED)
 // ==========================================
 
 
@@ -25,13 +25,12 @@ window.onload = function(){
     loadLeaderboard();
 
 
-    // Auto refresh every 30 seconds
-
     setInterval(loadLeaderboard,30000);
 
 
 
-    let search=document.getElementById("searchBox");
+    let search =
+    document.getElementById("searchBox");
 
 
     if(search){
@@ -50,7 +49,6 @@ window.onload = function(){
 
 
 
-
 // ==========================================
 // LOAD LEADERBOARD
 // ==========================================
@@ -58,13 +56,12 @@ window.onload = function(){
 function loadLeaderboard(){
 
 
-const table=document.getElementById(
-"leaderboardTable"
-);
+const table =
+document.getElementById("leaderboardTable");
 
 
 
-table.innerHTML=`
+table.innerHTML = `
 
 <tr>
 
@@ -80,46 +77,43 @@ Loading Leaderboard...
 
 
 
-
-
 fetch(
-SCRIPT_URL+"?action=leaderboard"
+SCRIPT_URL + "?action=leaderboard"
 )
 
 
-
-.then(response=>{
-
-
-if(!response.ok){
-
-throw new Error(
-"Unable to fetch leaderboard"
-);
-
-}
-
-
-return response.json();
-
-
-})
-
+.then(response=>response.json())
 
 
 .then(data=>{
 
 
-console.log(data);
+console.log("Leaderboard Data:",data);
 
 
-// SORT BY SCORE DESCENDING
 
-leaderboardData=data.sort(
+// SORT BY SCORE AND PERCENTAGE
 
-(a,b)=>Number(b.score)-Number(a.score)
+leaderboardData = data.sort((a,b)=>{
 
-);
+
+let scoreDifference =
+Number(b.score) - Number(a.score);
+
+
+
+if(scoreDifference !== 0){
+
+return scoreDifference;
+
+}
+
+
+
+return Number(b.percentage)-Number(a.percentage);
+
+
+});
 
 
 
@@ -144,17 +138,17 @@ leaderboardData
 })
 
 
-
 .catch(error=>{
 
 
 console.error(
+"Leaderboard Error:",
 error
 );
 
 
 
-table.innerHTML=`
+table.innerHTML = `
 
 <tr>
 
@@ -173,9 +167,7 @@ table.innerHTML=`
 });
 
 
-
 }
-
 
 
 
@@ -194,24 +186,15 @@ function updateWinnerCards(data){
 if(data.length>0){
 
 
-document.getElementById(
-"winner1"
-).innerHTML=
+document.getElementById("winner1").innerHTML = `
 
-
-`
-
-<strong>
-${data[0].employeeName}
-</strong>
+<strong>${data[0].employeeName}</strong>
 
 <br>
 
 ${data[0].score}/${data[0].totalQuestions}
 
 `;
-
-
 
 }
 
@@ -220,24 +203,15 @@ ${data[0].score}/${data[0].totalQuestions}
 if(data.length>1){
 
 
-document.getElementById(
-"winner2"
-).innerHTML=
+document.getElementById("winner2").innerHTML = `
 
-
-`
-
-<strong>
-${data[1].employeeName}
-</strong>
+<strong>${data[1].employeeName}</strong>
 
 <br>
 
 ${data[1].score}/${data[1].totalQuestions}
 
 `;
-
-
 
 }
 
@@ -246,16 +220,9 @@ ${data[1].score}/${data[1].totalQuestions}
 if(data.length>2){
 
 
-document.getElementById(
-"winner3"
-).innerHTML=
+document.getElementById("winner3").innerHTML = `
 
-
-`
-
-<strong>
-${data[2].employeeName}
-</strong>
+<strong>${data[2].employeeName}</strong>
 
 <br>
 
@@ -263,15 +230,11 @@ ${data[2].score}/${data[2].totalQuestions}
 
 `;
 
-
-
 }
 
 
 
 }
-
-
 
 
 
@@ -288,29 +251,22 @@ function updateStatistics(data){
 
 
 let players =
-document.getElementById(
-"totalPlayers"
-);
-
+document.getElementById("totalPlayers");
 
 
 let highest =
-document.getElementById(
-"highestScore"
-);
-
+document.getElementById("highestScore");
 
 
 let updated =
-document.getElementById(
-"lastUpdated"
-);
+document.getElementById("lastUpdated");
 
 
 
 if(players){
 
-players.textContent=data.length;
+players.textContent =
+data.length;
 
 }
 
@@ -320,8 +276,11 @@ if(highest && data.length>0){
 
 
 highest.textContent =
+
 data[0].score +
-"/"+
+
+"/" +
+
 data[0].totalQuestions;
 
 
@@ -331,18 +290,14 @@ data[0].totalQuestions;
 
 if(updated){
 
-
 updated.textContent =
 new Date().toLocaleTimeString();
 
-
 }
 
 
 
 }
-
-
 
 
 
@@ -358,9 +313,8 @@ function displayTable(data){
 
 
 
-const table=document.getElementById(
-"leaderboardTable"
-);
+const table =
+document.getElementById("leaderboardTable");
 
 
 
@@ -368,12 +322,10 @@ table.innerHTML="";
 
 
 
-
-
 if(data.length===0){
 
 
-table.innerHTML=`
+table.innerHTML = `
 
 <tr>
 
@@ -389,32 +341,30 @@ No Quiz Attempts Found
 
 return;
 
-
 }
 
 
 
 
 
-
-
-data.forEach(
-(player,index)=>{
-
-
-let row=document.createElement(
-"tr"
-);
+data.forEach((player,index)=>{
 
 
 
-row.innerHTML=`
+let row =
+document.createElement("tr");
+
+
+
+row.innerHTML = `
+
 
 <td>
 
 ${index+1}
 
 </td>
+
 
 
 <td>
@@ -424,11 +374,13 @@ ${player.employeeId}
 </td>
 
 
+
 <td>
 
 ${player.employeeName}
 
 </td>
+
 
 
 <td>
@@ -438,6 +390,7 @@ ${player.score}
 </td>
 
 
+
 <td>
 
 ${player.totalQuestions}
@@ -445,18 +398,18 @@ ${player.totalQuestions}
 </td>
 
 
+
 <td>
 
-${Math.round(player.percentage)}%
+${formatPercentage(player.percentage)}
 
 </td>
 
 
+
 <td>
 
-${new Date(
-player.dateTime
-).toLocaleString()}
+${new Date(player.dateTime).toLocaleString()}
 
 </td>
 
@@ -469,14 +422,53 @@ table.appendChild(row);
 
 
 
-}
-
-);
-
+});
 
 
 }
 
+
+
+
+
+
+
+
+// ==========================================
+// FORMAT PERCENTAGE
+// ==========================================
+
+function formatPercentage(value){
+
+
+if(value === undefined || value === null){
+
+return "0%";
+
+}
+
+
+
+if(String(value).includes("%")){
+
+return value;
+
+}
+
+
+
+if(Number(value)<=1){
+
+return Math.round(Number(value)*100)+"%";
+
+}
+
+
+
+return Math.round(Number(value))+"%";
+
+
+}
 
 
 
@@ -492,18 +484,10 @@ function searchLeaderboard(){
 
 
 
-let value=document
-
-.getElementById(
-"searchBox"
-)
-
+let value =
+document.getElementById("searchBox")
 .value
-
 .toLowerCase();
-
-
-
 
 
 
@@ -511,7 +495,7 @@ let filtered =
 leaderboardData.filter(player=>{
 
 
-return(
+return (
 
 String(player.employeeId)
 .includes(value)
@@ -529,8 +513,6 @@ player.employeeName
 
 
 });
-
-
 
 
 
