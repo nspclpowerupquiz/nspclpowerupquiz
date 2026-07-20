@@ -1,18 +1,14 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
 
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>NSPCL Admin Dashboard</title>
 
-
-<title>NSPCL Admin Panel</title>
-
-
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="admin.css">
 
 </head>
 
@@ -20,72 +16,51 @@
 <body>
 
 
-<header class="header">
+<header>
 
+<h1>⚡ NSPCL Power-Up Quiz</h1>
 
-<h2>
-⚙️ NSPCL Quiz Admin Panel
-</h2>
+<p>Admin Control Dashboard</p>
 
-
-<a href="index.html">
-Home
-</a>
-
+<a href="index.html">🏠 Home</a>
 
 </header>
 
 
 
+<section class="dashboard">
 
 
-<section class="features">
+<h2>📊 Overview</h2>
+
+
+<div class="cards">
 
 
 <div class="card">
+<h3>👨‍💼 Total Participants</h3>
+<h1 id="participants">0</h1>
+</div>
 
 
-<h2>
-Add New Question
-</h2>
-
-
-
-<input id="question"
-placeholder="Enter Question">
-
-
-
-<input id="option1"
-placeholder="Option 1">
-
-
-<input id="option2"
-placeholder="Option 2">
-
-
-<input id="option3"
-placeholder="Option 3">
-
-
-<input id="option4"
-placeholder="Option 4">
-
-
-<input id="answer"
-placeholder="Correct Answer">
-
-
-<input id="category"
-placeholder="Category">
+<div class="card">
+<h3>📝 Total Attempts</h3>
+<h1 id="attempts">0</h1>
+</div>
 
 
 
-<button onclick="addQuestion()">
+<div class="card">
+<h3>🏆 Highest Score</h3>
+<h1 id="highest">0</h1>
+</div>
 
-➕ Add Question
 
-</button>
+
+<div class="card">
+<h3>📜 Certificates</h3>
+<h1 id="certificates">0</h1>
+</div>
 
 
 </div>
@@ -94,19 +69,73 @@ placeholder="Category">
 
 
 
-<div class="card">
+<h2>👥 Employee Results</h2>
 
 
-<h2>
-Question Bank
-</h2>
+<div class="search">
 
-
-
-<div id="questionList">
+<input 
+id="search"
+placeholder="Search Employee ID / Name">
 
 </div>
 
+
+
+<table>
+
+
+<thead>
+
+<tr>
+
+<th>Rank</th>
+<th>ID</th>
+<th>Name</th>
+<th>Score</th>
+<th>Total</th>
+<th>Percentage</th>
+<th>Date</th>
+
+</tr>
+
+</thead>
+
+
+<tbody id="resultTable">
+
+
+<tr>
+
+<td colspan="7">
+
+Loading Data...
+
+</td>
+
+</tr>
+
+
+</tbody>
+
+
+</table>
+
+
+
+
+
+<h2>⚙ System Status</h2>
+
+
+<div class="status">
+
+
+<p>🟢 Google Sheet Connected</p>
+
+<p>🟢 Quiz System Active</p>
+
+<p>🟢 Certificate Generator Active</p>
 
 
 </div>
@@ -117,8 +146,7 @@ Question Bank
 
 
 
-
-<script src="js/admin.js"></script>
+<script src="admin.js"></script>
 
 
 </body>
