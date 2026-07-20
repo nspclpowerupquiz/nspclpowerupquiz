@@ -1837,3 +1837,16 @@ img{
     transform:none !important;
 
 }
+/* ==================================
+   PDF WATERMARK FIX
+================================== */
+
+.pdf-capture .watermark{
+
+    color:#0B4FA2 !important;
+
+    opacity:0.05 !important;
+
+    animation:none !important;
+
+}
