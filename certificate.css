@@ -1823,3 +1823,17 @@ img{
     animation:none !important;
 
 }
+/* PDF AND PRINT STATIC MODE */
+
+.pdf-capture,
+.pdf-capture *{
+
+    animation:none !important;
+
+    transition:none !important;
+
+    opacity:1 !important;
+
+    transform:none !important;
+
+}
