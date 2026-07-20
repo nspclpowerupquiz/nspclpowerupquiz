@@ -4,16 +4,175 @@
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Gallery | NSPCL Power-Up Quiz</title>
-
+<title>NSPCL Power-Up Quiz | Gallery</title>
 
 <link rel="stylesheet" href="style.css">
 
-<link rel="stylesheet" href="gallery.css?v=3">
+<style>
 
+body{
+    margin:0;
+    font-family:'Segoe UI',sans-serif;
+    background:linear-gradient(135deg,#061a40,#003566,#0077b6);
+    color:white;
+}
+
+
+/* HEADER */
+
+.gallery-header{
+
+    text-align:center;
+    padding:30px 20px;
+
+    background:rgba(255,255,255,0.12);
+    backdrop-filter:blur(12px);
+
+    box-shadow:0 8px 25px rgba(0,0,0,0.3);
+
+}
+
+
+.gallery-header h1{
+
+    font-size:40px;
+    margin:10px;
+
+}
+
+
+.gallery-header p{
+
+    font-size:18px;
+    opacity:0.9;
+
+}
+
+
+
+/* BACK BUTTON */
+
+.back-btn{
+
+    display:inline-block;
+    margin-top:15px;
+
+    padding:10px 25px;
+
+    background:#ffcc00;
+    color:#003566;
+
+    border-radius:30px;
+
+    text-decoration:none;
+    font-weight:bold;
+
+    transition:.3s;
+
+}
+
+
+.back-btn:hover{
+
+    transform:scale(1.08);
+
+}
+
+
+
+/* GALLERY AREA */
+
+.gallery-container{
+
+    padding:40px;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(280px,1fr));
+
+    gap:30px;
+
+}
+
+
+
+/* IMAGE CARD */
+
+.gallery-card{
+
+    background:rgba(255,255,255,0.15);
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,0.35);
+
+    transition:.4s;
+
+}
+
+
+.gallery-card:hover{
+
+    transform:
+    translateY(-10px)
+    scale(1.03);
+
+}
+
+
+
+/* IMAGE */
+
+.gallery-card img{
+
+    width:100%;
+
+    height:230px;
+
+    object-fit:cover;
+
+    display:block;
+
+}
+
+
+
+/* TITLE */
+
+.gallery-title{
+
+    padding:15px;
+
+    text-align:center;
+
+    font-size:20px;
+
+    font-weight:bold;
+
+}
+
+
+
+/* LOADING */
+
+.loading{
+
+    text-align:center;
+
+    font-size:22px;
+
+    padding:40px;
+
+}
+
+
+</style>
 
 </head>
 
@@ -21,79 +180,20 @@
 <body>
 
 
-<!-- ================= IMAGE POPUP ================= -->
 
-<div id="imagePopup" class="image-popup">
-
-<span id="closePopup">
-✖
-</span>
-
-<img id="popupImage">
-
-</div>
+<header class="gallery-header">
 
 
+<h1>📸 NSPCL Power-Up Gallery</h1>
+
+<p>
+Moments of learning, competition and power sector awareness
+</p>
 
 
-
-<!-- ================= HEADER ================= -->
-
-<header class="header">
-
-
-<div class="logo">
-
-<h2>
-⚡ NSPCL Power-Up Quiz
-</h2>
-
-<span>
-Knowledge • Innovation • Excellence
-</span>
-
-</div>
-
-
-
-<nav>
-
-<a href="index.html">
-🏠 Home
+<a href="index.html" class="back-btn">
+⬅ Back to Home
 </a>
-
-
-<a href="about.html">
-ℹ About
-</a>
-
-
-<a href="quiz.html">
-📚 Quiz
-</a>
-
-
-<a href="leaderboard.html">
-🏆 Leaderboard
-</a>
-
-
-<a href="analytics.html">
-📈 Analytics
-</a>
-
-
-<a href="gallery.html">
-🖼 Gallery
-</a>
-
-
-<a href="certificate.html">
-📜 Certificate
-</a>
-
-
-</nav>
 
 
 </header>
@@ -101,28 +201,12 @@ Knowledge • Innovation • Excellence
 
 
 
+<section id="galleryContainer" class="gallery-container">
 
 
+<div class="loading">
 
-<!-- ================= HERO SECTION ================= -->
-
-
-<section class="hero">
-
-
-<div class="hero-content">
-
-
-<h1>
-📸 NSPCL Power Gallery
-</h1>
-
-
-<p>
-Celebrating Learning, Innovation,
-Achievement and Excellence
-</p>
-
+Loading Gallery Images...
 
 </div>
 
@@ -131,999 +215,7 @@ Achievement and Excellence
 
 
 
-
-
-
-
-
-
-<!-- ================= FEATURE IMAGE ================= -->
-
-
-<section class="featured-image">
-
-
-<img src="powerplant.jpg"
-alt="NSPCL Power Plant">
-
-
-
-<div class="featured-text">
-
-
-<h2>
-⚡ Powering Knowledge
-</h2>
-
-
-
-<p>
-A journey of learning,
-teamwork and operational excellence.
-</p>
-
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-
-
-<!-- ================= JOURNEY SECTION ================= -->
-
-
-<section class="power-timeline">
-
-
-<h2>
-⚡ NSPCL Journey of Excellence
-</h2>
-
-
-
-
-<div class="timeline">
-
-
-
-<div class="timeline-card">
-
-<h3>
-🏭 Power Generation
-</h3>
-
-<p>
-Delivering reliable power through technology and teamwork.
-</p>
-
-</div>
-
-
-
-
-
-<div class="timeline-card">
-
-<h3>
-📚 Learning Culture
-</h3>
-
-<p>
-Creating knowledge through continuous improvement.
-</p>
-
-</div>
-
-
-
-
-
-<div class="timeline-card">
-
-<h3>
-🏆 Recognition
-</h3>
-
-<p>
-Celebrating achievements and excellence.
-</p>
-
-</div>
-
-
-
-
-
-<div class="timeline-card">
-
-<h3>
-🌱 Future Ready
-</h3>
-
-<p>
-Innovation for sustainable energy.
-</p>
-
-</div>
-
-
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-
-<!-- ================= GALLERY SECTION ================= -->
-
-
-<section class="gallery">
-
-
-<h1 class="section-title">
-
-Gallery of Excellence
-
-</h1>
-
-
-
-<p>
-
-Explore NSPCL moments of learning,
-quiz achievements, teamwork and excellence.
-
-</p>
-
-
-
-
-
-
-<!-- FILTER BUTTONS -->
-
-
-<div class="gallery-filter">
-
-
-<button class="btn" onclick="filterGallery('all')">
-All
-</button>
-
-
-<button class="btn" onclick="filterGallery('Plants')">
-🏭 Plants
-</button>
-
-
-<button class="btn" onclick="filterGallery('Learning')">
-📚 Learning
-</button>
-
-
-<button class="btn" onclick="filterGallery('Winners')">
-🏆 Winners
-</button>
-
-
-<button class="btn" onclick="filterGallery('Safety')">
-🦺 Safety
-</button>
-
-
-<button class="btn" onclick="filterGallery('Environment')">
-🌱 Environment
-</button>
-
-
-</div>
-
-
-
-
-
-
-
-
-<!-- LIVE GOOGLE SHEET GALLERY -->
-
-const GALLERY_API =
-"https://script.google.com/macros/s/AKfycbziOrV0Tit-jAwCXLZTLJovnnpIh1zTLpZVOOmhtjXyigCj6uxFxY-UYfK6_gn1xXW-yA/exec";
-
-
-let galleryData = [];
-
-
-fetch(GALLERY_API + "?action=gallery")
-
-.then(response => response.json())
-
-.then(data => {
-
-
-console.log("Gallery Data:", data);
-
-
-galleryData = data;
-
-
-displayGallery(data);
-
-
-})
-
-.catch(error=>{
-
-
-console.log("Gallery Error:",error);
-
-
-document.getElementById("galleryGrid").innerHTML =
-"<h3>Gallery loading failed</h3>";
-
-
-});
-
-
-
-function displayGallery(data){
-
-
-let html="";
-
-
-data.forEach(item=>{
-
-
-html += `
-
-<div class="gallery-card">
-
-
-<img src="${item.image}"
-onclick="openImage('${item.image}')">
-
-
-<div class="overlay">
-
-<h3>${item.title}</h3>
-
-<p>${item.description}</p>
-
-<span>${item.category}</span>
-
-</div>
-
-
-</div>
-
-`;
-
-});
-
-
-document.getElementById("galleryGrid").innerHTML = html;
-
-
-}
-
-
-
-
-
-</section>
-<!-- ================= CHAMPIONS WALL ================= -->
-
-
-<section class="achievement-wall">
-
-
-<h2>
-🏆 NSPCL Champions Wall
-</h2>
-
-
-
-
-<div class="champions">
-
-
-
-<div class="champion-card">
-
-
-<div class="badge-icon">
-🥇
-</div>
-
-
-<h3>
-Power Champion
-</h3>
-
-
-<p>
-Highest Quiz Score
-</p>
-
-
-</div>
-
-
-
-
-
-
-<div class="champion-card">
-
-
-<div class="badge-icon">
-🔥
-</div>
-
-
-<h3>
-Learning Star
-</h3>
-
-
-<p>
-Daily Challenge Leader
-</p>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="champion-card">
-
-
-<div class="badge-icon">
-⚡
-</div>
-
-
-<h3>
-Knowledge Leader
-</h3>
-
-
-<p>
-Continuous Excellence
-</p>
-
-
-</div>
-
-
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-
-
-<!-- ================= STATISTICS ================= -->
-
-
-<section class="gallery-stats">
-
-
-<h2>
-📊 Gallery Highlights
-</h2>
-
-
-
-
-<div class="stats">
-
-
-
-<div class="stat-card">
-
-
-<h2>
-250+
-</h2>
-
-
-<p>
-Participants
-</p>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="stat-card">
-
-
-<h2>
-1200+
-</h2>
-
-
-<p>
-Quiz Attempts
-</p>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="stat-card">
-
-
-<h2>
-350+
-</h2>
-
-
-<p>
-Certificates Issued
-</p>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="stat-card">
-
-
-<h2>
-50+
-</h2>
-
-
-<p>
-Learning Events
-</p>
-
-
-</div>
-
-
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-
-
-<!-- ================= LEARNING ZONE ================= -->
-
-
-<section class="video-gallery">
-
-
-<h2>
-🎥 Learning Zone
-</h2>
-
-
-
-
-
-<div class="feature-container">
-
-
-
-<div class="card">
-
-
-<h3>
-🏭 Power Plant Overview
-</h3>
-
-
-<p>
-Understanding power generation,
-operations and excellence.
-</p>
-
-
-</div>
-
-
-
-
-
-
-
-
-<div class="card">
-
-
-<h3>
-📚 Knowledge Sessions
-</h3>
-
-
-<p>
-Learning procurement,
-contracts and materials management.
-</p>
-
-
-</div>
-
-
-
-
-
-
-
-
-<div class="card">
-
-
-<h3>
-🏆 Quiz Moments
-</h3>
-
-
-<p>
-Celebrating employee participation
-and achievements.
-</p>
-
-
-</div>
-
-
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-
-
-<!-- ================= QUOTE ================= -->
-
-
-<section class="gallery-quote">
-
-
-<h2>
-💡 Power Thought
-</h2>
-
-
-
-<p id="galleryQuote">
-
-Knowledge is the power behind excellence.
-
-</p>
-
-
-</section>
-
-
-
-
-
-
-
-
-
-<!-- ================= CTA ================= -->
-
-
-<section class="cta">
-
-
-<h2>
-Knowledge Powers Performance
-</h2>
-
-
-<p>
-Every learning step creates a better tomorrow.
-</p>
-
-
-
-
-<a href="quiz.html" class="btn">
-
-🚀 Start Quiz
-
-</a>
-
-
-
-</section>
-
-
-
-
-
-
-
-
-<!-- ================= FOOTER ================= -->
-
-
-<footer>
-
-
-<h3>
-⚡ NSPCL Power-Up Quiz
-</h3>
-
-
-<p>
-SSC C&M Function
-</p>
-
-
-<p>
-Learn • Compete • Grow • Excel
-</p>
-
-
-<p>
-© 2026 NSPCL Power-Up Quiz
-</p>
-
-
-</footer>
-<!-- ================= JAVASCRIPT ================= -->
-
-<script>
-
-
-// ===============================
-// GOOGLE SHEET GALLERY API
-// ===============================
-
-
-const GALLERY_API = 
-"https://script.google.com/macros/s/AKfycbwBbn0mA_VbQG3A4lz7nDGWZm66P6jKBx12zXbYZ-OoCudVBzIvK-MkuZEXxLcECl5wdw/exec";
-
-
-
-let galleryData = [];
-
-
-
-// LOAD GALLERY
-
-
-fetch(GALLERY_API + "?action=gallery")
-
-
-.then(response => response.json())
-
-
-.then(data => {
-
-
-galleryData = data;
-
-
-displayGallery(data);
-
-
-})
-
-
-
-.catch(error => {
-
-
-console.log(
-"Gallery Loading Error:",
-error
-);
-
-
-document.getElementById("galleryGrid").innerHTML =
-
-`
-<h3>
-Unable to load gallery
-</h3>
-`;
-
-});
-
-
-
-
-
-
-
-// ===============================
-// DISPLAY GALLERY
-// ===============================
-
-
-function displayGallery(data){
-
-
-
-let html="";
-
-
-
-data.forEach(item=>{
-
-
-html += `
-
-
-<div class="gallery-card"
-data-category="${item.category}">
-
-
-<img src="${item.image}"
-alt="${item.title}"
-onclick="openImage('${item.image}')">
-
-
-
-<div class="overlay">
-
-
-<h3>
-${item.title}
-</h3>
-
-
-
-<p>
-${item.description}
-</p>
-
-
-
-<span>
-${item.category}
-</span>
-
-
-</div>
-
-
-
-</div>
-
-
-
-`;
-
-
-
-});
-
-
-
-
-document.getElementById("galleryGrid")
-.innerHTML = html;
-
-
-
-}
-
-
-
-
-
-
-
-
-// ===============================
-// FILTER GALLERY
-// ===============================
-
-
-function filterGallery(category){
-
-
-
-if(category=="all"){
-
-
-displayGallery(galleryData);
-
-
-return;
-
-
-}
-
-
-
-let filtered =
-galleryData.filter(item =>
-
-item.category == category
-
-);
-
-
-
-displayGallery(filtered);
-
-
-
-}
-
-
-
-
-
-
-
-
-
-// ===============================
-// IMAGE POPUP
-// ===============================
-
-
-function openImage(src){
-
-
-
-document.getElementById("popupImage").src = src;
-
-
-
-document.getElementById("imagePopup")
-.style.display="flex";
-
-
-}
-
-
-
-
-document.getElementById("closePopup")
-.onclick=function(){
-
-
-document.getElementById("imagePopup")
-.style.display="none";
-
-
-};
-
-
-
-
-
-
-
-// CLOSE POPUP OUTSIDE IMAGE
-
-
-document.getElementById("imagePopup")
-.onclick=function(e){
-
-
-
-if(e.target.id=="imagePopup"){
-
-
-this.style.display="none";
-
-
-}
-
-
-
-};
-
-
-
-
-
-
-
-
-
-// ===============================
-// DAILY QUOTE
-// ===============================
-
-
-const quotes=[
-
-
-"⚡ Knowledge drives innovation.",
-
-
-"🔥 Excellence comes from continuous learning.",
-
-
-"🌱 Every learner builds a better future.",
-
-
-"🏆 Success belongs to those who keep learning."
-
-
-];
-
-
-
-let today =
-new Date().getDate();
-
-
-
-document.getElementById("galleryQuote")
-.innerHTML =
-quotes[today % quotes.length];
-
-
-
-
-</script>
-
+<script src="gallery.js"></script>
 
 
 </body>
