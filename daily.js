@@ -1,207 +1,114 @@
-// =================================
-// NSPCL DAILY CHALLENGE
-// =================================
+// ======================================
+// NSPCL POWER PULSE - LIVE DAILY CHALLENGE
+// ======================================
 
 
+// LOAD DAILY MOTIVATION FROM INTERNET
 
-let dailyQuestions = questions;
+function loadMotivation(){
 
+    fetch("https://zenquotes.io/api/random")
+    .then(response => response.json())
+    .then(data => {
 
+        document.getElementById("dailyQuote").innerHTML =
+        `
+        <h3>✨ Daily Motivation</h3>
+        <p>
+        "${data[0].q}"
+        </p>
+        <strong>— ${data[0].a}</strong>
+        `;
 
-let today = new Date().toDateString();
+    })
+    .catch(error=>{
 
+        document.getElementById("dailyQuote").innerHTML =
+        `
+        <h3>✨ Daily Motivation</h3>
+        <p>
+        "Every day is a new opportunity to learn and improve."
+        </p>
+        <strong>— NSPCL Power Pulse</strong>
+        `;
 
-
-let savedDay = localStorage.getItem(
-"dailyDate"
-);
-
-
-
-let index;
-
-
-
-if(savedDay === today){
-
-
-index = localStorage.getItem(
-"dailyQuestion"
-);
-
-
-}
-
-else{
-
-
-index = Math.floor(
-
-Math.random()*dailyQuestions.length
-
-);
-
-
-
-localStorage.setItem(
-"dailyDate",
-today
-);
-
-
-
-localStorage.setItem(
-"dailyQuestion",
-index
-);
-
-
+    });
 
 }
 
 
 
+// LOAD DAILY QUIZ QUESTION FROM INTERNET
 
-let q=dailyQuestions[index];
+function loadDailyQuestion(){
 
+    fetch("https://opentdb.com/api.php?amount=1&type=multiple")
+    .then(response=>response.json())
+    .then(data=>{
 
 
-document.getElementById(
-"dailyQuestion"
-).innerHTML=
+        let q=data.results[0];
 
-`
 
-<h2>${q.question}</h2>
+        let question =
+        q.question;
 
-`;
 
+        let options=[
+            ...q.incorrect_answers,
+            q.correct_answer
+        ];
 
 
-let container=
+        // shuffle options
 
-document.getElementById(
-"dailyOptions"
-);
+        options.sort(()=>Math.random()-0.5);
 
 
 
-q.options.forEach(option=>{
+        document.getElementById("dailyQuestion").innerHTML=
+        `
+        <h3>⚡ Today's Challenge</h3>
 
+        <p>${question}</p>
+        `;
 
-let btn=document.createElement(
-"button"
-);
 
 
-btn.innerHTML=option;
+        let html="";
 
 
-btn.onclick=()=>{
+        options.forEach(option=>{
 
+            html +=
+            `
+            <button class="daily-option">
+            ${option}
+            </button>
+            `;
 
-if(option===q.answer){
+        });
 
 
-document.getElementById(
-"dailyResult"
-).innerHTML=
+        document.getElementById("dailyOptions").innerHTML=html;
 
-"🏆 Correct! Badge earned";
 
 
-updateBadge();
+    })
+    .catch(error=>{
 
+        document.getElementById("dailyQuestion").innerHTML=
+        "Unable to load today's question";
 
-}
-
-else{
-
-
-document.getElementById(
-"dailyResult"
-).innerHTML=
-
-"📚 Keep Learning!";
-
-
-}
-
-
-};
-
-
-
-container.appendChild(btn);
-
-
-
-});
-
-
-
-
-
-
-function updateBadge(){
-
-
-let streak=
-
-Number(
-
-localStorage.getItem(
-"streak"
-)
-
-)||0;
-
-
-
-streak++;
-
-
-
-localStorage.setItem(
-"streak",
-streak
-);
-
-
-
-if(streak>=10){
-
-
-localStorage.setItem(
-"badge",
-"🥇 Gold Champion"
-);
-
-
-}
-
-else if(streak>=5){
-
-
-localStorage.setItem(
-"badge",
-"🥈 Silver Champion"
-);
-
-
-}
-
-else{
-
-
-localStorage.setItem(
-"badge",
-"🥉 Bronze Learner"
-);
-
+    });
 
 }
 
 
 
-}
+
+// START
+
+loadMotivation();
+
+loadDailyQuestion();
