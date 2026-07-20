@@ -234,13 +234,13 @@ alert(
 
 
 // ==========================================
-// DOWNLOAD PDF
+// DOWNLOAD PDF FIXED
 // ==========================================
 
 async function downloadPDF(){
 
 
-console.log("PDF Download Started");
+console.log("PDF button clicked");
 
 
 
@@ -248,62 +248,54 @@ const certificate =
 document.getElementById("certificate");
 
 
-// Wait for images to load
+// Hide watermark temporarily
 
-const images =
-certificate.querySelectorAll("img");
+const watermark =
+document.querySelector(".watermark");
 
 
-await Promise.all(
+if(watermark){
 
-[...images].map(img=>{
-
-if(img.complete){
-
-return Promise.resolve();
+    watermark.style.display="none";
 
 }
 
-return new Promise(resolve=>{
 
-img.onload=resolve;
 
-img.onerror=resolve;
+// wait for rendering
 
-});
-
-})
-
+await new Promise(
+resolve=>setTimeout(resolve,500)
 );
-
-
-
-// Small delay for rendering
-
-await new Promise(resolve=>setTimeout(resolve,1000));
 
 
 
 const canvas =
 await html2canvas(
-
 certificate,
-
 {
 
-scale:3,
+scale:2,
 
 useCORS:true,
 
-allowTaint:true,
-
 backgroundColor:"#ffffff",
 
-logging:true
+foreignObjectRendering:true
 
 }
 
 );
+
+
+
+// Show watermark again
+
+if(watermark){
+
+    watermark.style.display="block";
+
+}
 
 
 
@@ -312,7 +304,8 @@ canvas.toDataURL("image/png");
 
 
 
-const {jsPDF}=window.jspdf;
+const {jsPDF} =
+window.jspdf;
 
 
 
@@ -329,13 +322,6 @@ new jsPDF(
 
 
 
-const width = 287;
-
-const height =
-canvas.height * width / canvas.width;
-
-
-
 pdf.addImage(
 
 imgData,
@@ -346,9 +332,9 @@ imgData,
 
 5,
 
-width,
+287,
 
-height
+200
 
 );
 
