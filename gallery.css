@@ -1,1 +1,604 @@
+/* ==========================================
+   NSPCL POWER-UP QUIZ
+   GALLERY PAGE STYLE
+========================================== */
 
+
+/* HERO SECTION */
+
+.hero {
+    height: 380px;
+    margin: 30px;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    background:
+    linear-gradient(
+    rgba(0,0,0,0.55),
+    rgba(0,0,0,0.55)
+    ),
+    url("images/powerplant.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+}
+
+
+.hero-content h1 {
+
+    color:white;
+    font-size:45px;
+    animation: fadeDown 1s ease;
+
+}
+
+
+.hero-content p {
+
+    color:white;
+    font-size:20px;
+
+}
+
+
+
+
+
+/* FEATURE IMAGE */
+
+
+.featured-image {
+
+    margin:40px;
+    position:relative;
+    overflow:hidden;
+    border-radius:25px;
+
+}
+
+
+.featured-image img {
+
+    width:100%;
+    height:450px;
+    object-fit:cover;
+
+}
+
+
+.featured-text {
+
+    position:absolute;
+    bottom:25px;
+    left:25px;
+
+    padding:25px;
+
+    background:
+    rgba(0,0,0,0.6);
+
+    color:white;
+
+    border-radius:20px;
+
+}
+
+
+
+
+
+
+/* JOURNEY TIMELINE */
+
+
+.power-timeline {
+
+    padding:40px;
+    text-align:center;
+
+}
+
+
+.timeline {
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(220px,1fr));
+
+    gap:25px;
+
+}
+
+
+
+.timeline-card {
+
+    padding:30px;
+
+    border-radius:20px;
+
+    background:
+    rgba(255,255,255,0.15);
+
+    backdrop-filter:blur(12px);
+
+    transition:.4s;
+
+}
+
+
+.timeline-card:hover {
+
+    transform:translateY(-12px);
+
+    box-shadow:
+    0 15px 30px rgba(0,0,0,.25);
+
+}
+
+
+
+
+
+
+/* FILTER BUTTONS */
+
+
+.gallery-filter {
+
+    text-align:center;
+    margin:30px;
+
+}
+
+
+.gallery-filter .btn {
+
+    padding:12px 25px;
+
+    margin:8px;
+
+    border:none;
+
+    border-radius:30px;
+
+    background:#0066ff;
+
+    color:white;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+
+.gallery-filter .btn:hover {
+
+    transform:scale(1.1);
+
+}
+
+
+
+
+
+
+/* GALLERY GRID */
+
+
+.gallery-grid {
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(260px,1fr));
+
+    gap:25px;
+
+    padding:30px;
+
+}
+
+
+
+.gallery-card {
+
+    height:260px;
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    position:relative;
+
+    cursor:pointer;
+
+}
+
+
+
+.gallery-card img {
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:.5s;
+
+}
+
+
+
+.gallery-card:hover img {
+
+    transform:scale(1.15);
+
+}
+
+
+
+.overlay {
+
+    position:absolute;
+
+    bottom:0;
+
+    width:100%;
+
+    padding:20px;
+
+    color:white;
+
+    background:
+
+    linear-gradient(
+    transparent,
+    rgba(0,0,0,.85)
+    );
+
+}
+
+
+
+
+
+
+/* IMAGE POPUP */
+
+
+.image-popup {
+
+    display:none;
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    height:100%;
+
+    background:
+    rgba(0,0,0,.85);
+
+    z-index:9999;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+
+
+.image-popup img {
+
+    max-width:85%;
+
+    max-height:85%;
+
+    border-radius:20px;
+
+}
+
+
+
+#closePopup {
+
+    position:absolute;
+
+    right:40px;
+
+    top:30px;
+
+    color:white;
+
+    font-size:35px;
+
+    cursor:pointer;
+
+}
+
+
+
+
+
+
+/* ACHIEVEMENT WALL */
+
+
+.achievement-wall {
+
+    padding:40px;
+
+    text-align:center;
+
+}
+
+
+
+.champions {
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(220px,1fr));
+
+    gap:25px;
+
+}
+
+
+
+.champion-card {
+
+    padding:30px;
+
+    border-radius:20px;
+
+    background:
+    rgba(255,255,255,.15);
+
+    backdrop-filter:blur(10px);
+
+    transition:.4s;
+
+    font-size:22px;
+
+}
+
+
+
+.champion-card:hover {
+
+    transform:translateY(-10px);
+
+}
+
+
+
+
+
+
+
+/* STATISTICS */
+
+
+.gallery-stats {
+
+    padding:40px;
+
+    text-align:center;
+
+}
+
+
+.stats {
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(200px,1fr));
+
+    gap:25px;
+
+}
+
+
+
+.stat-card {
+
+    padding:30px;
+
+    border-radius:20px;
+
+    background:
+    linear-gradient(
+    135deg,
+    #0066ff,
+    #00c6ff
+    );
+
+    color:white;
+
+}
+
+
+.stat-card h2 {
+
+    font-size:45px;
+
+}
+
+
+
+
+
+
+
+/* VIDEO CARDS */
+
+
+.video-gallery {
+
+    padding:40px;
+
+    text-align:center;
+
+}
+
+
+
+.feature-container {
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(250px,1fr));
+
+    gap:25px;
+
+}
+
+
+
+.card {
+
+    padding:30px;
+
+    border-radius:20px;
+
+    background:
+    rgba(255,255,255,.15);
+
+    backdrop-filter:blur(10px);
+
+    transition:.3s;
+
+}
+
+
+
+.card:hover {
+
+    transform:translateY(-10px);
+
+}
+
+
+
+
+
+
+/* QUOTE BOX */
+
+
+.gallery-quote {
+
+    margin:40px;
+
+    padding:40px;
+
+    text-align:center;
+
+    border-radius:25px;
+
+    background:
+    linear-gradient(
+    135deg,
+    #ff9800,
+    #ff5722
+    );
+
+    color:white;
+
+}
+
+
+.gallery-quote p {
+
+    font-size:25px;
+
+    font-style:italic;
+
+}
+
+
+
+
+
+
+
+/* ANIMATION */
+
+
+@keyframes fadeDown {
+
+from {
+
+opacity:0;
+
+transform:translateY(-30px);
+
+}
+
+to {
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+
+
+
+
+
+/* MOBILE */
+
+
+@media(max-width:768px){
+
+
+.hero-content h1 {
+
+    font-size:30px;
+
+}
+
+
+.featured-image {
+
+    margin:20px;
+
+}
+
+
+.featured-image img {
+
+    height:300px;
+
+}
+
+
+.gallery-grid {
+
+    padding:15px;
+
+}
+
+
+}
