@@ -1787,4 +1787,39 @@ img{
     -webkit-text-fill-color:#0B4FA2 !important;
 
 }
+/* ================================
+   PDF CAPTURE FIX
+================================ */
 
+.pdf-capture * {
+
+    animation:none !important;
+    transition:none !important;
+
+}
+
+
+.pdf-capture .employeeName,
+.pdf-capture .scoreBox,
+.pdf-capture .badge {
+
+    opacity:1 !important;
+
+    transform:none !important;
+
+}
+
+
+.pdf-capture .watermark {
+
+    animation:none !important;
+
+}
+
+
+.pdf-capture .certificate::before,
+.pdf-capture .certificate::after {
+
+    animation:none !important;
+
+}
