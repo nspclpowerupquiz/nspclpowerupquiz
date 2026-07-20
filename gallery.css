@@ -1,235 +1,57 @@
-/* ==========================================
-   NSPCL POWER-UP QUIZ
-   GALLERY PAGE STYLE
-========================================== */
+/* ================================
+   PREMIUM NSPCL GALLERY DESIGN
+================================ */
 
 
-/* HERO SECTION */
-
-.hero {
-    height: 380px;
-    margin: 30px;
-    border-radius: 25px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+body{
 
     background:
-    linear-gradient(
-    rgba(0,0,0,0.55),
-    rgba(0,0,0,0.55)
-    ),
-    url("images/powerplant.jpg");
-
-    background-size: cover;
-    background-position: center;
-
-}
-
-
-.hero-content h1 {
-
-    color:white;
-    font-size:45px;
-    animation: fadeDown 1s ease;
-
-}
-
-
-.hero-content p {
-
-    color:white;
-    font-size:20px;
+    radial-gradient(circle at top,#0077b6,#061a40);
 
 }
 
 
 
+/* Gallery Grid */
 
+.gallery-container{
 
-/* FEATURE IMAGE */
-
-
-.featured-image {
-
-    margin:40px;
-    position:relative;
-    overflow:hidden;
-    border-radius:25px;
-
-}
-
-
-.featured-image img {
-
-    width:100%;
-    height:450px;
-    object-fit:cover;
-
-}
-
-
-.featured-text {
-
-    position:absolute;
-    bottom:25px;
-    left:25px;
-
-    padding:25px;
-
-    background:
-    rgba(0,0,0,0.6);
-
-    color:white;
-
-    border-radius:20px;
-
-}
-
-
-
-
-
-
-/* JOURNEY TIMELINE */
-
-
-.power-timeline {
-
-    padding:40px;
-    text-align:center;
-
-}
-
-
-.timeline {
+    padding:50px;
 
     display:grid;
 
     grid-template-columns:
-    repeat(auto-fit,minmax(220px,1fr));
+    repeat(auto-fit,minmax(300px,1fr));
 
-    gap:25px;
+    gap:35px;
 
 }
 
 
 
-.timeline-card {
+/* Card */
 
-    padding:30px;
+.gallery-card{
 
-    border-radius:20px;
+    position:relative;
 
     background:
-    rgba(255,255,255,0.15);
+    rgba(255,255,255,0.12);
 
-    backdrop-filter:blur(12px);
+    backdrop-filter:blur(15px);
 
-    transition:.4s;
+    border-radius:25px;
 
-}
+    overflow:hidden;
 
-
-.timeline-card:hover {
-
-    transform:translateY(-12px);
+    border:
+    1px solid rgba(255,255,255,.25);
 
     box-shadow:
-    0 15px 30px rgba(0,0,0,.25);
+    0 15px 35px rgba(0,0,0,.4);
 
-}
-
-
-
-
-
-
-/* FILTER BUTTONS */
-
-
-.gallery-filter {
-
-    text-align:center;
-    margin:30px;
-
-}
-
-
-.gallery-filter .btn {
-
-    padding:12px 25px;
-
-    margin:8px;
-
-    border:none;
-
-    border-radius:30px;
-
-    background:#0066ff;
-
-    color:white;
-
-    cursor:pointer;
-
-    transition:.3s;
-
-}
-
-
-.gallery-filter .btn:hover {
-
-    transform:scale(1.1);
-
-}
-
-
-
-
-
-
-/* GALLERY GRID */
-
-
-.gallery-grid {
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(auto-fit,minmax(260px,1fr));
-
-    gap:25px;
-
-    padding:30px;
-
-}
-
-
-
-.gallery-card {
-
-    height:260px;
-
-    border-radius:25px;
-
-    overflow:hidden;
-
-    position:relative;
-
-    cursor:pointer;
-
-}
-
-
-
-.gallery-card img {
-
-    width:100%;
-
-    height:100%;
-
-    object-fit:cover;
+    animation:
+    fadeUp .8s ease;
 
     transition:.5s;
 
@@ -237,322 +59,122 @@
 
 
 
-.gallery-card:hover img {
+.gallery-card:hover{
 
-    transform:scale(1.15);
+    transform:
+    translateY(-15px);
+
+    box-shadow:
+    0 25px 50px rgba(0,0,0,.6);
 
 }
 
 
 
-.overlay {
+/* Image */
 
-    position:absolute;
-
-    bottom:0;
+.gallery-card img{
 
     width:100%;
 
-    padding:20px;
+    height:260px;
 
-    color:white;
-
-    background:
-
-    linear-gradient(
-    transparent,
-    rgba(0,0,0,.85)
-    );
-
-}
-
-
-
-
-
-
-/* IMAGE POPUP */
-
-
-.image-popup {
-
-    display:none;
-
-    position:fixed;
-
-    top:0;
-
-    left:0;
-
-    width:100%;
-
-    height:100%;
-
-    background:
-    rgba(0,0,0,.85);
-
-    z-index:9999;
-
-    justify-content:center;
-
-    align-items:center;
-
-}
-
-
-
-.image-popup img {
-
-    max-width:85%;
-
-    max-height:85%;
-
-    border-radius:20px;
-
-}
-
-
-
-#closePopup {
-
-    position:absolute;
-
-    right:40px;
-
-    top:30px;
-
-    color:white;
-
-    font-size:35px;
+    object-fit:cover;
 
     cursor:pointer;
 
+    transition:.6s;
+
 }
 
 
 
+.gallery-card:hover img{
+
+    transform:
+    scale(1.12);
+
+}
 
 
 
-/* ACHIEVEMENT WALL */
+/* Image Title */
 
+.gallery-title{
 
-.achievement-wall {
+    padding:20px;
 
-    padding:40px;
+    font-size:21px;
+
+    font-weight:700;
 
     text-align:center;
-
-}
-
-
-
-.champions {
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(auto-fit,minmax(220px,1fr));
-
-    gap:25px;
-
-}
-
-
-
-.champion-card {
-
-    padding:30px;
-
-    border-radius:20px;
-
-    background:
-    rgba(255,255,255,.15);
-
-    backdrop-filter:blur(10px);
-
-    transition:.4s;
-
-    font-size:22px;
-
-}
-
-
-
-.champion-card:hover {
-
-    transform:translateY(-10px);
-
-}
-
-
-
-
-
-
-
-/* STATISTICS */
-
-
-.gallery-stats {
-
-    padding:40px;
-
-    text-align:center;
-
-}
-
-
-.stats {
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(auto-fit,minmax(200px,1fr));
-
-    gap:25px;
-
-}
-
-
-
-.stat-card {
-
-    padding:30px;
-
-    border-radius:20px;
 
     background:
     linear-gradient(
-    135deg,
-    #0066ff,
-    #00c6ff
+    transparent,
+    rgba(0,0,0,.5)
     );
 
-    color:white;
-
-}
-
-
-.stat-card h2 {
-
-    font-size:45px;
-
 }
 
 
 
+/* Image Number Badge */
 
+.gallery-card::before{
 
+    content:"NSPCL";
 
+    position:absolute;
 
-/* VIDEO CARDS */
+    top:15px;
 
+    left:15px;
 
-.video-gallery {
+    background:#ffcc00;
 
-    padding:40px;
+    color:#003566;
 
-    text-align:center;
-
-}
-
-
-
-.feature-container {
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(auto-fit,minmax(250px,1fr));
-
-    gap:25px;
-
-}
-
-
-
-.card {
-
-    padding:30px;
+    padding:6px 15px;
 
     border-radius:20px;
 
-    background:
-    rgba(255,255,255,.15);
+    font-size:12px;
 
-    backdrop-filter:blur(10px);
+    font-weight:bold;
 
-    transition:.3s;
-
-}
-
-
-
-.card:hover {
-
-    transform:translateY(-10px);
+    z-index:2;
 
 }
 
 
 
+/* Loading Animation */
 
+.loading{
 
-
-/* QUOTE BOX */
-
-
-.gallery-quote {
-
-    margin:40px;
-
-    padding:40px;
-
-    text-align:center;
-
-    border-radius:25px;
-
-    background:
-    linear-gradient(
-    135deg,
-    #ff9800,
-    #ff5722
-    );
-
-    color:white;
-
-}
-
-
-.gallery-quote p {
-
-    font-size:25px;
-
-    font-style:italic;
+    animation:
+    pulse 1.5s infinite;
 
 }
 
 
 
+/* Animations */
 
 
+@keyframes fadeUp{
 
-
-/* ANIMATION */
-
-
-@keyframes fadeDown {
-
-from {
+from{
 
 opacity:0;
 
-transform:translateY(-30px);
+transform:translateY(40px);
 
 }
 
-to {
+to{
 
 opacity:1;
 
@@ -564,41 +186,33 @@ transform:translateY(0);
 
 
 
+@keyframes pulse{
 
+50%{
 
+opacity:.5;
 
-/* MOBILE */
-
-
-@media(max-width:768px){
-
-
-.hero-content h1 {
-
-    font-size:30px;
+}
 
 }
 
 
-.featured-image {
 
-    margin:20px;
+/* Mobile */
 
-}
+@media(max-width:600px){
 
+.gallery-container{
 
-.featured-image img {
-
-    height:300px;
+padding:20px;
 
 }
 
 
-.gallery-grid {
+.gallery-card img{
 
-    padding:15px;
+height:200px;
 
 }
-
 
 }
