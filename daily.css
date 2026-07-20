@@ -1,37 +1,46 @@
 /* ==========================================
-   NSPCL POWER PULSE - DAILY CHALLENGE CSS
-   PREMIUM ANIMATED VERSION
+   NSPCL POWER PULSE
+   DAILY CHALLENGE ULTRA PREMIUM UI
 ========================================== */
+
+
+*{
+box-sizing:border-box;
+}
+
 
 
 body{
 
 margin:0;
-font-family:'Segoe UI',sans-serif;
+
+font-family:
+'Segoe UI',
+sans-serif;
 
 background:
+
 linear-gradient(
 135deg,
-#001f3f,
+#001845,
+#003566,
 #0077b6,
-#00b4d8,
-#003566
+#00b4d8
 );
 
 background-size:400% 400%;
 
 animation:
-bgMove 15s ease infinite;
+powerBackground 18s ease infinite;
 
 color:white;
-
-overflow-x:hidden;
 
 }
 
 
 
-@keyframes bgMove{
+
+@keyframes powerBackground{
 
 0%{
 background-position:0% 50%;
@@ -49,107 +58,87 @@ background-position:0% 50%;
 
 
 
-
-/* MAIN PAGE */
+/* PAGE */
 
 
 .daily-page{
 
-min-height:100vh;
-
-padding:30px;
+padding:35px;
 
 position:relative;
 
+overflow:hidden;
+
 }
 
 
 
 
-/* FLYING LIGHT EFFECT */
+
+/* ELECTRIC PARTICLES */
 
 
-.daily-page::before{
+.daily-page:before,
+.daily-page:after{
 
-content:"";
+content:"⚡";
 
 position:absolute;
 
-width:220px;
+font-size:80px;
 
-height:220px;
-
-background:
-radial-gradient(circle,
-rgba(0,255,255,.5),
-transparent 70%);
-
-top:80px;
-
-left:-100px;
-
-border-radius:50%;
+opacity:.15;
 
 animation:
-fly 8s infinite alternate;
+electricFloat 8s infinite alternate;
 
 }
 
 
 
-.daily-page::after{
+.daily-page:before{
 
-content:"";
+top:10%;
 
-position:absolute;
-
-width:180px;
-
-height:180px;
-
-background:
-radial-gradient(circle,
-rgba(255,255,255,.35),
-transparent 70%);
-
-right:-80px;
-
-bottom:100px;
-
-border-radius:50%;
-
-animation:
-fly2 10s infinite alternate;
+left:5%;
 
 }
 
 
 
-@keyframes fly{
+.daily-page:after{
+
+bottom:10%;
+
+right:5%;
+
+animation-delay:3s;
+
+}
+
+
+
+@keyframes electricFloat{
 
 from{
-transform:translateY(0);
+
+transform:
+translateY(0)
+rotate(0deg);
+
 }
+
 
 to{
-transform:translateY(250px);
-}
+
+transform:
+translateY(-120px)
+rotate(25deg);
 
 }
 
-
-
-@keyframes fly2{
-
-from{
-transform:translateY(0);
 }
 
-to{
-transform:translateY(-220px);
-}
-
-}
 
 
 
@@ -159,77 +148,151 @@ transform:translateY(-220px);
 
 .daily-hero{
 
-text-align:center;
-
-padding:45px 20px;
 
 background:
-rgba(255,255,255,.12);
 
-backdrop-filter:blur(15px);
+linear-gradient(
+135deg,
+rgba(255,255,255,.25),
+rgba(255,255,255,.05)
+);
 
-border-radius:25px;
+
+border:
+
+1px solid rgba(255,255,255,.35);
+
+
+backdrop-filter:
+
+blur(20px);
+
+
+border-radius:35px;
+
+
+padding:55px 25px;
+
+
+text-align:center;
+
 
 box-shadow:
-0 20px 50px rgba(0,0,0,.35);
+
+0 25px 70px rgba(0,0,0,.45);
+
 
 animation:
-slideDown 1s ease;
 
-}
+heroEntry 1s ease;
 
-
-
-.daily-hero h1{
-
-font-size:45px;
-
-margin:0;
-
-color:#00ffff;
-
-text-shadow:
-0 0 20px cyan;
-
-}
-
-
-
-.daily-hero h2{
-
-font-size:32px;
-
-}
-
-
-
-.daily-hero p{
-
-font-size:18px;
 
 }
 
 
 
 
-
-@keyframes slideDown{
+@keyframes heroEntry{
 
 from{
 
 opacity:0;
 
-transform:translateY(-60px);
+transform:
+translateY(-80px)
+scale(.8);
 
 }
+
 
 to{
 
 opacity:1;
 
-transform:translateY(0);
+transform:
+translateY(0)
+scale(1);
 
 }
+
+}
+
+
+
+
+.daily-hero h1{
+
+
+font-size:48px;
+
+
+margin:0;
+
+
+background:
+
+linear-gradient(
+90deg,
+#ffffff,
+#00ffff,
+#ffffff
+);
+
+
+background-size:200%;
+
+
+-webkit-background-clip:text;
+
+
+color:transparent;
+
+
+animation:
+
+shine 3s infinite;
+
+
+}
+
+
+
+
+@keyframes shine{
+
+from{
+
+background-position:0%;
+
+}
+
+to{
+
+background-position:200%;
+
+}
+
+}
+
+
+
+
+.daily-hero h2{
+
+font-size:34px;
+
+margin:15px;
+
+}
+
+
+
+
+.daily-hero p{
+
+font-size:20px;
+
+opacity:.9;
 
 }
 
@@ -242,58 +305,144 @@ transform:translateY(0);
 
 .daily-card{
 
+
 margin-top:35px;
 
-padding:30px;
 
 background:
 
-rgba(255,255,255,.14);
+rgba(255,255,255,.16);
 
-border-radius:25px;
 
-backdrop-filter:blur(18px);
+border-radius:30px;
+
+
+padding:35px;
+
+
+border:
+
+1px solid rgba(255,255,255,.3);
+
+
+backdrop-filter:
+
+blur(20px);
+
 
 box-shadow:
 
-0 15px 40px rgba(0,0,0,.35);
+0 25px 60px rgba(0,0,0,.35);
+
+
+position:relative;
+
+
+overflow:hidden;
+
 
 animation:
 
-floatCard 4s ease-in-out infinite;
+cardFloat 5s infinite ease-in-out;
+
 
 }
 
 
 
-@keyframes floatCard{
 
-0%,100%{
+.daily-card:before{
 
-transform:translateY(0);
+
+content:"";
+
+
+position:absolute;
+
+
+width:150%;
+
+
+height:4px;
+
+
+background:
+
+linear-gradient(
+90deg,
+transparent,
+cyan,
+transparent
+);
+
+
+top:0;
+
+
+left:-150%;
+
+
+animation:
+
+borderMove 4s infinite;
+
 
 }
+
+
+
+
+@keyframes borderMove{
+
+
+to{
+
+left:150%;
+
+}
+
+}
+
+
+
+
+
+@keyframes cardFloat{
+
 
 50%{
 
-transform:translateY(-10px);
+transform:
+translateY(-8px);
 
 }
 
 }
+
+
 
 
 
 
 .daily-card h2{
 
-color:#ffe066;
 
 text-align:center;
 
-font-size:28px;
+
+font-size:30px;
+
+
+color:#ffe066;
+
+
+text-shadow:
+
+0 0 15px #ffe066;
+
 
 }
+
 
 
 
@@ -304,25 +453,43 @@ font-size:28px;
 
 #dailyQuestion{
 
-font-size:22px;
 
-line-height:1.6;
+font-size:24px;
 
-padding:20px;
+
+font-weight:600;
+
 
 text-align:center;
+
+
+padding:25px;
+
+
+line-height:1.7;
+
 
 }
 
 
 
+
+/* OPTIONS */
+
+
 #dailyOptions{
+
 
 display:grid;
 
-gap:15px;
 
-margin-top:20px;
+grid-template-columns:
+
+repeat(2,1fr);
+
+
+gap:20px;
+
 
 }
 
@@ -330,27 +497,45 @@ margin-top:20px;
 
 .daily-option{
 
-padding:15px;
+
+padding:18px;
+
+
+border-radius:18px;
+
 
 border:none;
 
-border-radius:15px;
-
-font-size:17px;
 
 cursor:pointer;
 
-background:
 
-linear-gradient(
-135deg,
-#00b4d8,
-#0077b6
-);
+font-size:17px;
+
+
+font-weight:600;
+
 
 color:white;
 
-transition:.3s;
+
+background:
+
+
+linear-gradient(
+135deg,
+#0077b6,
+#00b4d8
+);
+
+
+box-shadow:
+
+0 10px 25px rgba(0,0,0,.3);
+
+
+transition:.4s;
+
 
 }
 
@@ -358,89 +543,17 @@ transition:.3s;
 
 .daily-option:hover{
 
+
 transform:
-scale(1.05)
-translateX(8px);
+
+translateY(-8px)
+scale(1.04);
+
 
 box-shadow:
 
-0 0 20px cyan;
+0 0 30px cyan;
 
-}
-
-
-
-
-
-/* BUTTON */
-
-
-.daily-btn{
-
-display:inline-block;
-
-margin-top:25px;
-
-padding:15px 35px;
-
-border-radius:40px;
-
-background:
-
-linear-gradient(
-90deg,
-#00ffff,
-#0077b6
-);
-
-color:#001f3f;
-
-font-weight:bold;
-
-font-size:18px;
-
-border:none;
-
-cursor:pointer;
-
-animation:
-
-pulse 2s infinite;
-
-}
-
-
-
-.daily-btn:hover{
-
-transform:scale(1.1);
-
-}
-
-
-
-@keyframes pulse{
-
-0%{
-
-box-shadow:
-0 0 0 0 rgba(0,255,255,.7);
-
-}
-
-70%{
-
-box-shadow:
-0 0 0 20px rgba(0,255,255,0);
-
-}
-
-100%{
-
-box-shadow:
-0 0 0 0 rgba(0,255,255,0);
-
-}
 
 }
 
@@ -453,15 +566,87 @@ box-shadow:
 
 #dailyQuote{
 
-font-size:22px;
 
-font-style:italic;
+font-size:24px;
+
 
 text-align:center;
 
-padding:20px;
 
-line-height:1.7;
+font-style:italic;
+
+
+line-height:1.8;
+
+
+}
+
+
+
+
+
+/* BUTTON */
+
+
+.daily-btn{
+
+
+display:block;
+
+
+width:max-content;
+
+
+margin:30px auto;
+
+
+padding:16px 45px;
+
+
+border-radius:50px;
+
+
+background:
+
+linear-gradient(
+90deg,
+#00ffff,
+#ffe066
+);
+
+
+color:#002855;
+
+
+font-weight:bold;
+
+
+font-size:18px;
+
+
+text-decoration:none;
+
+
+box-shadow:
+
+0 0 25px cyan;
+
+
+transition:.4s;
+
+
+}
+
+
+
+
+.daily-btn:hover{
+
+
+transform:
+
+scale(1.12);
+
 
 }
 
@@ -473,34 +658,50 @@ line-height:1.7;
 
 .daily-grid{
 
+
 display:grid;
 
+
 grid-template-columns:
-repeat(auto-fit,minmax(200px,1fr));
+
+repeat(3,1fr);
+
 
 gap:25px;
 
-margin-top:40px;
+
+margin-top:45px;
+
 
 }
 
 
 
+
 .daily-stat{
+
 
 background:
 
-rgba(255,255,255,.15);
+rgba(255,255,255,.18);
 
-padding:25px;
 
-border-radius:20px;
+padding:30px;
+
+
+border-radius:25px;
+
 
 text-align:center;
 
-backdrop-filter:blur(15px);
+
+backdrop-filter:
+
+blur(15px);
+
 
 transition:.4s;
+
 
 }
 
@@ -508,14 +709,16 @@ transition:.4s;
 
 .daily-stat:hover{
 
+
 transform:
 
-translateY(-15px)
-rotate(2deg);
+translateY(-15px);
+
 
 box-shadow:
 
 0 20px 40px rgba(0,0,0,.4);
+
 
 }
 
@@ -523,31 +726,56 @@ box-shadow:
 
 .daily-stat h3{
 
-font-size:40px;
 
-color:#00ffff;
+font-size:45px;
+
 
 margin:0;
 
+
+color:#00ffff;
+
+
 }
+
+
 
 
 
 /* MOBILE */
 
 
-@media(max-width:600px){
+@media(max-width:700px){
+
+
+.daily-page{
+
+padding:15px;
+
+}
+
+
+#dailyOptions{
+
+
+grid-template-columns:1fr;
+
+}
+
+
+.daily-grid{
+
+
+grid-template-columns:1fr;
+
+}
+
 
 .daily-hero h1{
 
-font-size:32px;
+font-size:34px;
 
 }
 
-.daily-card{
-
-padding:20px;
-
-}
 
 }
