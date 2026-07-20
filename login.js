@@ -55,18 +55,18 @@ function login(){
 
 
     // ===============================
-    // PASSWORD CHECK
-    // ===============================
+// PASSWORD CHECK
+// ===============================
+
+let correctPassword = "NSPCL@" + employeeId;
 
 
-    if(password === ""){
+if(password !== correctPassword){
 
+    message.innerHTML = "⚠️ Incorrect Password";
+    return;
 
-        message.innerHTML = "⚠️ Please enter password";
-        return;
-
-
-    }
+}
 
 
 
