@@ -8,6 +8,7 @@
 // GOOGLE APPS SCRIPT URL
 // ==========================================
 
+alert("TEST CERTIFICATE JS");
 alert("Certificate JS Connected");
 console.log("Certificate JS Connected")
 
