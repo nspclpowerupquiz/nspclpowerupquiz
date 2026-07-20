@@ -228,29 +228,66 @@
 
     </div>
 
-    <div class="buttons">
+    // ==========================================
+// DOWNLOAD PDF
+// ==========================================
 
-        <button onclick="downloadPDF()">
-            <i class="fa-solid fa-download"></i>
-            Download PDF
-        </button>
+async function downloadPDF(){
 
-        <button onclick="window.print()">
-            <i class="fa-solid fa-print"></i>
-            Print
-        </button>
 
-        <button onclick="location.href='index.html'">
-            <i class="fa-solid fa-house"></i>
-            Home
-        </button>
+    console.log("PDF button clicked");
 
-    </div>
 
-</div>
+    const certificate =
+    document.getElementById("certificate");
 
-<script src="certificate.js"></script>
 
-</body>
+    const canvas =
+    await html2canvas(
+        certificate,
+        {
+            scale:3,
+            useCORS:true,
+            allowTaint:true
+        }
+    );
 
-</html>
+
+    const imgData =
+    canvas.toDataURL("image/png");
+
+
+    const { jsPDF } =
+    window.jspdf;
+
+
+    const pdf =
+    new jsPDF(
+        "landscape",
+        "mm",
+        "a4"
+    );
+
+
+    const imgWidth = 280;
+
+    const imgHeight =
+    canvas.height * imgWidth / canvas.width;
+
+
+    pdf.addImage(
+        imgData,
+        "PNG",
+        10,
+        10,
+        imgWidth,
+        imgHeight
+    );
+
+
+    pdf.save(
+        "NSPCL_Certificate_" + employeeId + ".pdf"
+    );
+
+
+}
