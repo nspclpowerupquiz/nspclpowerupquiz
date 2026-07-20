@@ -624,3 +624,104 @@ font-size:18px;
 
 
 }
+/* ==========================
+   GALLERY NAVIGATION
+========================== */
+
+.top-nav{
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+gap:15px;
+
+padding:15px;
+
+background:
+rgba(0,0,0,0.45);
+
+backdrop-filter:blur(12px);
+
+position:sticky;
+
+top:0;
+
+z-index:9999;
+
+}
+
+
+
+.top-nav a{
+
+display:inline-block;
+
+color:white;
+
+text-decoration:none;
+
+font-size:16px;
+
+font-weight:600;
+
+padding:12px 22px;
+
+border-radius:30px;
+
+background:
+rgba(255,255,255,0.15);
+
+border:
+1px solid rgba(255,255,255,0.3);
+
+transition:0.3s;
+
+}
+
+
+
+.top-nav a:hover{
+
+background:#00c6ff;
+
+color:white;
+
+transform:translateY(-3px);
+
+}
+
+
+
+.top-nav .active{
+
+background:#ffcc00;
+
+color:#003566;
+
+}
+
+
+
+/* Mobile */
+
+@media(max-width:600px){
+
+.top-nav{
+
+gap:8px;
+
+}
+
+
+.top-nav a{
+
+font-size:13px;
+
+padding:10px 14px;
+
+}
+
+}
