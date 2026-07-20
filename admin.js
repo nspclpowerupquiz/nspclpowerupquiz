@@ -1057,3 +1057,175 @@ function getPassPercentage(){
     ).toFixed(1);
 
 }
+// =============================================
+// MANUAL REFRESH
+// =============================================
+
+function refreshDashboard(){
+
+    loadDashboard();
+
+    showToast("Dashboard refreshed successfully.");
+
+}
+
+
+
+// =============================================
+// PRINT REPORT
+// =============================================
+
+function printDashboard(){
+
+    window.print();
+
+}
+
+
+
+// =============================================
+// EXPORT TABLE TO CSV
+// =============================================
+
+function exportCSV(){
+
+    if(leaderboard.length===0){
+
+        showToast("No data available.");
+
+        return;
+
+    }
+
+    let csv =
+    "Rank,Employee ID,Employee Name,Score,Total Questions,Percentage,Date\n";
+
+    leaderboard.forEach(function(item){
+
+        csv +=
+
+        (item.rank||"") + "," +
+
+        item.employeeId + "," +
+
+        '"' + item.employeeName + '"' + "," +
+
+        item.score + "," +
+
+        item.totalQuestions + "," +
+
+        item.percentage + "," +
+
+        new Date(item.dateTime).toLocaleDateString("en-IN") +
+
+        "\n";
+
+    });
+
+    const blob =
+    new Blob([csv],{
+
+        type:"text/csv"
+
+    });
+
+    const link =
+    document.createElement("a");
+
+    link.href =
+    URL.createObjectURL(blob);
+
+    link.download =
+    "NSPCL_Admin_Report.csv";
+
+    link.click();
+
+    showToast("CSV exported successfully.");
+
+}
+
+
+
+// =============================================
+// TOAST MESSAGE
+// =============================================
+
+function showToast(message){
+
+    let toast =
+    document.getElementById("toast");
+
+    if(!toast){
+
+        toast =
+        document.createElement("div");
+
+        toast.id="toast";
+
+        document.body.appendChild(toast);
+
+    }
+
+    toast.innerHTML=message;
+
+    toast.style.opacity="1";
+
+    toast.style.bottom="30px";
+
+    setTimeout(function(){
+
+        toast.style.opacity="0";
+
+        toast.style.bottom="0px";
+
+    },2500);
+
+}
+
+
+
+// =============================================
+// LOADING OVERLAY
+// =============================================
+
+function showLoading(){
+
+    const loader=
+    document.getElementById("loadingOverlay");
+
+    if(loader){
+
+        loader.style.display="flex";
+
+    }
+
+}
+
+function hideLoading(){
+
+    const loader=
+    document.getElementById("loadingOverlay");
+
+    if(loader){
+
+        loader.style.display="none";
+
+    }
+
+}
+
+
+
+// =============================================
+// SYSTEM INFORMATION
+// =============================================
+
+console.log("====================================");
+
+console.log("NSPCL POWER-UP QUIZ");
+
+console.log("ADMIN DASHBOARD");
+
+console.log("Status : Ready");
+
+console.log("====================================");
