@@ -4,11 +4,16 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Gallery | NSPCL Power-Up Quiz</title>
 
+
 <link rel="stylesheet" href="style.css">
+
+<link rel="stylesheet" href="gallery.css?v=2">
+
 
 </head>
 
@@ -16,15 +21,19 @@
 <body>
 
 
-<!-- IMAGE POPUP -->
+<!-- ================= IMAGE POPUP ================= -->
+
 
 <div id="imagePopup" class="image-popup">
+
 
 <span id="closePopup">
 ✖
 </span>
 
+
 <img id="popupImage">
+
 
 </div>
 
@@ -32,39 +41,68 @@
 
 
 
-<!-- HEADER -->
+
+<!-- ================= HEADER ================= -->
+
 
 <header class="header">
 
 
 <div class="logo">
 
+
 <h2>
 ⚡ NSPCL Power-Up Quiz
 </h2>
+
 
 <span>
 Knowledge • Innovation • Excellence
 </span>
 
+
 </div>
+
+
 
 
 <nav>
 
-<a href="index.html">🏠 Home</a>
 
-<a href="about.html">ℹ About</a>
+<a href="index.html">
+🏠 Home
+</a>
 
-<a href="quiz.html">📚 Quiz</a>
 
-<a href="leaderboard.html">🏆 Leaderboard</a>
+<a href="about.html">
+ℹ About
+</a>
 
-<a href="analytics.html">📈 Analytics</a>
 
-<a href="gallery.html">🖼 Gallery</a>
+<a href="quiz.html">
+📚 Quiz
+</a>
 
-<a href="certificate.html">📜 Certificate</a>
+
+<a href="leaderboard.html">
+🏆 Leaderboard
+</a>
+
+
+<a href="analytics.html">
+📈 Analytics
+</a>
+
+
+<a href="gallery.html">
+🖼 Gallery
+</a>
+
+
+<a href="certificate.html">
+📜 Certificate
+</a>
+
 
 </nav>
 
@@ -76,7 +114,10 @@ Knowledge • Innovation • Excellence
 
 
 
-<!-- HERO -->
+
+
+<!-- ================= HERO SECTION ================= -->
+
 
 <section class="hero">
 
@@ -90,8 +131,8 @@ Knowledge • Innovation • Excellence
 
 
 <p>
-Celebrating learning, innovation,
-achievement and excellence.
+Celebrating Learning, Innovation,
+Achievement and Excellence
 </p>
 
 
@@ -106,13 +147,16 @@ achievement and excellence.
 
 
 
-<!-- FEATURE IMAGE -->
+
+<!-- ================= FEATURE IMAGE ================= -->
 
 
 <section class="featured-image">
 
 
-<img src="images/powerplant.jpg">
+<img src="images/powerplant.jpg"
+alt="NSPCL Power Plant">
+
 
 
 <div class="featured-text">
@@ -123,10 +167,12 @@ achievement and excellence.
 </h2>
 
 
+
 <p>
 A journey of learning,
 teamwork and operational excellence.
 </p>
+
 
 
 </div>
@@ -142,7 +188,7 @@ teamwork and operational excellence.
 
 
 
-<!-- JOURNEY -->
+<!-- ================= JOURNEY SECTION ================= -->
 
 
 <section class="power-timeline">
@@ -154,78 +200,91 @@ teamwork and operational excellence.
 
 
 
+
 <div class="timeline">
 
 
+
 <div class="timeline-card">
+
 
 <h3>
 🏭 Power Generation
 </h3>
 
+
 <p>
 Delivering reliable power through technology and teamwork.
 </p>
+
 
 </div>
 
 
 
+
+
 <div class="timeline-card">
+
 
 <h3>
 📚 Learning Culture
 </h3>
 
+
 <p>
 Creating knowledge through continuous improvement.
 </p>
+
 
 </div>
 
 
 
+
+
 <div class="timeline-card">
+
 
 <h3>
 🏆 Recognition
 </h3>
 
+
 <p>
 Celebrating achievements and excellence.
 </p>
 
+
 </div>
+
+
 
 
 
 <div class="timeline-card">
 
+
 <h3>
 🌱 Future Ready
 </h3>
+
 
 <p>
 Innovation for sustainable energy.
 </p>
 
+
 </div>
+
+
 
 
 </div>
 
 
 </section>
-
-
-
-
-
-
-
-
-
-<!-- GALLERY -->
+<!-- ================= GALLERY SECTION ================= -->
 
 
 <section class="gallery">
@@ -237,6 +296,20 @@ Gallery of Excellence
 
 </h1>
 
+
+
+<p>
+
+Explore NSPCL moments of learning,
+quiz achievements, teamwork and excellence.
+
+</p>
+
+
+
+
+
+<!-- FILTER BUTTONS -->
 
 
 <div class="gallery-filter">
@@ -280,35 +353,34 @@ All
 
 
 
+<!-- IMAGE GRID -->
+
 
 <div class="gallery-grid">
 
 
 
-<script>
 
-for(let i=1;i<=12;i++){
 
-document.write(`
+<!-- IMAGE 1 -->
 
 <div class="gallery-card">
 
 
-<img 
-src="images/gallery${i}.jpg"
-onclick="openImage(this.src)"
->
+<img src="images/gallery1.jpg"
+onclick="openImage(this.src)">
 
 
 <div class="overlay">
 
+
 <h3>
-⚡ NSPCL Excellence
+🏭 Power Plant
 </h3>
 
 
 <p>
-Learning • Innovation • Growth
+Generation Excellence
 </p>
 
 
@@ -317,28 +389,380 @@ Learning • Innovation • Growth
 
 </div>
 
-`);
 
-}
 
-</script>
 
+
+
+<!-- IMAGE 2 -->
+
+<div class="gallery-card">
+
+
+<img src="images/gallery2.jpg"
+onclick="openImage(this.src)">
+
+
+<div class="overlay">
+
+
+<h3>
+📚 Learning Session
+</h3>
+
+
+<p>
+Knowledge Sharing Culture
+</p>
 
 
 </div>
 
 
+</div>
+
+
+
+
+
+
+
+<!-- IMAGE 3 -->
+
+<div class="gallery-card">
+
+
+<img src="images/gallery3.jpg"
+onclick="openImage(this.src)">
+
+
+<div class="overlay">
+
+
+<h3>
+🏆 Quiz Champion
+</h3>
+
+
+<p>
+Celebrating Excellence
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- IMAGE 4 -->
+
+<div class="gallery-card">
+
+
+<img src="images/gallery4.jpg"
+onclick="openImage(this.src)">
+
+
+<div class="overlay">
+
+
+<h3>
+📜 Certificate Ceremony
+</h3>
+
+
+<p>
+Achievement Recognition
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- IMAGE 5 -->
+
+<div class="gallery-card">
+
+
+<img src="images/gallery5.jpg"
+onclick="openImage(this.src)">
+
+
+<div class="overlay">
+
+
+<h3>
+👨‍🏫 Training Program
+</h3>
+
+
+<p>
+Professional Development
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- IMAGE 6 -->
+
+<div class="gallery-card">
+
+
+<img src="images/gallery6.jpg"
+onclick="openImage(this.src)">
+
+
+<div class="overlay">
+
+
+<h3>
+🤝 Team Collaboration
+</h3>
+
+
+<p>
+Together Towards Excellence
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- IMAGE 7 -->
+
+<div class="gallery-card">
+
+
+<img src="images/gallery7.jpg"
+onclick="openImage(this.src)">
+
+
+<div class="overlay">
+
+
+<h3>
+⚙️ Technology
+</h3>
+
+
+<p>
+Innovation & Improvement
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- IMAGE 8 -->
+
+<div class="gallery-card">
+
+
+<img src="images/gallery8.jpg"
+onclick="openImage(this.src)">
+
+
+<div class="overlay">
+
+
+<h3>
+⚡ Thermal Power Station
+</h3>
+
+
+<p>
+Operational Excellence
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- IMAGE 9 -->
+
+<div class="gallery-card">
+
+
+<img src="images/gallery9.jpg"
+onclick="openImage(this.src)">
+
+
+<div class="overlay">
+
+
+<h3>
+🔥 Daily Challenge
+</h3>
+
+
+<p>
+Learning Every Day
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- IMAGE 10 -->
+
+<div class="gallery-card">
+
+
+<img src="images/gallery10.jpg"
+onclick="openImage(this.src)">
+
+
+<div class="overlay">
+
+
+<h3>
+📦 Materials Management
+</h3>
+
+
+<p>
+SSC C&M Excellence
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- IMAGE 11 -->
+
+<div class="gallery-card">
+
+
+<img src="images/gallery11.jpg"
+onclick="openImage(this.src)">
+
+
+<div class="overlay">
+
+
+<h3>
+📑 Procurement Process
+</h3>
+
+
+<p>
+Efficient & Transparent
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- IMAGE 12 -->
+
+<div class="gallery-card">
+
+
+<img src="images/gallery12.jpg"
+onclick="openImage(this.src)">
+
+
+<div class="overlay">
+
+
+<h3>
+🌟 Team NSPCL
+</h3>
+
+
+<p>
+Together We Grow
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+</div>
+<!-- END GALLERY GRID -->
+
+
+
 </section>
-
-
-
-
-
-
-
-
-
-<!-- ACHIEVEMENT WALL -->
+<!-- END GALLERY SECTION -->
+<!-- ================= CHAMPIONS WALL ================= -->
 
 
 <section class="achievement-wall">
@@ -353,51 +777,79 @@ Learning • Innovation • Growth
 <div class="champions">
 
 
+
 <div class="champion-card">
 
+
+<div class="badge-icon">
 🥇
+</div>
+
 
 <h3>
 Power Champion
 </h3>
 
+
 <p>
 Highest Quiz Score
 </p>
+
 
 </div>
 
 
 
+
+
+
 <div class="champion-card">
 
+
+<div class="badge-icon">
 🔥
+</div>
+
 
 <h3>
 Learning Star
 </h3>
 
+
 <p>
 Daily Challenge Leader
 </p>
 
+
 </div>
+
+
+
+
 
 
 
 <div class="champion-card">
 
+
+<div class="badge-icon">
 ⚡
+</div>
+
 
 <h3>
 Knowledge Leader
 </h3>
 
+
 <p>
 Continuous Excellence
 </p>
 
+
 </div>
+
+
 
 
 </div>
@@ -413,7 +865,7 @@ Continuous Excellence
 
 
 
-<!-- STATISTICS -->
+<!-- ================= STATISTICS ================= -->
 
 
 <section class="gallery-stats">
@@ -424,62 +876,87 @@ Continuous Excellence
 </h2>
 
 
+
+
 <div class="stats">
 
 
+
 <div class="stat-card">
+
 
 <h2>
 250+
 </h2>
 
+
 <p>
 Participants
 </p>
+
 
 </div>
 
 
 
+
+
+
 <div class="stat-card">
+
 
 <h2>
 1200+
 </h2>
 
+
 <p>
 Quiz Attempts
 </p>
+
 
 </div>
 
 
 
+
+
+
 <div class="stat-card">
+
 
 <h2>
 350+
 </h2>
 
+
 <p>
-Certificates
+Certificates Issued
 </p>
 
+
 </div>
+
+
+
 
 
 
 <div class="stat-card">
 
+
 <h2>
 50+
 </h2>
+
 
 <p>
 Learning Events
 </p>
 
+
 </div>
+
 
 
 
@@ -496,7 +973,7 @@ Learning Events
 
 
 
-<!-- VIDEO -->
+<!-- ================= LEARNING ZONE ================= -->
 
 
 <section class="video-gallery">
@@ -508,48 +985,68 @@ Learning Events
 
 
 
+
 <div class="feature-container">
 
 
+
 <div class="card">
+
 
 <h3>
 🏭 Power Plant Overview
 </h3>
 
+
 <p>
-Understanding power generation excellence.
+Understanding power generation,
+operations and excellence.
 </p>
+
 
 </div>
 
 
 
+
+
 <div class="card">
+
 
 <h3>
 📚 Knowledge Sessions
 </h3>
 
+
 <p>
-Learning procurement and technical concepts.
+Learning procurement,
+contracts and materials management.
 </p>
 
+
 </div>
+
+
 
 
 
 <div class="card">
 
+
 <h3>
 🏆 Quiz Moments
 </h3>
 
+
 <p>
-Celebrating employee achievements.
+Celebrating employee participation
+and achievements.
 </p>
 
+
 </div>
+
+
 
 
 </div>
@@ -565,7 +1062,7 @@ Celebrating employee achievements.
 
 
 
-<!-- QUOTE -->
+<!-- ================= QUOTE ================= -->
 
 
 <section class="gallery-quote">
@@ -593,7 +1090,7 @@ Knowledge is the power behind excellence.
 
 
 
-<!-- CTA -->
+<!-- ================= CTA ================= -->
 
 
 <section class="cta">
@@ -617,6 +1114,7 @@ Every learning step creates a better tomorrow.
 </a>
 
 
+
 </section>
 
 
@@ -626,7 +1124,8 @@ Every learning step creates a better tomorrow.
 
 
 
-<!-- FOOTER -->
+
+<!-- ================= FOOTER ================= -->
 
 
 <footer>
@@ -635,6 +1134,11 @@ Every learning step creates a better tomorrow.
 <h3>
 ⚡ NSPCL Power-Up Quiz
 </h3>
+
+
+<p>
+SSC C&M Function
+</p>
 
 
 <p>
@@ -655,6 +1159,11 @@ Learn • Compete • Grow • Excel
 
 
 
+
+
+<!-- ================= SCRIPT ================= -->
+
+
 <script>
 
 
@@ -663,20 +1172,23 @@ Learn • Compete • Grow • Excel
 
 function openImage(src){
 
-document.getElementById("popupImage").src=src;
 
-document.getElementById("imagePopup")
-.style.display="flex";
+document.getElementById("popupImage").src = src;
+
+
+document.getElementById("imagePopup").style.display="flex";
+
 
 }
 
 
 
-document.getElementById("closePopup")
-.onclick=function(){
 
-document.getElementById("imagePopup")
-.style.display="none";
+document.getElementById("closePopup").onclick=function(){
+
+
+document.getElementById("imagePopup").style.display="none";
+
 
 };
 
@@ -684,34 +1196,70 @@ document.getElementById("imagePopup")
 
 
 
-// QUOTES
+
+
+// CLOSE POPUP WHEN CLICK OUTSIDE IMAGE
+
+
+document.getElementById("imagePopup").onclick=function(e){
+
+
+if(e.target.id==="imagePopup"){
+
+this.style.display="none";
+
+}
+
+};
+
+
+
+
+
+
+
+
+// DAILY QUOTE
 
 
 const quotes=[
 
+
 "⚡ Knowledge drives innovation.",
+
 
 "🔥 Excellence comes from continuous learning.",
 
+
 "🌱 Every learner builds a better future.",
+
 
 "🏆 Success belongs to those who keep learning."
 
+
 ];
+
 
 
 let today=new Date().getDate();
 
 
-document.getElementById("galleryQuote").innerHTML=
 
-quotes[today%quotes.length];
+document.getElementById("galleryQuote").innerHTML =
+
+quotes[today % quotes.length];
+
 
 
 </script>
 
 
 
+
+
+
+
 </body>
+
 
 </html>
