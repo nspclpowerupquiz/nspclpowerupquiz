@@ -434,3 +434,51 @@ function loadCharts() {}
 function loadTopPerformers() {}
 
 function loadRecentActivity() {}
+// ==============================================
+// LIVE SEARCH
+// ==============================================
+
+const searchBox = document.getElementById("search");
+
+if(searchBox){
+
+    searchBox.addEventListener("keyup", searchEmployee);
+
+}
+
+
+
+function searchEmployee(){
+
+    const keyword =
+        document
+        .getElementById("search")
+        .value
+        .toLowerCase()
+        .trim();
+
+
+    const rows =
+        document.querySelectorAll("#resultTable tr");
+
+
+    rows.forEach(function(row){
+
+        const text =
+            row.innerText.toLowerCase();
+
+        if(text.includes(keyword)){
+
+            row.style.display="";
+
+        }
+
+        else{
+
+            row.style.display="none";
+
+        }
+
+    });
+
+}
