@@ -7,7 +7,7 @@
 // YOUR GOOGLE APPS SCRIPT WEB APP URL
 
 const SCRIPT_URL =
-"https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec";
+"https://script.google.com/macros/s/AKfycbziOrV0Tit-jAwCXLZTLJovnnpIh1zTLpZVOOmhtjXyigCj6uxFxY-UYfK6_gn1xXW-yA/exec";
 
 
 
