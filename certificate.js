@@ -1,70 +1,47 @@
-// =================================
-// NSPCL Certificate Generator
-// =================================
+const SCRIPT_URL="YOUR_SCRIPT_URL";
+
+let employeeId=localStorage.getItem("employeeId");
+
+fetch(SCRIPT_URL+"?action=certificate&id="+employeeId)
+
+.then(res=>res.json())
+
+.then(data=>{
+
+document.getElementById("name").innerHTML=data.employeeName;
+
+document.getElementById("empid").innerHTML=data.employeeId;
+
+document.getElementById("score").innerHTML=data.score+" / "+data.totalQuestions;
+
+document.getElementById("percentage").innerHTML=
+
+"Percentage : "+Math.round(data.percentage*100)+"%";
+
+document.getElementById("date").innerHTML=
+
+new Date(data.dateTime).toLocaleDateString();
+
+document.getElementById("certno").innerHTML=
+
+"NSPCL-"+data.employeeId+"-"+Date.now();
+
+});
 
 
 
-let name =
+async function downloadPDF(){
 
-localStorage.getItem("NSPCL_User")
-||
-"Participant";
+const {jsPDF}=window.jspdf;
 
+const canvas=await html2canvas(document.getElementById("certificate"));
 
+const img=canvas.toDataURL("image/png");
 
-let leaderboard =
+const pdf=new jsPDF("landscape");
 
-JSON.parse(
+pdf.addImage(img,'PNG',10,10,277,190);
 
-localStorage.getItem("leaderboard")
-
-)||[];
-
-
-
-
-let latest =
-
-leaderboard[leaderboard.length-1];
-
-
-
-
-
-document.getElementById(
-"certificateName"
-).innerHTML=name;
-
-
-
-
-
-if(latest){
-
-
-document.getElementById(
-"certificateScore"
-).innerHTML=
-
-`
-Score: ${latest.score} <br>
-Percentage: ${latest.percentage}%
-`;
-
-
+pdf.save("Certificate.pdf");
 
 }
-
-
-
-
-
-document.getElementById(
-"certificateDate"
-).innerHTML=
-
-"Completed on: "
-
-+
-
-new Date().toLocaleDateString();
