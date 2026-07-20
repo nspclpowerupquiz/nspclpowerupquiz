@@ -1,4 +1,4 @@
-const SCRIPT_URL="YOUR_SCRIPT_URL";
+const SCRIPT_URL="https://script.google.com/macros/s/AKfycbwBbn0mA_VbQG3A4lz7nDGWZm66P6jKBx12zXbYZ-OoCudVBzIvK-MkuZEXxLcECl5wdw/exec";
 
 let employeeId=localStorage.getItem("employeeId");
 
