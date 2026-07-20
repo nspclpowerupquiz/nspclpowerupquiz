@@ -1585,4 +1585,135 @@ img{
         glow 4s infinite;
 
 }
+.certificate{
 
+    animation:zoomIn 1s ease;
+
+}
+
+@keyframes zoomIn{
+
+    from{
+
+        opacity:0;
+
+        transform:scale(.85);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:scale(1);
+
+    }
+
+}
+.certificate{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.certificate::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:-50%;
+
+    left:-120%;
+
+    width:60%;
+
+    height:220%;
+
+    background:linear-gradient(
+
+        120deg,
+
+        transparent,
+
+        rgba(255,255,255,.55),
+
+        transparent
+
+    );
+
+    transform:rotate(25deg);
+
+    animation:shine 4s infinite;
+
+}
+
+@keyframes shine{
+
+    from{
+
+        left:-120%;
+
+    }
+
+    to{
+
+        left:170%;
+
+    }
+
+}
+.employeeName{
+
+    animation:namePop 1s ease;
+
+}
+
+@keyframes namePop{
+
+    from{
+
+        transform:scale(.4);
+
+        opacity:0;
+
+    }
+
+    to{
+
+        transform:scale(1);
+
+        opacity:1;
+
+    }
+
+}
+.badge{
+
+    animation:badgePop 1s;
+
+}
+
+@keyframes badgePop{
+
+    0%{
+
+        transform:scale(0);
+
+    }
+
+    80%{
+
+        transform:scale(1.15);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
