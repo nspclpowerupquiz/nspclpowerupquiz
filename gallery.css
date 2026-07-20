@@ -3,34 +3,39 @@
 ====================================== */
 
 
-/* PAGE BACKGROUND */
+/* ==========================
+   GLOBAL PAGE
+========================== */
 
 body{
 
 margin:0;
 
+font-family:
+'Segoe UI',
+Arial,
+sans-serif;
+
+color:white;
+
 background:
+
 linear-gradient(
 135deg,
 #001f3f,
-#0077b6,
+#006994,
 #003566
 );
 
 background-size:400% 400%;
 
 animation:
-backgroundMove 12s ease infinite;
+backgroundMove 12s infinite ease;
 
-font-family:
-'Segoe UI',
-sans-serif;
 
 }
 
 
-
-/* Animated Background */
 
 @keyframes backgroundMove{
 
@@ -52,10 +57,9 @@ background-position:0% 50%;
 
 
 
-
-/* ===========================
-   NAVIGATION
-=========================== */
+/* ==========================
+   NAVIGATION BAR
+========================== */
 
 
 .top-nav{
@@ -64,21 +68,38 @@ display:flex;
 
 justify-content:center;
 
+align-items:center;
+
+flex-wrap:wrap;
+
 gap:18px;
 
-padding:18px;
+padding:16px;
+
 
 background:
 
-rgba(0,0,0,.35);
+linear-gradient(
+90deg,
+#002b45,
+#005f73
+);
+
 
 backdrop-filter:blur(12px);
+
 
 position:sticky;
 
 top:0;
 
-z-index:1000;
+z-index:9999;
+
+
+box-shadow:
+
+0 5px 20px rgba(0,0,0,.35);
+
 
 }
 
@@ -86,41 +107,139 @@ z-index:1000;
 
 .top-nav a{
 
-color:white;
 
 text-decoration:none;
 
-padding:12px 25px;
+color:white;
+
+
+font-size:16px;
+
+
+font-weight:600;
+
+
+padding:
+
+12px 24px;
+
 
 border-radius:30px;
+
 
 background:
 
 rgba(255,255,255,.12);
 
+
 border:
 
-1px solid rgba(255,255,255,.2);
+1px solid rgba(255,255,255,.25);
 
-font-weight:600;
 
-transition:.4s;
+
+transition:.35s;
+
 
 }
 
 
 
-.top-nav a:hover,
-.top-nav .active{
+.top-nav a:hover{
+
 
 background:#00c6ff;
 
-box-shadow:
-
-0 0 25px #00c6ff;
 
 transform:
+
 translateY(-4px);
+
+
+box-shadow:
+
+0 0 20px #00c6ff;
+
+
+}
+
+
+
+
+.top-nav .active{
+
+
+background:#ffc107;
+
+
+color:#003049;
+
+
+box-shadow:
+
+0 0 20px #ffc107;
+
+
+}
+
+
+
+
+
+
+/* ==========================
+   HEADER
+========================== */
+
+
+.gallery-header{
+
+
+text-align:center;
+
+
+padding:
+
+35px 20px;
+
+
+background:
+
+linear-gradient(
+135deg,
+#123c69,
+#0077b6
+);
+
+
+}
+
+
+
+.gallery-header h1{
+
+
+font-size:44px;
+
+
+margin:5px;
+
+
+letter-spacing:1px;
+
+
+}
+
+
+
+.gallery-header p{
+
+
+font-size:18px;
+
+
+color:#d9f7ff;
+
 
 }
 
@@ -130,9 +249,261 @@ translateY(-4px);
 
 
 
-/* ===========================
+/* ==========================
+   STATISTICS CARDS
+========================== */
+
+
+.stats-container{
+
+
+display:grid;
+
+
+grid-template-columns:
+
+repeat(
+auto-fit,
+minmax(220px,1fr)
+);
+
+
+gap:25px;
+
+
+padding:
+
+40px 6%;
+
+
+}
+
+
+
+.stat-card{
+
+
+background:
+
+linear-gradient(
+145deg,
+rgba(255,255,255,.25),
+rgba(255,255,255,.08)
+);
+
+
+
+border-radius:25px;
+
+
+
+padding:30px;
+
+
+
+text-align:center;
+
+
+
+border:
+
+1px solid rgba(255,255,255,.3);
+
+
+
+box-shadow:
+
+0 15px 35px rgba(0,0,0,.35);
+
+
+
+transition:.4s;
+
+
+}
+
+
+
+.stat-card:hover{
+
+
+transform:
+
+translateY(-12px);
+
+
+}
+
+
+
+.stat-card h2{
+
+
+font-size:45px;
+
+
+margin:0 0 10px;
+
+
+color:#ffe082;
+
+
+}
+
+
+
+
+
+
+
+/* ==========================
+   SECTION TITLES
+========================== */
+
+
+.section-title{
+
+
+text-align:center;
+
+
+font-size:32px;
+
+
+margin:
+
+45px 0 25px;
+
+
+}
+
+
+
+.section-title::after{
+
+
+content:"";
+
+
+display:block;
+
+
+width:90px;
+
+
+height:4px;
+
+
+background:#ffc107;
+
+
+margin:12px auto;
+
+
+border-radius:10px;
+
+
+}
+
+
+
+
+
+
+/* ==========================
+   WINNER SECTION
+========================== */
+
+
+.winner-container{
+
+
+display:grid;
+
+
+grid-template-columns:
+
+repeat(
+auto-fit,
+minmax(250px,1fr)
+);
+
+
+gap:22px;
+
+
+padding:
+
+20px 6%;
+
+
+}
+
+
+
+.winner-card{
+
+
+background:
+
+linear-gradient(
+135deg,
+#ffffff,
+#e8f4ff
+);
+
+
+color:#003049;
+
+
+padding:22px;
+
+
+border-radius:20px;
+
+
+box-shadow:
+
+0 10px 25px rgba(0,0,0,.3);
+
+
+
+transition:.35s;
+
+
+}
+
+
+
+.winner-card:hover{
+
+
+transform:
+
+translateY(-8px);
+
+
+}
+
+
+
+.winner-card h3{
+
+
+color:#0066cc;
+
+
+}
+
+
+
+
+
+
+
+/* ==========================
    GALLERY GRID
-=========================== */
+========================== */
 
 
 .gallery-container{
@@ -140,7 +511,7 @@ translateY(-4px);
 
 padding:
 
-50px 6%;
+40px 6%;
 
 
 display:grid;
@@ -154,6 +525,7 @@ minmax(300px,1fr)
 );
 
 
+
 gap:35px;
 
 
@@ -165,9 +537,9 @@ gap:35px;
 
 
 
-/* ===========================
-   GLASS CARD
-=========================== */
+/* ==========================
+   IMAGE CARD
+========================== */
 
 
 .gallery-card{
@@ -176,35 +548,34 @@ gap:35px;
 position:relative;
 
 
+overflow:hidden;
+
+
+border-radius:25px;
+
+
+
 background:
 
 rgba(255,255,255,.15);
 
 
+
 backdrop-filter:
 
-blur(20px);
-
-
-
-border-radius:28px;
-
-
-overflow:hidden;
+blur(15px);
 
 
 
 border:
 
-1px solid
-rgba(255,255,255,.25);
+1px solid rgba(255,255,255,.25);
 
 
 
 box-shadow:
 
-0 20px 45px
-rgba(0,0,0,.45);
+0 20px 45px rgba(0,0,0,.45);
 
 
 
@@ -221,23 +592,19 @@ slideUp .8s ease;
 
 
 
-
 .gallery-card:hover{
 
 
 transform:
 
-translateY(-15px)
+translateY(-12px)
 scale(1.03);
 
 
 
 box-shadow:
 
-
-0 30px 70px
-rgba(0,0,0,.7);
-
+0 30px 60px rgba(0,0,0,.65);
 
 
 }
@@ -248,9 +615,7 @@ rgba(0,0,0,.7);
 
 
 
-/* ===========================
-   IMAGE
-=========================== */
+/* IMAGE */
 
 
 .gallery-card img{
@@ -266,12 +631,10 @@ object-fit:cover;
 
 
 
-transition:.7s;
-
+transition:.6s;
 
 
 }
-
 
 
 
@@ -283,99 +646,35 @@ transform:
 scale(1.15);
 
 
-
 }
 
 
 
 
 
+/* IMAGE INFO */
 
 
-
-/* DARK IMAGE OVERLAY */
-
-
-.gallery-card::after{
+.gallery-info{
 
 
-content:"";
-
-
-position:absolute;
-
-
-left:0;
-
-right:0;
-
-
-bottom:0;
-
-
-height:100px;
-
-
-background:
-
-linear-gradient(
-transparent,
-rgba(0,0,0,.85)
-);
-
-
-
-pointer-events:none;
-
-
-}
-
-
-
-
-
-
-
-
-
-/* ===========================
-   TITLE
-=========================== */
-
-
-.gallery-title{
-
-
-position:absolute;
-
-
-bottom:15px;
-
-
-left:20px;
-
-
-right:20px;
-
+padding:18px;
 
 
 color:white;
 
 
+}
+
+
+
+.gallery-info h3{
+
+
 font-size:22px;
 
 
-font-weight:700;
-
-
-z-index:5;
-
-
-
-text-shadow:
-
-0 3px 10px black;
-
+margin:0 0 8px;
 
 
 }
@@ -385,11 +684,9 @@ text-shadow:
 
 
 
-
-
-/* ===========================
+/* ==========================
    NSPCL BADGE
-=========================== */
+========================== */
 
 
 .gallery-card::before{
@@ -438,15 +735,7 @@ font-size:13px;
 font-weight:bold;
 
 
-
 z-index:5;
-
-
-
-box-shadow:
-
-0 5px 15px #0005;
-
 
 
 }
@@ -456,30 +745,53 @@ box-shadow:
 
 
 
+/* ==========================
+   POPUP IMAGE
+========================== */
 
 
-
-/* ===========================
-   LOADING EFFECT
-=========================== */
+.popup{
 
 
-.loading{
+display:none;
 
 
-height:280px;
+position:fixed;
+
+
+inset:0;
 
 
 background:
 
-rgba(255,255,255,.1);
+rgba(0,0,0,.85);
 
 
 
-animation:
+justify-content:center;
 
-pulse 1.5s infinite;
 
+align-items:center;
+
+
+
+z-index:99999;
+
+
+}
+
+
+
+.popup img{
+
+
+max-width:90%;
+
+
+max-height:80%;
+
+
+border-radius:20px;
 
 
 }
@@ -487,29 +799,11 @@ pulse 1.5s infinite;
 
 
 
-@keyframes pulse{
 
 
-50%{
-
-
-opacity:.4;
-
-
-}
-
-
-}
-
-
-
-
-
-
-
-/* ===========================
-   ENTRY ANIMATION
-=========================== */
+/* ==========================
+   ANIMATIONS
+========================== */
 
 
 @keyframes slideUp{
@@ -521,10 +815,7 @@ from{
 opacity:0;
 
 
-transform:
-
-translateY(50px);
-
+transform:translateY(50px);
 
 
 }
@@ -536,10 +827,7 @@ to{
 opacity:1;
 
 
-transform:
-
-translateY(0);
-
+transform:translateY(0);
 
 
 }
@@ -552,12 +840,9 @@ translateY(0);
 
 
 
-
-
-
-/* ===========================
-   MOBILE DESIGN
-=========================== */
+/* ==========================
+   MOBILE
+========================== */
 
 
 @media(max-width:700px){
@@ -577,12 +862,12 @@ gap:8px;
 .top-nav a{
 
 
+font-size:13px;
+
+
 padding:
 
-10px 15px;
-
-
-font-size:14px;
+10px 14px;
 
 
 }
@@ -590,13 +875,22 @@ font-size:14px;
 
 
 
+.gallery-header h1{
+
+
+font-size:30px;
+
+
+}
+
+
+
 .gallery-container{
 
 
-padding:25px 15px;
+padding:
 
-
-gap:20px;
+25px 15px;
 
 
 }
@@ -613,115 +907,15 @@ height:220px;
 
 
 
-.gallery-title{
+.stats-container{
 
 
-font-size:18px;
+padding:
+
+25px 15px;
 
 
 }
 
-
-
-}
-/* ==========================
-   GALLERY NAVIGATION
-========================== */
-
-.top-nav{
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-gap:15px;
-
-padding:15px;
-
-background:
-rgba(0,0,0,0.45);
-
-backdrop-filter:blur(12px);
-
-position:sticky;
-
-top:0;
-
-z-index:9999;
-
-}
-
-
-
-.top-nav a{
-
-display:inline-block;
-
-color:white;
-
-text-decoration:none;
-
-font-size:16px;
-
-font-weight:600;
-
-padding:12px 22px;
-
-border-radius:30px;
-
-background:
-rgba(255,255,255,0.15);
-
-border:
-1px solid rgba(255,255,255,0.3);
-
-transition:0.3s;
-
-}
-
-
-
-.top-nav a:hover{
-
-background:#00c6ff;
-
-color:white;
-
-transform:translateY(-3px);
-
-}
-
-
-
-.top-nav .active{
-
-background:#ffcc00;
-
-color:#003566;
-
-}
-
-
-
-/* Mobile */
-
-@media(max-width:600px){
-
-.top-nav{
-
-gap:8px;
-
-}
-
-
-.top-nav a{
-
-font-size:13px;
-
-padding:10px 14px;
-
-}
 
 }
