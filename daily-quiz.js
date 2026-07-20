@@ -271,61 +271,93 @@ finishQuiz();
 // FINISH QUIZ
 // ================================
 
-
 function finishQuiz(){
 
+    clearInterval(timer);
 
 
-clearInterval(timer);
+    points = score * 10;
 
 
+    // Save daily score
 
-points = score * 10;
-
-
-
-document.getElementById("questionBox").innerHTML = `
-
-
-<h2>
-🎉 Challenge Completed!
-</h2>
-
-
-<h3>
-Score:
-${score}/${dailyQuestions.length}
-</h3>
-
-
-<h3>
-⭐ Points Earned:
-${points}
-</h3>
-
-
-<p>
-Keep learning every day and continue your streak 🔥
-</p>
-
-
-`;
+    localStorage.setItem(
+        "dailyScore",
+        points
+    );
 
 
 
-document.getElementById("nextBtn").style.display="none";
+    document.getElementById("questionBox").innerHTML = `
+
+    <div class="completion-card">
+
+    <h2>
+    🎉 Challenge Completed!
+    </h2>
+
+
+    <h3>
+    ${employeeName}
+    </h3>
+
+
+    <p>
+    Your Score:
+    <strong>${score}/${dailyQuestions.length}</strong>
+    </p>
+
+
+    <p>
+    ⭐ Points Earned:
+    <strong>${points}</strong>
+    </p>
+
+
+    <p>
+    🔥 Keep your learning streak alive!
+    </p>
 
 
 
-localStorage.setItem(
-"dailyScore",
-points
-);
+    <button onclick="goHome()">
 
+    🏠 Return Home
+
+    </button>
+
+
+    <button onclick="location.href='daily.html'">
+
+    🔄 Back to Daily Challenge
+
+    </button>
+
+
+    </div>
+
+    `;
+
+
+    document.getElementById("nextBtn").style.display="none";
 
 
 }
 
+
+
+
+
+
+// ================================
+// GO HOME
+// ================================
+
+function goHome(){
+
+    window.location.href="index.html";
+
+}
 
 
 
