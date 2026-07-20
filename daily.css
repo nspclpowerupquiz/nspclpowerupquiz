@@ -1,80 +1,82 @@
 /* ==========================================
-   NSPCL POWER PULSE - DAILY CHALLENGE CSS
+   NSPCL POWER PULSE
+   PREMIUM DAILY CHALLENGE CSS
 ========================================== */
-/* DAILY CHALLENGE OVERRIDE */
-
-.daily *{
-    box-sizing:border-box;
-}
 
 
-.daily .daily-hero,
-.daily .stat-box,
-.daily .employee-card,
-.daily .quote-card,
-.daily .challenge-card,
-.daily .question-card,
-.daily .progress-card,
-.daily .fact-card,
-.daily .champion-card,
-.daily .reward-card{
+/* GLOBAL DAILY PAGE */
 
-    color:white !important;
+.daily{
+
+max-width:1400px;
+
+margin:auto;
+
+padding:40px 6%;
+
+min-height:100vh;
+
+font-family:'Segoe UI',sans-serif;
+
+color:white;
 
 }
 
+
+
+/* FORCE TEXT VISIBILITY */
 
 .daily h1,
 .daily h2,
 .daily h3,
 .daily p,
-.daily span{
+.daily span,
+.daily strong{
 
-    color:white !important;
+color:white !important;
 
 }
 
-.daily{
 
-padding:40px 8%;
+
+
+
+/* HERO SECTION */
+
+
+.daily-hero{
+
+
+text-align:center;
+
+
+padding:40px;
+
+
+margin-bottom:30px;
+
+
+border-radius:30px;
+
 
 background:
 linear-gradient(
 135deg,
-#001f3f,
-#0077b6,
-#003566
+rgba(0,119,182,.35),
+rgba(0,53,102,.45)
 );
 
-min-height:100vh;
 
-color:white;
+border:
+1px solid rgba(255,255,255,.25);
 
-font-family:'Segoe UI',sans-serif;
-
-}
-
-
-
-/* HERO */
-
-.daily-hero{
-
-text-align:center;
-
-padding:35px;
-
-border-radius:25px;
-
-background:
-rgba(255,255,255,0.12);
 
 backdrop-filter:blur(15px);
 
-box-shadow:
-0 15px 40px rgba(0,0,0,.3);
 
-margin-bottom:30px;
+box-shadow:
+0 20px 50px rgba(0,0,0,.35);
+
 
 }
 
@@ -84,7 +86,7 @@ margin-bottom:30px;
 
 font-size:42px;
 
-margin-bottom:10px;
+margin:0 0 15px;
 
 }
 
@@ -99,40 +101,80 @@ font-size:18px;
 
 
 
-/* DAILY STATS */
+
+
+/* DAILY STAT AREA */
 
 
 .daily-stats{
 
+
 display:flex;
+
 
 justify-content:center;
 
+
 gap:25px;
 
-margin-top:30px;
+
+margin-top:35px;
+
 
 flex-wrap:wrap;
+
 
 }
 
 
 
+
 .stat-box{
 
-width:150px;
 
-padding:20px;
+width:180px;
 
-border-radius:20px;
+
+height:150px;
+
+
+display:flex;
+
+
+flex-direction:column;
+
+
+align-items:center;
+
+
+justify-content:center;
+
+
+border-radius:25px;
+
 
 background:
-rgba(255,255,255,.15);
+rgba(255,255,255,.14);
+
+
+border:
+1px solid rgba(255,255,255,.25);
+
+
+backdrop-filter:blur(15px);
+
 
 box-shadow:
-0 10px 25px rgba(0,0,0,.25);
+0 15px 30px rgba(0,0,0,.25);
 
-font-size:30px;
+
+}
+
+
+
+.stat-box:first-child{
+
+font-size:35px;
 
 }
 
@@ -140,9 +182,12 @@ font-size:30px;
 
 .stat-box h3{
 
-font-size:28px;
 
-margin:10px;
+font-size:32px;
+
+
+margin:8px;
+
 
 }
 
@@ -150,7 +195,9 @@ margin:10px;
 
 .stat-box span{
 
-font-size:15px;
+
+font-size:16px;
+
 
 }
 
@@ -159,7 +206,8 @@ font-size:15px;
 
 
 
-/* CARDS */
+
+/* ALL CARDS */
 
 
 .employee-card,
@@ -168,20 +216,29 @@ font-size:15px;
 .question-card,
 .progress-card,
 .fact-card,
-.champion-card{
+.champion-card,
+.reward-card{
 
 
 background:
-rgba(255,255,255,.12);
+linear-gradient(
+135deg,
+rgba(255,255,255,.18),
+rgba(255,255,255,.08)
+);
 
 
-backdrop-filter:blur(12px);
+border:
+1px solid rgba(255,255,255,.25);
 
 
-border-radius:25px;
+backdrop-filter:blur(15px);
 
 
-padding:30px;
+border-radius:30px;
+
+
+padding:35px;
 
 
 margin:30px 0;
@@ -189,7 +246,7 @@ margin:30px 0;
 
 box-shadow:
 
-0 15px 35px rgba(0,0,0,.25);
+0 20px 45px rgba(0,0,0,.30);
 
 
 }
@@ -198,12 +255,10 @@ box-shadow:
 
 
 
+/* EMPLOYEE */
 
 
-/* MISSION */
-
-
-.challenge-card{
+.employee-card{
 
 text-align:center;
 
@@ -211,30 +266,120 @@ text-align:center;
 
 
 
+
+
+.employee-card span{
+
+
+color:#ffd700 !important;
+
+
+font-size:25px;
+
+
+font-weight:bold;
+
+
+}
+
+
+
+
+
+
+
+/* QUOTE */
+
+
+.quote-card{
+
+
+text-align:center;
+
+
+}
+
+
+
+.quote-card h2{
+
+
+font-size:25px;
+
+
+}
+
+
+
+
+
+
+/* CHALLENGE CARD */
+
+
+.challenge-card{
+
+
+text-align:center;
+
+
+}
+
+
+
+
+
+.challenge-card h1{
+
+
+font-size:35px;
+
+
+}
+
+
+
 .mission-info{
+
 
 display:flex;
 
+
 justify-content:center;
 
-gap:25px;
+
+gap:20px;
+
 
 flex-wrap:wrap;
 
+
+margin:25px 0;
+
+
 }
+
 
 
 
 .mission-info p{
 
-background:
-rgba(255,255,255,.15);
 
 padding:15px 25px;
 
-border-radius:15px;
+
+border-radius:20px;
+
+
+background:
+rgba(255,255,255,.15);
+
+
+font-size:16px;
+
 
 }
+
 
 
 
@@ -246,9 +391,12 @@ border-radius:15px;
 
 .timer{
 
-margin:25px;
 
-font-size:20px;
+margin:30px;
+
+
+font-size:22px;
+
 
 }
 
@@ -256,11 +404,16 @@ font-size:20px;
 
 .timer h3{
 
-font-size:45px;
 
-color:#ffd700;
+font-size:55px;
+
+
+color:#ffd700 !important;
+
 
 }
+
+
 
 
 
@@ -273,7 +426,7 @@ color:#ffd700;
 .mission-btn{
 
 
-padding:16px 40px;
+padding:18px 45px;
 
 
 border:none;
@@ -282,13 +435,17 @@ border:none;
 border-radius:50px;
 
 
-font-size:18px;
-
-
 cursor:pointer;
 
 
+font-size:18px;
+
+
+font-weight:bold;
+
+
 background:
+
 linear-gradient(
 45deg,
 #ffd700,
@@ -296,16 +453,14 @@ linear-gradient(
 );
 
 
-color:#002244;
-
-
-font-weight:bold;
+color:#002244 !important;
 
 
 transition:.3s;
 
 
 }
+
 
 
 
@@ -316,10 +471,11 @@ transform:scale(1.08);
 
 
 box-shadow:
-0 0 25px #ffd700;
+0 0 30px #ffd700;
 
 
 }
+
 
 
 
@@ -330,42 +486,57 @@ box-shadow:
 /* QUESTION */
 
 
+.question-card{
+
+
+text-align:center;
+
+
+}
+
+
+
 .question-card p{
+
 
 font-size:22px;
 
+
 }
+
+
 
 
 
 .options button{
 
 
-display:block;
-
-
 width:100%;
 
 
-padding:15px;
+padding:18px;
 
 
 margin:12px 0;
 
 
-border-radius:15px;
-
-
 border:none;
+
+
+border-radius:18px;
 
 
 cursor:pointer;
 
 
-font-size:16px;
+font-size:17px;
+
+
+text-align:left;
 
 
 background:
+
 rgba(255,255,255,.15);
 
 
@@ -375,20 +546,26 @@ color:white;
 transition:.3s;
 
 
+border:
+1px solid rgba(255,255,255,.2);
+
+
 }
+
 
 
 
 .options button:hover{
 
 
-background:#0096c7;
+background:#0077b6;
 
 
-transform:translateX(8px);
+transform:translateX(10px);
 
 
 }
+
 
 
 
@@ -403,7 +580,10 @@ transform:translateX(8px);
 .progress-bar{
 
 
-height:18px;
+width:100%;
+
+
+height:20px;
 
 
 background:
@@ -420,6 +600,7 @@ overflow:hidden;
 
 
 
+
 .progress-fill{
 
 
@@ -429,10 +610,15 @@ height:100%;
 width:0%;
 
 
-background:#00ff88;
+background:
+linear-gradient(
+90deg,
+#00ff88,
+#00b4d8
+);
 
 
-border-radius:20px;
+transition:.5s;
 
 
 }
@@ -452,10 +638,10 @@ border-radius:20px;
 display:flex;
 
 
-gap:25px;
-
-
 justify-content:center;
+
+
+gap:25px;
 
 
 flex-wrap:wrap;
@@ -468,26 +654,13 @@ flex-wrap:wrap;
 .reward-card{
 
 
-width:180px;
+width:220px;
 
 
 text-align:center;
 
 
-padding:25px;
-
-
-border-radius:25px;
-
-
-background:
-rgba(255,255,255,.15);
-
-
-font-size:25px;
-
-
-transition:.3s;
+font-size:22px;
 
 
 }
@@ -497,8 +670,24 @@ transition:.3s;
 .reward-card:hover{
 
 
-transform:
-translateY(-10px);
+transform:translateY(-12px);
+
+
+}
+
+
+
+
+
+
+
+/* CHAMPIONS */
+
+
+.champion-card{
+
+
+text-align:center;
 
 
 }
@@ -521,6 +710,9 @@ width:100%;
 border-collapse:collapse;
 
 
+margin-top:20px;
+
+
 background:
 rgba(255,255,255,.12);
 
@@ -539,17 +731,36 @@ th,
 td{
 
 
-padding:15px;
+padding:16px;
+
+
+color:white;
 
 
 text-align:center;
 
 
 border-bottom:
+
 1px solid rgba(255,255,255,.2);
 
 
 }
+
+
+
+
+th{
+
+
+background:
+rgba(0,0,0,.25);
+
+
+}
+
+
+
 
 
 
@@ -562,13 +773,17 @@ footer{
 
 text-align:center;
 
-padding:20px;
 
-background:#001f3f;
+padding:25px;
+
 
 color:white;
 
+
 }
+
+
+
 
 
 
@@ -587,24 +802,55 @@ padding:20px;
 }
 
 
+
 .daily-hero h1{
+
 
 font-size:30px;
 
+
 }
+
 
 
 .stat-box{
 
-width:120px;
+
+width:140px;
+
+
+height:130px;
+
 
 }
 
 
-.challenge-card,
-.question-card{
 
-padding:20px;
+.timer h3{
+
+
+font-size:40px;
+
+
+}
+
+
+
+.mission-info p{
+
+
+width:100%;
+
+
+}
+
+
+
+.options button{
+
+
+font-size:15px;
+
 
 }
 
