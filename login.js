@@ -1,118 +1,55 @@
-// =================================
-// NSPCL POWER-UP QUIZ LOGIN SYSTEM
-// =================================
-
-
 function login(){
-
 
     let employeeId = document.getElementById("employeeId").value.trim();
 
+    let employeeName = document.getElementById("employeeName") 
+        ? document.getElementById("employeeName").value.trim()
+        : "Employee";
+
     let password = document.getElementById("password").value.trim();
 
+    let message = document.getElementById("loginMessage");
 
 
-    // Login credentials database
-    // Add more employees here if required
+    // Check Employee ID
+    if(employeeId === ""){
 
-    const employees = [
-
-
-        {
-            id:"100106",
-            password:"NSPCL@100106"
-        },
-
-
-        {
-            id:"100107",
-            password:"NSPCL@100107"
-        },
-
-
-        {
-            id:"100108",
-            password:"NSPCL@100108"
-        }
-
-
-    ];
-
-
-
-    // Check empty fields
-
-    if(employeeId === "" || password === ""){
-
-
-        document.getElementById("loginMessage").innerHTML =
-        "⚠️ Please enter Employee ID and Password";
-
-
+        message.innerHTML = "⚠️ Enter Employee ID";
         return;
 
     }
 
 
+    // Accept any 6 digit Employee ID starting from any digit
+    if(!/^[0-9]{6}$/.test(employeeId)){
 
-    // Verify login
-
-    let user = employees.find(function(emp){
-
-
-        return emp.id === employeeId &&
-               emp.password === password;
-
-
-    });
-
-
-
-
-
-    if(user){
-
-
-        // Save employee ID only
-
-        localStorage.setItem("employeeId", user.id);
-
-
-
-        // Remove old saved name (important)
-
-        localStorage.removeItem("employeeName");
-
-
-
-        document.getElementById("loginMessage").innerHTML =
-        "✅ Login Successful";
-
-
-
-        setTimeout(function(){
-
-
-            // Go to name entry page
-
-            window.location.href = "participant.html";
-
-
-        },1000);
-
-
+        message.innerHTML = "⚠️ Employee ID must be 6 digits";
+        return;
 
     }
 
 
-    else{
+    // Password check
+    if(password === ""){
 
-
-        document.getElementById("loginMessage").innerHTML =
-        "❌ Invalid Employee ID or Password";
-
+        message.innerHTML = "⚠️ Enter Password";
+        return;
 
     }
 
+
+    // Save details
+
+    localStorage.setItem("employeeId", employeeId);
+
+    localStorage.setItem(
+        "employeeName",
+        employeeName || "Employee"
+    );
+
+
+    // Open quiz
+
+    window.location.href = "quiz.html";
 
 }
