@@ -1,20 +1,36 @@
 // ==========================================
 // NSPCL POWER-UP QUIZ
-// CERTIFICATE
+// CERTIFICATE.JS
 // ==========================================
 
-const SCRIPT_URL = "YOUR_SCRIPT_URL";
 
-// Employee ID from Login
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwBbn0mA_VbQG3A4lz7nDGWZm66P6jKBx12zXbYZ-OoCudVBzIvK-MkuZEXxLcECl5wdw/exec";
+// ==========================================
+// GOOGLE APPS SCRIPT URL
+// ==========================================
 
-// Check Login
+const SCRIPT_URL =
+"https://script.google.com/macros/s/AKfycbwBbn0mA_VbQG3A4lz7nDGWZm66P6jKBx12zXbYZ-OoCudVBzIvK-MkuZEXxLcECl5wdw/exec";
+
+
+// ==========================================
+// EMPLOYEE
+// ==========================================
+
+const employeeId = localStorage.getItem("employeeId");
+
 if (!employeeId) {
+
     alert("Please login first.");
+
     window.location.href = "login.html";
+
 }
 
-// Load Certificate
+
+// ==========================================
+// PAGE LOAD
+// ==========================================
+
 window.onload = function () {
 
     loadCertificate();
@@ -22,131 +38,151 @@ window.onload = function () {
 };
 
 
-
 // ==========================================
 // LOAD CERTIFICATE
 // ==========================================
 
-function loadCertificate() {
+async function loadCertificate() {
 
-    fetch(SCRIPT_URL + "?action=certificate&id=" + employeeId)
+    try {
 
-        .then(response => response.json())
+        console.log("Employee ID :", employeeId);
 
-        .then(data => {
+        const response = await fetch(
 
-            if (data.status != "success") {
+            SCRIPT_URL +
 
-                alert("Certificate not found.");
+            "?action=certificate&id=" +
 
-                return;
+            employeeId
 
+        );
+
+        const data = await response.json();
+
+        console.log(data);
+
+        if (data.status != "success") {
+
+            alert("Certificate not found.");
+
+            return;
+
+        }
+
+        // Employee Name
+        document.getElementById("name").textContent =
+        data.employeeName;
+
+        // Employee ID
+        document.getElementById("empid").textContent =
+        data.employeeId;
+
+        // Score
+        document.getElementById("score").textContent =
+        data.score + " / " + data.totalQuestions;
+
+        // Percentage
+        document.getElementById("percentage").textContent =
+        data.percentage + "%";
+
+        // Grade
+        document.getElementById("grade").textContent =
+        data.grade;
+
+        // Certificate Number
+        document.getElementById("certno").textContent =
+        data.certificateNo;
+
+        // Date
+        document.getElementById("date").textContent =
+        new Date(data.dateTime).toLocaleDateString(
+            "en-IN",
+            {
+                day: "numeric",
+                month: "long",
+                year: "numeric"
             }
+        );
 
-            // Employee
 
-            document.getElementById("name").innerHTML =
-                data.employeeName;
+        // =====================================
+        // BADGE
+        // =====================================
 
-            document.getElementById("empid").innerHTML =
-                data.employeeId;
+        const badge =
+        document.getElementById("badge");
 
-            // Score
+        switch (data.grade.toLowerCase()) {
 
-            document.getElementById("score").innerHTML =
-                data.score + " / " + data.totalQuestions;
+            case "gold":
 
-            // Percentage
+                badge.innerHTML =
+                "🥇 GOLD ACHIEVER";
 
-            document.getElementById("percentage").innerHTML =
-                data.percentage + "%";
+                badge.style.background =
+                "linear-gradient(90deg,#B8860B,#FFD700,#B8860B)";
 
-            // Grade
+                break;
 
-            document.getElementById("grade").innerHTML =
-                data.grade;
+            case "silver":
 
-            // Certificate Number
+                badge.innerHTML =
+                "🥈 SILVER ACHIEVER";
 
-            document.getElementById("certno").innerHTML =
-                data.certificateNo;
+                badge.style.background =
+                "linear-gradient(90deg,#777,#DDD,#777)";
 
-            // Date
+                break;
 
-            document.getElementById("date").innerHTML =
-                new Date(data.dateTime).toLocaleDateString(
-                    "en-IN",
-                    {
-                        day: "numeric",
-                        month: "long",
-                        year: "numeric"
-                    });
+            case "bronze":
 
-            // Badge
+                badge.innerHTML =
+                "🥉 BRONZE ACHIEVER";
 
-            const badge =
-                document.getElementById("badge");
+                badge.style.background =
+                "linear-gradient(90deg,#8B4513,#CD7F32,#8B4513)";
 
-            switch (data.grade) {
+                break;
 
-                case "Gold":
+            default:
 
-                    badge.innerHTML = "🥇 GOLD ACHIEVER";
+                badge.innerHTML =
+                "⭐ PARTICIPATION";
 
-                    badge.style.background =
-                        "linear-gradient(90deg,#b8860b,#ffd700,#b8860b)";
+                badge.style.background =
+                "#0B4FA2";
 
-                    break;
+        }
 
-                case "Silver":
 
-                    badge.innerHTML = "🥈 SILVER ACHIEVER";
+        // =====================================
+        // CONFETTI
+        // =====================================
 
-                    badge.style.background =
-                        "linear-gradient(90deg,#8c8c8c,#d9d9d9,#8c8c8c)";
-
-                    break;
-
-                case "Bronze":
-
-                    badge.innerHTML = "🥉 BRONZE ACHIEVER";
-
-                    badge.style.background =
-                        "linear-gradient(90deg,#8b4513,#cd7f32,#8b4513)";
-
-                    break;
-
-                default:
-
-                    badge.innerHTML =
-                        "⭐ PARTICIPATION";
-
-                    badge.style.background =
-                        "#0B4FA2";
-
-            }
-
-            // Confetti
+        if (typeof confetti === "function") {
 
             confetti({
 
                 particleCount:250,
 
-                spread:180,
+                spread:170,
 
-                origin:{y:.5}
+                origin:{y:0.55}
 
             });
 
-        })
+        }
 
-        .catch(error => {
+    }
 
-            console.log(error);
+    catch(err){
 
-            alert("Unable to load certificate.");
+        console.error(err);
 
-        });
+        alert("Unable to load certificate.");
+
+    }
 
 }
 
@@ -156,31 +192,40 @@ function loadCertificate() {
 // DOWNLOAD PDF
 // ==========================================
 
-async function downloadPDF() {
-
-    const { jsPDF } = window.jspdf;
+async function downloadPDF(){
 
     const certificate =
-        document.getElementById("certificate");
+    document.getElementById("certificate");
 
     const canvas =
-        await html2canvas(certificate, {
+    await html2canvas(certificate,{
 
-            scale:2,
+        scale:2,
 
-            useCORS:true
+        useCORS:true
 
-        });
+    });
 
-    const image =
-        canvas.toDataURL("image/png");
+    const img =
+    canvas.toDataURL("image/png");
+
+    const { jsPDF } =
+    window.jspdf;
 
     const pdf =
-        new jsPDF("landscape", "mm", "a4");
+    new jsPDF(
+
+        "landscape",
+
+        "mm",
+
+        "a4"
+
+    );
 
     pdf.addImage(
 
-        image,
+        img,
 
         "PNG",
 
