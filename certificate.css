@@ -1,106 +1,1368 @@
+/* ==========================================
+   NSPCL POWER-UP QUIZ CERTIFICATE
+   PART 2A
+   ========================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
 body{
 
-margin:0;
-padding:40px;
-background:#edf4ff;
-font-family:Arial;
+    background:linear-gradient(135deg,#dfefff,#c9dcff,#eef6ff);
+
+    font-family:'Poppins',sans-serif;
+
+    padding:40px;
+
+    overflow-x:hidden;
+
+}
+
+
+/* PAGE */
+
+.page{
+
+    width:100%;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+}
+
+
+
+/* CERTIFICATE */
+
+.certificate{
+
+    position:relative;
+
+    width:1200px;
+
+    min-height:850px;
+
+    background:white;
+
+    border:18px solid #0B4FA2;
+
+    outline:8px solid #d4af37;
+
+    border-radius:20px;
+
+    padding:45px;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,.35);
+
+    animation:borderGlow 3s infinite alternate;
+
+}
+
+
+
+/* Animated Border */
+
+@keyframes borderGlow{
+
+    0%{
+
+        box-shadow:
+
+        0 0 15px rgba(11,79,162,.5),
+
+        0 0 40px rgba(212,175,55,.25);
+
+    }
+
+    100%{
+
+        box-shadow:
+
+        0 0 30px rgba(11,79,162,.9),
+
+        0 0 60px rgba(212,175,55,.6);
+
+    }
+
+}
+
+
+
+/* Decorative Corners */
+
+.corner{
+
+    position:absolute;
+
+    width:70px;
+
+    height:70px;
+
+    border:6px solid #d4af37;
+
+}
+
+.tl{
+
+    top:18px;
+
+    left:18px;
+
+    border-right:none;
+
+    border-bottom:none;
+
+}
+
+.tr{
+
+    top:18px;
+
+    right:18px;
+
+    border-left:none;
+
+    border-bottom:none;
+
+}
+
+.bl{
+
+    bottom:18px;
+
+    left:18px;
+
+    border-right:none;
+
+    border-top:none;
+
+}
+
+.br{
+
+    bottom:18px;
+
+    right:18px;
+
+    border-left:none;
+
+    border-top:none;
+
+}
+
+
+
+/* Watermark */
+
+.watermark{
+
+    position:absolute;
+
+    top:50%;
+
+    left:50%;
+
+    transform:translate(-50%,-50%) rotate(-30deg);
+
+    font-size:120px;
+
+    font-weight:800;
+
+    color:#0B4FA2;
+
+    opacity:.05;
+
+    letter-spacing:10px;
+
+    white-space:nowrap;
+
+    pointer-events:none;
+
+}
+
+
+
+/* HEADER */
+
+.header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+
+
+/* Logos */
+
+.logo{
+
+    width:110px;
+
+    height:110px;
+
+    object-fit:contain;
+
+}
+
+
+
+/* Title Area */
+
+.title{
+
+    text-align:center;
+
+    flex:1;
+
+}
+
+
+
+/* Company */
+
+.company{
+
+    font-size:18px;
+
+    font-weight:600;
+
+    color:#0B4FA2;
+
+    letter-spacing:2px;
+
+}
+
+
+
+/* Main Heading */
+
+.heading{
+
+    font-size:46px;
+
+    font-weight:800;
+
+    margin-top:12px;
+
+    text-transform:uppercase;
+
+    background:linear-gradient(90deg,#0B4FA2,#d4af37,#0B4FA2);
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+
+}
+
+
+
+/* Sub Heading */
+
+.subheading{
+
+    margin-top:10px;
+
+    font-size:22px;
+
+    color:#444;
+
+    letter-spacing:3px;
+
+}
+
+
+
+/* Ribbon */
+
+.ribbon{
+
+    width:420px;
+
+    margin:35px auto;
+
+    background:linear-gradient(90deg,#0B4FA2,#1f77d0);
+
+    color:white;
+
+    padding:12px;
+
+    text-align:center;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    border-radius:40px;
+
+    box-shadow:
+
+    0 8px 20px rgba(0,0,0,.25);
+
+}
+
+
+
+/* Presented */
+
+.presented{
+
+    text-align:center;
+
+    margin-top:30px;
+
+    color:#555;
+
+    letter-spacing:3px;
+
+    font-size:18px;
+
+}
+
+
+
+/* Employee Name */
+
+.employeeName{
+
+    margin-top:22px;
+
+    text-align:center;
+
+    font-size:48px;
+
+    color:#c79200;
+
+    font-weight:800;
+
+    text-transform:uppercase;
+
+    letter-spacing:3px;
+
+}
+
+
+
+/* Employee ID */
+
+.employeeID{
+
+    text-align:center;
+
+    margin-top:12px;
+
+    font-size:22px;
+
+    color:#0B4FA2;
+
+    font-weight:600;
+
+}
+/* ==========================================
+   PART 2B
+   Appreciation • Badge • Score • Details
+   Footer • Buttons
+========================================== */
+
+
+/* Appreciation */
+
+.appreciation{
+
+    width:88%;
+
+    margin:35px auto;
+
+    padding:22px 28px;
+
+    text-align:center;
+
+    font-size:19px;
+
+    line-height:1.9;
+
+    color:#444;
+
+    background:#f7fbff;
+
+    border-left:8px solid #0B4FA2;
+
+    border-right:8px solid #0B4FA2;
+
+    border-radius:14px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.appreciation strong{
+
+    color:#0B4FA2;
+
+}
+
+
+
+/* Badge */
+
+.badge{
+
+    width:320px;
+
+    margin:30px auto;
+
+    text-align:center;
+
+    padding:15px 25px;
+
+    border-radius:50px;
+
+    font-size:28px;
+
+    font-weight:700;
+
+    color:white;
+
+    background:linear-gradient(90deg,#d4af37,#f4d03f,#d4af37);
+
+    box-shadow:
+
+        0 8px 20px rgba(0,0,0,.25);
+
+    animation:pulseBadge 2s infinite;
+
+}
+
+@keyframes pulseBadge{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.05);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+
+
+/* Score Section */
+
+.scoreSection{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    margin-top:40px;
+
+    gap:25px;
+
+}
+
+
+
+.scoreBox{
+
+    flex:1;
+
+    background:white;
+
+    border:3px solid #0B4FA2;
+
+    border-radius:18px;
+
+    text-align:center;
+
+    padding:25px;
+
+    transition:.35s;
+
+    box-shadow:
+
+        0 10px 25px rgba(0,0,0,.12);
+
+}
+
+
+
+.scoreBox:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:
+
+        0 18px 35px rgba(0,0,0,.20);
+
+}
+
+
+
+.scoreTitle{
+
+    color:#0B4FA2;
+
+    font-size:20px;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+
+}
+
+
+
+.scoreValue{
+
+    margin-top:18px;
+
+    font-size:34px;
+
+    color:#c79200;
+
+    font-weight:800;
+
+}
+
+
+
+/* Certificate Details */
+
+.details{
+
+    margin-top:45px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+
+
+.details div{
+
+    text-align:center;
+
+}
+
+
+
+.detailHeading{
+
+    color:#0B4FA2;
+
+    font-size:20px;
+
+    font-weight:700;
+
+    margin-bottom:10px;
+
+}
+
+
+
+#certno,
+#date{
+
+    font-size:22px;
+
+    color:#444;
+
+    font-weight:600;
+
+}
+
+
+
+/* Footer */
+
+.footer{
+
+    margin-top:65px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-end;
+
+}
+
+
+
+/* Signature */
+
+.signature{
+
+    width:250px;
+
+    text-align:center;
+
+}
+
+
+
+.line{
+
+    border-top:2px solid #222;
+
+    margin-bottom:12px;
+
+}
+
+
+
+.signature strong{
+
+    color:#0B4FA2;
+
+    font-size:20px;
+
+}
+
+
+
+/* Official Seal */
+
+.seal{
+
+    width:140px;
+
+    height:140px;
+
+    border-radius:50%;
+
+    border:8px solid #d4af37;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:linear-gradient(#fff8dc,#ffffff);
+
+    box-shadow:
+
+        0 10px 30px rgba(0,0,0,.18);
+
+}
+
+
+
+.seal i{
+
+    font-size:44px;
+
+    color:#d4af37;
+
+}
+
+
+
+.seal div{
+
+    margin-top:10px;
+
+    color:#0B4FA2;
+
+    font-weight:700;
+
+    font-size:18px;
+
+}
+
+
+
+/* Bottom Text */
+
+.bottomText{
+
+    margin-top:40px;
+
+    text-align:center;
+
+    color:#666;
+
+    font-size:16px;
+
+    font-style:italic;
+
+}
+
+
+
+/* Buttons */
+
+.buttons{
+
+    margin-top:35px;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+}
+
+
+
+.buttons button{
+
+    background:linear-gradient(90deg,#0B4FA2,#1e6fd0);
+
+    color:white;
+
+    border:none;
+
+    padding:14px 30px;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.18);
+
+}
+
+
+
+.buttons button:hover{
+
+    transform:translateY(-4px);
+
+    background:linear-gradient(90deg,#d4af37,#c79200);
+
+}
+
+
+
+.buttons i{
+
+    margin-right:8px;
+
+}
+/* ==========================================
+   PART 2C
+   Animation • Responsive • Print
+========================================== */
+
+
+/* Fade Animation */
+
+.certificate{
+
+    animation:fadeIn 1.2s ease-in-out;
+}
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:scale(.96);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:scale(1);
+
+    }
+
+}
+
+
+/* Ribbon Animation */
+
+.ribbon{
+
+    animation:ribbonGlow 3s infinite alternate;
+
+}
+
+@keyframes ribbonGlow{
+
+    from{
+
+        box-shadow:0 0 12px rgba(11,79,162,.3);
+
+    }
+
+    to{
+
+        box-shadow:0 0 30px rgba(212,175,55,.8);
+
+    }
+
+}
+
+
+/* Heading Animation */
+
+.heading{
+
+    animation:headingGlow 4s infinite alternate;
+
+}
+
+@keyframes headingGlow{
+
+    from{
+
+        letter-spacing:1px;
+
+    }
+
+    to{
+
+        letter-spacing:5px;
+
+    }
+
+}
+
+
+/* Badge Animation */
+
+.badge{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.badge::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-120%;
+
+    width:60%;
+
+    height:100%;
+
+    background:rgba(255,255,255,.45);
+
+    transform:skewX(-25deg);
+
+    animation:shine 3s infinite;
+
+}
+
+@keyframes shine{
+
+    100%{
+
+        left:170%;
+
+    }
+
+}
+
+
+/* Official Seal */
+
+.seal{
+
+    animation:sealRotate 5s ease-in-out infinite;
+
+}
+
+@keyframes sealRotate{
+
+    0%{
+
+        transform:rotate(0deg);
+
+    }
+
+    50%{
+
+        transform:rotate(4deg);
+
+    }
+
+    100%{
+
+        transform:rotate(0deg);
+
+    }
+
+}
+
+
+/* Score Hover */
+
+.scoreBox{
+
+    transition:.35s;
+
+}
+
+.scoreBox:hover{
+
+    transform:translateY(-8px) scale(1.02);
+
+}
+
+
+/* Watermark Pulse */
+
+.watermark{
+
+    animation:watermarkPulse 8s infinite;
+
+}
+
+@keyframes watermarkPulse{
+
+    0%{
+
+        opacity:.03;
+
+    }
+
+    50%{
+
+        opacity:.07;
+
+    }
+
+    100%{
+
+        opacity:.03;
+
+    }
+
+}
+
+
+/* Decorative Corners */
+
+.corner{
+
+    animation:cornerGlow 3s infinite alternate;
+
+}
+
+@keyframes cornerGlow{
+
+    from{
+
+        border-color:#d4af37;
+
+    }
+
+    to{
+
+        border-color:#0B4FA2;
+
+    }
+
+}
+
+
+/* Signature */
+
+.signature{
+
+    transition:.3s;
+
+}
+
+.signature:hover{
+
+    transform:translateY(-4px);
+
+}
+
+
+/* Bottom Text */
+
+.bottomText{
+
+    opacity:.75;
+
+}
+
+
+
+/* Print */
+
+@media print{
+
+body{
+
+    background:white;
+
+    padding:0;
+
+}
+
+.buttons{
+
+    display:none;
 
 }
 
 .certificate{
 
-width:1000px;
+    width:100%;
 
-margin:auto;
+    border:10px solid #0B4FA2;
 
-background:white;
+    outline:5px solid #d4af37;
 
-box-shadow:0 10px 40px rgba(0,0,0,.3);
+    box-shadow:none;
 
-}
-
-.border{
-
-border:15px solid #004b8d;
-
-padding:50px;
-
-text-align:center;
-
-background:
-
-linear-gradient(white,#f8fbff);
+    page-break-after:avoid;
 
 }
 
-h1{
+}
 
-color:#004b8d;
 
-margin:10px;
+/* Mobile */
+
+@media(max-width:1100px){
+
+.certificate{
+
+    width:100%;
+
+    padding:25px;
 
 }
 
-h2{
+.header{
 
-color:#d35400;
+    flex-direction:column;
 
-font-size:38px;
-
-}
-
-h3{
-
-color:#222;
+    gap:15px;
 
 }
 
-p{
+.logo{
 
-font-size:20px;
-
-}
-
-.row{
-
-display:flex;
-
-justify-content:space-around;
+    width:80px;
 
 }
 
-.signatures{
+.heading{
 
-display:flex;
-
-justify-content:space-between;
-
-margin-top:70px;
-
-font-size:18px;
+    font-size:34px;
 
 }
 
-button{
+.employeeName{
 
-padding:15px 35px;
-
-font-size:18px;
-
-background:#004b8d;
-
-color:white;
-
-border:none;
-
-border-radius:8px;
-
-cursor:pointer;
+    font-size:34px;
 
 }
 
-button:hover{
+.scoreSection{
 
-background:#0b67bf;
+    flex-direction:column;
 
 }
+
+.footer{
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:35px;
+
+}
+
+.details{
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+.ribbon{
+
+    width:90%;
+
+}
+
+}
+
+
+/* Small Mobile */
+
+@media(max-width:700px){
+
+.heading{
+
+    font-size:26px;
+
+}
+
+.company{
+
+    font-size:14px;
+
+}
+
+.subheading{
+
+    font-size:18px;
+
+}
+
+.employeeName{
+
+    font-size:28px;
+
+}
+
+.employeeID{
+
+    font-size:18px;
+
+}
+
+.badge{
+
+    width:90%;
+
+    font-size:20px;
+
+}
+
+.scoreValue{
+
+    font-size:26px;
+
+}
+
+.scoreTitle{
+
+    font-size:17px;
+
+}
+
+.buttons{
+
+    flex-direction:column;
+
+}
+
+.buttons button{
+
+    width:100%;
+
+}
+
+}
+
+
+/* Landscape PDF */
+
+@page{
+
+    size:A4 landscape;
+
+    margin:10mm;
+
+}
+/* ==========================================
+   PART 2D (OPTIONAL)
+   Premium Corporate Effects
+========================================== */
+
+/* Subtle patterned background */
+.certificate::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        radial-gradient(circle at 20% 20%, rgba(11,79,162,.04) 0, transparent 180px),
+        radial-gradient(circle at 80% 30%, rgba(212,175,55,.05) 0, transparent 180px),
+        radial-gradient(circle at 50% 80%, rgba(11,79,162,.03) 0, transparent 220px);
+
+    pointer-events:none;
+
+}
+
+/* Decorative top line */
+
+.certificate::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:40px;
+
+    right:40px;
+
+    top:145px;
+
+    height:3px;
+
+    background:linear-gradient(90deg,
+        transparent,
+        #d4af37,
+        #0B4FA2,
+        #d4af37,
+        transparent);
+
+}
+
+
+/* Gold line below employee name */
+
+.employeeName{
+
+    position:relative;
+
+}
+
+.employeeName::after{
+
+    content:"";
+
+    display:block;
+
+    width:260px;
+
+    height:3px;
+
+    margin:12px auto 0;
+
+    background:linear-gradient(90deg,
+        transparent,
+        #d4af37,
+        transparent);
+
+}
+
+
+/* Fancy score boxes */
+
+.scoreBox{
+
+    background:linear-gradient(#ffffff,#f8fbff);
+
+}
+
+
+/* Gold hover */
+
+.scoreBox:hover{
+
+    border-color:#d4af37;
+
+}
+
+
+/* Beautiful certificate number */
+
+#certno{
+
+    color:#0B4FA2;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+}
+
+
+/* Date */
+
+#date{
+
+    color:#555;
+
+}
+
+
+/* Official seal glow */
+
+.seal{
+
+    box-shadow:
+        0 0 20px rgba(212,175,55,.35),
+        0 8px 25px rgba(0,0,0,.18);
+
+}
+
+
+/* Footer */
+
+.bottomText{
+
+    border-top:1px dashed #cfcfcf;
+
+    padding-top:15px;
+
+    margin-top:35px;
+
+}
+
+
+/* Print quality */
+
+img{
+
+    image-rendering:auto;
+
+}
+
