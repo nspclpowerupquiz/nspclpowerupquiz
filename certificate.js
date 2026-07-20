@@ -156,36 +156,49 @@ async function loadCertificate() {
         }
 
 
-        // =====================================
-        // CONFETTI
-        // =====================================
+       // =====================================
+// PREMIUM CONFETTI ANIMATION
+// =====================================
 
-        if (typeof confetti === "function") {
+confetti({
+    particleCount: 180,
+    spread: 160,
+    origin: { x: 0, y: 0.6 }
+});
 
-            confetti({
+confetti({
+    particleCount: 180,
+    spread: 160,
+    origin: { x: 1, y: 0.6 }
+});
 
-                particleCount:250,
+setTimeout(function () {
 
-                spread:170,
+    confetti({
+        particleCount: 250,
+        spread: 120,
+        origin: { y: 0.5 }
+    });
 
-                origin:{y:0.55}
+}, 700);
 
-            });
+setTimeout(function () {
 
-        }
+    confetti({
+        particleCount: 150,
+        angle: 60,
+        spread: 70,
+        origin: { x: 0 }
+    });
 
-    }
+    confetti({
+        particleCount: 150,
+        angle: 120,
+        spread: 70,
+        origin: { x: 1 }
+    });
 
-    catch(err){
-
-        console.error(err);
-
-        alert("Unable to load certificate.");
-
-    }
-
-}
-
+}, 1500);
 
 
 // ==========================================
