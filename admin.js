@@ -1,23 +1,21 @@
-// ==============================================
+// =============================================
 // NSPCL POWER-UP QUIZ
 // ADMIN DASHBOARD
-// PART 1
-// ==============================================
+// =============================================
 
 
-
-// ==============================================
+// =============================================
 // GOOGLE APPS SCRIPT URL
-// ==============================================
+// =============================================
 
 const SCRIPT_URL =
 "https://script.google.com/macros/s/AKfycbwBbn0mA_VbQG3A4lz7nDGWZm66P6jKBx12zXbYZ-OoCudVBzIvK-MkuZEXxLcECl5wdw/exec";
 
 
 
-// ==============================================
+// =============================================
 // GLOBAL VARIABLES
-// ==============================================
+// =============================================
 
 let leaderboard = [];
 
@@ -29,37 +27,54 @@ let refreshTimer = null;
 
 
 
-// ==============================================
+// =============================================
 // PAGE LOAD
-// ==============================================
+// =============================================
 
 window.onload = function () {
 
-    loadDashboard();
-
-    startAutoRefresh();
+    initialiseDashboard();
 
 };
 
 
 
-// ==============================================
+// =============================================
+// INITIALISE
+// =============================================
+
+async function initialiseDashboard(){
+
+    await loadDashboard();
+
+    initialiseSearch();
+
+    startAutoRefresh();
+
+}
+
+
+
+// =============================================
 // LOAD DASHBOARD
-// ==============================================
+// =============================================
 
-async function loadDashboard() {
+async function loadDashboard(){
 
-    try {
+    try{
 
         showLoading();
 
-        const response = await fetch(
-            SCRIPT_URL + "?action=leaderboard"
+        const response =
+        await fetch(
+            SCRIPT_URL +
+            "?action=leaderboard"
         );
 
-        leaderboard = await response.json();
+        leaderboard =
+        await response.json();
 
-        console.log("Leaderboard:", leaderboard);
+        console.log(leaderboard);
 
         hideLoading();
 
@@ -67,7 +82,7 @@ async function loadDashboard() {
 
     }
 
-    catch (error) {
+    catch(error){
 
         hideLoading();
 
@@ -81,11 +96,11 @@ async function loadDashboard() {
 
 
 
-// ==============================================
+// =============================================
 // UPDATE EVERYTHING
-// ==============================================
+// =============================================
 
-function updateDashboard() {
+function updateDashboard(){
 
     updateCards();
 
@@ -97,37 +112,42 @@ function updateDashboard() {
 
     loadRecentActivity();
 
+    updateLastRefresh();
+
 }
 
 
 
-// ==============================================
-// UPDATE KPI CARDS
-// ==============================================
+// =============================================
+// KPI CARDS
+// =============================================
 
-function updateCards() {
+function updateCards(){
 
     const participants =
-        leaderboard.length;
+    leaderboard.length;
 
     const attempts =
-        leaderboard.length;
+    leaderboard.length;
 
     let highest = 0;
 
     let certificates = 0;
 
-    leaderboard.forEach(item => {
 
-        if (Number(item.score) > highest) {
 
-            highest = Number(item.score);
+    leaderboard.forEach(function(item){
 
-        }
+        highest =
+        Math.max(
+            highest,
+            Number(item.score)
+        );
 
         certificates++;
 
     });
+
 
 
     animateCounter(
@@ -154,139 +174,136 @@ function updateCards() {
 
 
 
-// ==============================================
+// =============================================
 // COUNTER ANIMATION
-// ==============================================
+// =============================================
 
-function animateCounter(id, target) {
+function animateCounter(id,target){
 
     const element =
-        document.getElementById(id);
+    document.getElementById(id);
 
-    if (!element) return;
+    if(!element) return;
 
     let value = 0;
 
-    const increment =
-        Math.max(1, Math.ceil(target / 40));
+    const step =
+    Math.max(
+        1,
+        Math.ceil(target/40)
+    );
 
-    const timer = setInterval(function () {
+    const timer =
+    setInterval(function(){
 
-        value += increment;
+        value += step;
 
-        if (value >= target) {
+        if(value>=target){
 
-            value = target;
+            value=target;
 
             clearInterval(timer);
 
         }
 
-        element.textContent = value;
+        element.textContent=value;
 
-    }, 25);
+    },25);
 
 }
 
 
 
-// ==============================================
+// =============================================
+// LOADING
+// =============================================
+
+function showLoading(){
+
+    const loader =
+    document.getElementById("loadingOverlay");
+
+    if(loader){
+
+        loader.style.display="flex";
+
+    }
+
+}
+
+
+
+function hideLoading(){
+
+    const loader =
+    document.getElementById("loadingOverlay");
+
+    if(loader){
+
+        loader.style.display="none";
+
+    }
+
+}
+
+
+
+// =============================================
+// LAST REFRESH
+// =============================================
+
+function updateLastRefresh(){
+
+    const live =
+    document.getElementById("liveClock");
+
+    if(live){
+
+        live.innerHTML =
+        new Date().toLocaleString("en-IN");
+
+    }
+
+}
+
+
+
+// =============================================
 // AUTO REFRESH
-// ==============================================
+// =============================================
 
-function startAutoRefresh() {
+function startAutoRefresh(){
 
-    refreshTimer = setInterval(function () {
-
-        console.log("Refreshing dashboard...");
+    refreshTimer =
+    setInterval(function(){
 
         loadDashboard();
 
-    }, 30000);
+    },30000);
 
 }
-
-
-
-// ==============================================
-// LAST UPDATED
-// ==============================================
-
-function updateLastRefresh() {
-
-    const clock =
-        document.getElementById("liveClock");
-
-    if (!clock) return;
-
-    clock.innerHTML =
-        new Date().toLocaleString("en-IN");
-
-}
-
-
-
-// ==============================================
-// LOADING OVERLAY
-// ==============================================
-
-function showLoading() {
-
-    let loader =
-        document.getElementById("loadingOverlay");
-
-    if (loader) {
-
-        loader.style.display = "flex";
-
-    }
-
-}
-
-
-
-function hideLoading() {
-
-    let loader =
-        document.getElementById("loadingOverlay");
-
-    if (loader) {
-
-        loader.style.display = "none";
-
-    }
-
-}
-
-
-
-// ==============================================
-// PLACEHOLDER FUNCTIONS
-// (Implemented in later parts)
-// ==============================================
-
-// ==============================================
+// =============================================
 // POPULATE EMPLOYEE TABLE
-// ==============================================
+// =============================================
 
-function populateTable() {
+function populateTable(){
 
-    const table =
-        document.getElementById("resultTable");
+    const tbody =
+    document.getElementById("resultTable");
 
-    if (!table) return;
+    if(!tbody) return;
 
-    table.innerHTML = "";
+    tbody.innerHTML="";
 
-    if (leaderboard.length === 0) {
+    if(leaderboard.length===0){
 
-        table.innerHTML = `
+        tbody.innerHTML=`
 
         <tr>
 
             <td colspan="7">
 
-                No quiz data available.
+                No Data Available
 
             </td>
 
@@ -301,81 +318,82 @@ function populateTable() {
 
     leaderboard.forEach(function(item,index){
 
-        // ----------------------------
-        // Rank Badge
-        // ----------------------------
+        let rank=item.rank || index+1;
 
-        let rankHTML = item.rank;
+        let rankBadge=rank;
 
-        if(item.rank==1){
 
-            rankHTML =
-            '<span class="rank-gold">🥇 1</span>';
+        if(rank==1){
 
-        }
-
-        else if(item.rank==2){
-
-            rankHTML =
-            '<span class="rank-silver">🥈 2</span>';
+            rankBadge=
+            '<span class="goldRank">🥇 1</span>';
 
         }
 
-        else if(item.rank==3){
+        else if(rank==2){
 
-            rankHTML =
-            '<span class="rank-bronze">🥉 3</span>';
+            rankBadge=
+            '<span class="silverRank">🥈 2</span>';
+
+        }
+
+        else if(rank==3){
+
+            rankBadge=
+            '<span class="bronzeRank">🥉 3</span>';
 
         }
 
 
-        // ----------------------------
-        // Percentage
-        // ----------------------------
 
-        let percentage =
-            Number(String(item.percentage).replace("%",""));
+        let percentage=
+        Number(
+        String(item.percentage)
+        .replace("%","")
+        );
 
-        let percentClass = "percent-low";
+
+
+        let percentBadge="lowScore";
+
 
         if(percentage>=75){
 
-            percentClass="percent-high";
+            percentBadge="highScore";
 
         }
 
         else if(percentage>=60){
 
-            percentClass="percent-medium";
+            percentBadge="mediumScore";
 
         }
 
 
-        // ----------------------------
-        // Date
-        // ----------------------------
 
-        let date =
-            new Date(item.dateTime)
-            .toLocaleDateString(
-                "en-IN",
-                {
-                    day:"2-digit",
-                    month:"short",
-                    year:"numeric"
-                }
-            );
+        let date=
+        new Date(item.dateTime)
+        .toLocaleDateString(
+            "en-IN",
+            {
+
+                day:"2-digit",
+
+                month:"short",
+
+                year:"numeric"
+
+            }
+
+        );
 
 
-        // ----------------------------
-        // Create Row
-        // ----------------------------
 
-        table.innerHTML += `
+        tbody.innerHTML+=`
 
         <tr>
 
-            <td>${rankHTML}</td>
+            <td>${rankBadge}</td>
 
             <td>${item.employeeId}</td>
 
@@ -387,7 +405,7 @@ function populateTable() {
 
             <td>
 
-                <span class="${percentClass}">
+                <span class="${percentBadge}">
 
                     ${percentage}%
 
@@ -410,291 +428,47 @@ function populateTable() {
 
 
 
-// ==============================================
+// =============================================
 // RECORD COUNT
-// ==============================================
+// =============================================
 
 function updateRecordCount(){
 
-    const record =
-        document.getElementById("recordCount");
+    const record=
+    document.getElementById("recordCount");
 
     if(record){
 
-        record.innerHTML =
-        "Total Records : " +
-        leaderboard.length;
+        record.innerHTML=
+
+        "📋 Total Records : "
+
+        +leaderboard.length;
 
     }
 
 }
 
-function loadCharts() {// ==============================================
-// LOAD CHARTS
-// ==============================================
 
-function loadCharts(){
 
-    createScoreChart();
-
-    createPassChart();
-
-}
-
-
-
-// ==============================================
-// SCORE BAR CHART
-// ==============================================
-
-function createScoreChart(){
-
-    const canvas =
-    document.getElementById("scoreChart");
-
-    if(!canvas) return;
-
-    const ctx =
-    canvas.getContext("2d");
-
-
-    if(scoreChart){
-
-        scoreChart.destroy();
-
-    }
-
-
-    const names=[];
-    const scores=[];
-
-
-    leaderboard.forEach(function(item){
-
-        names.push(item.employeeName);
-
-        scores.push(Number(item.score));
-
-    });
-
-
-    scoreChart=new Chart(ctx,{
-
-        type:"bar",
-
-        data:{
-
-            labels:names,
-
-            datasets:[{
-
-                label:"Quiz Score",
-
-                data:scores,
-
-                backgroundColor:"#0B4FA2",
-
-                borderRadius:8
-
-            }]
-
-        },
-
-        options:{
-
-            responsive:true,
-
-            plugins:{
-
-                legend:{
-
-                    display:false
-
-                }
-
-            },
-
-            animation:{
-
-                duration:1800
-
-            },
-
-            scales:{
-
-                y:{
-
-                    beginAtZero:true
-
-                }
-
-            }
-
-        }
-
-    });
-
-}
-
-
-
-// ==============================================
-// PASS / FAIL CHART
-// ==============================================
-
-function createPassChart(){
-
-    const canvas =
-    document.getElementById("passChart");
-
-    if(!canvas) return;
-
-    const ctx =
-    canvas.getContext("2d");
-
-
-    if(passChart){
-
-        passChart.destroy();
-
-    }
-
-
-    let pass=0;
-    let fail=0;
-
-
-    leaderboard.forEach(function(item){
-
-        let p =
-        Number(
-        String(item.percentage)
-        .replace("%",""));
-
-        if(p>=60){
-
-            pass++;
-
-        }
-
-        else{
-
-            fail++;
-
-        }
-
-    });
-
-
-    passChart=new Chart(ctx,{
-
-        type:"doughnut",
-
-        data:{
-
-            labels:[
-
-                "Pass",
-
-                "Fail"
-
-            ],
-
-            datasets:[{
-
-                data:[
-
-                    pass,
-
-                    fail
-
-                ],
-
-                backgroundColor:[
-
-                    "#4CAF50",
-
-                    "#F44336"
-
-                ]
-
-            }]
-
-        },
-
-        options:{
-
-            responsive:true,
-
-            animation:{
-
-                animateRotate:true,
-
-                duration:1800
-
-            }
-
-        }
-
-    });
-
-}
-
-function loadTopPerformers() {}
-
-function loadRecentActivity() {// ==============================================
-// RECENT ACTIVITY
-// ==============================================
-
-function loadRecentActivity(){
-
-    const activity=
-    document.getElementById("recentActivity");
-
-    if(!activity) return;
-
-    activity.innerHTML="";
-
-
-    leaderboard
-    .slice(0,5)
-    .forEach(function(item){
-
-        activity.innerHTML+=`
-
-        <p>
-
-        ✅ ${item.employeeName}
-
-        scored
-
-        <strong>
-
-        ${item.score}/${item.totalQuestions}
-
-        </strong>
-
-        on
-
-        ${new Date(item.dateTime)
-        .toLocaleDateString("en-IN")}
-
-        </p>
-
-        `;
-
-    });
-
-}}
-// ==============================================
+// =============================================
 // LIVE SEARCH
-// ==============================================
+// =============================================
 
-const searchBox = document.getElementById("search");
+function initialiseSearch(){
 
-if(searchBox){
+    const search=
+    document.getElementById("search");
 
-    searchBox.addEventListener("keyup", searchEmployee);
+    if(!search) return;
+
+    search.addEventListener(
+
+        "keyup",
+
+        searchEmployee
+
+    );
 
 }
 
@@ -702,22 +476,37 @@ if(searchBox){
 
 function searchEmployee(){
 
-    const keyword =
-        document
-        .getElementById("search")
-        .value
-        .toLowerCase()
-        .trim();
+    const keyword=
+
+    document
+
+    .getElementById("search")
+
+    .value
+
+    .toLowerCase()
+
+    .trim();
 
 
-    const rows =
-        document.querySelectorAll("#resultTable tr");
+
+    const rows=
+
+    document.querySelectorAll(
+
+        "#resultTable tr"
+
+    );
+
 
 
     rows.forEach(function(row){
 
-        const text =
-            row.innerText.toLowerCase();
+        const text=
+
+        row.innerText.toLowerCase();
+
+
 
         if(text.includes(keyword)){
 
@@ -734,17 +523,25 @@ function searchEmployee(){
     });
 
 }
-// ==============================================
-// SORTING
-// ==============================================
+
+
+
+// =============================================
+// SORT BY SCORE
+// =============================================
 
 function sortByScore(){
 
     leaderboard.sort(function(a,b){
 
-        return Number(b.score)-Number(a.score);
+        return Number(b.score)
+
+        -
+
+        Number(a.score);
 
     });
+
 
     leaderboard.forEach(function(item,index){
 
@@ -752,17 +549,26 @@ function sortByScore(){
 
     });
 
+
     populateTable();
 
 }
 
 
+
+// =============================================
+// SORT BY NAME
+// =============================================
 
 function sortByName(){
 
     leaderboard.sort(function(a,b){
 
-        return a.employeeName.localeCompare(b.employeeName);
+        return a.employeeName.localeCompare(
+
+            b.employeeName
+
+        );
 
     });
 
@@ -772,14 +578,482 @@ function sortByName(){
 
 
 
+// =============================================
+// SORT BY EMPLOYEE ID
+// =============================================
+
 function sortByEmployeeId(){
 
     leaderboard.sort(function(a,b){
 
-        return Number(a.employeeId)-Number(b.employeeId);
+        return Number(a.employeeId)
+
+        -
+
+        Number(b.employeeId);
 
     });
 
     populateTable();
+
+}
+// =============================================
+// LOAD ALL CHARTS
+// =============================================
+
+function loadCharts(){
+
+    createScoreChart();
+
+    createPassChart();
+
+}
+
+
+
+// =============================================
+// SCORE BAR CHART
+// =============================================
+
+function createScoreChart(){
+
+    const canvas =
+    document.getElementById("scoreChart");
+
+    if(!canvas) return;
+
+    if(scoreChart){
+
+        scoreChart.destroy();
+
+    }
+
+    const names=[];
+    const scores=[];
+
+    leaderboard.forEach(function(item){
+
+        names.push(item.employeeName);
+
+        scores.push(Number(item.score));
+
+    });
+
+    scoreChart=new Chart(
+
+        canvas,
+
+        {
+
+            type:"bar",
+
+            data:{
+
+                labels:names,
+
+                datasets:[{
+
+                    label:"Quiz Score",
+
+                    data:scores,
+
+                    backgroundColor:[
+                        "#0B4FA2",
+                        "#1976D2",
+                        "#42A5F5",
+                        "#64B5F6",
+                        "#90CAF9",
+                        "#1565C0",
+                        "#5C6BC0"
+                    ],
+
+                    borderRadius:10,
+
+                    borderWidth:1
+
+                }]
+
+            },
+
+            options:{
+
+                responsive:true,
+
+                maintainAspectRatio:false,
+
+                animation:{
+
+                    duration:1800
+
+                },
+
+                plugins:{
+
+                    legend:{
+
+                        display:false
+
+                    },
+
+                    title:{
+
+                        display:true,
+
+                        text:"Employee Quiz Scores"
+
+                    }
+
+                },
+
+                scales:{
+
+                    y:{
+
+                        beginAtZero:true,
+
+                        suggestedMax:20
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    );
+
+}
+
+
+
+// =============================================
+// PASS FAIL DOUGHNUT CHART
+// =============================================
+
+function createPassChart(){
+
+    const canvas =
+    document.getElementById("passChart");
+
+    if(!canvas) return;
+
+    if(passChart){
+
+        passChart.destroy();
+
+    }
+
+    let pass=0;
+
+    let fail=0;
+
+    leaderboard.forEach(function(item){
+
+        let p=Number(
+
+            String(item.percentage)
+
+            .replace("%","")
+
+        );
+
+        if(p>=60){
+
+            pass++;
+
+        }
+
+        else{
+
+            fail++;
+
+        }
+
+    });
+
+    passChart=new Chart(
+
+        canvas,
+
+        {
+
+            type:"doughnut",
+
+            data:{
+
+                labels:[
+
+                    "Pass",
+
+                    "Fail"
+
+                ],
+
+                datasets:[{
+
+                    data:[
+
+                        pass,
+
+                        fail
+
+                    ],
+
+                    backgroundColor:[
+
+                        "#4CAF50",
+
+                        "#F44336"
+
+                    ],
+
+                    borderWidth:2
+
+                }]
+
+            },
+
+            options:{
+
+                responsive:true,
+
+                maintainAspectRatio:false,
+
+                animation:{
+
+                    animateRotate:true,
+
+                    duration:1800
+
+                },
+
+                plugins:{
+
+                    legend:{
+
+                        position:"bottom"
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    );
+
+}
+
+
+
+// =============================================
+// TOP 5 PERFORMERS
+// =============================================
+
+function loadTopPerformers(){
+
+    const container=
+
+    document.getElementById(
+
+        "topFiveList"
+
+    );
+
+    if(!container) return;
+
+    container.innerHTML="";
+
+    leaderboard
+
+    .slice(0,5)
+
+    .forEach(function(item,index){
+
+        let medal="🏅";
+
+        if(index===0) medal="🥇";
+
+        if(index===1) medal="🥈";
+
+        if(index===2) medal="🥉";
+
+        container.innerHTML+=`
+
+        <div class="top-player">
+
+            <div>
+
+                <strong>
+
+                ${medal}
+
+                ${item.employeeName}
+
+                </strong>
+
+                <br>
+
+                Employee ID :
+
+                ${item.employeeId}
+
+            </div>
+
+            <div>
+
+                ⭐ ${item.score}/${item.totalQuestions}
+
+            </div>
+
+        </div>
+
+        `;
+
+    });
+
+}
+
+
+
+// =============================================
+// RECENT ACTIVITY
+// =============================================
+
+function loadRecentActivity(){
+
+    const activity=
+
+    document.getElementById(
+
+        "recentActivity"
+
+    );
+
+    if(!activity) return;
+
+    activity.innerHTML="";
+
+    leaderboard
+
+    .slice(0,5)
+
+    .forEach(function(item){
+
+        activity.innerHTML+=`
+
+        <p>
+
+        ✅ <strong>
+
+        ${item.employeeName}
+
+        </strong>
+
+        scored
+
+        <strong>
+
+        ${item.score}/${item.totalQuestions}
+
+        </strong>
+
+        on
+
+        ${new Date(item.dateTime)
+
+        .toLocaleDateString(
+
+        "en-IN",
+
+        {
+
+            day:"2-digit",
+
+            month:"short",
+
+            year:"numeric"
+
+        })
+
+        }
+
+        </p>
+
+        `;
+
+    });
+
+}
+
+
+
+// =============================================
+// DASHBOARD SUMMARY
+// =============================================
+
+function getAverageScore(){
+
+    if(leaderboard.length===0)
+
+        return 0;
+
+    let total=0;
+
+    leaderboard.forEach(function(item){
+
+        total+=Number(item.score);
+
+    });
+
+    return (
+
+        total/
+
+        leaderboard.length
+
+    ).toFixed(2);
+
+}
+
+
+
+function getPassPercentage(){
+
+    if(leaderboard.length===0)
+
+        return 0;
+
+    let pass=0;
+
+    leaderboard.forEach(function(item){
+
+        if(
+
+            Number(
+
+            String(item.percentage)
+
+            .replace("%","")
+
+            )>=60
+
+        ){
+
+            pass++;
+
+        }
+
+    });
+
+    return (
+
+        pass*100/
+
+        leaderboard.length
+
+    ).toFixed(1);
 
 }
