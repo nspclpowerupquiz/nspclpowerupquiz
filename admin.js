@@ -1,453 +1,274 @@
-// ==========================================
+// ==============================================
 // NSPCL POWER-UP QUIZ
 // ADMIN DASHBOARD
-// ==========================================
+// PART 1
+// ==============================================
 
 
+
+// ==============================================
 // GOOGLE APPS SCRIPT URL
+// ==============================================
 
 const SCRIPT_URL =
-"https://script.google.com/macros/s/AKfycbwBbn0mA_VbQG3A4lz7nDGWZm66P6jKBx12zXbYZ-OoCudVBzIvK-MkuZEXxLcECl5wdw/exec";
+"https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec";
 
 
 
-let employeeData=[];
+// ==============================================
+// GLOBAL VARIABLES
+// ==============================================
+
+let leaderboard = [];
+
+let scoreChart = null;
+
+let passChart = null;
+
+let refreshTimer = null;
 
 
 
-// ==========================================
+// ==============================================
 // PAGE LOAD
-// ==========================================
+// ==============================================
 
-window.onload=function(){
+window.onload = function () {
 
     loadDashboard();
 
-    document
-    .getElementById("search")
-    .addEventListener(
-        "keyup",
-        searchEmployee
-    );
+    startAutoRefresh();
 
 };
 
 
 
-
-// ==========================================
+// ==============================================
 // LOAD DASHBOARD
-// ==========================================
+// ==============================================
 
-async function loadDashboard(){
+async function loadDashboard() {
 
-try{
+    try {
 
-    // Leaderboard Data
+        showLoading();
 
-    const response=
-    await fetch(
-        SCRIPT_URL+"?action=leaderboard"
-    );
+        const response = await fetch(
+            SCRIPT_URL + "?action=leaderboard"
+        );
 
-    const data=
-    await response.json();
+        leaderboard = await response.json();
 
-    employeeData=data;
+        console.log("Leaderboard:", leaderboard);
 
-    updateCards(data);
+        hideLoading();
 
-    loadTable(data);
-
-    loadCharts(data);
-
-}
-catch(error){
-
-    console.log(error);
-
-    document.getElementById("resultTable").innerHTML=`
-
-    <tr>
-
-        <td colspan="7">
-
-        Unable to load data
-
-        </td>
-
-    </tr>
-
-    `;
-
-}
-
-}
-
-
-
-
-
-// ==========================================
-// DASHBOARD CARDS
-// ==========================================
-
-function updateCards(data){
-
-document.getElementById("participants").innerHTML=data.length;
-
-document.getElementById("attempts").innerHTML=data.length;
-
-document.getElementById("certificates").innerHTML=data.length;
-
-
-let highest=0;
-
-data.forEach(function(emp){
-
-    if(Number(emp.score)>highest){
-
-        highest=Number(emp.score);
+        updateDashboard();
 
     }
 
-});
+    catch (error) {
 
-document.getElementById("highest").innerHTML=highest;
+        hideLoading();
 
-}
+        console.error(error);
 
+        alert("Unable to load dashboard.");
 
-
-
-
-// ==========================================
-// EMPLOYEE TABLE
-// ==========================================
-
-function loadTable(data){
-
-const table=
-document.getElementById("resultTable");
-
-table.innerHTML="";
-
-
-if(data.length===0){
-
-table.innerHTML=`
-
-<tr>
-
-<td colspan="7">
-
-No Records Found
-
-</td>
-
-</tr>
-
-`;
-
-return;
-
-}
-
-
-data.forEach(function(emp,index){
-
-let percentage=emp.percentage;
-
-// Handle both "75%" and 0.75 formats
-if(typeof percentage==="string"){
-
-    percentage=percentage;
-
-}
-else{
-
-    percentage=Math.round(Number(percentage)*100)+"%";
-
-}
-
-
-table.innerHTML+=`
-
-<tr>
-
-<td>${index+1}</td>
-
-<td>${emp.employeeId}</td>
-
-<td>${emp.employeeName}</td>
-
-<td>${emp.score}</td>
-
-<td>${emp.totalQuestions}</td>
-
-<td>${percentage}</td>
-
-<td>
-
-${new Date(emp.dateTime).toLocaleDateString("en-IN")}
-
-</td>
-
-</tr>
-
-`;
-
-});
-
-
-}
-
-
-
-
-
-// ==========================================
-// SEARCH
-// ==========================================
-
-function searchEmployee(){
-
-const value=
-
-document
-
-.getElementById("search")
-
-.value
-
-.toLowerCase();
-
-
-
-const filtered=
-
-employeeData.filter(function(emp){
-
-return(
-
-String(emp.employeeId)
-
-.includes(value)
-
-||
-
-emp.employeeName
-
-.toLowerCase()
-
-.includes(value)
-
-);
-
-});
-
-
-
-loadTable(filtered);
-
-}
-// ==========================================
-// CHARTS
-// ==========================================
-
-let scoreChart = null;
-let passChart = null;
-
-function loadCharts(data){
-
-    if(typeof Chart==="undefined"){
-        return;
     }
 
-    // Destroy old charts
+}
 
-    if(scoreChart){
-        scoreChart.destroy();
-    }
 
-    if(passChart){
-        passChart.destroy();
-    }
 
-    // Employee Names
+// ==============================================
+// UPDATE EVERYTHING
+// ==============================================
 
-    const labels = data.map(emp => emp.employeeName);
+function updateDashboard() {
 
-    const scores = data.map(emp => Number(emp.score));
+    updateCards();
 
-    // Percentages
+    populateTable();
 
-    const percentages = data.map(emp => {
+    loadCharts();
 
-        if(typeof emp.percentage==="string"){
+    loadTopPerformers();
 
-            return parseFloat(emp.percentage);
+    loadRecentActivity();
 
-        }
+}
 
-        return Number(emp.percentage)*100;
 
-    });
 
-    // ==========================
-    // BAR CHART
-    // ==========================
+// ==============================================
+// UPDATE KPI CARDS
+// ==============================================
 
-    scoreChart = new Chart(
+function updateCards() {
 
-        document.getElementById("scoreChart"),
+    const participants =
+        leaderboard.length;
 
-        {
+    const attempts =
+        leaderboard.length;
 
-            type:"bar",
+    let highest = 0;
 
-            data:{
+    let certificates = 0;
 
-                labels:labels,
+    leaderboard.forEach(item => {
 
-                datasets:[{
+        if (Number(item.score) > highest) {
 
-                    label:"Quiz Score",
-
-                    data:scores,
-
-                    borderWidth:1
-
-                }]
-
-            },
-
-            options:{
-
-                responsive:true,
-
-                plugins:{
-
-                    legend:{
-                        display:false
-                    }
-
-                },
-
-                scales:{
-
-                    y:{
-
-                        beginAtZero:true,
-
-                        max:20
-
-                    }
-
-                }
-
-            }
+            highest = Number(item.score);
 
         }
 
-    );
-
-
-
-    // ==========================
-    // PASS / FAIL CHART
-    // ==========================
-
-    let pass=0;
-
-    let fail=0;
-
-    percentages.forEach(function(p){
-
-        if(p>=60){
-
-            pass++;
-
-        }
-        else{
-
-            fail++;
-
-        }
+        certificates++;
 
     });
 
 
-    passChart = new Chart(
+    animateCounter(
+        "participants",
+        participants
+    );
 
-        document.getElementById("passChart"),
+    animateCounter(
+        "attempts",
+        attempts
+    );
 
-        {
+    animateCounter(
+        "highest",
+        highest
+    );
 
-            type:"doughnut",
-
-            data:{
-
-                labels:["Pass","Fail"],
-
-                datasets:[{
-
-                    data:[pass,fail]
-
-                }]
-
-            },
-
-            options:{
-
-                responsive:true
-
-            }
-
-        }
-
+    animateCounter(
+        "certificates",
+        certificates
     );
 
 }
 
 
 
-// ==========================================
-// AUTO REFRESH
-// ==========================================
-
-setInterval(function(){
-
-    loadDashboard();
-
-},30000);
-
-
-
-// ==========================================
+// ==============================================
 // COUNTER ANIMATION
-// ==========================================
+// ==============================================
 
-function animateCounter(id,target){
+function animateCounter(id, target) {
 
-    let count=0;
+    const element =
+        document.getElementById(id);
 
-    let step=Math.max(1,Math.ceil(target/40));
+    if (!element) return;
 
-    let interval=setInterval(function(){
+    let value = 0;
 
-        count+=step;
+    const increment =
+        Math.max(1, Math.ceil(target / 40));
 
-        if(count>=target){
+    const timer = setInterval(function () {
 
-            count=target;
+        value += increment;
 
-            clearInterval(interval);
+        if (value >= target) {
+
+            value = target;
+
+            clearInterval(timer);
 
         }
 
-        document.getElementById(id).innerHTML=count;
+        element.textContent = value;
 
-    },20);
+    }, 25);
 
 }
+
+
+
+// ==============================================
+// AUTO REFRESH
+// ==============================================
+
+function startAutoRefresh() {
+
+    refreshTimer = setInterval(function () {
+
+        console.log("Refreshing dashboard...");
+
+        loadDashboard();
+
+    }, 30000);
+
+}
+
+
+
+// ==============================================
+// LAST UPDATED
+// ==============================================
+
+function updateLastRefresh() {
+
+    const clock =
+        document.getElementById("liveClock");
+
+    if (!clock) return;
+
+    clock.innerHTML =
+        new Date().toLocaleString("en-IN");
+
+}
+
+
+
+// ==============================================
+// LOADING OVERLAY
+// ==============================================
+
+function showLoading() {
+
+    let loader =
+        document.getElementById("loadingOverlay");
+
+    if (loader) {
+
+        loader.style.display = "flex";
+
+    }
+
+}
+
+
+
+function hideLoading() {
+
+    let loader =
+        document.getElementById("loadingOverlay");
+
+    if (loader) {
+
+        loader.style.display = "none";
+
+    }
+
+}
+
+
+
+// ==============================================
+// PLACEHOLDER FUNCTIONS
+// (Implemented in later parts)
+// ==============================================
+
+function populateTable() {}
+
+function loadCharts() {}
+
+function loadTopPerformers() {}
+
+function loadRecentActivity() {}
