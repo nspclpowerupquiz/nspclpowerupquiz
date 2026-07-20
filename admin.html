@@ -12,83 +12,251 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
 
+<div class="page">
+
+<!-- ================= HEADER ================= -->
+
 <header class="header">
 
-    <div class="logo-area">
+<div class="logo-area">
 
-        <h1>⚡ NSPCL Power-Up Quiz</h1>
+<h1>⚡ NSPCL Power-Up Quiz</h1>
 
-        <p>Administrator Dashboard</p>
+<p>
 
-    </div>
+Administrator Dashboard
 
-    <nav>
+</p>
 
-        <a href="index.html">🏠 Home</a>
+</div>
 
-        <a href="leaderboard.html">🏆 Leaderboard</a>
+<div class="header-right">
 
-        <a href="analytics.html">📊 Analytics</a>
+<div class="clock">
 
-    </nav>
+🕒
+
+<span id="liveClock">
+
+Loading...
+
+</span>
+
+</div>
+
+<nav>
+
+<a href="index.html">
+
+🏠 Home
+
+</a>
+
+<a href="leaderboard.html">
+
+🏆 Leaderboard
+
+</a>
+
+<a href="analytics.html">
+
+📊 Analytics
+
+</a>
+
+<a href="certificate.html">
+
+📜 Certificate
+
+</a>
+
+</nav>
+
+</div>
 
 </header>
 
+<!-- ================= WELCOME ================= -->
 
+<section class="welcome">
 
-<section class="dashboard">
+<div>
 
-    <h2>📊 Dashboard Overview</h2>
+<h2>
 
-    <div class="cards">
+Welcome Administrator
 
-        <div class="card">
+</h2>
 
-            <h3>Total Participants</h3>
+<p>
 
-            <h1 id="participants">0</h1>
+Monitor all quiz activities, employee performance, certificates and analytics from one place.
 
-        </div>
+</p>
 
-        <div class="card">
+</div>
 
-            <h3>Total Attempts</h3>
+<div class="status">
 
-            <h1 id="attempts">0</h1>
+<span class="online"></span>
 
-        </div>
+System Online
 
-        <div class="card">
-
-            <h3>Highest Score</h3>
-
-            <h1 id="highest">0</h1>
-
-        </div>
-
-        <div class="card">
-
-            <h3>Certificates Issued</h3>
-
-            <h1 id="certificates">0</h1>
-
-        </div>
-
-    </div>
+</div>
 
 </section>
 
+<!-- ================= DASHBOARD ================= -->
 
+<section class="dashboard">
+
+<div class="dashboard-title">
+
+<h2>
+
+📊 Dashboard Overview
+
+</h2>
+
+<p>
+
+Live data from Google Sheets
+
+</p>
+
+</div>
+
+<div class="cards">
+
+<div class="card participants">
+
+<div class="icon">
+
+👥
+
+</div>
+
+<div>
+
+<h3>
+
+Total Participants
+
+</h3>
+
+<h1 id="participants">
+
+0
+
+</h1>
+
+</div>
+
+</div>
+
+<div class="card attempts">
+
+<div class="icon">
+
+📝
+
+</div>
+
+<div>
+
+<h3>
+
+Quiz Attempts
+
+</h3>
+
+<h1 id="attempts">
+
+0
+
+</h1>
+
+</div>
+
+</div>
+
+<div class="card highest">
+
+<div class="icon">
+
+🏆
+
+</div>
+
+<div>
+
+<h3>
+
+Highest Score
+
+</h3>
+
+<h1 id="highest">
+
+0
+
+</h1>
+
+</div>
+
+</div>
+
+<div class="card certificates">
+
+<div class="icon">
+
+📜
+
+</div>
+
+<div>
+
+<h3>
+
+Certificates
+
+</h3>
+
+<h1 id="certificates">
+
+0
+
+</h1>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+<!-- ================= CHARTS ================= -->
 
 <section class="charts">
 
     <div class="chart-box">
 
-        <h2>📈 Employee Scores</h2>
+        <div class="box-header">
+
+            <h2>📈 Employee Scores</h2>
+
+            <span class="live-tag">LIVE</span>
+
+        </div>
 
         <canvas id="scoreChart"></canvas>
 
@@ -96,7 +264,13 @@
 
     <div class="chart-box">
 
-        <h2>🍩 Pass vs Fail</h2>
+        <div class="box-header">
+
+            <h2>🍩 Pass vs Fail</h2>
+
+            <span class="live-tag">LIVE</span>
+
+        </div>
 
         <canvas id="passChart"></canvas>
 
@@ -106,23 +280,219 @@
 
 
 
-<section class="search-area">
+<!-- ================= SECOND ROW ================= -->
 
-    <input
+<section class="info-grid">
 
-    type="text"
+    <!-- TOP PERFORMERS -->
 
-    id="search"
+    <div class="info-card">
 
-    placeholder="🔍 Search Employee ID or Name">
+        <h2>🥇 Top Performers</h2>
+
+        <div id="topPerformers">
+
+            <p>Loading...</p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- DAILY STATS -->
+
+    <div class="info-card">
+
+        <h2>📅 Today's Statistics</h2>
+
+        <div class="mini-stats">
+
+            <div>
+
+                <h3 id="todayAttempts">
+
+                    0
+
+                </h3>
+
+                <p>
+
+                    Attempts Today
+
+                </p>
+
+            </div>
+
+            <div>
+
+                <h3 id="todayCertificates">
+
+                    0
+
+                </h3>
+
+                <p>
+
+                    Certificates
+
+                </p>
+
+            </div>
+
+            <div>
+
+                <h3 id="todayHighest">
+
+                    0
+
+                </h3>
+
+                <p>
+
+                    Best Score
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </section>
 
 
 
+<!-- ================= QUICK ACTIONS ================= -->
+
+<section class="quick-actions">
+
+<h2>
+
+⚡ Quick Actions
+
+</h2>
+
+<div class="action-grid">
+
+<button onclick="loadDashboard()">
+
+🔄
+
+Refresh Dashboard
+
+</button>
+
+<button onclick="window.print()">
+
+🖨
+
+Print Dashboard
+
+</button>
+
+<button onclick="exportExcel()">
+
+📥
+
+Export Excel
+
+</button>
+
+<button onclick="exportPDF()">
+
+📄
+
+Export PDF
+
+</button>
+
+<button onclick="downloadLeaderboard()">
+
+🏆
+
+Leaderboard
+
+</button>
+
+<button onclick="downloadCertificates()">
+
+📜
+
+Certificates
+
+</button>
+
+</div>
+
+</section>
+<!-- ================= SEARCH ================= -->
+
+<section class="search-area">
+
+<div class="search-container">
+
+<div class="search-box">
+
+<span class="search-icon">🔍</span>
+
+<input
+type="text"
+id="search"
+placeholder="Search Employee ID or Employee Name...">
+
+</div>
+
+<div class="search-info">
+
+<span id="recordCount">
+
+0 Records
+
+</span>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ================= EMPLOYEE TABLE ================= -->
+
 <section class="table-section">
 
-<h2>📋 Employee Quiz Results</h2>
+<div class="table-header">
+
+<h2>
+
+📋 Employee Quiz Results
+
+</h2>
+
+<div class="table-buttons">
+
+<button onclick="loadDashboard()">
+
+🔄 Refresh
+
+</button>
+
+<button onclick="window.print()">
+
+🖨 Print
+
+</button>
+
+</div>
+
+</div>
+
+
+
+<div class="table-container">
 
 <table>
 
@@ -142,19 +512,25 @@
 
 <th>Percentage</th>
 
+<th>Grade</th>
+
 <th>Date</th>
+
+<th>Action</th>
 
 </tr>
 
 </thead>
 
+
+
 <tbody id="resultTable">
 
 <tr>
 
-<td colspan="7">
+<td colspan="9">
 
-Loading Data...
+Loading employee records...
 
 </td>
 
@@ -164,25 +540,37 @@ Loading Data...
 
 </table>
 
-</section>
+</div>
 
 
 
-<section class="activity">
+<div class="table-footer">
 
-<h2>🕒 System Status</h2>
+<div>
 
-<div class="activity-box">
+Showing
 
-<p>✅ Google Sheet Connected</p>
+<span id="showingRecords">
 
-<p>📊 Live Dashboard Enabled</p>
+0
 
-<p>🏆 Leaderboard Connected</p>
+</span>
 
-<p>📜 Certificate Generator Active</p>
+Records
 
-<p>🔄 Auto Refresh Every 30 Seconds</p>
+</div>
+
+<div>
+
+Last Updated :
+
+<span id="lastRefresh">
+
+--
+
+</span>
+
+</div>
 
 </div>
 
@@ -190,18 +578,24 @@ Loading Data...
 
 
 
-<footer>
+<!-- ================= TOP 5 LIST ================= -->
 
-<p>
+<section class="top-five">
 
-© 2026 NTPC SAIL POWER COMPANY LIMITED (NSPCL)
+<h2>
 
-</p>
+🏆 Top 5 Employees
 
-</footer>
+</h2>
 
-<script src="admin.js"></script>
+<div id="topFiveList">
 
-</body>
+<div class="loading">
 
-</html>
+Loading...
+
+</div>
+
+</div>
+
+</section>
