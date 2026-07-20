@@ -236,37 +236,24 @@ alert(
 // ==========================================
 // DOWNLOAD PDF FIXED
 // ==========================================
-
 async function downloadPDF(){
 
 
-console.log("PDF button clicked");
-
+console.log("PDF Download Started");
 
 
 const certificate =
 document.getElementById("certificate");
 
 
-// Hide watermark temporarily
+// Disable animations temporarily
 
-const watermark =
-document.querySelector(".watermark");
-
-
-if(watermark){
-
-    watermark.style.display="none";
-
-}
+certificate.classList.add("pdf-mode");
 
 
+// Wait for rendering
 
-// wait for rendering
-
-await new Promise(
-resolve=>setTimeout(resolve,500)
-);
+await new Promise(resolve=>setTimeout(resolve,500));
 
 
 
@@ -275,13 +262,13 @@ await html2canvas(
 certificate,
 {
 
-scale:2,
+scale:3,
 
 useCORS:true,
 
 backgroundColor:"#ffffff",
 
-foreignObjectRendering:true
+logging:true
 
 }
 
@@ -289,13 +276,9 @@ foreignObjectRendering:true
 
 
 
-// Show watermark again
+// Remove PDF mode
 
-if(watermark){
-
-    watermark.style.display="block";
-
-}
+certificate.classList.remove("pdf-mode");
 
 
 
@@ -304,51 +287,35 @@ canvas.toDataURL("image/png");
 
 
 
-const {jsPDF} =
-window.jspdf;
-
+const {jsPDF}=window.jspdf;
 
 
 const pdf =
 new jsPDF(
-
 "landscape",
-
 "mm",
-
 "a4"
-
 );
 
 
 
 pdf.addImage(
-
 imgData,
-
 "PNG",
-
 5,
-
 5,
-
 287,
-
 200
-
 );
 
 
 
 pdf.save(
-
-"NSPCL_Certificate_" +
-
-employeeId +
-
-".pdf"
-
+"NSPCL_Certificate_"+employeeId+".pdf"
 );
+
+
+}
 
 
 }
