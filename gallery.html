@@ -4,7 +4,6 @@
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Gallery | NSPCL Power-Up Quiz</title>
@@ -12,26 +11,28 @@
 <link rel="stylesheet" href="style.css">
 
 </head>
+
+
+<body>
+
+
 <!-- IMAGE POPUP -->
 
 <div id="imagePopup" class="image-popup">
-
 
 <span id="closePopup">
 ✖
 </span>
 
-
 <img id="popupImage">
-
 
 </div>
 
-<body>
 
 
-<!-- ================= HEADER ================= -->
 
+
+<!-- HEADER -->
 
 <header class="header">
 
@@ -65,7 +66,6 @@ Knowledge • Innovation • Excellence
 
 <a href="certificate.html">📜 Certificate</a>
 
-
 </nav>
 
 
@@ -73,8 +73,10 @@ Knowledge • Innovation • Excellence
 
 
 
-<!-- ================= HERO ================= -->
 
+
+
+<!-- HERO -->
 
 <section class="hero">
 
@@ -83,15 +85,13 @@ Knowledge • Innovation • Excellence
 
 
 <h1>
-📸 NSPCL Learning Gallery
+📸 NSPCL Power Gallery
 </h1>
 
 
 <p>
-
-Capturing moments of learning, achievement,
-innovation and excellence.
-
+Celebrating learning, innovation,
+achievement and excellence.
 </p>
 
 
@@ -104,29 +104,28 @@ innovation and excellence.
 
 
 
-<!-- ================= FEATURE IMAGE ================= -->
+
+
+<!-- FEATURE IMAGE -->
 
 
 <section class="featured-image">
 
 
-<img src="images/powerplant.jpg"
-alt="NSPCL Power Plant">
+<img src="images/powerplant.jpg">
 
 
 <div class="featured-text">
 
 
 <h2>
-Powering Knowledge
+⚡ Powering Knowledge
 </h2>
 
 
 <p>
-
-Building a culture of continuous learning
-and professional excellence.
-
+A journey of learning,
+teamwork and operational excellence.
 </p>
 
 
@@ -139,7 +138,94 @@ and professional excellence.
 
 
 
-<!-- ================= GALLERY ================= -->
+
+
+
+
+<!-- JOURNEY -->
+
+
+<section class="power-timeline">
+
+
+<h2>
+⚡ NSPCL Journey of Excellence
+</h2>
+
+
+
+<div class="timeline">
+
+
+<div class="timeline-card">
+
+<h3>
+🏭 Power Generation
+</h3>
+
+<p>
+Delivering reliable power through technology and teamwork.
+</p>
+
+</div>
+
+
+
+<div class="timeline-card">
+
+<h3>
+📚 Learning Culture
+</h3>
+
+<p>
+Creating knowledge through continuous improvement.
+</p>
+
+</div>
+
+
+
+<div class="timeline-card">
+
+<h3>
+🏆 Recognition
+</h3>
+
+<p>
+Celebrating achievements and excellence.
+</p>
+
+</div>
+
+
+
+<div class="timeline-card">
+
+<h3>
+🌱 Future Ready
+</h3>
+
+<p>
+Innovation for sustainable energy.
+</p>
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- GALLERY -->
 
 
 <section class="gallery">
@@ -152,15 +238,6 @@ Gallery of Excellence
 </h1>
 
 
-<p>
-
-Explore photographs highlighting technical learning,
-quiz competitions, employee achievements,
-certificate ceremonies and NSPCL power plants.
-
-</p>
-
-
 
 <div class="gallery-filter">
 
@@ -171,12 +248,12 @@ All
 
 
 <button class="btn">
-🏭 Power Plants
+🏭 Plants
 </button>
 
 
 <button class="btn">
-📚 Quiz
+📚 Learning
 </button>
 
 
@@ -186,16 +263,20 @@ All
 
 
 <button class="btn">
-📜 Certificates
+🦺 Safety
 </button>
 
 
 <button class="btn">
-🤝 Events
+🌱 Environment
 </button>
 
 
 </div>
+
+
+
+
 
 
 
@@ -204,303 +285,135 @@ All
 
 
 
-<!-- CARD 1 -->
+<script>
+
+for(let i=1;i<=12;i++){
+
+document.write(`
 
 <div class="gallery-card">
 
-<img src="images/gallery1.jpg">
+
+<img 
+src="images/gallery${i}.jpg"
+onclick="openImage(this.src)"
+>
+
 
 <div class="overlay">
 
 <h3>
-🏭 NSPCL Power Plant
+⚡ NSPCL Excellence
 </h3>
 
-<p>
-Powering the Nation with Excellence
-</p>
-
-</div>
-
-</div>
-
-
-
-
-<!-- CARD 2 -->
-
-
-<div class="gallery-card">
-
-<img src="images/gallery2.jpg">
-
-<div class="overlay">
-
-<h3>
-📚 Technical Quiz
-</h3>
 
 <p>
-SSC C&M Knowledge Session
+Learning • Innovation • Growth
 </p>
 
-</div>
 
 </div>
 
 
-
-
-<!-- CARD 3 -->
-
-
-<div class="gallery-card">
-
-<img src="images/gallery3.jpg">
-
-<div class="overlay">
-
-<h3>
-🏆 Quiz Champion
-</h3>
-
-<p>
-Recognizing Excellence
-</p>
-
 </div>
 
-</div>
+`);
 
+}
 
-
-
-<!-- CARD 4 -->
-
-
-<div class="gallery-card">
-
-<img src="images/gallery4.jpg">
-
-<div class="overlay">
-
-<h3>
-📜 Certificate Ceremony
-</h3>
-
-<p>
-Celebrating Achievement
-</p>
-
-</div>
-
-</div>
-
-
-
-
-<!-- CARD 5 -->
-
-
-<div class="gallery-card">
-
-<img src="images/gallery5.jpg">
-
-<div class="overlay">
-
-<h3>
-👨‍🏫 Knowledge Sharing
-</h3>
-
-<p>
-Continuous Learning Culture
-</p>
-
-</div>
-
-</div>
-
-
-
-
-<!-- CARD 6 -->
-
-
-<div class="gallery-card">
-
-<img src="images/gallery6.jpg">
-
-<div class="overlay">
-
-<h3>
-🤝 Team Collaboration
-</h3>
-
-<p>
-Together Towards Excellence
-</p>
-
-</div>
-
-</div>
-
-
-<!-- CARD 7 -->
-
-
-<div class="gallery-card">
-
-<img src="images/gallery7.jpg">
-
-<div class="overlay">
-
-<h3>
-🎓 Employee Training
-</h3>
-
-<p>
-Professional Skill Development
-</p>
-
-</div>
-
-</div>
-
-
-
-
-<!-- CARD 8 -->
-
-
-<div class="gallery-card">
-
-<img src="images/gallery8.jpg">
-
-<div class="overlay">
-
-<h3>
-⚡ Thermal Power Station
-</h3>
-
-<p>
-Operational Excellence
-</p>
-
-</div>
-
-</div>
-
-
-
-
-<!-- CARD 9 -->
-
-
-<div class="gallery-card">
-
-<img src="images/gallery9.jpg">
-
-<div class="overlay">
-
-<h3>
-🔥 Daily Challenge
-</h3>
-
-<p>
-Learning Every Day
-</p>
-
-</div>
-
-</div>
-
-
-
-
-<!-- CARD 10 -->
-
-
-<div class="gallery-card">
-
-<img src="images/gallery10.jpg">
-
-<div class="overlay">
-
-<h3>
-📦 Materials Management
-</h3>
-
-<p>
-Inventory & Warehouse Operations
-</p>
-
-</div>
-
-</div>
-
-
-
-
-<!-- CARD 11 -->
-
-
-<div class="gallery-card">
-
-<img src="images/gallery11.jpg">
-
-<div class="overlay">
-
-<h3>
-📑 Procurement Process
-</h3>
-
-<p>
-Transparent & Efficient Procurement
-</p>
-
-</div>
-
-</div>
-
-
-
-
-<!-- CARD 12 -->
-
-
-<div class="gallery-card">
-
-<img src="images/gallery12.jpg">
-
-<div class="overlay">
-
-<h3>
-🌟 Team NSPCL
-</h3>
-
-<p>
-Together Towards Excellence
-</p>
-
-</div>
-
-</div>
+</script>
 
 
 
 </div>
-<!-- END GALLERY GRID -->
-
 
 
 </section>
-<!-- END GALLERY SECTION -->
 
 
 
 
 
-<!-- ================= GALLERY STATISTICS ================= -->
+
+
+
+
+<!-- ACHIEVEMENT WALL -->
+
+
+<section class="achievement-wall">
+
+
+<h2>
+🏆 NSPCL Champions Wall
+</h2>
+
+
+
+<div class="champions">
+
+
+<div class="champion-card">
+
+🥇
+
+<h3>
+Power Champion
+</h3>
+
+<p>
+Highest Quiz Score
+</p>
+
+</div>
+
+
+
+<div class="champion-card">
+
+🔥
+
+<h3>
+Learning Star
+</h3>
+
+<p>
+Daily Challenge Leader
+</p>
+
+</div>
+
+
+
+<div class="champion-card">
+
+⚡
+
+<h3>
+Knowledge Leader
+</h3>
+
+<p>
+Continuous Excellence
+</p>
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- STATISTICS -->
 
 
 <section class="gallery-stats">
@@ -509,7 +422,6 @@ Together Towards Excellence
 <h2>
 📊 Gallery Highlights
 </h2>
-
 
 
 <div class="stats">
@@ -550,7 +462,7 @@ Quiz Attempts
 </h2>
 
 <p>
-Certificates Issued
+Certificates
 </p>
 
 </div>
@@ -580,20 +492,23 @@ Learning Events
 
 
 
-<!-- ================= VIDEO SECTION ================= -->
+
+
+
+
+<!-- VIDEO -->
 
 
 <section class="video-gallery">
 
 
 <h2>
-🎥 Featured Learning Videos
+🎥 Learning Zone
 </h2>
 
 
 
 <div class="feature-container">
-
 
 
 <div class="card">
@@ -603,50 +518,38 @@ Learning Events
 </h3>
 
 <p>
-
-A glimpse into NSPCL power generation facilities
-and operational excellence.
-
+Understanding power generation excellence.
 </p>
 
 </div>
-
 
 
 
 <div class="card">
 
 <h3>
-📚 SSC C&M Knowledge Session
+📚 Knowledge Sessions
 </h3>
 
 <p>
-
-Learning procurement, contracts,
-materials management and supply chain practices.
-
+Learning procurement and technical concepts.
 </p>
 
 </div>
-
 
 
 
 <div class="card">
 
 <h3>
-🏆 Quiz Highlights
+🏆 Quiz Moments
 </h3>
 
 <p>
-
-Celebrating winners, achievements
-and continuous learning.
-
+Celebrating employee achievements.
 </p>
 
 </div>
-
 
 
 </div>
@@ -658,34 +561,58 @@ and continuous learning.
 
 
 
-<!-- ================= CTA ================= -->
+
+
+
+
+<!-- QUOTE -->
+
+
+<section class="gallery-quote">
+
+
+<h2>
+💡 Power Thought
+</h2>
+
+
+<p id="galleryQuote">
+
+Knowledge is the power behind excellence.
+
+</p>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- CTA -->
 
 
 <section class="cta">
 
 
 <h2>
-
 Knowledge Powers Performance
-
 </h2>
 
 
 <p>
-
-Continuous learning is the foundation of
-operational excellence.
-
-Every quiz completed is another step
-towards professional growth.
-
+Every learning step creates a better tomorrow.
 </p>
 
 
 
 <a href="quiz.html" class="btn">
 
-🚀 Start Your Quiz
+🚀 Start Quiz
 
 </a>
 
@@ -696,7 +623,10 @@ towards professional growth.
 
 
 
-<!-- ================= FOOTER ================= -->
+
+
+
+<!-- FOOTER -->
 
 
 <footer>
@@ -708,17 +638,12 @@ towards professional growth.
 
 
 <p>
-SSC Contracts & Materials (C&M) Function
-</p>
-
-
-<p>
 Learn • Compete • Grow • Excel
 </p>
 
 
 <p>
-© 2026 NSPCL Power-Up Quiz | All Rights Reserved
+© 2026 NSPCL Power-Up Quiz
 </p>
 
 
@@ -728,10 +653,62 @@ Learn • Compete • Grow • Excel
 
 
 
-<!-- ================= SCRIPT ================= -->
 
 
-<script src="script.js"></script>
+<script>
+
+
+// IMAGE POPUP
+
+
+function openImage(src){
+
+document.getElementById("popupImage").src=src;
+
+document.getElementById("imagePopup")
+.style.display="flex";
+
+}
+
+
+
+document.getElementById("closePopup")
+.onclick=function(){
+
+document.getElementById("imagePopup")
+.style.display="none";
+
+};
+
+
+
+
+
+// QUOTES
+
+
+const quotes=[
+
+"⚡ Knowledge drives innovation.",
+
+"🔥 Excellence comes from continuous learning.",
+
+"🌱 Every learner builds a better future.",
+
+"🏆 Success belongs to those who keep learning."
+
+];
+
+
+let today=new Date().getDate();
+
+
+document.getElementById("galleryQuote").innerHTML=
+
+quotes[today%quotes.length];
+
+
+</script>
 
 
 
