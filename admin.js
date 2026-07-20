@@ -1,86 +1,61 @@
-// =================================
-// NSPCL ADMIN PANEL
-// =================================
+const SCRIPT_URL =
+"https://script.google.com/macros/s/AKfycbwBbn0mA_VbQG3A4lz7nDGWZm66P6jKBx12zXbYZ-OoCudVBzIvK-MkuZEXxLcECl5wdw/exec";
 
 
 
-let questionBank =
-
-JSON.parse(
-
-localStorage.getItem("NSPCL_questions")
-
-)
-
-|| [];
+let results=[];
 
 
 
+window.onload=function(){
 
+loadAdmin();
 
-function addQuestion(){
-
-
-
-let q={
-
-
-question:
-
-document.getElementById("question").value,
-
-
-options:[
-
-
-document.getElementById("option1").value,
-
-document.getElementById("option2").value,
-
-document.getElementById("option3").value,
-
-document.getElementById("option4").value
-
-
-],
-
-
-
-answer:
-
-document.getElementById("answer").value,
-
-
-
-category:
-
-document.getElementById("category").value
-
+document
+.getElementById("search")
+.addEventListener(
+"keyup",
+searchData
+);
 
 };
 
 
 
 
-questionBank.push(q);
+
+function loadAdmin(){
+
+
+fetch(
+SCRIPT_URL+"?action=leaderboard"
+)
+
+.then(res=>res.json())
+
+.then(data=>{
+
+
+console.log(data);
+
+
+results=data;
+
+
+updateCards(data);
+
+
+showTable(data);
 
 
 
-localStorage.setItem(
+})
 
-"NSPCL_questions",
+.catch(err=>{
 
-JSON.stringify(questionBank)
+console.log(err);
 
-);
-
-
-
-alert("Question Added Successfully");
-
-
-
-displayQuestions();
+});
 
 
 }
@@ -89,52 +64,87 @@ displayQuestions();
 
 
 
-function displayQuestions(){
+
+function updateCards(data){
 
 
-let list=
-
-document.getElementById("questionList");
-
+document.getElementById("participants")
+.innerHTML=data.length;
 
 
-list.innerHTML="";
-
-
-
-questionBank.forEach((q,index)=>{
-
-
-list.innerHTML+=`
-
-<div class="card">
-
-
-<h3>
-
-${index+1}. ${q.question}
-
-</h3>
-
-
-<p>
-Category: ${q.category}
-</p>
+document.getElementById("attempts")
+.innerHTML=data.length;
 
 
 
-<button onclick="deleteQuestion(${index})">
-
-❌ Delete
-
-</button>
+let high=0;
 
 
-</div>
+data.forEach(x=>{
+
+
+if(Number(x.score)>high)
+
+high=x.score;
+
+
+});
+
+
+document.getElementById("highest")
+.innerHTML=high;
+
+
+
+document.getElementById("certificates")
+.innerHTML=data.length;
+
+
+
+}
+
+
+
+
+
+function showTable(data){
+
+
+let table=
+document.getElementById("resultTable");
+
+
+table.innerHTML="";
+
+
+
+data.forEach((x,i)=>{
+
+
+table.innerHTML+=`
+
+
+<tr>
+
+<td>${i+1}</td>
+
+<td>${x.employeeId}</td>
+
+<td>${x.employeeName}</td>
+
+<td>${x.score}</td>
+
+<td>${x.totalQuestions}</td>
+
+<td>${Math.round(Number(x.percentage)*100)}%</td>
+
+<td>${new Date(x.dateTime).toLocaleDateString()}</td>
+
+
+</tr>
 
 
 `;
-
 
 
 });
@@ -146,30 +156,43 @@ Category: ${q.category}
 
 
 
-function deleteQuestion(index){
+
+function searchData(){
+
+
+let value=
+document
+.getElementById("search")
+.value
+.toLowerCase();
 
 
 
-questionBank.splice(index,1);
+let filtered=
+results.filter(x=>{
 
 
+return (
 
-localStorage.setItem(
+String(x.employeeId)
+.includes(value)
 
-"NSPCL_questions",
+||
 
-JSON.stringify(questionBank)
+x.employeeName
+.toLowerCase()
+.includes(value)
+
 
 );
 
 
+});
 
-displayQuestions();
+
+
+showTable(filtered);
+
 
 
 }
-
-
-
-
-displayQuestions();
