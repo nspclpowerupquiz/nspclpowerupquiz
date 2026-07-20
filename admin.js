@@ -429,11 +429,263 @@ function updateRecordCount(){
 
 }
 
-function loadCharts() {}
+function loadCharts() {// ==============================================
+// LOAD CHARTS
+// ==============================================
+
+function loadCharts(){
+
+    createScoreChart();
+
+    createPassChart();
+
+}
+
+
+
+// ==============================================
+// SCORE BAR CHART
+// ==============================================
+
+function createScoreChart(){
+
+    const canvas =
+    document.getElementById("scoreChart");
+
+    if(!canvas) return;
+
+    const ctx =
+    canvas.getContext("2d");
+
+
+    if(scoreChart){
+
+        scoreChart.destroy();
+
+    }
+
+
+    const names=[];
+    const scores=[];
+
+
+    leaderboard.forEach(function(item){
+
+        names.push(item.employeeName);
+
+        scores.push(Number(item.score));
+
+    });
+
+
+    scoreChart=new Chart(ctx,{
+
+        type:"bar",
+
+        data:{
+
+            labels:names,
+
+            datasets:[{
+
+                label:"Quiz Score",
+
+                data:scores,
+
+                backgroundColor:"#0B4FA2",
+
+                borderRadius:8
+
+            }]
+
+        },
+
+        options:{
+
+            responsive:true,
+
+            plugins:{
+
+                legend:{
+
+                    display:false
+
+                }
+
+            },
+
+            animation:{
+
+                duration:1800
+
+            },
+
+            scales:{
+
+                y:{
+
+                    beginAtZero:true
+
+                }
+
+            }
+
+        }
+
+    });
+
+}
+
+
+
+// ==============================================
+// PASS / FAIL CHART
+// ==============================================
+
+function createPassChart(){
+
+    const canvas =
+    document.getElementById("passChart");
+
+    if(!canvas) return;
+
+    const ctx =
+    canvas.getContext("2d");
+
+
+    if(passChart){
+
+        passChart.destroy();
+
+    }
+
+
+    let pass=0;
+    let fail=0;
+
+
+    leaderboard.forEach(function(item){
+
+        let p =
+        Number(
+        String(item.percentage)
+        .replace("%",""));
+
+        if(p>=60){
+
+            pass++;
+
+        }
+
+        else{
+
+            fail++;
+
+        }
+
+    });
+
+
+    passChart=new Chart(ctx,{
+
+        type:"doughnut",
+
+        data:{
+
+            labels:[
+
+                "Pass",
+
+                "Fail"
+
+            ],
+
+            datasets:[{
+
+                data:[
+
+                    pass,
+
+                    fail
+
+                ],
+
+                backgroundColor:[
+
+                    "#4CAF50",
+
+                    "#F44336"
+
+                ]
+
+            }]
+
+        },
+
+        options:{
+
+            responsive:true,
+
+            animation:{
+
+                animateRotate:true,
+
+                duration:1800
+
+            }
+
+        }
+
+    });
+
+}
 
 function loadTopPerformers() {}
 
-function loadRecentActivity() {}
+function loadRecentActivity() {// ==============================================
+// RECENT ACTIVITY
+// ==============================================
+
+function loadRecentActivity(){
+
+    const activity=
+    document.getElementById("recentActivity");
+
+    if(!activity) return;
+
+    activity.innerHTML="";
+
+
+    leaderboard
+    .slice(0,5)
+    .forEach(function(item){
+
+        activity.innerHTML+=`
+
+        <p>
+
+        ✅ ${item.employeeName}
+
+        scored
+
+        <strong>
+
+        ${item.score}/${item.totalQuestions}
+
+        </strong>
+
+        on
+
+        ${new Date(item.dateTime)
+        .toLocaleDateString("en-IN")}
+
+        </p>
+
+        `;
+
+    });
+
+}}
 // ==============================================
 // LIVE SEARCH
 // ==============================================
@@ -480,5 +732,54 @@ function searchEmployee(){
         }
 
     });
+
+}
+// ==============================================
+// SORTING
+// ==============================================
+
+function sortByScore(){
+
+    leaderboard.sort(function(a,b){
+
+        return Number(b.score)-Number(a.score);
+
+    });
+
+    leaderboard.forEach(function(item,index){
+
+        item.rank=index+1;
+
+    });
+
+    populateTable();
+
+}
+
+
+
+function sortByName(){
+
+    leaderboard.sort(function(a,b){
+
+        return a.employeeName.localeCompare(b.employeeName);
+
+    });
+
+    populateTable();
+
+}
+
+
+
+function sortByEmployeeId(){
+
+    leaderboard.sort(function(a,b){
+
+        return Number(a.employeeId)-Number(b.employeeId);
+
+    });
+
+    populateTable();
 
 }
