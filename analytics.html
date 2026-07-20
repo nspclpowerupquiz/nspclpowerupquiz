@@ -7,9 +7,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Analytics | NSPCL Power-Up Quiz</title>
+<title>NSPCL Power-Up Quiz | Analytics</title>
 
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="analytics.css">
 
 </head>
 
@@ -17,18 +17,20 @@
 <body>
 
 
-<header class="header">
+<header class="top-header">
 
-<h2>📈 Analytics Dashboard</h2>
+<h1>⚡ NSPCL Power-Up Quiz</h1>
+
+<p>Performance Analytics Dashboard</p>
 
 
 <nav>
 
-<a href="index.html">Home</a>
+<a href="index.html">🏠 Home</a>
 
 <a href="quiz.html">Quiz</a>
 
-<a href="leaderboard.html">Leaderboard</a>
+<a href="leaderboard.html">🏆 Leaderboard</a>
 
 </nav>
 
@@ -37,26 +39,42 @@
 
 
 
-<section class="analytics">
 
 
-<h1>Performance Dashboard</h1>
+<section class="dashboard">
+
+
+<h2>
+📊 Quiz Performance Overview
+</h2>
+
+
+<p class="subtitle">
+Real-time statistics fetched from Google Sheet
+</p>
 
 
 
-<div class="analytics-grid">
+
+
+<div class="cards">
 
 
 
-<div class="analytics-card">
+<div class="card blue">
 
-<h2>👨‍💼</h2>
+<div class="icon">
+👨‍💼
+</div>
 
-<h3 id="totalParticipants">
+<h3>Total Participants</h3>
+
+<h1 id="totalParticipants">
 0
-</h3>
+</h1>
 
-<p>Total Participants</p>
+
+<p>Employees attempted quiz</p>
 
 </div>
 
@@ -64,15 +82,20 @@
 
 
 
-<div class="analytics-card">
+<div class="card green">
 
-<h2>📝</h2>
+<div class="icon">
+📝
+</div>
 
-<h3 id="totalAttempts">
+<h3>Total Attempts</h3>
+
+<h1 id="totalAttempts">
 0
-</h3>
+</h1>
 
-<p>Total Attempts</p>
+
+<p>Total quiz submissions</p>
 
 </div>
 
@@ -80,15 +103,20 @@
 
 
 
-<div class="analytics-card">
+<div class="card gold">
 
-<h2>🏆</h2>
+<div class="icon">
+⭐
+</div>
 
-<h3 id="averageScore">
+<h3>Highest Score</h3>
+
+<h1 id="highestScore">
 0
-</h3>
+</h1>
 
-<p>Average Score</p>
+
+<p>Maximum marks achieved</p>
 
 </div>
 
@@ -96,45 +124,84 @@
 
 
 
-<div class="analytics-card">
+<div class="card purple">
 
-<h2>⭐</h2>
+<div class="icon">
+📈
+</div>
 
-<h3 id="highestScore">
+<h3>Average Score</h3>
+
+<h1 id="averageScore">
 0
-</h3>
+</h1>
 
-<p>Highest Score</p>
+
+<p>Average performance</p>
 
 </div>
 
 
 
+<div class="card red">
 
-<div class="analytics-card">
+<div class="icon">
+✅
+</div>
 
-<h2>✅</h2>
+<h3>Pass Percentage</h3>
 
-<h3 id="passPercentage">
+<h1 id="passPercentage">
 0%
-</h3>
+</h1>
 
-<p>Pass Percentage</p>
+
+<p>Employees scoring above 60%</p>
+
+</div>
+
+
 
 </div>
 
 
 
 
+
+
+<div class="progress-box">
+
+
+<h2>
+🎯 Success Rate
+</h2>
+
+
+<div class="progress">
+
+<div id="passBar">
+
+0%
+
+</div>
+
+</div>
+
+
 </div>
 
 
 
 
-<h2>Latest Update</h2>
 
 
-<div class="activity">
+<div class="update-box">
+
+
+<h2>
+🕒 Last Updated
+</h2>
+
 
 <p id="lastUpdated">
 Loading...
@@ -145,7 +212,10 @@ Loading...
 
 
 
+
 </section>
+
+
 
 
 
