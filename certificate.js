@@ -8,6 +8,9 @@
 // GOOGLE APPS SCRIPT URL
 // ==========================================
 
+alert("Certificate JS Connected");
+console.log("Certificate JS Connected")
+
 console.log("Certificate JS Loaded");
 
 const SCRIPT_URL =
