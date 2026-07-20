@@ -1750,3 +1750,41 @@ img{
     }
 
 }
+/* =====================================
+   PDF CAPTURE MODE
+===================================== */
+
+.pdf-mode,
+.pdf-mode * {
+
+    animation:none !important;
+
+    transition:none !important;
+
+}
+
+
+.pdf-mode .employeeName,
+.pdf-mode .scoreBox,
+.pdf-mode .badge {
+
+    opacity:1 !important;
+
+    transform:none !important;
+
+}
+
+
+.pdf-mode .watermark{
+
+    animation:none !important;
+
+}
+
+
+.pdf-mode .heading{
+
+    -webkit-text-fill-color:#0B4FA2 !important;
+
+}
+
