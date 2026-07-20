@@ -1,275 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
+<!-- ==========================
+     NSPCL GALLERY SECTION
+=========================== -->
 
-<head>
+<section class="gallery-section">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>NSPCL Power-Up Quiz | Gallery</title>
-
-<link rel="stylesheet" href="style.css">
-
-
-<style>
-
-/* PAGE */
-
-body{
-
-    margin:0;
-    font-family:'Segoe UI',sans-serif;
-
-    background:
-    linear-gradient(135deg,#061a40,#003566,#0077b6);
-
-    color:white;
-
-}
-
-
-/* HEADER */
-
-.gallery-header{
-
-    text-align:center;
-
-    padding:35px 20px;
-
-    background:
-    rgba(255,255,255,0.12);
-
-    backdrop-filter:blur(12px);
-
-    box-shadow:
-    0 8px 25px rgba(0,0,0,0.3);
-
-}
-
-
-.gallery-header h1{
-
-    font-size:42px;
-
-    margin:10px;
-
-}
-
-
-.gallery-header p{
-
-    font-size:18px;
-
-    opacity:.9;
-
-}
-
-
-
-/* BACK BUTTON */
-
-.back-btn{
-
-    display:inline-block;
-
-    margin-top:20px;
-
-    padding:12px 28px;
-
-    background:#ffcc00;
-
-    color:#003566;
-
-    border-radius:30px;
-
-    text-decoration:none;
-
-    font-weight:bold;
-
-    transition:.3s;
-
-}
-
-
-.back-btn:hover{
-
-    transform:scale(1.08);
-
-}
-
-
-
-/* GALLERY GRID */
-
-.gallery-container{
-
-    padding:40px;
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(auto-fit,minmax(280px,1fr));
-
-    gap:30px;
-
-}
-
-
-
-/* IMAGE CARD */
-
-.gallery-card{
-
-    background:
-    rgba(255,255,255,0.15);
-
-    border-radius:22px;
-
-    overflow:hidden;
-
-    box-shadow:
-    0 10px 30px rgba(0,0,0,.35);
-
-    transition:.4s;
-
-}
-
-
-.gallery-card:hover{
-
-    transform:
-    translateY(-12px)
-    scale(1.03);
-
-}
-
-
-
-/* IMAGE */
-
-.gallery-card img{
-
-    width:100%;
-
-    height:240px;
-
-    object-fit:cover;
-
-    cursor:pointer;
-
-    transition:.4s;
-
-}
-
-
-.gallery-card img:hover{
-
-    transform:scale(1.08);
-
-}
-
-
-
-/* TITLE */
-
-.gallery-title{
-
-    padding:18px;
-
-    text-align:center;
-
-    font-size:20px;
-
-    font-weight:700;
-
-}
-
-
-
-/* LOADING */
-
-.loading{
-
-    grid-column:1/-1;
-
-    text-align:center;
-
-    font-size:24px;
-
-    padding:50px;
-
-}
-
-
-
-
-/* MOBILE */
-
-@media(max-width:600px){
-
-
-.gallery-container{
-
-    padding:20px;
-
-}
-
-
-.gallery-header h1{
-
-    font-size:30px;
-
-}
-
-
-}
-
-
-</style>
-
-
-</head>
-
-
-
-<body>
-
-
-
-<header class="gallery-header">
-
-
-<h1>
-📸 NSPCL Power-Up Gallery
+<h1 class="gallery-title">
+    NSPCL Power-Up Quiz Gallery
 </h1>
 
-
-<p>
-Moments of learning, competition and power sector awareness
+<p class="gallery-subtitle">
+    Moments, achievements and celebrations from NSPCL Power-Up Quiz
 </p>
 
 
+<!-- FILTER BUTTONS -->
 
-<a href="index.html" class="back-btn">
-⬅ Back to Home
-</a>
+<div class="gallery-filter">
+
+<button onclick="filterGallery('all')">
+All
+</button>
+
+<button onclick="filterGallery('event')">
+Events
+</button>
+
+<button onclick="filterGallery('quiz')">
+Quiz
+</button>
+
+<button onclick="filterGallery('plant')">
+Power Plant
+</button>
+
+<button onclick="filterGallery('award')">
+Awards
+</button>
+
+</div>
 
 
-</header>
 
+<!-- IMAGE CONTAINER -->
 
+<div id="galleryContainer" class="gallery-grid">
 
-
-<!-- LIVE GOOGLE SHEET GALLERY WILL LOAD HERE -->
-
-<section 
-id="galleryContainer" 
-class="gallery-container">
-
-
-<div class="loading">
-
-⏳ Loading Gallery Images...
+<!-- Images will load from Google Sheet -->
 
 </div>
 
@@ -278,13 +54,16 @@ class="gallery-container">
 
 
 
+<!-- IMAGE POPUP -->
 
-<!-- GOOGLE SHEET CONNECTED SCRIPT -->
+<div id="imagePopup" class="popup">
 
-<script src="gallery.js"></script>
+<span onclick="closePopup()" class="close">
+×
+</span>
 
+<img id="popupImage">
 
+<h3 id="popupTitle"></h3>
 
-</body>
-
-</html>
+</div>
