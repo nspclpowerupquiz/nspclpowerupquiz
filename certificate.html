@@ -4,84 +4,79 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Certificate | NSPCL Power-Up Quiz</title>
 
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="certificate.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
 </head>
 
 <body>
 
-<header class="header">
+<div class="certificate" id="certificate">
 
-<h2>📜 Certificate of Achievement</h2>
+<div class="border">
 
-</header>
+<h3>NTPC SAIL POWER COMPANY LIMITED</h3>
 
-<section class="certificate-section">
-
-<div class="certificate">
-
-<div class="certificate-border">
-
-<h4>⚡ NSPCL POWER-UP QUIZ</h4>
-
-<h1>CERTIFICATE OF ACHIEVEMENT</h1>
+<h1>Certificate of Achievement</h1>
 
 <p>This certificate is proudly presented to</p>
 
-<h2 id="candidateName">Employee Name</h2>
+<h2 id="name">Employee Name</h2>
 
-<p>Employee ID :
-<strong id="empId">EMP001</strong></p>
+<p>Employee ID</p>
 
-<p>
+<h3 id="empid"></h3>
 
-For successfully completing the
+<p>for successfully participating in</p>
 
-<strong>SSC C&M Functional Knowledge Assessment</strong>
+<h2>NSPCL POWER-UP QUIZ</h2>
 
-with outstanding performance.
+<p>and securing</p>
 
-</p>
+<h1 id="score"></h1>
 
-<div class="score-box">
+<p id="percentage"></p>
 
-<div>
+<br>
 
-<h3>92%</h3>
-
-<p>Score</p>
-
-</div>
+<div class="row">
 
 <div>
 
-<h3>A+</h3>
+<strong>Date</strong>
 
-<p>Grade</p>
+<p id="date"></p>
 
 </div>
 
 <div>
 
-<h3>Gold</h3>
+<strong>Certificate No.</strong>
 
-<p>Badge</p>
-
-</div>
+<p id="certno"></p>
 
 </div>
 
-<div class="certificate-footer">
+</div>
+
+<br>
+
+<div class="signatures">
 
 <div>
 
 ____________________
 
-<p>Date</p>
+<br>
+
+HR Department
 
 </div>
 
@@ -89,15 +84,9 @@ ____________________
 
 ____________________
 
-<p>Authorized Signatory</p>
+<br>
 
-</div>
-
-</div>
-
-<div class="qr">
-
-📱 QR Verification
+Training Department
 
 </div>
 
@@ -105,23 +94,19 @@ ____________________
 
 </div>
 
-<div class="certificate-buttons">
+</div>
 
-<button onclick="window.print()">
+<br>
 
-🖨 Print Certificate
+<center>
 
+<button onclick="downloadPDF()">
+Download Certificate
 </button>
 
-<button>
+</center>
 
-⬇ Download PDF
-
-</button>
-
-</div>
-
-</section>
+<script src="certificate.js"></script>
 
 </body>
 
