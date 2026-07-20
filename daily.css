@@ -1,7 +1,38 @@
 /* ==========================================
    NSPCL POWER PULSE - DAILY CHALLENGE CSS
 ========================================== */
+/* DAILY CHALLENGE OVERRIDE */
 
+.daily *{
+    box-sizing:border-box;
+}
+
+
+.daily .daily-hero,
+.daily .stat-box,
+.daily .employee-card,
+.daily .quote-card,
+.daily .challenge-card,
+.daily .question-card,
+.daily .progress-card,
+.daily .fact-card,
+.daily .champion-card,
+.daily .reward-card{
+
+    color:white !important;
+
+}
+
+
+.daily h1,
+.daily h2,
+.daily h3,
+.daily p,
+.daily span{
+
+    color:white !important;
+
+}
 
 .daily{
 
