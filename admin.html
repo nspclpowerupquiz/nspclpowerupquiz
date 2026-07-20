@@ -6,148 +6,296 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>NSPCL Admin Dashboard</title>
+<title>NSPCL Power-Up Quiz | Admin Dashboard</title>
 
 <link rel="stylesheet" href="admin.css">
 
-</head>
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
 
 <body>
 
+<!-- Sidebar -->
+
+<div class="sidebar">
+
+<div class="logo">
+
+⚡ NSPCL
+
+</div>
+
+<ul>
+
+<li class="active">
+
+<i class="fa-solid fa-chart-line"></i>
+
+Dashboard
+
+</li>
+
+<li>
+
+<i class="fa-solid fa-users"></i>
+
+Employees
+
+</li>
+
+<li>
+
+<i class="fa-solid fa-circle-question"></i>
+
+Questions
+
+</li>
+
+<li>
+
+<i class="fa-solid fa-award"></i>
+
+Certificates
+
+</li>
+
+<li>
+
+<i class="fa-solid fa-chart-column"></i>
+
+Analytics
+
+</li>
+
+<li>
+
+<i class="fa-solid fa-gear"></i>
+
+Settings
+
+</li>
+
+<li onclick="location.href='index.html'">
+
+<i class="fa-solid fa-house"></i>
+
+Home
+
+</li>
+
+</ul>
+
+</div>
+
+<!-- Main Content -->
+
+<div class="main">
 
 <header>
 
-<h1>⚡ NSPCL Power-Up Quiz</h1>
+<h1>
 
-<p>Admin Control Dashboard</p>
+⚡ NSPCL POWER-UP QUIZ ADMIN
 
-<a href="index.html">🏠 Home</a>
+</h1>
+
+<div class="admin">
+
+<i class="fa-solid fa-user-shield"></i>
+
+Administrator
+
+</div>
 
 </header>
 
-
-
-<section class="dashboard">
-
-
-<h2>📊 Overview</h2>
-
+<!-- Dashboard Cards -->
 
 <div class="cards">
 
+<div class="card">
+
+<i class="fa-solid fa-users"></i>
+
+<h2 id="participants">0</h2>
+
+<p>Total Participants</p>
+
+</div>
 
 <div class="card">
-<h3>👨‍💼 Total Participants</h3>
-<h1 id="participants">0</h1>
-</div>
 
+<i class="fa-solid fa-file-circle-check"></i>
+
+<h2 id="attempts">0</h2>
+
+<p>Total Attempts</p>
+
+</div>
 
 <div class="card">
-<h3>📝 Total Attempts</h3>
-<h1 id="attempts">0</h1>
+
+<i class="fa-solid fa-trophy"></i>
+
+<h2 id="highest">0</h2>
+
+<p>Highest Score</p>
+
 </div>
-
-
 
 <div class="card">
-<h3>🏆 Highest Score</h3>
-<h1 id="highest">0</h1>
-</div>
 
+<i class="fa-solid fa-certificate"></i>
 
+<h2 id="certificates">0</h2>
 
-<div class="card">
-<h3>📜 Certificates</h3>
-<h1 id="certificates">0</h1>
-</div>
-
+<p>Certificates</p>
 
 </div>
 
+</div>
 
+<!-- Charts -->
 
+<div class="chart-grid">
 
+<div class="chart-box">
 
-<h2>👥 Employee Results</h2>
+<h3>Score Distribution</h3>
 
+<canvas id="scoreChart"></canvas>
+
+</div>
+
+<div class="chart-box">
+
+<h3>Performance</h3>
+
+<canvas id="performanceChart"></canvas>
+
+</div>
+
+</div>
+
+<!-- Search -->
 
 <div class="search">
 
-<input 
+<input
+
+type="text"
+
 id="search"
-placeholder="Search Employee ID / Name">
+
+placeholder="🔍 Search Employee ID or Name">
 
 </div>
 
+<!-- Employee Table -->
 
+<div class="table-box">
+
+<h2>
+
+Employee Results
+
+</h2>
 
 <table>
-
 
 <thead>
 
 <tr>
 
 <th>Rank</th>
-<th>ID</th>
+
+<th>Employee ID</th>
+
 <th>Name</th>
+
 <th>Score</th>
+
 <th>Total</th>
+
 <th>Percentage</th>
+
 <th>Date</th>
 
 </tr>
 
 </thead>
 
-
 <tbody id="resultTable">
-
 
 <tr>
 
 <td colspan="7">
 
-Loading Data...
+Loading...
 
 </td>
 
 </tr>
 
-
 </tbody>
-
 
 </table>
 
+</div>
 
+<!-- Activity -->
 
+<div class="activity">
 
+<h2>
 
-<h2>⚙ System Status</h2>
+Recent Activity
 
+</h2>
 
-<div class="status">
+<ul>
 
+<li>
 
-<p>🟢 Google Sheet Connected</p>
+✅ Google Sheet Connected
 
-<p>🟢 Quiz System Active</p>
+</li>
 
-<p>🟢 Certificate Generator Active</p>
+<li>
 
+✅ Quiz System Running
+
+</li>
+
+<li>
+
+✅ Certificate Generator Ready
+
+</li>
+
+<li>
+
+✅ Analytics Connected
+
+</li>
+
+</ul>
 
 </div>
 
+<footer>
 
+NSPCL Power-Up Quiz © 2026
 
-</section>
+</footer>
 
-
+</div>
 
 <script src="admin.js"></script>
-
 
 </body>
 
