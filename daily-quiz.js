@@ -1,14 +1,17 @@
 // =====================================
 // NSPCL POWER PULSE
-// DAILY QUIZ SYSTEM
+// DAILY QUIZ SYSTEM V2
 // =====================================
 
 
 // Employee Details
 
-let employeeName = localStorage.getItem("employeeName") || "Employee";
+let employeeName =
+localStorage.getItem("employeeName") || "Employee";
 
-document.getElementById("employeeName").innerHTML = employeeName;
+
+document.getElementById("employeeName").innerHTML =
+employeeName;
 
 
 
@@ -16,96 +19,51 @@ document.getElementById("employeeName").innerHTML = employeeName;
 // DAILY QUESTIONS
 // ================================
 
-
 const dailyQuestions = [
 
 {
-question:
-"Which fuel is mainly used in thermal power plants?",
-
-options:[
-"Coal",
-"Wind",
-"Solar",
-"Hydrogen"
-],
-
+question:"Which fuel is mainly used in thermal power plants?",
+options:["Coal","Wind","Solar","Hydrogen"],
 answer:"Coal"
-
 },
 
 
 {
-question:
-"NSPCL is a joint venture between NTPC and which company?",
-
-options:[
-"SAIL",
-"BHEL",
-"ONGC",
-"Power Grid"
-],
-
+question:"NSPCL is a joint venture between NTPC and which company?",
+options:["SAIL","BHEL","ONGC","Power Grid"],
 answer:"SAIL"
-
 },
 
 
 {
-question:
-"Which equipment converts mechanical energy into electrical energy?",
-
-options:[
-"Boiler",
-"Generator",
-"Transformer",
-"Condenser"
-],
-
+question:"Which equipment converts mechanical energy into electrical energy?",
+options:["Boiler","Generator","Transformer","Condenser"],
 answer:"Generator"
-
 },
 
 
 {
-question:
-"Which of these is a renewable source of energy?",
-
-options:[
-"Coal",
-"Oil",
-"Solar",
-"Gas"
-],
-
+question:"Which of these is a renewable source of energy?",
+options:["Coal","Oil","Solar","Gas"],
 answer:"Solar"
-
 },
 
 
 {
-question:
-"Safety is the responsibility of?",
-
+question:"Safety is the responsibility of?",
 options:[
 "Only Manager",
 "Only Engineer",
 "Every Employee",
 "Only Supervisor"
 ],
-
 answer:"Every Employee"
-
 }
-
 
 ];
 
 
 
-
-
-// Variables
 
 
 let currentQuestion = 0;
@@ -114,9 +72,8 @@ let score = 0;
 
 let points = 0;
 
-let time = 300; // 5 minutes
+let answered = false;
 
-let timer;
 
 
 
@@ -131,7 +88,11 @@ let timer;
 function loadQuestion(){
 
 
-let q = dailyQuestions[currentQuestion];
+answered=false;
+
+
+let q=dailyQuestions[currentQuestion];
+
 
 
 document.getElementById("question").innerHTML =
@@ -140,13 +101,24 @@ document.getElementById("question").innerHTML =
 
 
 
-let optionsHTML="";
+document.getElementById("questionNumber").innerHTML =
+currentQuestion+1;
 
 
-q.options.forEach(function(option){
+
+document.getElementById("totalQuestions").innerHTML =
+dailyQuestions.length;
 
 
-optionsHTML += `
+
+let html="";
+
+
+
+q.options.forEach(option=>{
+
+
+html += `
 
 <button onclick="checkAnswer(this,'${option}')">
 
@@ -156,16 +128,18 @@ ${option}
 
 `;
 
-
 });
 
 
+document.getElementById("options").innerHTML=html;
 
-document.getElementById("options").innerHTML = optionsHTML;
 
+
+updateProgress();
 
 
 }
+
 
 
 
@@ -180,35 +154,22 @@ document.getElementById("options").innerHTML = optionsHTML;
 function checkAnswer(button,selected){
 
 
-let correct = dailyQuestions[currentQuestion].answer;
+if(answered)
+return;
+
+
+answered=true;
 
 
 
-if(selected === correct){
-
-
-score++;
-
-
-button.style.background="green";
-
-
-}
-
-
-else{
-
-
-button.style.background="red";
-
-
-}
+let correct =
+dailyQuestions[currentQuestion].answer;
 
 
 
-// Disable buttons
+let buttons =
+document.querySelectorAll("#options button");
 
-let buttons=document.querySelectorAll("#options button");
 
 
 buttons.forEach(btn=>{
@@ -216,6 +177,35 @@ buttons.forEach(btn=>{
 btn.disabled=true;
 
 });
+
+
+
+if(selected===correct){
+
+
+score++;
+
+
+points=score*10;
+
+
+button.style.background="#00c853";
+
+
+}
+
+else{
+
+
+button.style.background="#ff5252";
+
+
+}
+
+
+
+document.getElementById("points").innerHTML =
+points;
 
 
 
@@ -234,6 +224,15 @@ btn.disabled=true;
 
 
 function nextQuestion(){
+
+
+if(!answered){
+
+alert("Please select an answer");
+
+return;
+
+}
 
 
 
@@ -257,8 +256,43 @@ finishQuiz();
 }
 
 
+}
+
+
+
+
+
+
+
+
+
+// ================================
+// PROGRESS
+// ================================
+
+
+function updateProgress(){
+
+
+let percent =
+((currentQuestion)/
+dailyQuestions.length)*100;
+
+
+
+let bar=document.getElementById("progress");
+
+
+if(bar){
+
+bar.style.width=
+percent+"%";
 
 }
+
+
+}
+
 
 
 
@@ -271,93 +305,78 @@ finishQuiz();
 // FINISH QUIZ
 // ================================
 
+
 function finishQuiz(){
 
-    clearInterval(timer);
 
 
-    points = score * 10;
-
-
-    // Save daily score
-
-    localStorage.setItem(
-        "dailyScore",
-        points
-    );
+let percentage =
+(score/dailyQuestions.length)*100;
 
 
 
-    document.getElementById("questionBox").innerHTML = `
-
-    <div class="completion-card">
-
-    <h2>
-    🎉 Challenge Completed!
-    </h2>
-
-
-    <h3>
-    ${employeeName}
-    </h3>
-
-
-    <p>
-    Your Score:
-    <strong>${score}/${dailyQuestions.length}</strong>
-    </p>
-
-
-    <p>
-    ⭐ Points Earned:
-    <strong>${points}</strong>
-    </p>
-
-
-    <p>
-    🔥 Keep your learning streak alive!
-    </p>
+localStorage.setItem(
+"dailyScore",
+points
+);
 
 
 
-    <button onclick="goHome()">
-
-    🏠 Return Home
-
-    </button>
+document.querySelector(".quiz-container").innerHTML =
 
 
-    <button onclick="location.href='daily.html'">
+`
 
-    🔄 Back to Daily Challenge
-
-    </button>
+<div class="completion-card">
 
 
-    </div>
+<h1>
+🎉 Daily Mission Completed
+</h1>
 
-    `;
+
+<h2>
+${employeeName}
+</h2>
 
 
-    document.getElementById("nextBtn").style.display="none";
+<h3>
+Score:
+${score}/${dailyQuestions.length}
+</h3>
+
+
+<h3>
+⭐ Points:
+${points}
+</h3>
+
+
+<p>
+
+Performance:
+${percentage}%
+
+</p>
+
+
+
+<button class="mission-btn"
+onclick="location.href='daily.html'">
+
+Back To Daily Challenge
+
+</button>
+
+
+</div>
+
+`;
+
 
 
 }
 
-
-
-
-
-
-// ================================
-// GO HOME
-// ================================
-
-function goHome(){
-
-    window.location.href="index.html";
-
-}
 
 
 
@@ -370,21 +389,34 @@ function goHome(){
 // ================================
 
 
+let time=300;
+
+
 function startTimer(){
 
 
-timer=setInterval(function(){
+let timer=setInterval(()=>{
 
 
-let minutes=Math.floor(time/60);
-
-let seconds=time%60;
+let min=Math.floor(time/60);
 
 
+let sec=time%60;
 
-document.getElementById("timer").innerHTML=
 
-`${minutes}:${seconds < 10 ? "0":""}${seconds}`;
+
+let timerBox=
+document.getElementById("timer");
+
+
+
+if(timerBox){
+
+timerBox.innerHTML=
+
+`${min}:${sec<10?"0":""}${sec}`;
+
+}
 
 
 
@@ -395,17 +427,21 @@ time--;
 if(time<0){
 
 
+clearInterval(timer);
+
+
 finishQuiz();
 
 
 }
 
 
+
 },1000);
 
 
-
 }
+
 
 
 
