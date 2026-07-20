@@ -8313,3 +8313,48 @@ table{
 }
 
 }
+/* Desktop */
+@media (min-width:1025px){
+    .container{
+        max-width:1200px;
+        margin:auto;
+    }
+}
+
+/* Tablet */
+@media (max-width:768px){
+
+    .hero{
+        padding:30px;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .card{
+        width:100%;
+    }
+
+}
+
+/* Mobile */
+@media (max-width:480px){
+
+    h1{
+        font-size:28px;
+    }
+
+    h2{
+        font-size:22px;
+    }
+
+    p{
+        font-size:15px;
+    }
+
+    button{
+        width:100%;
+    }
+
+}
