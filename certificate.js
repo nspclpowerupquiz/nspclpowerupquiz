@@ -8,6 +8,12 @@
 // GOOGLE APPS SCRIPT URL
 // ==========================================
 
+alert("certificate.js loaded");
+
+console.log("Certificate JS Loaded");
+
+console.log("Employee ID =", localStorage.getItem("employeeId"));
+
 const SCRIPT_URL =
 "https://script.google.com/macros/s/AKfycbwBbn0mA_VbQG3A4lz7nDGWZm66P6jKBx12zXbYZ-OoCudVBzIvK-MkuZEXxLcECl5wdw/exec";
 
