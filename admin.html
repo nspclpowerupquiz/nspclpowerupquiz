@@ -599,3 +599,244 @@ Loading...
 </div>
 
 </section>
+<!-- ================= SYSTEM STATUS ================= -->
+
+<section class="activity">
+
+    <div class="section-title">
+
+        <h2>🖥 System Status</h2>
+
+        <span class="live-status">
+
+            <span class="green-dot"></span>
+
+            LIVE
+
+        </span>
+
+    </div>
+
+    <div class="activity-grid">
+
+        <div class="activity-card">
+
+            <h3>☁ Google Sheets</h3>
+
+            <p id="sheetStatus">
+
+                Connected
+
+            </p>
+
+        </div>
+
+        <div class="activity-card">
+
+            <h3>📊 Analytics</h3>
+
+            <p>
+
+                Live Dashboard Enabled
+
+            </p>
+
+        </div>
+
+        <div class="activity-card">
+
+            <h3>🏆 Leaderboard</h3>
+
+            <p>
+
+                Connected
+
+            </p>
+
+        </div>
+
+        <div class="activity-card">
+
+            <h3>📜 Certificate API</h3>
+
+            <p>
+
+                Active
+
+            </p>
+
+        </div>
+
+        <div class="activity-card">
+
+            <h3>🔄 Auto Refresh</h3>
+
+            <p>
+
+                Every 30 Seconds
+
+            </p>
+
+        </div>
+
+        <div class="activity-card">
+
+            <h3>⚡ Server</h3>
+
+            <p>
+
+                Running Normally
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= RECENT ACTIVITY ================= -->
+
+<section class="recent-activity">
+
+<h2>
+
+🕒 Recent Activity
+
+</h2>
+
+<div id="recentActivity">
+
+<p>
+
+🟢 Dashboard Loaded Successfully
+
+</p>
+
+<p>
+
+📊 Waiting for latest Google Sheet updates...
+
+</p>
+
+</div>
+
+</section>
+
+
+
+<!-- ================= DASHBOARD INFO ================= -->
+
+<section class="dashboard-info">
+
+<div class="info-box">
+
+<h3>
+
+ℹ Dashboard Information
+
+</h3>
+
+<ul>
+
+<li>✔ Live data from Google Sheets</li>
+
+<li>✔ Employee performance tracking</li>
+
+<li>✔ Auto-refresh every 30 seconds</li>
+
+<li>✔ Charts update automatically</li>
+
+<li>✔ Certificate Generator Connected</li>
+
+<li>✔ Leaderboard Connected</li>
+
+</ul>
+
+</div>
+
+</section>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<div class="footer-content">
+
+<h2>
+
+⚡ NSPCL Power-Up Quiz
+
+</h2>
+
+<p>
+
+Administrator Dashboard Version 2.0
+
+</p>
+
+<p>
+
+NTPC SAIL POWER COMPANY LIMITED
+
+</p>
+
+<p>
+
+© 2026 All Rights Reserved
+
+</p>
+
+</div>
+
+</footer>
+
+</div>
+
+
+
+<!-- ================= LIVE CLOCK ================= -->
+
+<script>
+
+function updateClock(){
+
+const now=new Date();
+
+document.getElementById("liveClock").innerHTML=
+
+now.toLocaleString("en-IN",{
+
+day:"2-digit",
+
+month:"short",
+
+year:"numeric",
+
+hour:"2-digit",
+
+minute:"2-digit",
+
+second:"2-digit"
+
+});
+
+}
+
+updateClock();
+
+setInterval(updateClock,1000);
+
+</script>
+
+
+
+<script src="admin.js"></script>
+
+</body>
+
+</html>
