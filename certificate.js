@@ -237,9 +237,7 @@ alert(
 // DOWNLOAD PDF
 // ==========================================
 
-
 async function downloadPDF(){
-
 
 
 console.log("PDF Download Started");
@@ -250,19 +248,66 @@ const certificate =
 document.getElementById("certificate");
 
 
+// Wait for images to load
 
-const canvas =
-await html2canvas(
-certificate,
-{
-scale:2,
-useCORS:true
+const images =
+certificate.querySelectorAll("img");
+
+
+await Promise.all(
+
+[...images].map(img=>{
+
+if(img.complete){
+
+return Promise.resolve();
+
 }
+
+return new Promise(resolve=>{
+
+img.onload=resolve;
+
+img.onerror=resolve;
+
+});
+
+})
+
 );
 
 
 
-const img =
+// Small delay for rendering
+
+await new Promise(resolve=>setTimeout(resolve,1000));
+
+
+
+const canvas =
+await html2canvas(
+
+certificate,
+
+{
+
+scale:3,
+
+useCORS:true,
+
+allowTaint:true,
+
+backgroundColor:"#ffffff",
+
+logging:true
+
+}
+
+);
+
+
+
+const imgData =
 canvas.toDataURL("image/png");
 
 
@@ -273,16 +318,27 @@ const {jsPDF}=window.jspdf;
 
 const pdf =
 new jsPDF(
+
 "landscape",
+
 "mm",
+
 "a4"
+
 );
+
+
+
+const width = 287;
+
+const height =
+canvas.height * width / canvas.width;
 
 
 
 pdf.addImage(
 
-img,
+imgData,
 
 "PNG",
 
@@ -290,9 +346,9 @@ img,
 
 5,
 
-287,
+width,
 
-200
+height
 
 );
 
@@ -307,7 +363,6 @@ employeeId +
 ".pdf"
 
 );
-
 
 
 }
