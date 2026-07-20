@@ -764,3 +764,303 @@ Learn • Compete • Grow • Excel
 
 
 </footer>
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+
+// ===============================
+// GOOGLE SHEET GALLERY API
+// ===============================
+
+
+const GALLERY_API = 
+"https://script.google.com/macros/s/YOUR_GOOGLE_SCRIPT_URL/exec";
+
+
+
+let galleryData = [];
+
+
+
+// LOAD GALLERY
+
+
+fetch(GALLERY_API + "?action=gallery")
+
+
+.then(response => response.json())
+
+
+.then(data => {
+
+
+galleryData = data;
+
+
+displayGallery(data);
+
+
+})
+
+
+
+.catch(error => {
+
+
+console.log(
+"Gallery Loading Error:",
+error
+);
+
+
+document.getElementById("galleryGrid").innerHTML =
+
+`
+<h3>
+Unable to load gallery
+</h3>
+`;
+
+});
+
+
+
+
+
+
+
+// ===============================
+// DISPLAY GALLERY
+// ===============================
+
+
+function displayGallery(data){
+
+
+
+let html="";
+
+
+
+data.forEach(item=>{
+
+
+html += `
+
+
+<div class="gallery-card"
+data-category="${item.category}">
+
+
+<img src="${item.image}"
+alt="${item.title}"
+onclick="openImage('${item.image}')">
+
+
+
+<div class="overlay">
+
+
+<h3>
+${item.title}
+</h3>
+
+
+
+<p>
+${item.description}
+</p>
+
+
+
+<span>
+${item.category}
+</span>
+
+
+</div>
+
+
+
+</div>
+
+
+
+`;
+
+
+
+});
+
+
+
+
+document.getElementById("galleryGrid")
+.innerHTML = html;
+
+
+
+}
+
+
+
+
+
+
+
+
+// ===============================
+// FILTER GALLERY
+// ===============================
+
+
+function filterGallery(category){
+
+
+
+if(category=="all"){
+
+
+displayGallery(galleryData);
+
+
+return;
+
+
+}
+
+
+
+let filtered =
+galleryData.filter(item =>
+
+item.category == category
+
+);
+
+
+
+displayGallery(filtered);
+
+
+
+}
+
+
+
+
+
+
+
+
+
+// ===============================
+// IMAGE POPUP
+// ===============================
+
+
+function openImage(src){
+
+
+
+document.getElementById("popupImage").src = src;
+
+
+
+document.getElementById("imagePopup")
+.style.display="flex";
+
+
+}
+
+
+
+
+document.getElementById("closePopup")
+.onclick=function(){
+
+
+document.getElementById("imagePopup")
+.style.display="none";
+
+
+};
+
+
+
+
+
+
+
+// CLOSE POPUP OUTSIDE IMAGE
+
+
+document.getElementById("imagePopup")
+.onclick=function(e){
+
+
+
+if(e.target.id=="imagePopup"){
+
+
+this.style.display="none";
+
+
+}
+
+
+
+};
+
+
+
+
+
+
+
+
+
+// ===============================
+// DAILY QUOTE
+// ===============================
+
+
+const quotes=[
+
+
+"⚡ Knowledge drives innovation.",
+
+
+"🔥 Excellence comes from continuous learning.",
+
+
+"🌱 Every learner builds a better future.",
+
+
+"🏆 Success belongs to those who keep learning."
+
+
+];
+
+
+
+let today =
+new Date().getDate();
+
+
+
+document.getElementById("galleryQuote")
+.innerHTML =
+quotes[today % quotes.length];
+
+
+
+
+</script>
+
+
+
+</body>
+
+</html>
