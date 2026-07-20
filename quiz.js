@@ -529,70 +529,44 @@ body:JSON.stringify(data)
 
 function showResult(){
 
+    clearInterval(timer);
 
-clearInterval(timer);
+    document.getElementById("quiz-area").style.display="none";
 
+    let percentage = Math.round((score/questions.length)*100);
 
+    // Save result to Google Sheet
+    submitScore(score, percentage);
 
-document.getElementById("quiz-area").style.display="none";
+    // Save locally
+    localStorage.setItem("score", score);
 
+    document.getElementById("result").innerHTML = `
 
+    <div class="result-card">
 
-let percentage=Math.round(
+        <h2>🎉 Congratulations ${employeeName} (${employee})</h2>
 
-(score/questions.length)*100
+        <h3>NSPCL Power-Up Quiz Completed Successfully</h3>
 
-);
+        <h1>${score} / ${questions.length}</h1>
 
+        <h2>${percentage}%</h2>
 
+        <p>🏆 Generating your certificate...</p>
 
-submitScore(score,percentage);
+    </div>
 
+    `;
 
+    // Wait 2 seconds, then open certificate
+    setTimeout(function(){
 
+        window.location.href = "certificate.html";
 
-document.getElementById("result").innerHTML=`
-
-
-<div class="result-card">
-
-
-<h2>🎉 Congratulations ${employeeName} (${employee})</h2>
-
-
-<h3>NSPCL Power-Up Quiz Completed</h3>
-
-
-<h1>${score} / ${questions.length}</h1>
-
-
-<h2>${percentage}%</h2>
-
-
-
-<button onclick="restartQuiz()">
-
-🔄 Play Again
-
-</button>
-
-
-</div>
-
-
-`;
-
-
-
-localStorage.setItem("score",score);
-
+    },2000);
 
 }
-
-
-
-
-
 
 
 // ==========================
