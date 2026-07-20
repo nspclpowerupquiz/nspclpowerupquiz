@@ -251,3 +251,203 @@ emp.employeeName
 loadTable(filtered);
 
 }
+// ==========================================
+// CHARTS
+// ==========================================
+
+let scoreChart = null;
+let passChart = null;
+
+function loadCharts(data){
+
+    if(typeof Chart==="undefined"){
+        return;
+    }
+
+    // Destroy old charts
+
+    if(scoreChart){
+        scoreChart.destroy();
+    }
+
+    if(passChart){
+        passChart.destroy();
+    }
+
+    // Employee Names
+
+    const labels = data.map(emp => emp.employeeName);
+
+    const scores = data.map(emp => Number(emp.score));
+
+    // Percentages
+
+    const percentages = data.map(emp => {
+
+        if(typeof emp.percentage==="string"){
+
+            return parseFloat(emp.percentage);
+
+        }
+
+        return Number(emp.percentage)*100;
+
+    });
+
+    // ==========================
+    // BAR CHART
+    // ==========================
+
+    scoreChart = new Chart(
+
+        document.getElementById("scoreChart"),
+
+        {
+
+            type:"bar",
+
+            data:{
+
+                labels:labels,
+
+                datasets:[{
+
+                    label:"Quiz Score",
+
+                    data:scores,
+
+                    borderWidth:1
+
+                }]
+
+            },
+
+            options:{
+
+                responsive:true,
+
+                plugins:{
+
+                    legend:{
+                        display:false
+                    }
+
+                },
+
+                scales:{
+
+                    y:{
+
+                        beginAtZero:true,
+
+                        max:20
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    );
+
+
+
+    // ==========================
+    // PASS / FAIL CHART
+    // ==========================
+
+    let pass=0;
+
+    let fail=0;
+
+    percentages.forEach(function(p){
+
+        if(p>=60){
+
+            pass++;
+
+        }
+        else{
+
+            fail++;
+
+        }
+
+    });
+
+
+    passChart = new Chart(
+
+        document.getElementById("passChart"),
+
+        {
+
+            type:"doughnut",
+
+            data:{
+
+                labels:["Pass","Fail"],
+
+                datasets:[{
+
+                    data:[pass,fail]
+
+                }]
+
+            },
+
+            options:{
+
+                responsive:true
+
+            }
+
+        }
+
+    );
+
+}
+
+
+
+// ==========================================
+// AUTO REFRESH
+// ==========================================
+
+setInterval(function(){
+
+    loadDashboard();
+
+},30000);
+
+
+
+// ==========================================
+// COUNTER ANIMATION
+// ==========================================
+
+function animateCounter(id,target){
+
+    let count=0;
+
+    let step=Math.max(1,Math.ceil(target/40));
+
+    let interval=setInterval(function(){
+
+        count+=step;
+
+        if(count>=target){
+
+            count=target;
+
+            clearInterval(interval);
+
+        }
+
+        document.getElementById(id).innerHTML=count;
+
+    },20);
+
+}
