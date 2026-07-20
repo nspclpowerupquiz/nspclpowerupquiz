@@ -4,9 +4,9 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-<title>Daily Challenge | NSPCL Power-Up Quiz</title>
+<title>NSPCL Power Pulse - Daily Challenge</title>
 
 <link rel="stylesheet" href="style.css">
 
@@ -16,574 +16,74 @@
 <body>
 
 
-<header class="header">
-
-<div class="logo">
-
-<h2>⚡ NSPCL Power Pulse</h2>
-
-<span>
-One Challenge Every Day
-</span>
-
-</div>
-
-
-<nav>
-
-<a href="index.html">Home</a>
-
-<a href="quiz.html">Quiz</a>
-
-<a href="leaderboard.html">🏆 Leaderboard</a>
-
-<a href="certificate.html">📜 Certificate</a>
-
-</nav>
-
-</header>
-
-
-
-
-
-<section class="daily">
-
+<div class="daily-page">
 
 
 <!-- HERO -->
 
-<div class="daily-hero">
+<section class="daily-hero">
 
+<h1>⚡ NSPCL Power Pulse</h1>
 
-<h1>
-⚡ Today's Power Challenge
-</h1>
-
+<h2>Daily Challenge</h2>
 
 <p>
-Test your power sector knowledge and earn daily rewards.
+Test your knowledge. Learn something new every day.
 </p>
 
-
-
-<div class="daily-stats">
-
-
-<div class="stat-box">
-
-🔥
-
-<h3 id="streakCount">
-5
-</h3>
-
-<span>
-Day Streak
-</span>
-
-</div>
-
-
-
-<div class="stat-box">
-
-🏆
-
-<h3>
-50
-</h3>
-
-<span>
-Points
-</span>
-
-</div>
-
-
-
-
-<div class="stat-box">
-
-🎯
-
-<h3>
-5/5
-</h3>
-
-<span>
-Best Score
-</span>
-
-</div>
-
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-
-<!-- EMPLOYEE -->
-
-<div class="employee-card">
-
-
-<h2>
-
-👋 Welcome 
-<span id="employeeName">
-Employee
-</span>
-
-</h2>
-
-
-<p>
-Continue your daily learning journey and improve your knowledge.
-</p>
-
-
-</div>
-
-
-
-
-
-
-
-
-<!-- QUOTE -->
-
-<div class="quote-card">
-
-
-<h2>
-💡 Power Thought Of The Day
-</h2>
-
-
-<p id="dailyQuote">
-
-"Excellence is the result of continuous learning."
-
-</p>
-
-
-<span>
-— NSPCL Power-Up Quiz
-</span>
-
-
-</div>
-
-
-
-
-
-
-
-
-
-
-<!-- MISSION -->
-
-<div class="challenge-card">
-
-
-<h1>
-🔥 Today's Power Mission
-</h1>
-
-
-
-<h2>
-📚 Power Sector Challenge
-</h2>
-
-
-<p>
-Complete today's challenge and earn points.
-</p>
-
-
-
-
-<div class="mission-info">
-
-
-<p>
-❓ Questions :
-<strong>5</strong>
-</p>
-
-
-<p>
-⏱ Duration :
-<strong>5 Minutes</strong>
-</p>
-
-
-<p>
-🏆 Reward :
-<strong>50 Points</strong>
-</p>
-
-
-<p>
-🔥 Streak :
-<strong>Continue Learning</strong>
-</p>
-
-
-
-</div>
-
-
-
-
-
-
-
-<div class="timer">
-
-
-⏳ Challenge Ends In
-
-
-<h3 id="countdown">
-
-23:59:59
-
-</h3>
-
-
-</div>
-
-
-
-
-
-<button class="mission-btn" onclick="startDailyChallenge()">
-
-🚀 Start Today's Challenge
-
-</button>
-
-
-
-</div>
-
-
-
-
-
-
+</section>
 
 
 
 <!-- QUESTION -->
 
-<div class="question-card">
+<section class="daily-card">
 
 
-<h2>
-❓ Question Of The Day
-</h2>
+<h2>🔥 Today's Question</h2>
 
 
+<div id="dailyQuestion">
 
-<p>
+Loading today's challenge...
 
-Which energy conversion takes place in a thermal power plant?
-
-</p>
+</div>
 
 
 
+<div id="dailyOptions"></div>
 
-<div class="options">
 
+<button onclick="submitDaily()" class="daily-btn">
 
-<button onclick="checkAnswer(this,true)">
-A) Chemical Energy → Electrical Energy
+Submit Answer
+
 </button>
 
 
+<div id="dailyResult"></div>
 
-<button onclick="checkAnswer(this,false)">
-B) Solar Energy → Electrical Energy
-</button>
 
+</section>
 
 
-<button onclick="checkAnswer(this,false)">
-C) Wind Energy → Electrical Energy
-</button>
 
 
 
-<button onclick="checkAnswer(this,false)">
-D) Mechanical Energy → Nuclear Energy
-</button>
+<!-- MOTIVATION -->
 
 
+<section class="daily-card quote-card">
 
-</div>
 
+<h2>🌟 Daily Motivation</h2>
 
-</div>
 
+<p id="dailyQuote">
 
-
-
-
-
-
-
-
-
-<!-- PROGRESS -->
-
-<div class="progress-card">
-
-
-<h2>
-📈 Today's Progress
-</h2>
-
-
-<div class="progress-bar">
-
-<div class="progress-fill"></div>
-
-</div>
-
-
-<p>
-Challenge Completed : 0%
-</p>
-
-
-</div>
-
-
-
-
-
-
-
-
-
-<!-- REWARDS -->
-
-
-<div class="reward-section">
-
-
-
-<div class="reward-card">
-
-⭐
-
-<h3>
-50 Points
-</h3>
-
-<p>
-Daily Reward
-</p>
-
-</div>
-
-
-
-
-<div class="reward-card">
-
-🔥
-
-<h3>
-7 Days
-</h3>
-
-<p>
-Learning Streak
-</p>
-
-</div>
-
-
-
-
-
-<div class="reward-card">
-
-🏅
-
-<h3>
-Bronze Badge
-</h3>
-
-<p>
-Achievement
-</p>
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-
-
-<!-- FACT -->
-
-<div class="fact-card">
-
-
-<h2>
-⚡ Power Fact
-</h2>
-
-
-<p>
-
-A thermal power plant converts heat energy into electrical energy using steam turbines and generators.
+Loading motivation...
 
 </p>
-
-
-</div>
-
-
-
-
-
-
-
-
-
-<!-- CHAMPIONS -->
-
-
-<div class="champion-card">
-
-
-<h2>
-🏆 Today's Champions
-</h2>
-
-
-<div id="dailyChampions">
-
-Loading champions...
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-
-
-<!-- HISTORY -->
-
-
-<h2>
-📅 Recent Challenges
-</h2>
-
-
-
-<table>
-
-
-<tr>
-
-<th>Date</th>
-
-<th>Topic</th>
-
-<th>Status</th>
-
-</tr>
-
-
-
-<tr>
-
-<td>
-20 Jul
-</td>
-
-<td>
-Power Generation
-</td>
-
-<td>
-🔥 Today's Challenge
-</td>
-
-</tr>
-
-
-
-<tr>
-
-<td>
-19 Jul
-</td>
-
-<td>
-Safety Management
-</td>
-
-<td>
-✅ Completed
-</td>
-
-</tr>
-
-
-
-<tr>
-
-<td>
-18 Jul
-</td>
-
-<td>
-Procurement
-</td>
-
-<td>
-✅ Completed
-</td>
-
-</tr>
-
-
-</table>
-
-
 
 
 </section>
@@ -593,187 +93,63 @@ Procurement
 
 
 
+<!-- STATS -->
 
 
-<footer>
+<section class="daily-grid">
 
-© 2026 NSPCL Power-Up Quiz
 
-<br>
+<div class="daily-stat">
 
-Learn • Compete • Grow
+<h3 id="streak">
+0
+</h3>
 
-</footer>
+<p>
+Daily Streak
+</p>
 
+</div>
 
 
 
+<div class="daily-stat">
 
+<h3 id="points">
+0
+</h3>
 
+<p>
+Power Points
+</p>
 
+</div>
 
 
-<script>
 
+<div class="daily-stat">
 
-// Employee Name
+<h3>
+⚡
+</h3>
 
-let name =
-localStorage.getItem("employeeName");
+<p>
+Keep Learning
+</p>
 
+</div>
 
-if(name){
 
-document.getElementById("employeeName").innerHTML=name;
 
-}
+</section>
 
 
 
+</div>
 
 
 
-// Quote
-
-
-const quotes=[
-
-"⚡ Small improvements every day create great achievements.",
-
-"🔥 Learning today builds a stronger tomorrow.",
-
-"💡 Knowledge is the power behind innovation.",
-
-"🌱 Continuous learning creates excellence."
-
-];
-
-
-
-let today =
-new Date().getDate();
-
-
-
-document.getElementById("dailyQuote").innerHTML =
-quotes[today % quotes.length];
-
-
-
-
-
-
-
-
-
-// Countdown
-
-
-function updateCountdown(){
-
-
-let now=new Date();
-
-
-let tomorrow=new Date();
-
-
-tomorrow.setHours(24,0,0,0);
-
-
-
-let diff=tomorrow-now;
-
-
-
-let h=Math.floor(diff/1000/60/60);
-
-
-let m=Math.floor((diff/1000/60)%60);
-
-
-let s=Math.floor(diff/1000%60);
-
-
-
-document.getElementById("countdown").innerHTML =
-
-`${h}:${m}:${s}`;
-
-
-}
-
-
-
-setInterval(updateCountdown,1000);
-
-updateCountdown();
-
-
-
-
-
-
-
-
-
-function startDailyChallenge(){
-
-
-localStorage.setItem(
-"challengeDate",
-new Date().toDateString()
-);
-
-
-
-window.location.href="daily-quiz.html";
-
-
-}
-
-
-
-
-
-
-
-
-
-function checkAnswer(btn,correct){
-
-
-if(correct){
-
-
-btn.style.background="#00c853";
-
-
-alert("🎉 Correct Answer! +10 Points");
-
-
-}
-
-else{
-
-
-btn.style.background="#ff5252";
-
-
-alert("❌ Incorrect Answer");
-
-
-}
-
-
-}
-
-
-
-</script>
-
-
-
+<script src="daily.js"></script>
 
 
 </body>
