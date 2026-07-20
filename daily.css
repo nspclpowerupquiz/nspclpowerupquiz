@@ -1,24 +1,35 @@
-/* ======================================
-   NSPCL POWER PULSE
-   DAILY CHALLENGE PREMIUM CSS
-====================================== */
+/* ==========================================
+   NSPCL POWER PULSE - DAILY CHALLENGE
+   PREMIUM VERSION
+========================================== */
+
+
+body{
+
+margin:0;
+
+font-family:
+'Segoe UI',
+sans-serif;
+
+}
+
 
 
 .daily-page{
 
 min-height:100vh;
 
-padding:40px 20px;
+padding:40px;
 
 background:
+
 linear-gradient(
 135deg,
 #001f3f,
-#0077b6,
-#003566
+#004e92,
+#0077b6
 );
-
-font-family:'Segoe UI',sans-serif;
 
 color:white;
 
@@ -31,42 +42,54 @@ color:white;
 
 .daily-hero{
 
-text-align:center;
+max-width:1100px;
 
-padding:45px 20px;
+margin:auto;
+
+padding:50px;
+
+text-align:center;
 
 border-radius:30px;
 
 background:
 
-rgba(255,255,255,0.12);
+linear-gradient(
+135deg,
+rgba(255,255,255,.18),
+rgba(255,255,255,.05)
+);
 
-backdrop-filter:blur(15px);
+backdrop-filter:blur(20px);
 
 box-shadow:
 
-0 20px 40px rgba(0,0,0,.35);
+0 20px 50px rgba(0,0,0,.35);
 
-animation:
-fadeIn 1s ease;
+
+animation:slideDown 1s ease;
 
 }
 
 
+
 .daily-hero h1{
 
-font-size:45px;
+font-size:48px;
 
-margin:10px;
+margin:0;
 
 color:#ffd166;
 
 }
 
 
+
 .daily-hero h2{
 
 font-size:32px;
+
+margin:15px;
 
 }
 
@@ -82,18 +105,17 @@ font-size:20px;
 
 
 
-/* COMMON CARD */
+/* ALL CARDS */
 
 
 .daily-card{
 
+
 max-width:900px;
 
-margin:30px auto;
+margin:35px auto;
 
 padding:35px;
-
-border-radius:30px;
 
 
 background:
@@ -101,9 +123,10 @@ background:
 rgba(255,255,255,.15);
 
 
-backdrop-filter:
+border-radius:30px;
 
-blur(20px);
+
+backdrop-filter:blur(18px);
 
 
 box-shadow:
@@ -111,31 +134,22 @@ box-shadow:
 0 15px 40px rgba(0,0,0,.35);
 
 
-transition:.4s;
-
 }
-
-
-.daily-card:hover{
-
-transform:translateY(-8px);
-
-}
-
 
 
 
 
 .daily-card h2{
 
-color:#ffd166;
 
 text-align:center;
 
-font-size:28px;
+font-size:30px;
+
+color:#ffd166;
+
 
 }
-
 
 
 
@@ -145,13 +159,26 @@ font-size:28px;
 
 #dailyQuestion{
 
+
+background:
+
+rgba(0,0,0,.25);
+
+
+padding:25px;
+
+
+border-radius:20px;
+
+
 font-size:24px;
 
-font-weight:600;
 
-line-height:1.5;
+margin:20px 0;
 
-padding:20px;
+
+text-align:center;
+
 
 }
 
@@ -162,32 +189,32 @@ padding:20px;
 /* OPTIONS */
 
 
+#dailyOptions{
+
+
+display:grid;
+
+gap:15px;
+
+
+}
+
+
+
 .daily-option{
-
-
-display:block;
-
-
-background:white;
-
-
-color:#003566;
 
 
 padding:18px;
 
+background:white;
 
-margin:15px 0;
-
+color:#003566;
 
 border-radius:18px;
 
-
 font-size:18px;
 
-
 cursor:pointer;
-
 
 transition:.3s;
 
@@ -201,8 +228,7 @@ transition:.3s;
 
 background:#ffd166;
 
-
-transform:scale(1.03);
+transform:translateY(-5px);
 
 
 }
@@ -211,10 +237,9 @@ transform:scale(1.03);
 
 .daily-option input{
 
-margin-right:15px;
+margin-right:12px;
 
 }
-
 
 
 
@@ -227,31 +252,28 @@ margin-right:15px;
 
 display:block;
 
-margin:25px auto;
+margin:30px auto 10px;
 
 
-padding:16px 45px;
+padding:16px 50px;
 
 
 border:none;
 
 
-border-radius:40px;
+border-radius:50px;
 
 
-font-size:18px;
+font-size:20px;
 
 
 font-weight:bold;
 
 
-background:
+color:#003566;
 
-linear-gradient(
-45deg,
-#ffd166,
-#ff9f1c
-);
+
+background:#ffd166;
 
 
 cursor:pointer;
@@ -259,11 +281,10 @@ cursor:pointer;
 
 box-shadow:
 
-0 10px 20px rgba(0,0,0,.3);
+0 10px 25px rgba(0,0,0,.4);
 
 
 }
-
 
 
 .daily-btn:hover{
@@ -277,50 +298,20 @@ transform:scale(1.08);
 
 
 
-
-/* RESULT */
-
-
-#dailyResult{
-
-
-text-align:center;
-
-
-font-size:22px;
-
-
-font-weight:bold;
-
-
-margin-top:20px;
-
-
-color:#ffd166;
-
-
-}
-
-
-
-
-
 /* QUOTE */
 
 
 .quote-card p{
 
 
-font-size:26px;
-
+font-size:28px;
 
 text-align:center;
-
 
 font-style:italic;
 
 
-line-height:1.6;
+padding:20px;
 
 
 }
@@ -335,10 +326,9 @@ line-height:1.6;
 .daily-grid{
 
 
-max-width:900px;
+max-width:1000px;
 
-
-margin:30px auto;
+margin:40px auto;
 
 
 display:grid;
@@ -346,25 +336,20 @@ display:grid;
 
 grid-template-columns:
 
-repeat(
-auto-fit,
-minmax(200px,1fr)
-);
+repeat(3,1fr);
 
 
-gap:20px;
+gap:25px;
 
 
 }
 
 
 
-
-
 .daily-stat{
 
 
-padding:25px;
+padding:35px;
 
 
 border-radius:25px;
@@ -381,19 +366,21 @@ rgba(255,255,255,.15);
 backdrop-filter:blur(15px);
 
 
-}
+box-shadow:
 
+0 15px 30px rgba(0,0,0,.3);
+
+
+}
 
 
 
 .daily-stat h3{
 
 
-font-size:42px;
-
+font-size:45px;
 
 margin:0;
-
 
 color:#ffd166;
 
@@ -401,13 +388,10 @@ color:#ffd166;
 }
 
 
-
-
 .daily-stat p{
 
 
 font-size:18px;
-
 
 }
 
@@ -417,14 +401,14 @@ font-size:18px;
 /* ANIMATION */
 
 
-@keyframes fadeIn{
+@keyframes slideDown{
 
 
 from{
 
 opacity:0;
 
-transform:translateY(30px);
+transform:translateY(-50px);
 
 }
 
@@ -437,36 +421,31 @@ transform:translateY(0);
 
 }
 
-
 }
 
 
 
 
+@media(max-width:700px){
 
-/* MOBILE */
+
+.daily-page{
+
+padding:15px;
+
+}
 
 
-@media(max-width:600px){
+.daily-grid{
+
+grid-template-columns:1fr;
+
+}
 
 
 .daily-hero h1{
 
-font-size:30px;
-
-}
-
-
-.daily-card{
-
-padding:20px;
-
-}
-
-
-#dailyQuestion{
-
-font-size:20px;
+font-size:32px;
 
 }
 
