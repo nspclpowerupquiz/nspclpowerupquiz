@@ -1714,9 +1714,82 @@ body.dark footer{
     background:#000;
 
 }
+/* ==========================================
+TOAST
+========================================== */
+
+#toast{
+
+position:fixed;
+
+right:30px;
+
+bottom:0;
+
+background:#0B4FA2;
+
+color:white;
+
+padding:15px 25px;
+
+border-radius:10px;
+
+font-weight:600;
+
+opacity:0;
+
+transition:.4s;
+
+z-index:9999;
+
+box-shadow:0 10px 30px rgba(0,0,0,.3);
+
+}
 
 
 
 /* ==========================================
-   END OF FILE
+TABLE BUTTONS
 ========================================== */
+
+.table-buttons{
+
+display:flex;
+
+gap:15px;
+
+margin-bottom:20px;
+
+flex-wrap:wrap;
+
+}
+
+.table-buttons button{
+
+background:#0B4FA2;
+
+color:white;
+
+border:none;
+
+padding:12px 20px;
+
+border-radius:8px;
+
+cursor:pointer;
+
+font-weight:600;
+
+transition:.3s;
+
+}
+
+.table-buttons button:hover{
+
+background:#083b79;
+
+transform:translateY(-2px);
+
+}
+
+
