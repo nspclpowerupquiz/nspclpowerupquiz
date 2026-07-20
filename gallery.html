@@ -1,69 +1,705 @@
-<!-- ==========================
-     NSPCL GALLERY SECTION
-=========================== -->
+<!DOCTYPE html>
+<html lang="en">
 
-<section class="gallery-section">
+<head>
 
-<h1 class="gallery-title">
-    NSPCL Power-Up Quiz Gallery
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>NSPCL Power-Up Quiz | Gallery</title>
+
+
+<link rel="stylesheet" href="style.css">
+
+
+<style>
+
+
+body{
+
+margin:0;
+
+font-family:'Segoe UI',sans-serif;
+
+background:
+linear-gradient(135deg,#001f3f,#0074a8);
+
+color:white;
+
+}
+
+
+
+/* HEADER */
+
+
+.gallery-header{
+
+text-align:center;
+
+padding:40px 20px;
+
+background:
+rgba(255,255,255,0.1);
+
+backdrop-filter:blur(10px);
+
+}
+
+
+.gallery-header h1{
+
+font-size:42px;
+
+margin:10px;
+
+}
+
+
+.gallery-header p{
+
+font-size:18px;
+
+color:#d9f7ff;
+
+}
+
+
+
+
+
+/* STATISTICS */
+
+
+.stats-container{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(220px,1fr));
+
+gap:25px;
+
+padding:35px;
+
+}
+
+
+
+.stat-card{
+
+background:
+rgba(255,255,255,.15);
+
+border-radius:20px;
+
+padding:25px;
+
+text-align:center;
+
+box-shadow:
+0 10px 25px #0005;
+
+transition:.4s;
+
+}
+
+
+
+.stat-card:hover{
+
+transform:translateY(-10px);
+
+}
+
+
+
+.stat-card h2{
+
+font-size:42px;
+
+color:#00ffff;
+
+margin:5px;
+
+}
+
+
+
+
+/* WINNERS */
+
+
+.section-title{
+
+text-align:center;
+
+font-size:30px;
+
+margin-top:30px;
+
+}
+
+
+
+.winner-container{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(250px,1fr));
+
+gap:20px;
+
+padding:25px;
+
+}
+
+
+
+.winner-card{
+
+background:white;
+
+color:#123;
+
+padding:20px;
+
+border-radius:18px;
+
+box-shadow:
+0 8px 20px #0005;
+
+}
+
+
+
+.winner-card h3{
+
+margin-top:0;
+
+color:#0066cc;
+
+}
+
+
+
+
+
+/* GALLERY */
+
+
+.gallery-container{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(280px,1fr));
+
+gap:25px;
+
+padding:35px;
+
+}
+
+
+
+.gallery-card{
+
+background:white;
+
+color:#222;
+
+border-radius:20px;
+
+overflow:hidden;
+
+cursor:pointer;
+
+transition:.4s;
+
+}
+
+
+
+.gallery-card:hover{
+
+transform:
+translateY(-10px)
+scale(1.03);
+
+}
+
+
+
+.gallery-card img{
+
+width:100%;
+
+height:240px;
+
+object-fit:cover;
+
+}
+
+
+
+.gallery-info{
+
+padding:15px;
+
+}
+
+
+
+.gallery-info h3{
+
+margin:0;
+
+}
+
+
+
+
+/* POPUP */
+
+
+.popup{
+
+display:none;
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:100%;
+
+background:
+rgba(0,0,0,.85);
+
+justify-content:center;
+
+align-items:center;
+
+z-index:999;
+
+
+}
+
+
+
+.popup img{
+
+max-width:90%;
+
+max-height:80%;
+
+border-radius:20px;
+
+}
+
+
+
+.close{
+
+position:absolute;
+
+right:40px;
+
+top:20px;
+
+font-size:45px;
+
+cursor:pointer;
+
+}
+
+
+
+
+
+</style>
+
+
+</head>
+
+
+
+<body>
+
+
+
+<!-- HEADER -->
+
+
+<div class="gallery-header">
+
+
+<h1>
+⚡ NSPCL Power-Up Quiz Gallery
 </h1>
 
-<p class="gallery-subtitle">
-    Moments, achievements and celebrations from NSPCL Power-Up Quiz
+
+<p>
+Celebrating Learning • Participation • Excellence
 </p>
 
 
-<!-- FILTER BUTTONS -->
+</div>
 
-<div class="gallery-filter">
 
-<button onclick="filterGallery('all')">
-All
-</button>
 
-<button onclick="filterGallery('event')">
-Events
-</button>
 
-<button onclick="filterGallery('quiz')">
-Quiz
-</button>
 
-<button onclick="filterGallery('plant')">
-Power Plant
-</button>
+<!-- LIVE STATS -->
 
-<button onclick="filterGallery('award')">
-Awards
-</button>
+
+<div class="stats-container">
+
+
+<div class="stat-card">
+
+<h2 id="totalUsers">
+0
+</h2>
+
+<p>
+Total Participants
+</p>
 
 </div>
 
 
 
-<!-- IMAGE CONTAINER -->
+<div class="stat-card">
 
-<div id="galleryContainer" class="gallery-grid">
+<h2 id="highestScore">
+0
+</h2>
 
-<!-- Images will load from Google Sheet -->
+<p>
+Highest Score
+</p>
 
 </div>
 
 
-</section>
+
+
+<div class="stat-card">
+
+<h2 id="averageScore">
+0%
+</h2>
+
+<p>
+Average Performance
+</p>
+
+</div>
+
+
+
+
+<div class="stat-card">
+
+<h2 id="topWinner">
+---
+</h2>
+
+<p>
+Top Performer
+</p>
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<h2 class="section-title">
+
+🏆 Quiz Champions
+
+</h2>
+
+
+
+<div id="winnerList"
+class="winner-container">
+
+</div>
+
+
+
+
+
+
+
+
+<h2 class="section-title">
+
+📸 NSPCL Moments
+
+</h2>
+
+
+
+
+<div id="galleryContainer"
+class="gallery-container">
+
+
+</div>
+
+
+
+
 
 
 
 <!-- IMAGE POPUP -->
 
-<div id="imagePopup" class="popup">
 
-<span onclick="closePopup()" class="close">
+<div id="popup"
+class="popup"
+onclick="closePopup()">
+
+
+
+<span class="close">
 ×
 </span>
 
+
 <img id="popupImage">
 
-<h3 id="popupTitle"></h3>
 
 </div>
+
+
+
+
+
+
+
+<script>
+
+
+// YOUR GOOGLE APPS SCRIPT URL
+
+const SCRIPT_URL =
+"https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec";
+
+
+
+
+
+window.onload=function(){
+
+loadStats();
+
+loadGallery();
+
+};
+
+
+
+
+
+function loadStats(){
+
+
+fetch(
+SCRIPT_URL+"?action=stats"
+)
+
+.then(res=>res.json())
+
+.then(data=>{
+
+
+document.getElementById("totalUsers")
+.innerHTML=data.total;
+
+
+document.getElementById("highestScore")
+.innerHTML=data.highest;
+
+
+document.getElementById("averageScore")
+.innerHTML=data.average+"%";
+
+
+document.getElementById("topWinner")
+.innerHTML=data.name;
+
+
+
+let html="";
+
+
+data.top.forEach(
+(item,index)=>{
+
+
+html+=`
+
+<div class="winner-card">
+
+<h3>
+🥇 ${index+1}. ${item.name}
+</h3>
+
+
+<p>
+Employee ID :
+${item.id}
+</p>
+
+
+<p>
+Score :
+${item.score}/${item.total}
+</p>
+
+
+</div>
+
+
+`;
+
+
+});
+
+
+document.getElementById("winnerList")
+.innerHTML=html;
+
+
+
+});
+
+
+}
+
+
+
+
+
+
+
+function loadGallery(){
+
+
+fetch(
+SCRIPT_URL+"?action=gallery"
+)
+
+
+.then(res=>res.json())
+
+.then(data=>{
+
+
+let html="";
+
+
+
+data.forEach(item=>{
+
+
+html+=`
+
+<div class="gallery-card"
+onclick="openPopup('${item.image}')">
+
+
+<img src="${item.image}">
+
+
+<div class="gallery-info">
+
+<h3>
+${item.title}
+</h3>
+
+
+<p>
+${item.category}
+</p>
+
+
+</div>
+
+
+</div>
+
+
+`;
+
+
+});
+
+
+
+document.getElementById("galleryContainer")
+.innerHTML=html;
+
+
+});
+
+
+}
+
+
+
+
+
+
+
+
+function openPopup(img){
+
+
+document.getElementById("popup")
+.style.display="flex";
+
+
+document.getElementById("popupImage")
+.src=img;
+
+
+}
+
+
+
+
+function closePopup(){
+
+
+document.getElementById("popup")
+.style.display="none";
+
+
+}
+
+
+
+</script>
+
+
+
+</body>
+
+</html>
