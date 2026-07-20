@@ -10,13 +10,21 @@
 
 <link rel="stylesheet" href="style.css">
 
+
 <style>
 
+/* PAGE */
+
 body{
+
     margin:0;
     font-family:'Segoe UI',sans-serif;
-    background:linear-gradient(135deg,#061a40,#003566,#0077b6);
+
+    background:
+    linear-gradient(135deg,#061a40,#003566,#0077b6);
+
     color:white;
+
 }
 
 
@@ -25,19 +33,24 @@ body{
 .gallery-header{
 
     text-align:center;
-    padding:30px 20px;
 
-    background:rgba(255,255,255,0.12);
+    padding:35px 20px;
+
+    background:
+    rgba(255,255,255,0.12);
+
     backdrop-filter:blur(12px);
 
-    box-shadow:0 8px 25px rgba(0,0,0,0.3);
+    box-shadow:
+    0 8px 25px rgba(0,0,0,0.3);
 
 }
 
 
 .gallery-header h1{
 
-    font-size:40px;
+    font-size:42px;
+
     margin:10px;
 
 }
@@ -46,7 +59,8 @@ body{
 .gallery-header p{
 
     font-size:18px;
-    opacity:0.9;
+
+    opacity:.9;
 
 }
 
@@ -57,16 +71,19 @@ body{
 .back-btn{
 
     display:inline-block;
-    margin-top:15px;
 
-    padding:10px 25px;
+    margin-top:20px;
+
+    padding:12px 28px;
 
     background:#ffcc00;
+
     color:#003566;
 
     border-radius:30px;
 
     text-decoration:none;
+
     font-weight:bold;
 
     transition:.3s;
@@ -82,7 +99,7 @@ body{
 
 
 
-/* GALLERY AREA */
+/* GALLERY GRID */
 
 .gallery-container{
 
@@ -103,14 +120,15 @@ body{
 
 .gallery-card{
 
-    background:rgba(255,255,255,0.15);
+    background:
+    rgba(255,255,255,0.15);
 
-    border-radius:20px;
+    border-radius:22px;
 
     overflow:hidden;
 
     box-shadow:
-    0 10px 30px rgba(0,0,0,0.35);
+    0 10px 30px rgba(0,0,0,.35);
 
     transition:.4s;
 
@@ -120,7 +138,7 @@ body{
 .gallery-card:hover{
 
     transform:
-    translateY(-10px)
+    translateY(-12px)
     scale(1.03);
 
 }
@@ -133,11 +151,20 @@ body{
 
     width:100%;
 
-    height:230px;
+    height:240px;
 
     object-fit:cover;
 
-    display:block;
+    cursor:pointer;
+
+    transition:.4s;
+
+}
+
+
+.gallery-card img:hover{
+
+    transform:scale(1.08);
 
 }
 
@@ -147,13 +174,13 @@ body{
 
 .gallery-title{
 
-    padding:15px;
+    padding:18px;
 
     text-align:center;
 
     font-size:20px;
 
-    font-weight:bold;
+    font-weight:700;
 
 }
 
@@ -163,18 +190,46 @@ body{
 
 .loading{
 
+    grid-column:1/-1;
+
     text-align:center;
 
-    font-size:22px;
+    font-size:24px;
 
-    padding:40px;
+    padding:50px;
+
+}
+
+
+
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+
+.gallery-container{
+
+    padding:20px;
+
+}
+
+
+.gallery-header h1{
+
+    font-size:30px;
+
+}
+
 
 }
 
 
 </style>
 
+
 </head>
+
 
 
 <body>
@@ -184,11 +239,15 @@ body{
 <header class="gallery-header">
 
 
-<h1>📸 NSPCL Power-Up Gallery</h1>
+<h1>
+📸 NSPCL Power-Up Gallery
+</h1>
+
 
 <p>
 Moments of learning, competition and power sector awareness
 </p>
+
 
 
 <a href="index.html" class="back-btn">
@@ -201,12 +260,16 @@ Moments of learning, competition and power sector awareness
 
 
 
-<section id="galleryContainer" class="gallery-container">
+<!-- LIVE GOOGLE SHEET GALLERY WILL LOAD HERE -->
+
+<section 
+id="galleryContainer" 
+class="gallery-container">
 
 
 <div class="loading">
 
-Loading Gallery Images...
+⏳ Loading Gallery Images...
 
 </div>
 
@@ -215,7 +278,11 @@ Loading Gallery Images...
 
 
 
+
+<!-- GOOGLE SHEET CONNECTED SCRIPT -->
+
 <script src="gallery.js"></script>
+
 
 
 </body>
