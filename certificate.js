@@ -1,15 +1,21 @@
 // ==========================================
 // NSPCL POWER-UP QUIZ
-// CERTIFICATE.JS
+// CERTIFICATE.JS FINAL
 // ==========================================
 
+
+// GOOGLE APPS SCRIPT URL
 
 const SCRIPT_URL =
 "https://script.google.com/macros/s/AKfycbwBbn0mA_VbQG3A4lz7nDGWZm66P6jKBx12zXbYZ-OoCudVBzIvK-MkuZEXxLcECl5wdw/exec";
 
 
+
+// GET EMPLOYEE ID
+
 const employeeId =
 localStorage.getItem("employeeId");
+
 
 
 console.log("Certificate JS Loaded");
@@ -18,27 +24,33 @@ console.log("Employee ID:", employeeId);
 
 
 
+// LOGIN CHECK
+
 if(!employeeId){
 
-alert("Please login first");
+    alert("Please login first");
 
-window.location.href="login.html";
+    window.location.href="login.html";
 
 }
 
 
 
-// LOAD WHEN PAGE OPENS
+// PAGE LOAD
 
 window.onload=function(){
 
-loadCertificate();
+    loadCertificate();
 
 };
 
 
 
 
+
+// ==========================================
+// LOAD CERTIFICATE DATA
+// ==========================================
 
 async function loadCertificate(){
 
@@ -64,38 +76,54 @@ console.log("Certificate Data:",data);
 
 
 
-if(data.status!=="success"){
+if(data.status !== "success"){
 
-alert("Certificate not found");
+
+alert("Certificate data not found");
+
 
 return;
+
 
 }
 
 
 
-// DISPLAY DATA
 
+// NAME
 
 document.getElementById("name").innerHTML =
 data.employeeName;
 
 
+
+// EMPLOYEE ID
+
 document.getElementById("empid").innerHTML =
 data.employeeId;
 
 
+
+// SCORE
+
 document.getElementById("score").innerHTML =
-data.score + " / " + data.totalQuestions;
+
+data.score +
+
+" / " +
+
+data.totalQuestions;
 
 
+
+// PERCENTAGE
 
 let percentage=data.percentage;
 
 
 if(!String(percentage).includes("%")){
 
-percentage=percentage+"%";
+    percentage = percentage + "%";
 
 }
 
@@ -105,17 +133,26 @@ percentage;
 
 
 
+
+// GRADE
+
 document.getElementById("grade").innerHTML =
 data.grade;
 
 
+
+// CERTIFICATE NUMBER
 
 document.getElementById("certno").innerHTML =
 data.certificateNo;
 
 
 
+
+// DATE
+
 document.getElementById("date").innerHTML =
+
 
 new Date(data.dateTime).toLocaleDateString(
 
@@ -135,11 +172,19 @@ year:"numeric"
 
 
 
+
 // BADGE
 
-document.getElementById("badge").innerHTML =
+const badge =
+document.getElementById("badge");
 
+
+if(badge){
+
+badge.innerHTML =
 data.grade.toUpperCase();
+
+}
 
 
 
@@ -147,6 +192,10 @@ data.grade.toUpperCase();
 // CONFETTI
 
 if(typeof confetti==="function"){
+
+
+setTimeout(()=>{
+
 
 confetti({
 
@@ -156,11 +205,16 @@ spread:120
 
 });
 
+
+},500);
+
+
 }
 
 
 
 }
+
 
 catch(error){
 
@@ -185,13 +239,76 @@ alert(
 
 
 
-// PDF DOWNLOAD
 
-async function downloadPDF(){
+// ==========================================
+// REMOVE ANIMATION BEFORE PDF / PRINT
+// ==========================================
+
+function prepareCertificate(){
 
 
 const certificate =
 document.getElementById("certificate");
+
+
+
+certificate.classList.add(
+"pdf-capture"
+);
+
+
+
+const elements =
+certificate.querySelectorAll("*");
+
+
+
+elements.forEach(function(el){
+
+
+el.style.animation="none";
+
+el.style.transition="none";
+
+el.style.opacity="1";
+
+el.style.transform="none";
+
+
+});
+
+
+}
+
+
+
+
+
+
+
+// ==========================================
+// DOWNLOAD PDF
+// ==========================================
+
+async function downloadPDF(){
+
+
+
+console.log("PDF Download Started");
+
+
+
+prepareCertificate();
+
+
+
+const certificate =
+document.getElementById("certificate");
+
+
+
+await new Promise(resolve=>setTimeout(resolve,500));
+
 
 
 const canvas =
@@ -201,9 +318,13 @@ certificate,
 
 {
 
-scale:2,
+scale:3,
 
-useCORS:true
+useCORS:true,
+
+backgroundColor:"#ffffff",
+
+logging:false
 
 }
 
@@ -211,11 +332,13 @@ useCORS:true
 
 
 
-const img =
+const imgData =
 canvas.toDataURL("image/png");
 
 
+
 const {jsPDF}=window.jspdf;
+
 
 
 const pdf =
@@ -230,9 +353,10 @@ new jsPDF(
 );
 
 
+
 pdf.addImage(
 
-img,
+imgData,
 
 "PNG",
 
@@ -250,9 +374,34 @@ img,
 
 pdf.save(
 
-"NSPCL_Certificate_"+employeeId+".pdf"
+"NSPCL_Certificate_" +
+
+employeeId +
+
+".pdf"
 
 );
+
+
+}
+
+
+
+
+
+
+
+// ==========================================
+// PRINT FIX
+// ==========================================
+
+function printCertificate(){
+
+
+prepareCertificate();
+
+
+window.print();
 
 
 }
