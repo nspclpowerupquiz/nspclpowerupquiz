@@ -13,24 +13,26 @@ localStorage.getItem("employeeId");
 
 
 console.log("Certificate JS Loaded");
+
 console.log("Employee ID:", employeeId);
 
 
 
 if(!employeeId){
 
-    alert("Please login first.");
+alert("Please login first");
 
-    window.location.href="login.html";
+window.location.href="login.html";
 
 }
 
 
 
+// LOAD WHEN PAGE OPENS
 
 window.onload=function(){
 
-    loadCertificate();
+loadCertificate();
 
 };
 
@@ -62,150 +64,103 @@ console.log("Certificate Data:",data);
 
 
 
-if(data.status !== "success"){
-
+if(data.status!=="success"){
 
 alert("Certificate not found");
 
 return;
 
-
 }
 
 
 
-// Employee Name
+// DISPLAY DATA
 
-document.getElementById("name").textContent =
+
+document.getElementById("name").innerHTML =
 data.employeeName;
 
 
-
-// Employee ID
-
-document.getElementById("empid").textContent =
+document.getElementById("empid").innerHTML =
 data.employeeId;
 
 
-
-// Score
-
-document.getElementById("score").textContent =
-
-data.score +
-" / " +
-data.totalQuestions;
+document.getElementById("score").innerHTML =
+data.score + " / " + data.totalQuestions;
 
 
 
-// Percentage
-
-document.getElementById("percentage").textContent =
-
-data.percentage + "%";
+let percentage=data.percentage;
 
 
+if(!String(percentage).includes("%")){
 
-// Grade
+percentage=percentage+"%";
 
-document.getElementById("grade").textContent =
+}
 
+
+document.getElementById("percentage").innerHTML =
+percentage;
+
+
+
+document.getElementById("grade").innerHTML =
 data.grade;
 
 
 
-// Certificate No
-
-document.getElementById("certno").textContent =
-
+document.getElementById("certno").innerHTML =
 data.certificateNo;
 
 
 
-// Date
-
-document.getElementById("date").textContent =
+document.getElementById("date").innerHTML =
 
 new Date(data.dateTime).toLocaleDateString(
+
 "en-IN",
+
 {
+
 day:"numeric",
+
 month:"long",
+
 year:"numeric"
+
 }
+
 );
 
 
 
+// BADGE
 
+document.getElementById("badge").innerHTML =
 
-// Badge
-
-const badge =
-document.getElementById("badge");
-
-
-
-let grade =
-data.grade.toLowerCase();
-
-
-
-if(grade==="gold"){
-
-
-badge.innerHTML="🥇 GOLD ACHIEVER";
-
-
-}
-
-else if(grade==="silver"){
-
-
-badge.innerHTML="🥈 SILVER ACHIEVER";
-
-
-}
-
-else if(grade==="bronze"){
-
-
-badge.innerHTML="🥉 BRONZE ACHIEVER";
-
-
-}
-
-else{
-
-
-badge.innerHTML="⭐ PARTICIPATION";
-
-
-}
+data.grade.toUpperCase();
 
 
 
 
+// CONFETTI
 
-
-// Confetti
+if(typeof confetti==="function"){
 
 confetti({
 
-particleCount:200,
+particleCount:150,
 
-spread:150,
-
-origin:{
-y:0.6
-}
+spread:120
 
 });
 
+}
+
 
 
 }
-
 
 catch(error){
 
@@ -224,51 +179,31 @@ alert(
 }
 
 
-
 }
 
 
 
 
 
+// PDF DOWNLOAD
 
-
-// ==========================================
-// DOWNLOAD PDF FIXED
-// ==========================================
 async function downloadPDF(){
-
-
-console.log("PDF Download Started");
 
 
 const certificate =
 document.getElementById("certificate");
 
 
-// Disable animations temporarily
-
-certificate.classList.add("pdf-mode");
-
-
-// Wait for rendering
-
-await new Promise(resolve=>setTimeout(resolve,500));
-
-
-
 const canvas =
 await html2canvas(
+
 certificate,
+
 {
 
-scale:3,
+scale:2,
 
-useCORS:true,
-
-backgroundColor:"#ffffff",
-
-logging:true
+useCORS:true
 
 }
 
@@ -276,15 +211,8 @@ logging:true
 
 
 
-// Remove PDF mode
-
-certificate.classList.remove("pdf-mode");
-
-
-
-const imgData =
+const img =
 canvas.toDataURL("image/png");
-
 
 
 const {jsPDF}=window.jspdf;
@@ -292,30 +220,39 @@ const {jsPDF}=window.jspdf;
 
 const pdf =
 new jsPDF(
+
 "landscape",
+
 "mm",
+
 "a4"
+
 );
 
 
-
 pdf.addImage(
-imgData,
+
+img,
+
 "PNG",
+
 5,
+
 5,
+
 287,
+
 200
+
 );
 
 
 
 pdf.save(
+
 "NSPCL_Certificate_"+employeeId+".pdf"
+
 );
-
-
-}
 
 
 }
