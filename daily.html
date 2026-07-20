@@ -4,43 +4,80 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-<title>NSPCL Power Pulse - Daily Challenge</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>
+NSPCL Power Pulse | Daily Challenge
+</title>
+
+
+<!-- MAIN CSS -->
 
 <link rel="stylesheet" href="style.css">
 
+
+<!-- DAILY PAGE CSS -->
+
+<link rel="stylesheet" href="daily.css">
+
+
+<!-- ICON -->
+
+<link rel="icon" href="favicon.ico">
+
+
 </head>
+
 
 
 <body>
 
 
+
 <div class="daily-page">
 
 
-<!-- HERO -->
+
+<!-- ================= HERO ================= -->
+
 
 <section class="daily-hero">
 
-<h1>⚡ NSPCL Power Pulse</h1>
 
-<h2>Daily Challenge</h2>
+<h1>
+⚡ NSPCL Power Pulse
+</h1>
+
+
+<h2>
+Daily Challenge
+</h2>
+
 
 <p>
-Test your knowledge. Learn something new every day.
+Test your knowledge • Improve every day • Earn Power Points
 </p>
+
 
 </section>
 
 
 
-<!-- QUESTION -->
-
-<section class="daily-card">
 
 
-<h2>🔥 Today's Question</h2>
+
+<!-- ================= QUESTION CARD ================= -->
+
+
+<section class="daily-card question-card">
+
+
+<h2>
+🔥 Today's Question
+</h2>
+
 
 
 <div id="dailyQuestion">
@@ -51,17 +88,30 @@ Loading today's challenge...
 
 
 
-<div id="dailyOptions"></div>
+
+<div id="dailyOptions">
+
+</div>
 
 
-<button onclick="submitDaily()" class="daily-btn">
 
-Submit Answer
+
+
+<button 
+class="daily-btn"
+onclick="submitDaily()">
+
+🚀 Submit Answer
 
 </button>
 
 
-<div id="dailyResult"></div>
+
+
+<div id="dailyResult">
+
+</div>
+
 
 
 </section>
@@ -70,13 +120,20 @@ Submit Answer
 
 
 
-<!-- MOTIVATION -->
+
+
+
+<!-- ================= MOTIVATION ================= -->
+
 
 
 <section class="daily-card quote-card">
 
 
-<h2>🌟 Daily Motivation</h2>
+<h2>
+🌟 Daily Motivation
+</h2>
+
 
 
 <p id="dailyQuote">
@@ -86,6 +143,7 @@ Loading motivation...
 </p>
 
 
+
 </section>
 
 
@@ -93,51 +151,86 @@ Loading motivation...
 
 
 
-<!-- STATS -->
+
+
+
+<!-- ================= POWER STATS ================= -->
+
 
 
 <section class="daily-grid">
 
 
+
+
+
 <div class="daily-stat">
+
 
 <h3 id="streak">
+
 0
+
 </h3>
 
+
 <p>
-Daily Streak
+
+🔥 Daily Streak
+
 </p>
+
 
 </div>
 
 
 
+
+
+
 <div class="daily-stat">
+
 
 <h3 id="points">
+
 0
+
 </h3>
 
+
 <p>
-Power Points
+
+⚡ Power Points
+
 </p>
 
+
 </div>
+
+
+
 
 
 
 <div class="daily-stat">
 
+
 <h3>
-⚡
+
+🏆
+
 </h3>
 
+
 <p>
+
 Keep Learning
+
 </p>
 
+
 </div>
+
 
 
 
@@ -145,11 +238,40 @@ Keep Learning
 
 
 
+
+
+
+
+<!-- BACK BUTTON -->
+
+
+<div style="text-align:center;margin-top:40px;">
+
+
+<a href="index.html" class="daily-btn">
+
+⬅ Back To Home
+
+</a>
+
+
 </div>
 
 
 
+
+
+
+</div>
+
+
+
+
+
+
+
 <script src="daily.js"></script>
+
 
 
 </body>
