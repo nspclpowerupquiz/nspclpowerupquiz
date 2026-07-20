@@ -265,7 +265,169 @@ function hideLoading() {
 // (Implemented in later parts)
 // ==============================================
 
-function populateTable() {}
+// ==============================================
+// POPULATE EMPLOYEE TABLE
+// ==============================================
+
+function populateTable() {
+
+    const table =
+        document.getElementById("resultTable");
+
+    if (!table) return;
+
+    table.innerHTML = "";
+
+    if (leaderboard.length === 0) {
+
+        table.innerHTML = `
+
+        <tr>
+
+            <td colspan="7">
+
+                No quiz data available.
+
+            </td>
+
+        </tr>
+
+        `;
+
+        return;
+
+    }
+
+
+    leaderboard.forEach(function(item,index){
+
+        // ----------------------------
+        // Rank Badge
+        // ----------------------------
+
+        let rankHTML = item.rank;
+
+        if(item.rank==1){
+
+            rankHTML =
+            '<span class="rank-gold">🥇 1</span>';
+
+        }
+
+        else if(item.rank==2){
+
+            rankHTML =
+            '<span class="rank-silver">🥈 2</span>';
+
+        }
+
+        else if(item.rank==3){
+
+            rankHTML =
+            '<span class="rank-bronze">🥉 3</span>';
+
+        }
+
+
+        // ----------------------------
+        // Percentage
+        // ----------------------------
+
+        let percentage =
+            Number(String(item.percentage).replace("%",""));
+
+        let percentClass = "percent-low";
+
+        if(percentage>=75){
+
+            percentClass="percent-high";
+
+        }
+
+        else if(percentage>=60){
+
+            percentClass="percent-medium";
+
+        }
+
+
+        // ----------------------------
+        // Date
+        // ----------------------------
+
+        let date =
+            new Date(item.dateTime)
+            .toLocaleDateString(
+                "en-IN",
+                {
+                    day:"2-digit",
+                    month:"short",
+                    year:"numeric"
+                }
+            );
+
+
+        // ----------------------------
+        // Create Row
+        // ----------------------------
+
+        table.innerHTML += `
+
+        <tr>
+
+            <td>${rankHTML}</td>
+
+            <td>${item.employeeId}</td>
+
+            <td>${item.employeeName}</td>
+
+            <td>${item.score}</td>
+
+            <td>${item.totalQuestions}</td>
+
+            <td>
+
+                <span class="${percentClass}">
+
+                    ${percentage}%
+
+                </span>
+
+            </td>
+
+            <td>${date}</td>
+
+        </tr>
+
+        `;
+
+    });
+
+
+    updateRecordCount();
+
+}
+
+
+
+// ==============================================
+// RECORD COUNT
+// ==============================================
+
+function updateRecordCount(){
+
+    const record =
+        document.getElementById("recordCount");
+
+    if(record){
+
+        record.innerHTML =
+        "Total Records : " +
+        leaderboard.length;
+
+    }
+
+}
 
 function loadCharts() {}
 
