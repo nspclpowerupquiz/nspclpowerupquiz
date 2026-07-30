@@ -1,202 +1,4300 @@
 [
   {
-    "question": "NSPCL is a joint venture between NTPC and which company?",
+    "question": "What is the full form of GeM?",
     "options": [
-      "SAIL",
-      "BHEL",
-      "ONGC",
-      "GAIL"
-    ],
-    "answer": "SAIL"
-  },
-  {
-    "question": "Which department handles Contracts and Materials management?",
-    "options": [
-      "C&M",
-      "Finance",
-      "HR",
-      "IT"
-    ],
-    "answer": "C&M"
-  },
-  {
-    "question": "Which gas is essential for human breathing?",
-    "options": [
-      "Carbon dioxide",
-      "Oxygen",
-      "Nitrogen",
-      "Hydrogen"
-    ],
-    "answer": "Oxygen"
-  },
-  {
-    "question": "Capital of India is:",
-    "options": [
-      "Mumbai",
-      "Delhi",
-      "Kolkata",
-      "Chennai"
-    ],
-    "answer": "Delhi"
-  },
-  {
-    "question": "Which planet is called the Red Planet?",
-    "options": [
-      "Earth",
-      "Mars",
-      "Jupiter",
-      "Venus"
-    ],
-    "answer": "Mars"
-  },
-  {
-    "question": "Procurement mainly deals with:",
-    "options": [
-      "Buying goods and services",
-      "Employee training",
-      "Power generation",
-      "Accounting"
-    ],
-    "answer": "Buying goods and services"
-  },
-  {
-    "question": "Inventory management focuses on:",
-    "options": [
-      "Stock control",
-      "Marketing",
-      "Recruitment",
-      "Sales"
-    ],
-    "answer": "Stock control"
-  },
-  {
-    "question": "GeM stands for:",
-    "options": [
-      "Government e-Marketplace",
       "Government e-Management",
-      "Global Electronic Market",
-      "Government e-Merchant"
+      "Government e-Marketplace",
+      "Government e-Merchant",
+      "Government Electronic Market"
     ],
     "answer": "Government e-Marketplace"
   },
   {
-    "question": "Which ministry operates the GeM portal?",
+    "question": "GeM portal is mainly used for:",
+    "options": [
+      "Income Tax Filing",
+      "Public Procurement",
+      "GST Registration",
+      "Banking"
+    ],
+    "answer": "Public Procurement"
+  },
+  {
+    "question": "GeM was launched in:",
+    "options": [
+      "2014",
+      "2015",
+      "2016",
+      "2017"
+    ],
+    "answer": "2016"
+  },
+  {
+    "question": "GeM functions under which Ministry?",
     "options": [
       "Ministry of Finance",
       "Ministry of Commerce & Industry",
-      "Ministry of Corporate Affairs",
-      "Ministry of Power"
+      "Ministry of Power",
+      "Ministry of Home Affairs"
     ],
     "answer": "Ministry of Commerce & Industry"
   },
   {
-    "question": "Direct Purchase in GeM without comparison is allowed up to:",
+    "question": "Which of the following can purchase through GeM?",
     "options": [
-      "₹25,000",
-      "₹50,000",
-      "₹1,00,000",
-      "₹5,00,000"
+      "Central Government",
+      "State Governments",
+      "PSUs",
+      "All of the above"
     ],
-    "answer": "₹25,000"
+    "answer": "All of the above"
   },
   {
-    "question": "Which of the following is NOT a GeM facility?",
+    "question": "GeM provides procurement of:",
+    "options": [
+      "Goods only",
+      "Services only",
+      "Goods and Services",
+      "Consultancy only"
+    ],
+    "answer": "Goods and Services"
+  },
+  {
+    "question": "Which principle is promoted by GeM?",
+    "options": [
+      "Transparency",
+      "Efficiency",
+      "Competition",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "Which rule of GFR deals with GeM?",
+    "options": [
+      "Rule 21",
+      "Rule 149",
+      "Rule 170",
+      "Rule 192"
+    ],
+    "answer": "Rule 149"
+  },
+  {
+    "question": "Which document generally defines technical specifications?",
+    "options": [
+      "Invoice",
+      "Bid Document",
+      "Delivery Challan",
+      "Receipt"
+    ],
+    "answer": "Bid Document"
+  },
+  {
+    "question": "What is RA in GeM?",
     "options": [
       "Reverse Auction",
-      "e-BG",
-      "Offline Negotiation",
-      "e-Bidding"
+      "Rate Agreement",
+      "Registration Authority",
+      "Regional Approval"
     ],
-    "answer": "Offline Negotiation"
+    "answer": "Reverse Auction"
   },
   {
-    "question": "Custom Bid on GeM is used when:",
+    "question": "L1 means:",
     "options": [
-      "Product is available in catalogue",
-      "Buyer needs tailor-made specification",
-      "Only one vendor is listed",
-      "Purchase is urgent"
+      "Highest Bidder",
+      "Lowest Evaluated Bidder",
+      "First Registered Seller",
+      "Local Supplier"
     ],
-    "answer": "Buyer needs tailor-made specification"
+    "answer": "Lowest Evaluated Bidder"
   },
   {
-    "question": "GeM promotes:",
+    "question": "OEM stands for:",
     "options": [
-      "Monopoly of OEMs",
-      "Transparency and competition",
-      "Only foreign vendors",
-      "Manual procurement"
+      "Original Equipment Manufacturer",
+      "Official Equipment Manufacturer",
+      "Original Export Merchant",
+      "Online Equipment Merchant"
     ],
-    "answer": "Transparency and competition"
+    "answer": "Original Equipment Manufacturer"
   },
   {
-    "question": "Integrity Pact is mandatory in high-value tenders to ensure:",
+    "question": "Which of the following can participate as a seller on GeM?",
     "options": [
-      "Transparency",
-      "Fast payment",
-      "Lower taxes",
-      "Higher prices"
+      "OEM",
+      "Authorized Dealer",
+      "Service Provider",
+      "All of the above"
     ],
-    "answer": "Transparency"
+    "answer": "All of the above"
   },
   {
-    "question": "Two-part bidding consists of:",
+    "question": "Which bidding method allows sellers to reduce prices in real time?",
     "options": [
-      "Technical Bid and Price Bid",
-      "Online and Offline Bid",
-      "Single Bid and Reverse Auction",
-      "Financial Bid and HR Bid"
+      "Forward Auction",
+      "Reverse Auction",
+      "Open Auction",
+      "Manual Auction"
     ],
-    "answer": "Technical Bid and Price Bid"
+    "answer": "Reverse Auction"
   },
   {
-    "question": "Which document specifies the technical requirements of an item?",
+    "question": "Bid validity means:",
     "options": [
-      "Specification",
+      "Warranty Period",
+      "Time during which bid remains valid",
+      "Delivery Period",
+      "Contract Duration"
+    ],
+    "answer": "Time during which bid remains valid"
+  },
+  {
+    "question": "Which document confirms successful supply?",
+    "options": [
+      "Purchase Order",
+      "Consignee Receipt & Acceptance Certificate (CRAC)",
       "Invoice",
-      "Receipt",
-      "Voucher"
+      "Tender Notice"
     ],
-    "answer": "Specification"
+    "answer": "Consignee Receipt & Acceptance Certificate (CRAC)"
   },
   {
-    "question": "Which department usually raises the purchase indent?",
+    "question": "PAC stands for:",
     "options": [
-      "Indenting Department",
-      "Finance",
-      "HR",
-      "Security"
+      "Product Approval Certificate",
+      "Proprietary Article Certificate",
+      "Purchase Approval Code",
+      "Procurement Audit Certificate"
     ],
-    "answer": "Indenting Department"
+    "answer": "Proprietary Article Certificate"
   },
   {
-    "question": "The main objective of inventory management is:",
+    "question": "Which payment method is generally followed on GeM?",
     "options": [
-      "Maintain optimum stock",
-      "Increase waste",
-      "Reduce quality",
-      "Delay procurement"
+      "Cash",
+      "Online Electronic Payment",
+      "Cheque Only",
+      "Demand Draft"
     ],
-    "answer": "Maintain optimum stock"
+    "answer": "Online Electronic Payment"
   },
   {
-    "question": "Which of the following is a principle of public procurement?",
+    "question": "GeM helps reduce:",
+    "options": [
+      "Manual paperwork",
+      "Procurement time",
+      "Human intervention",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "Which organization can register as a buyer?",
+    "options": [
+      "Government Department",
+      "PSU",
+      "Autonomous Body",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "Bid evaluation is based primarily on:",
+    "options": [
+      "Supplier reputation only",
+      "Technical and financial criteria",
+      "Advertisement",
+      "Personal preference"
+    ],
+    "answer": "Technical and financial criteria"
+  },
+  {
+    "question": "Which is NOT a benefit of GeM?",
     "options": [
       "Transparency",
-      "Fair Competition",
+      "Competition",
+      "Paperless procurement",
+      "Negotiation outside portal"
+    ],
+    "answer": "Negotiation outside portal"
+  },
+  {
+    "question": "GeM supports procurement of:",
+    "options": [
+      "Goods",
+      "Services",
+      "Works-related services (where applicable)",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "GeM generates:",
+    "options": [
+      "Digital Purchase Orders",
+      "Manual Bills",
+      "Cash Receipts",
+      "None"
+    ],
+    "answer": "Digital Purchase Orders"
+  },
+  {
+    "question": "Which feature promotes fair competition?",
+    "options": [
+      "Open Bidding",
+      "Limited Seller Access",
+      "Manual Selection",
+      "Closed Procurement"
+    ],
+    "answer": "Open Bidding"
+  },
+  {
+    "question": "GeM is primarily intended to:",
+    "options": [
+      "Increase paperwork",
+      "Simplify Government Procurement",
+      "Increase intermediaries",
+      "Reduce competition"
+    ],
+    "answer": "Simplify Government Procurement"
+  },
+  {
+    "question": "Which procurement objective is achieved through GeM?",
+    "options": [
+      "Value for Money",
+      "Transparency",
+      "Speed",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "A Purchase Order on GeM is issued after:",
+    "options": [
+      "Bid Evaluation",
+      "Bid Cancellation",
+      "Advertisement",
+      "Registration Only"
+    ],
+    "answer": "Bid Evaluation"
+  },
+  {
+    "question": "Which stakeholder receives supplied material?",
+    "options": [
+      "Buyer",
+      "Consignee",
+      "Seller",
+      "Auditor"
+    ],
+    "answer": "Consignee"
+  },
+  {
+    "question": "GeM procurement supports which Government initiative?",
+    "options": [
+      "Digital India",
+      "Ease of Doing Business",
+      "Transparent Procurement",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "Who can register as a Buyer on GeM?",
+    "options": [
+      "Any citizen",
+      "Government Departments, PSUs, Autonomous Bodies, and Local Bodies",
+      "Private companies only",
+      "NGOs only"
+    ],
+    "answer": "Government Departments, PSUs, Autonomous Bodies, and Local Bodies"
+  },
+  {
+    "question": "The primary responsibility of a GeM Buyer is to:",
+    "options": [
+      "Sell products",
+      "Procure goods and services for the organization",
+      "Audit suppliers",
+      "Register sellers"
+    ],
+    "answer": "Procure goods and services for the organization"
+  },
+  {
+    "question": "Which role is responsible for creating demand on GeM?",
+    "options": [
+      "Seller",
+      "Buyer",
+      "Consignee",
+      "Auditor"
+    ],
+    "answer": "Buyer"
+  },
+  {
+    "question": "Before placing an order, a Buyer should first:",
+    "options": [
+      "Approve payment",
+      "Verify product specifications",
+      "Issue CRAC",
+      "Generate invoice"
+    ],
+    "answer": "Verify product specifications"
+  },
+  {
+    "question": "Which document is generated after successful procurement?",
+    "options": [
+      "Purchase Order",
+      "Delivery Challan",
+      "Invoice",
+      "Stock Register"
+    ],
+    "answer": "Purchase Order"
+  },
+  {
+    "question": "A Buyer can procure through:",
+    "options": [
+      "Direct Purchase",
+      "L1 Purchase",
+      "Bid/Reverse Auction",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "Which feature allows a Buyer to compare multiple products?",
+    "options": [
+      "Product Comparison Tool",
+      "Payment Gateway",
+      "Invoice Module",
+      "CRAC Module"
+    ],
+    "answer": "Product Comparison Tool"
+  },
+  {
+    "question": "What is the purpose of adding a Consignee?",
+    "options": [
+      "To receive payment",
+      "To receive goods/services",
+      "To register suppliers",
+      "To audit procurement"
+    ],
+    "answer": "To receive goods/services"
+  },
+  {
+    "question": "Which role verifies receipt of goods?",
+    "options": [
+      "Buyer",
+      "Seller",
+      "Consignee",
+      "Finance Officer"
+    ],
+    "answer": "Consignee"
+  },
+  {
+    "question": "The Buyer should ensure that:",
+    "options": [
+      "Specifications are unbiased",
+      "Delivery schedule is realistic",
+      "Budget is available",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "What is the first step before initiating procurement?",
+    "options": [
+      "Vendor Payment",
+      "Demand Assessment",
+      "Delivery",
+      "CRAC Generation"
+    ],
+    "answer": "Demand Assessment"
+  },
+  {
+    "question": "GeM Buyer should avoid:",
+    "options": [
+      "Transparent procurement",
+      "Restrictive specifications",
+      "Competition",
+      "Online bidding"
+    ],
+    "answer": "Restrictive specifications"
+  },
+  {
+    "question": "Which procurement mode is generally used for higher-value purchases?",
+    "options": [
+      "Direct Purchase",
+      "Bid/RA",
+      "Offline Purchase",
+      "Cash Purchase"
+    ],
+    "answer": "Bid/RA"
+  },
+  {
+    "question": "Buyer can create:",
+    "options": [
+      "Bid",
+      "Reverse Auction",
+      "Direct Purchase Order",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "L1 refers to:",
+    "options": [
+      "Lowest evaluated bidder",
+      "Largest supplier",
+      "Local supplier",
+      "Lead supplier"
+    ],
+    "answer": "Lowest evaluated bidder"
+  },
+  {
+    "question": "Reverse Auction helps Buyer achieve:",
+    "options": [
+      "Higher prices",
+      "Competitive pricing",
+      "Manual negotiation",
+      "Vendor registration"
+    ],
+    "answer": "Competitive pricing"
+  },
+  {
+    "question": "Which document confirms receipt and acceptance?",
+    "options": [
+      "Purchase Order",
+      "CRAC",
+      "Invoice",
+      "Indent"
+    ],
+    "answer": "CRAC"
+  },
+  {
+    "question": "Buyer should inspect supplied material before:",
+    "options": [
+      "Raising demand",
+      "Issuing CRAC",
+      "Creating bid",
+      "Registration"
+    ],
+    "answer": "Issuing CRAC"
+  },
+  {
+    "question": "Payment is generally processed after:",
+    "options": [
+      "Bid publication",
+      "CRAC generation",
+      "Registration",
+      "Comparison"
+    ],
+    "answer": "CRAC generation"
+  },
+  {
+    "question": "Which role can reject defective material?",
+    "options": [
+      "Seller",
+      "Consignee",
+      "Auditor",
+      "OEM"
+    ],
+    "answer": "Consignee"
+  },
+  {
+    "question": "Which information is mandatory while creating a Bid?",
+    "options": [
+      "Technical Specifications",
+      "Delivery Schedule",
+      "Quantity",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "Buyer should select specifications based on:",
+    "options": [
+      "Brand preference",
+      "Functional requirement",
+      "Supplier recommendation only",
+      "Advertisement"
+    ],
+    "answer": "Functional requirement"
+  },
+  {
+    "question": "GeM enables Buyers to:",
+    "options": [
+      "Track orders online",
+      "Compare products",
+      "Monitor deliveries",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "Which role certifies satisfactory service completion?",
+    "options": [
+      "Buyer/Consignee",
+      "Seller",
+      "OEM",
+      "Transporter"
+    ],
+    "answer": "Buyer/Consignee"
+  },
+  {
+    "question": "Buyer dashboard provides:",
+    "options": [
+      "Procurement history",
+      "Pending orders",
+      "Active bids",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "Buyer should upload technical specifications that are:",
+    "options": [
+      "Clear and measurable",
+      "Brand-specific without justification",
+      "Ambiguous",
+      "Incomplete"
+    ],
+    "answer": "Clear and measurable"
+  },
+  {
+    "question": "What is the purpose of a Bid?",
+    "options": [
+      "Invite competitive offers",
+      "Make payment",
+      "Approve invoice",
+      "Register supplier"
+    ],
+    "answer": "Invite competitive offers"
+  },
+  {
+    "question": "Buyer should evaluate bids based on:",
+    "options": [
+      "Pre-defined criteria",
+      "Personal preference",
+      "Supplier relationship",
+      "Advertisement"
+    ],
+    "answer": "Pre-defined criteria"
+  },
+  {
+    "question": "Buyer can cancel procurement if:",
+    "options": [
+      "Administrative reasons exist",
+      "Requirement changes",
+      "Competent authority approves, where required",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "Which document specifies terms and conditions?",
+    "options": [
+      "Bid Document",
+      "Invoice",
+      "CRAC",
+      "Delivery Challan"
+    ],
+    "answer": "Bid Document"
+  },
+  {
+    "question": "GeM Buyer can monitor order status through:",
+    "options": [
+      "Dashboard",
+      "Seller Portal",
+      "Email only",
+      "Invoice"
+    ],
+    "answer": "Dashboard"
+  },
+  {
+    "question": "Buyer should verify:",
+    "options": [
+      "Quantity",
+      "Quality",
+      "Specifications",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "Which role initiates payment after acceptance?",
+    "options": [
+      "Finance/PAO as per organizational workflow",
+      "Seller",
+      "Transporter",
+      "Auditor"
+    ],
+    "answer": "Finance/PAO as per organizational workflow"
+  },
+  {
+    "question": "Buyer should maintain:",
+    "options": [
+      "Procurement records",
+      "Inspection records",
+      "Order history",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "The main objective of GeM procurement is:",
+    "options": [
+      "Transparency",
+      "Efficiency",
       "Value for Money",
       "All of the above"
     ],
     "answer": "All of the above"
   },
   {
-    "question": "Which safety equipment should always be worn while working in industrial areas?",
+    "question": "What should a Buyer do if delivered goods do not meet specifications?",
     "options": [
-      "Helmet",
-      "Safety Shoes",
-      "Safety Goggles",
+      "Accept them anyway",
+      "Report the discrepancy and follow the contractual rejection/replacement process",
+      "Pay immediately",
+      "Delete the order"
+    ],
+    "answer": "Report the discrepancy and follow the contractual rejection/replacement process"
+  },
+  {
+    "question": "Which role generally creates and manages bids on GeM?",
+    "options": [
+      "Buyer",
+      "Seller",
+      "Auditor",
+      "Transporter"
+    ],
+    "answer": "Buyer"
+  },
+  {
+    "question": "Buyer should ensure sufficient ______ before procurement.",
+    "options": [
+      "Budget",
+      "Office Space",
+      "Vehicle",
+      "Manpower"
+    ],
+    "answer": "Budget"
+  },
+  {
+    "question": "The consignee address should be:",
+    "options": [
+      "Correct and complete",
+      "Hidden",
+      "Optional",
+      "Temporary"
+    ],
+    "answer": "Correct and complete"
+  },
+  {
+    "question": "Buyer should ensure timely:",
+    "options": [
+      "Inspection",
+      "Acceptance",
+      "Payment processing after due acceptance",
       "All of the above"
     ],
     "answer": "All of the above"
+  },
+  {
+    "question": "Which feature helps maintain transparency?",
+    "options": [
+      "Online bid submission",
+      "Manual quotation",
+      "Verbal negotiation",
+      "Cash payment"
+    ],
+    "answer": "Online bid submission"
+  },
+  {
+    "question": "Before issuing CRAC, Buyer should:",
+    "options": [
+      "Verify satisfactory supply",
+      "Cancel order",
+      "Create new bid",
+      "Register supplier"
+    ],
+    "answer": "Verify satisfactory supply"
+  },
+  {
+    "question": "GeM Buyer can procure:",
+    "options": [
+      "Goods",
+      "Services",
+      "Both Goods and Services",
+      "None"
+    ],
+    "answer": "Both Goods and Services"
+  },
+  {
+    "question": "Which procurement principle should every Buyer follow?",
+    "options": [
+      "Fairness",
+      "Transparency",
+      "Competition",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "A Buyer should avoid splitting procurement solely to bypass approval or procurement thresholds.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "answer": "True"
+  },
+  {
+    "question": "Which role can monitor supplier performance?",
+    "options": [
+      "Buyer",
+      "Consignee",
+      "Both Buyer and authorized officials",
+      "Transporter"
+    ],
+    "answer": "Both Buyer and authorized officials"
+  },
+  {
+    "question": "Buyer should check delivery timelines specified in:",
+    "options": [
+      "Purchase Order/Contract",
+      "Invoice",
+      "GST Return",
+      "PAN Card"
+    ],
+    "answer": "Purchase Order/Contract"
+  },
+  {
+    "question": "Which action helps ensure value for money?",
+    "options": [
+      "Competitive bidding where applicable",
+      "Single-source selection without justification",
+      "Ignoring specifications",
+      "Manual price fixing"
+    ],
+    "answer": "Competitive bidding where applicable"
+  },
+  {
+    "question": "The Buyer should maintain confidentiality during bid evaluation to:",
+    "options": [
+      "Ensure fairness",
+      "Help one bidder",
+      "Increase prices",
+      "Delay procurement"
+    ],
+    "answer": "Ensure fairness"
+  },
+  {
+    "question": "The ultimate responsibility of a GeM Buyer is to:",
+    "options": [
+      "Ensure compliant, transparent, and efficient procurement",
+      "Maximize supplier profits",
+      "Avoid documentation",
+      "Procure without approvals"
+    ],
+    "answer": "Ensure compliant, transparent, and efficient procurement"
+  },
+  {
+    "question": "What is the primary purpose of creating a Bid on GeM?",
+    "options": [
+      "To register a seller",
+      "To invite competitive offers from sellers",
+      "To generate payment",
+      "To approve an invoice"
+    ],
+    "answer": "To invite competitive offers from sellers"
+  },
+  {
+    "question": "Who is authorized to create a Bid on GeM?",
+    "options": [
+      "Seller",
+      "Buyer",
+      "Transporter",
+      "Auditor"
+    ],
+    "answer": "Buyer"
+  },
+  {
+    "question": "Before creating a Bid, the Buyer should ensure:",
+    "options": [
+      "Budget availability",
+      "Technical specifications are finalized",
+      "Approval from the competent authority (where applicable)",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "Which of the following is mandatory while creating a Bid?",
+    "options": [
+      "Technical specifications",
+      "Quantity",
+      "Delivery location",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "The technical specifications in a Bid should be:",
+    "options": [
+      "Brand-specific without justification",
+      "Clear, complete, and measurable",
+      "Copied from a supplier's brochure",
+      "Optional"
+    ],
+    "answer": "Clear, complete, and measurable"
+  },
+  {
+    "question": "The delivery schedule in a Bid should be:",
+    "options": [
+      "Undefined",
+      "Realistic and clearly mentioned",
+      "Left for the seller to decide",
+      "Mentioned after award"
+    ],
+    "answer": "Realistic and clearly mentioned"
+  },
+  {
+    "question": "What is the purpose of defining Bid validity?",
+    "options": [
+      "Warranty period",
+      "Time during which the offer remains valid",
+      "Delivery period",
+      "Inspection period"
+    ],
+    "answer": "Time during which the offer remains valid"
+  },
+  {
+    "question": "Which procurement principle should be followed while drafting Bid specifications?",
+    "options": [
+      "Fair competition",
+      "Transparency",
+      "Non-discrimination",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "The estimated quantity mentioned in the Bid should be:",
+    "options": [
+      "Approximate without basis",
+      "Based on actual requirement",
+      "Decided by the seller",
+      "Hidden"
+    ],
+    "answer": "Based on actual requirement"
+  },
+  {
+    "question": "A Buyer should avoid:",
+    "options": [
+      "Clear specifications",
+      "Restrictive specifications favoring one supplier",
+      "Competition",
+      "Online bidding"
+    ],
+    "answer": "Restrictive specifications favoring one supplier"
+  },
+  {
+    "question": "Bid creation begins after:",
+    "options": [
+      "Demand identification",
+      "Invoice generation",
+      "Payment approval",
+      "Delivery"
+    ],
+    "answer": "Demand identification"
+  },
+  {
+    "question": "Which information is generally included in the Bid document?",
+    "options": [
+      "Scope of supply",
+      "Technical specifications",
+      "Delivery terms",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "Which procurement method allows multiple sellers to compete?",
+    "options": [
+      "Direct Purchase",
+      "Competitive Bid",
+      "Manual Purchase",
+      "Cash Purchase"
+    ],
+    "answer": "Competitive Bid"
+  },
+  {
+    "question": "Reverse Auction is generally conducted:",
+    "options": [
+      "Before Bid publication",
+      "After technical qualification, where applicable",
+      "After payment",
+      "After delivery"
+    ],
+    "answer": "After technical qualification, where applicable"
+  },
+  {
+    "question": "The Buyer should specify the:",
+    "options": [
+      "Delivery location",
+      "Consignee details",
+      "Delivery period",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "Which of the following should NOT be included without proper justification?",
+    "options": [
+      "Generic specifications",
+      "Functional requirements",
+      "Particular brand names",
+      "Performance requirements"
+    ],
+    "answer": "Particular brand names"
+  },
+  {
+    "question": "Evaluation criteria should be:",
+    "options": [
+      "Transparent",
+      "Pre-defined",
+      "Objective",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "The purpose of Bid publication is to:",
+    "options": [
+      "Inform eligible sellers",
+      "Generate invoices",
+      "Receive payment",
+      "Register buyers"
+    ],
+    "answer": "Inform eligible sellers"
+  },
+  {
+    "question": "Which document is generated after successful Bid evaluation?",
+    "options": [
+      "Purchase Order",
+      "Invoice",
+      "Delivery Challan",
+      "CRAC"
+    ],
+    "answer": "Purchase Order"
+  },
+  {
+    "question": "Bid specifications should be based on:",
+    "options": [
+      "Functional needs",
+      "Market availability",
+      "Organizational requirements",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "Which role can modify a Bid before publication?",
+    "options": [
+      "Buyer",
+      "Seller",
+      "Auditor",
+      "Transporter"
+    ],
+    "answer": "Buyer"
+  },
+  {
+    "question": "The Bid should contain the required:",
+    "options": [
+      "Quantity",
+      "Unit of Measurement",
+      "Delivery schedule",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "What happens after the Bid submission deadline?",
+    "options": [
+      "New bids are accepted",
+      "Bid opening process begins",
+      "Delivery starts",
+      "Payment is released"
+    ],
+    "answer": "Bid opening process begins"
+  },
+  {
+    "question": "Which type of specifications promotes maximum competition?",
+    "options": [
+      "Performance-based specifications",
+      "Brand-specific specifications",
+      "Supplier-specific specifications",
+      "Ambiguous specifications"
+    ],
+    "answer": "Performance-based specifications"
+  },
+  {
+    "question": "Bid documents should clearly define:",
+    "options": [
+      "Eligibility criteria",
+      "Evaluation method",
+      "Terms and conditions",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "Which of the following helps avoid disputes?",
+    "options": [
+      "Clear specifications",
+      "Defined delivery schedule",
+      "Inspection criteria",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "The Buyer should mention the inspection requirement in the:",
+    "options": [
+      "Bid document",
+      "Invoice",
+      "CRAC",
+      "GST Return"
+    ],
+    "answer": "Bid document"
+  },
+  {
+    "question": "A corrigendum is issued to:",
+    "options": [
+      "Cancel payment",
+      "Modify or correct Bid conditions",
+      "Approve delivery",
+      "Reject invoices"
+    ],
+    "answer": "Modify or correct Bid conditions"
+  },
+  {
+    "question": "The Bid opening process should maintain:",
+    "options": [
+      "Confidentiality and fairness",
+      "Supplier preference",
+      "Manual negotiation",
+      "Price disclosure before opening"
+    ],
+    "answer": "Confidentiality and fairness"
+  },
+  {
+    "question": "The objective of competitive bidding is to achieve:",
+    "options": [
+      "Transparency",
+      "Value for money",
+      "Fair competition",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "Bid creation requires accurate:",
+    "options": [
+      "Product description",
+      "Quantity",
+      "Delivery location",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "A Buyer should verify that all required approvals are obtained:",
+    "options": [
+      "Before Bid publication",
+      "After payment",
+      "After delivery",
+      "During inspection"
+    ],
+    "answer": "Before Bid publication"
+  },
+  {
+    "question": "The Bid validity period protects:",
+    "options": [
+      "Buyer and seller from frequent price changes during evaluation",
+      "Only the seller",
+      "Only the buyer",
+      "Transporter"
+    ],
+    "answer": "Buyer and seller from frequent price changes during evaluation"
+  },
+  {
+    "question": "Bid documents should avoid:",
+    "options": [
+      "Ambiguous terms",
+      "Measurable specifications",
+      "Delivery schedule",
+      "Inspection criteria"
+    ],
+    "answer": "Ambiguous terms"
+  },
+  {
+    "question": "Which procurement objective is fulfilled through competitive bidding?",
+    "options": [
+      "Economy",
+      "Efficiency",
+      "Transparency",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "The Buyer should ensure that specifications are:",
+    "options": [
+      "Measurable",
+      "Functional",
+      "Non-restrictive",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "Which of the following is essential for Bid evaluation?",
+    "options": [
+      "Predefined criteria",
+      "Supplier preference",
+      "Personal opinion",
+      "Negotiation before opening"
+    ],
+    "answer": "Predefined criteria"
+  },
+  {
+    "question": "The purpose of the delivery schedule is to:",
+    "options": [
+      "Inform suppliers of expected completion timelines",
+      "Increase prices",
+      "Delay procurement",
+      "Avoid inspection"
+    ],
+    "answer": "Inform suppliers of expected completion timelines"
+  },
+  {
+    "question": "The Bid should clearly specify:",
+    "options": [
+      "Payment terms",
+      "Warranty, where applicable",
+      "Delivery conditions",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "Which action promotes fairness in procurement?",
+    "options": [
+      "Publishing complete Bid details",
+      "Sharing confidential information with one bidder",
+      "Negotiating privately before Bid opening",
+      "Accepting incomplete bids without justification"
+    ],
+    "answer": "Publishing complete Bid details"
+  },
+  {
+    "question": "The Buyer must ensure that the Bid complies with:",
+    "options": [
+      "Organizational procurement rules",
+      "Applicable GeM procedures",
+      "Applicable GFR provisions",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "Which document provides contractual terms before award?",
+    "options": [
+      "Bid document",
+      "Invoice",
+      "CRAC",
+      "Delivery Challan"
+    ],
+    "answer": "Bid document"
+  },
+  {
+    "question": "Bid evaluation should be based on:",
+    "options": [
+      "Published criteria",
+      "Personal relationship",
+      "Brand popularity alone",
+      "Advertisement"
+    ],
+    "answer": "Published criteria"
+  },
+  {
+    "question": "Corrigenda issued before Bid closing become:",
+    "options": [
+      "Part of the Bid conditions",
+      "Separate documents with no effect",
+      "Payment vouchers",
+      "Delivery instructions only"
+    ],
+    "answer": "Part of the Bid conditions"
+  },
+  {
+    "question": "Which is an important consideration while fixing the Bid submission period?",
+    "options": [
+      "Adequate time for suppliers to prepare responsive bids",
+      "Buyer convenience only",
+      "Office working hours only",
+      "Transport availability only"
+    ],
+    "answer": "Adequate time for suppliers to prepare responsive bids"
+  },
+  {
+    "question": "A well-drafted Bid primarily helps in:",
+    "options": [
+      "Reducing disputes",
+      "Attracting wider competition",
+      "Obtaining quality supplies",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "During Bid creation, the Buyer should specify:",
+    "options": [
+      "Quantity",
+      "Technical requirements",
+      "Delivery terms",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "The Buyer should publish a Bid only after:",
+    "options": [
+      "Finalizing all Bid conditions and obtaining required approvals",
+      "Receiving goods",
+      "Making payment",
+      "Issuing CRAC"
+    ],
+    "answer": "Finalizing all Bid conditions and obtaining required approvals"
+  },
+  {
+    "question": "Which of the following is NOT a good procurement practice?",
+    "options": [
+      "Using objective specifications",
+      "Encouraging competition",
+      "Tailoring specifications to favor one supplier without justification",
+      "Defining evaluation criteria in advance"
+    ],
+    "answer": "Tailoring specifications to favor one supplier without justification"
+  },
+  {
+    "question": "The ultimate objective of creating a GeM Bid is to:",
+    "options": [
+      "Achieve transparent, competitive, and value-for-money procurement",
+      "Increase paperwork",
+      "Restrict supplier participation",
+      "Delay procurement"
+    ],
+    "answer": "Achieve transparent, competitive, and value-for-money procurement"
+  },
+  {
+    "question": "What does BOQ stand for?",
+    "options": [
+      "Bill of Quality",
+      "Bill of Quantity",
+      "Book of Quantities",
+      "Budget of Quotations"
+    ],
+    "answer": "Bill of Quantity"
+  },
+  {
+    "question": "BOQ bidding on GeM is primarily used for:",
+    "options": [
+      "Procurement of standard catalog products only",
+      "Procurement of customized or non-catalog items and services requiring item-wise pricing",
+      "Employee recruitment",
+      "Asset disposal"
+    ],
+    "answer": "Procurement of customized or non-catalog items and services requiring item-wise pricing"
+  },
+  {
+    "question": "In a BOQ bid, sellers submit:",
+    "options": [
+      "A single lump-sum price only",
+      "Item-wise rates against the BOQ schedule",
+      "Only technical brochures",
+      "GST returns"
+    ],
+    "answer": "Item-wise rates against the BOQ schedule"
+  },
+  {
+    "question": "Who prepares the BOQ?",
+    "options": [
+      "Seller",
+      "Buyer",
+      "Transporter",
+      "Auditor"
+    ],
+    "answer": "Buyer"
+  },
+  {
+    "question": "A BOQ should clearly specify:",
+    "options": [
+      "Item description",
+      "Quantity",
+      "Unit of Measurement (UOM)",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "The purpose of a BOQ is to:",
+    "options": [
+      "Compare item-wise prices uniformly",
+      "Register suppliers",
+      "Generate invoices",
+      "Issue CRAC"
+    ],
+    "answer": "Compare item-wise prices uniformly"
+  },
+  {
+    "question": "BOQ bidding promotes:",
+    "options": [
+      "Transparency",
+      "Fair competition",
+      "Uniform price comparison",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "Which information is mandatory in a BOQ?",
+    "options": [
+      "Item description",
+      "Quantity",
+      "Unit",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "The unit of measurement (UOM) should be:",
+    "options": [
+      "Clearly defined",
+      "Left blank",
+      "Decided by the seller",
+      "Optional"
+    ],
+    "answer": "Clearly defined"
+  },
+  {
+    "question": "BOQ bids are generally evaluated on:",
+    "options": [
+      "Item-wise quoted prices and overall evaluated cost as per bid conditions",
+      "Brand name only",
+      "Seller location only",
+      "Advertisement"
+    ],
+    "answer": "Item-wise quoted prices and overall evaluated cost as per bid conditions"
+  },
+  {
+    "question": "BOQ is suitable when:",
+    "options": [
+      "Exact quantities are known or estimated for multiple line items",
+      "Only one item is being purchased from the catalog",
+      "Employee training is required",
+      "Salary is being processed"
+    ],
+    "answer": "Exact quantities are known or estimated for multiple line items"
+  },
+  {
+    "question": "Which document forms the basis of BOQ pricing?",
+    "options": [
+      "BOQ Schedule",
+      "GST Return",
+      "Invoice",
+      "CRAC"
+    ],
+    "answer": "BOQ Schedule"
+  },
+  {
+    "question": "A BOQ should avoid:",
+    "options": [
+      "Ambiguous descriptions",
+      "Clear specifications",
+      "Standard units",
+      "Delivery schedule"
+    ],
+    "answer": "Ambiguous descriptions"
+  },
+  {
+    "question": "BOQ bidding is commonly used for:",
+    "options": [
+      "Multiple items with different quantities",
+      "Attendance recording",
+      "Payroll processing",
+      "Vehicle registration"
+    ],
+    "answer": "Multiple items with different quantities"
+  },
+  {
+    "question": "The Buyer should ensure BOQ quantities are:",
+    "options": [
+      "Based on actual requirements",
+      "Random",
+      "Estimated without basis",
+      "Hidden"
+    ],
+    "answer": "Based on actual requirements"
+  },
+  {
+    "question": "Sellers quote prices:",
+    "options": [
+      "Against each BOQ line item",
+      "Only for the first item",
+      "After delivery",
+      "During inspection"
+    ],
+    "answer": "Against each BOQ line item"
+  },
+  {
+    "question": "Which procurement objective does BOQ support?",
+    "options": [
+      "Value for Money",
+      "Transparency",
+      "Fair Competition",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "The technical specifications in a BOQ should be:",
+    "options": [
+      "Clear and measurable",
+      "Brand-specific without justification",
+      "Optional",
+      "Supplier-specific"
+    ],
+    "answer": "Clear and measurable"
+  },
+  {
+    "question": "BOQ allows buyers to:",
+    "options": [
+      "Compare quoted rates item-wise",
+      "Compare supplier attendance",
+      "Compare salaries",
+      "Compare taxes only"
+    ],
+    "answer": "Compare quoted rates item-wise"
+  },
+  {
+    "question": "Which role uploads the BOQ?",
+    "options": [
+      "Buyer",
+      "Seller",
+      "Auditor",
+      "Consignee"
+    ],
+    "answer": "Buyer"
+  },
+  {
+    "question": "Sellers are expected to quote:",
+    "options": [
+      "Against all mandatory BOQ items, unless the bid permits otherwise",
+      "Only selected items",
+      "No prices",
+      "Estimated taxes only"
+    ],
+    "answer": "Against all mandatory BOQ items, unless the bid permits otherwise"
+  },
+  {
+    "question": "The BOQ should contain:",
+    "options": [
+      "Item codes (where applicable)",
+      "Quantities",
+      "Units",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "BOQ pricing should include:",
+    "options": [
+      "All applicable costs as required by the bid terms",
+      "Salary details",
+      "Office rent",
+      "Audit fee"
+    ],
+    "answer": "All applicable costs as required by the bid terms"
+  },
+  {
+    "question": "Which of the following should be avoided in BOQ preparation?",
+    "options": [
+      "Duplicate line items",
+      "Proper descriptions",
+      "Correct UOM",
+      "Accurate quantities"
+    ],
+    "answer": "Duplicate line items"
+  },
+  {
+    "question": "BOQ bids improve:",
+    "options": [
+      "Evaluation efficiency",
+      "Transparency",
+      "Accuracy in comparison",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "If the Buyer revises the BOQ before bid closing, it is generally done through:",
+    "options": [
+      "Corrigendum",
+      "Invoice",
+      "CRAC",
+      "Purchase Order"
+    ],
+    "answer": "Corrigendum"
+  },
+  {
+    "question": "BOQ helps evaluate:",
+    "options": [
+      "Total evaluated cost as per bid conditions",
+      "Employee performance",
+      "Office expenses",
+      "Vendor registration"
+    ],
+    "answer": "Total evaluated cost as per bid conditions"
+  },
+  {
+    "question": "Which document is issued after successful BOQ evaluation?",
+    "options": [
+      "Purchase Order/Contract",
+      "GST Return",
+      "Delivery Challan",
+      "Stock Register"
+    ],
+    "answer": "Purchase Order/Contract"
+  },
+  {
+    "question": "BOQ should clearly mention:",
+    "options": [
+      "Delivery requirements",
+      "Technical specifications",
+      "Quantity",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "Which procurement principle is best supported by BOQ bidding?",
+    "options": [
+      "Fair competition",
+      "Confidentiality during evaluation",
+      "Transparency",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "The evaluation of BOQ bids should follow:",
+    "options": [
+      "Published evaluation criteria",
+      "Personal preference",
+      "Brand popularity only",
+      "Verbal discussions"
+    ],
+    "answer": "Published evaluation criteria"
+  },
+  {
+    "question": "BOQ bidding is especially useful for:",
+    "options": [
+      "Procurement involving multiple line items",
+      "Employee transfers",
+      "Income tax filing",
+      "Bank reconciliation"
+    ],
+    "answer": "Procurement involving multiple line items"
+  },
+  {
+    "question": "The Buyer should verify BOQ entries before:",
+    "options": [
+      "Publishing the Bid",
+      "Making payment",
+      "Delivery",
+      "Inspection"
+    ],
+    "answer": "Publishing the Bid"
+  },
+  {
+    "question": "Which of the following improves BOQ accuracy?",
+    "options": [
+      "Correct UOM and quantity",
+      "Blank specifications",
+      "Missing item descriptions",
+      "Duplicate items"
+    ],
+    "answer": "Correct UOM and quantity"
+  },
+  {
+    "question": "A BOQ bid should specify:",
+    "options": [
+      "Delivery period",
+      "Inspection requirements",
+      "Warranty, where applicable",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "Item-wise comparison in BOQ helps identify:",
+    "options": [
+      "Competitive rates",
+      "Employee grades",
+      "Office expenses",
+      "Transport schedules"
+    ],
+    "answer": "Competitive rates"
+  },
+  {
+    "question": "BOQ documents should be:",
+    "options": [
+      "Complete and error-free",
+      "Incomplete",
+      "Supplier-specific",
+      "Handwritten only"
+    ],
+    "answer": "Complete and error-free"
+  },
+  {
+    "question": "Which factor should NOT influence BOQ evaluation?",
+    "options": [
+      "Personal relationship with a bidder",
+      "Published evaluation criteria",
+      "Compliance with specifications",
+      "Quoted prices"
+    ],
+    "answer": "Personal relationship with a bidder"
+  },
+  {
+    "question": "BOQ bidding enhances:",
+    "options": [
+      "Price transparency",
+      "Uniform evaluation",
+      "Procurement efficiency",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "During BOQ preparation, the Buyer should ensure:",
+    "options": [
+      "No unnecessary items are included",
+      "Quantities are justified",
+      "Specifications are complete",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "BOQ is generally used when:",
+    "options": [
+      "Item-wise pricing is required",
+      "Only one standard catalog item is purchased through direct purchase",
+      "Attendance is recorded",
+      "Salary is calculated"
+    ],
+    "answer": "Item-wise pricing is required"
+  },
+  {
+    "question": "A responsive BOQ bid is one that:",
+    "options": [
+      "Meets the essential requirements of the bid document",
+      "Has the highest price",
+      "Is submitted after the deadline",
+      "Omits mandatory information"
+    ],
+    "answer": "Meets the essential requirements of the bid document"
+  },
+  {
+    "question": "Which document provides the commercial basis for BOQ evaluation?",
+    "options": [
+      "BOQ Schedule and Bid Terms",
+      "Invoice",
+      "Delivery Challan",
+      "CRAC"
+    ],
+    "answer": "BOQ Schedule and Bid Terms"
+  },
+  {
+    "question": "Quantities in a BOQ should be expressed in:",
+    "options": [
+      "Appropriate units of measurement",
+      "Percentages only",
+      "Currency only",
+      "Words only"
+    ],
+    "answer": "Appropriate units of measurement"
+  },
+  {
+    "question": "BOQ bidding helps reduce:",
+    "options": [
+      "Ambiguity in pricing",
+      "Competition",
+      "Transparency",
+      "Supplier participation"
+    ],
+    "answer": "Ambiguity in pricing"
+  },
+  {
+    "question": "If a bidder alters the prescribed BOQ format contrary to bid conditions, the bid may:",
+    "options": [
+      "Be evaluated in accordance with the stated bid conditions, which may include rejection if the deviation is material",
+      "Automatically win",
+      "Be accepted without review",
+      "Receive extra marks"
+    ],
+    "answer": "Be evaluated in accordance with the stated bid conditions, which may include rejection if the deviation is material"
+  },
+  {
+    "question": "The Buyer should ensure that all BOQ items are:",
+    "options": [
+      "Clearly identifiable",
+      "Randomly numbered",
+      "Without description",
+      "Optional"
+    ],
+    "answer": "Clearly identifiable"
+  },
+  {
+    "question": "BOQ bidding supports procurement of:",
+    "options": [
+      "Goods and services requiring line-item quotations",
+      "Only office stationery",
+      "Only vehicles",
+      "Only computers"
+    ],
+    "answer": "Goods and services requiring line-item quotations"
+  },
+  {
+    "question": "Which of the following is a major advantage of BOQ bidding?",
+    "options": [
+      "Easy comparison of supplier quotations",
+      "Reduced documentation accuracy",
+      "Elimination of technical specifications",
+      "Manual calculations only"
+    ],
+    "answer": "Easy comparison of supplier quotations"
+  },
+  {
+    "question": "The ultimate objective of BOQ bidding is to:",
+    "options": [
+      "Obtain competitive, transparent, and value-for-money procurement through item-wise evaluation",
+      "Increase paperwork",
+      "Restrict competition",
+      "Delay procurement"
+    ],
+    "answer": "Obtain competitive, transparent, and value-for-money procurement through item-wise evaluation"
+  },
+  {
+    "question": "What does CRAC stand for?",
+    "options": [
+      "Central Receipt Approval Certificate",
+      "Consignee Receipt and Acceptance Certificate",
+      "Contract Receipt and Approval Certificate",
+      "Certified Receipt and Acceptance Certificate"
+    ],
+    "answer": "Consignee Receipt and Acceptance Certificate"
+  },
+  {
+    "question": "The primary purpose of CRAC is to:",
+    "options": [
+      "Register a seller",
+      "Certify receipt and acceptance of goods/services",
+      "Generate a bid",
+      "Approve a budget"
+    ],
+    "answer": "Certify receipt and acceptance of goods/services"
+  },
+  {
+    "question": "Who generally generates the CRAC on GeM?",
+    "options": [
+      "Seller",
+      "Buyer/Consignee (Authorized Receiver)",
+      "Transporter",
+      "Auditor"
+    ],
+    "answer": "Buyer/Consignee (Authorized Receiver)"
+  },
+  {
+    "question": "CRAC is generated after:",
+    "options": [
+      "Bid publication",
+      "Receipt and satisfactory inspection of goods/services",
+      "Payment",
+      "Reverse Auction"
+    ],
+    "answer": "Receipt and satisfactory inspection of goods/services"
+  },
+  {
+    "question": "Payment to the seller is generally processed after:",
+    "options": [
+      "Bid creation",
+      "Purchase Order",
+      "CRAC generation and fulfillment of payment conditions",
+      "Seller registration"
+    ],
+    "answer": "CRAC generation and fulfillment of payment conditions"
+  },
+  {
+    "question": "The Consignee is responsible for:",
+    "options": [
+      "Quoting prices",
+      "Receiving and inspecting goods",
+      "Making tax payments",
+      "Preparing invoices"
+    ],
+    "answer": "Receiving and inspecting goods"
+  },
+  {
+    "question": "Before issuing CRAC, the Consignee should verify:",
+    "options": [
+      "Quantity",
+      "Quality",
+      "Specifications",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "If goods are found defective, the Consignee should:",
+    "options": [
+      "Issue CRAC immediately",
+      "Follow the contractual process for rejection/replacement",
+      "Release payment",
+      "Ignore the defects"
+    ],
+    "answer": "Follow the contractual process for rejection/replacement"
+  },
+  {
+    "question": "CRAC is proof that:",
+    "options": [
+      "The tender is published",
+      "Goods/services have been accepted as per contract",
+      "Payment has already been made",
+      "Seller registration is complete"
+    ],
+    "answer": "Goods/services have been accepted as per contract"
+  },
+  {
+    "question": "Which document generally triggers the payment process?",
+    "options": [
+      "Bid",
+      "CRAC",
+      "Tender Notice",
+      "Delivery Challan"
+    ],
+    "answer": "CRAC"
+  },
+  {
+    "question": "Who uploads the invoice on GeM?",
+    "options": [
+      "Buyer",
+      "Seller",
+      "Auditor",
+      "Consignee"
+    ],
+    "answer": "Seller"
+  },
+  {
+    "question": "Payment is normally made to:",
+    "options": [
+      "Buyer",
+      "Seller",
+      "Consignee",
+      "Transporter"
+    ],
+    "answer": "Seller"
+  },
+  {
+    "question": "Before payment, the Buyer should ensure:",
+    "options": [
+      "Valid invoice",
+      "CRAC availability",
+      "Compliance with contract terms",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "Which document confirms delivery?",
+    "options": [
+      "Delivery Challan",
+      "GST Return",
+      "Salary Slip",
+      "Audit Report"
+    ],
+    "answer": "Delivery Challan"
+  },
+  {
+    "question": "Which document confirms acceptance?",
+    "options": [
+      "Invoice",
+      "CRAC",
+      "Purchase Requisition",
+      "Bid"
+    ],
+    "answer": "CRAC"
+  },
+  {
+    "question": "The inspection of goods should be carried out:",
+    "options": [
+      "Before CRAC generation",
+      "After payment",
+      "After warranty expiry",
+      "Before bid publication"
+    ],
+    "answer": "Before CRAC generation"
+  },
+  {
+    "question": "Payment should be released only after:",
+    "options": [
+      "Bid publication",
+      "Receipt, acceptance, and fulfillment of contractual requirements",
+      "Seller registration",
+      "Reverse Auction"
+    ],
+    "answer": "Receipt, acceptance, and fulfillment of contractual requirements"
+  },
+  {
+    "question": "If the supplied quantity is short, the Consignee should:",
+    "options": [
+      "Accept without recording",
+      "Record the discrepancy and act as per contract",
+      "Make full payment",
+      "Ignore the shortage"
+    ],
+    "answer": "Record the discrepancy and act as per contract"
+  },
+  {
+    "question": "CRAC helps ensure:",
+    "options": [
+      "Transparency",
+      "Accountability",
+      "Proper payment processing",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "Which role verifies satisfactory completion of a service?",
+    "options": [
+      "Buyer/Consignee",
+      "Seller",
+      "Transporter",
+      "Auditor"
+    ],
+    "answer": "Buyer/Consignee"
+  },
+  {
+    "question": "Goods should be inspected according to:",
+    "options": [
+      "Contract specifications",
+      "Seller preference",
+      "Advertisement",
+      "Market price"
+    ],
+    "answer": "Contract specifications"
+  },
+  {
+    "question": "If goods conform to specifications, the Consignee should:",
+    "options": [
+      "Reject them",
+      "Issue CRAC",
+      "Cancel the order",
+      "Return them"
+    ],
+    "answer": "Issue CRAC"
+  },
+  {
+    "question": "Payment processing generally starts after:",
+    "options": [
+      "Invoice and CRAC are available, along with required approvals",
+      "Seller registration",
+      "Tender publication",
+      "Bid opening"
+    ],
+    "answer": "Invoice and CRAC are available, along with required approvals"
+  },
+  {
+    "question": "CRAC is generated:",
+    "options": [
+      "Before supply",
+      "After satisfactory acceptance",
+      "Before bidding",
+      "Before Purchase Order"
+    ],
+    "answer": "After satisfactory acceptance"
+  },
+  {
+    "question": "The purpose of inspection is to verify:",
+    "options": [
+      "Quantity",
+      "Quality",
+      "Specifications",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "If services are not completed satisfactorily:",
+    "options": [
+      "CRAC should not be issued until contractual requirements are met",
+      "Immediate payment should be made",
+      "Seller should be ignored",
+      "Invoice alone is sufficient"
+    ],
+    "answer": "CRAC should not be issued until contractual requirements are met"
+  },
+  {
+    "question": "Which document is essential for payment audit?",
+    "options": [
+      "CRAC",
+      "Invoice",
+      "Purchase Order",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "Which role is responsible for ensuring proper receipt of goods?",
+    "options": [
+      "Consignee",
+      "Seller",
+      "Finance",
+      "Transporter"
+    ],
+    "answer": "Consignee"
+  },
+  {
+    "question": "Payment should match:",
+    "options": [
+      "Contract terms",
+      "Accepted quantity",
+      "Accepted quality",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "The Buyer should maintain records of:",
+    "options": [
+      "CRAC",
+      "Invoice",
+      "Purchase Order",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "Which document certifies that the supplier has fulfilled the delivery obligation?",
+    "options": [
+      "CRAC (subject to contract terms)",
+      "GST Return",
+      "Salary Register",
+      "Audit Note"
+    ],
+    "answer": "CRAC (subject to contract terms)"
+  },
+  {
+    "question": "Payment on GeM is generally made through:",
+    "options": [
+      "Electronic payment",
+      "Cash",
+      "Cheque only",
+      "Demand Draft only"
+    ],
+    "answer": "Electronic payment"
+  },
+  {
+    "question": "The Consignee should report damaged goods:",
+    "options": [
+      "Immediately through the prescribed process",
+      "After payment",
+      "After warranty expiry",
+      "Never"
+    ],
+    "answer": "Immediately through the prescribed process"
+  },
+  {
+    "question": "Which document contains payment details submitted by the seller?",
+    "options": [
+      "Invoice",
+      "Bid",
+      "CRAC",
+      "Delivery Challan"
+    ],
+    "answer": "Invoice"
+  },
+  {
+    "question": "A valid invoice should correspond to:",
+    "options": [
+      "Purchase Order",
+      "Accepted supply",
+      "Contract terms",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "The Finance department generally processes payment after:",
+    "options": [
+      "Verification of required documents",
+      "Seller request only",
+      "Bid publication",
+      "Product comparison"
+    ],
+    "answer": "Verification of required documents"
+  },
+  {
+    "question": "If only part of the ordered quantity is accepted:",
+    "options": [
+      "Payment is generally processed based on the accepted quantity, subject to contract terms",
+      "Full payment is mandatory",
+      "No payment can ever be made",
+      "Buyer must cancel the order"
+    ],
+    "answer": "Payment is generally processed based on the accepted quantity, subject to contract terms"
+  },
+  {
+    "question": "Which principle is ensured by CRAC?",
+    "options": [
+      "Accountability",
+      "Transparency",
+      "Traceability",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "Which document is prepared first?",
+    "options": [
+      "Purchase Order",
+      "CRAC",
+      "Invoice",
+      "Payment Advice"
+    ],
+    "answer": "Purchase Order"
+  },
+  {
+    "question": "The correct sequence is:",
+    "options": [
+      "Bid \u2192 PO \u2192 Supply \u2192 Inspection \u2192 CRAC \u2192 Invoice Verification \u2192 Payment",
+      "Payment \u2192 Bid \u2192 Supply",
+      "CRAC \u2192 Bid \u2192 Payment",
+      "Invoice \u2192 Bid \u2192 Supply"
+    ],
+    "answer": "Bid \u2192 PO \u2192 Supply \u2192 Inspection \u2192 CRAC \u2192 Invoice Verification \u2192 Payment"
+  },
+  {
+    "question": "Which party receives payment?",
+    "options": [
+      "Seller",
+      "Consignee",
+      "Buyer",
+      "Auditor"
+    ],
+    "answer": "Seller"
+  },
+  {
+    "question": "CRAC should only be issued when:",
+    "options": [
+      "Supply meets contractual requirements",
+      "Goods are dispatched",
+      "Seller requests it",
+      "Invoice is uploaded"
+    ],
+    "answer": "Supply meets contractual requirements"
+  },
+  {
+    "question": "Which document confirms contractual acceptance?",
+    "options": [
+      "CRAC",
+      "Delivery Challan",
+      "GST Invoice",
+      "Bid Document"
+    ],
+    "answer": "CRAC"
+  },
+  {
+    "question": "Payment should not be processed if:",
+    "options": [
+      "CRAC is pending where required",
+      "Required documents are incomplete",
+      "Contract conditions are not met",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "The main objective of CRAC is:",
+    "options": [
+      "To certify satisfactory receipt and acceptance",
+      "To increase procurement cost",
+      "To register suppliers",
+      "To publish bids"
+    ],
+    "answer": "To certify satisfactory receipt and acceptance"
+  },
+  {
+    "question": "Which stakeholder is primarily responsible for physical verification?",
+    "options": [
+      "Consignee",
+      "Finance Officer",
+      "Seller",
+      "Auditor"
+    ],
+    "answer": "Consignee"
+  },
+  {
+    "question": "If goods are accepted with contractual deviations, the Buyer should:",
+    "options": [
+      "Follow the applicable contract provisions and organizational procedures",
+      "Ignore the deviations",
+      "Make immediate payment without documentation",
+      "Delete the Purchase Order"
+    ],
+    "answer": "Follow the applicable contract provisions and organizational procedures"
+  },
+  {
+    "question": "Which document is generated after successful receipt and inspection?",
+    "options": [
+      "CRAC",
+      "Bid",
+      "Tender Notice",
+      "Vendor Registration"
+    ],
+    "answer": "CRAC"
+  },
+  {
+    "question": "CRAC plays an important role in:",
+    "options": [
+      "Audit compliance",
+      "Payment authorization",
+      "Procurement records",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "The ultimate objective of the CRAC and payment process is to:",
+    "options": [
+      "Ensure timely payment for accepted goods/services while maintaining transparency, accountability, and compliance with contractual terms",
+      "Delay supplier payments",
+      "Reduce competition",
+      "Eliminate inspections"
+    ],
+    "answer": "Ensure timely payment for accepted goods/services while maintaining transparency, accountability, and compliance with contractual terms"
+  },
+  {
+    "question": "GFR stands for:",
+    "options": [
+      "General Financial Rules",
+      "Government Finance Regulations",
+      "General Fund Rules",
+      "Government Financial Regulations"
+    ],
+    "answer": "General Financial Rules"
+  },
+  {
+    "question": "The current General Financial Rules were issued in:",
+    "options": [
+      "2014",
+      "2015",
+      "2017",
+      "2019"
+    ],
+    "answer": "2017"
+  },
+  {
+    "question": "Which Rule of GFR-2017 deals with Government e-Marketplace (GeM)?",
+    "options": [
+      "Rule 144",
+      "Rule 147",
+      "Rule 149",
+      "Rule 154"
+    ],
+    "answer": "Rule 149"
+  },
+  {
+    "question": "Rule 144 of GFR-2017 primarily deals with:",
+    "options": [
+      "Fundamental principles of public procurement",
+      "GeM registration",
+      "Payment process",
+      "Rate contracts"
+    ],
+    "answer": "Fundamental principles of public procurement"
+  },
+  {
+    "question": "The main objective of GFR-2017 is:",
+    "options": [
+      "Transparent and efficient public procurement",
+      "Increase paperwork",
+      "Restrict competition",
+      "Increase procurement cost"
+    ],
+    "answer": "Transparent and efficient public procurement"
+  },
+  {
+    "question": "Procurement through GeM is primarily intended to ensure:",
+    "options": [
+      "Transparency",
+      "Competition",
+      "Value for Money",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "According to Rule 149, common-use goods and services available on GeM are to be procured:",
+    "options": [
+      "Only offline",
+      "Through GeM, subject to the applicable rules",
+      "Only by quotation",
+      "Only by limited tender"
+    ],
+    "answer": "Through GeM, subject to the applicable rules"
+  },
+  {
+    "question": "Rule 150 deals with:",
+    "options": [
+      "Registration of Suppliers",
+      "Reverse Auction",
+      "Purchase Committee",
+      "Bid Security"
+    ],
+    "answer": "Registration of Suppliers"
+  },
+  {
+    "question": "Rule 151 relates to:",
+    "options": [
+      "Debarment from bidding",
+      "Bid evaluation",
+      "Inspection",
+      "Payment"
+    ],
+    "answer": "Debarment from bidding"
+  },
+  {
+    "question": "The primary aim of GeM is:",
+    "options": [
+      "Digital and transparent procurement",
+      "Tax collection",
+      "Employee recruitment",
+      "Banking"
+    ],
+    "answer": "Digital and transparent procurement"
+  },
+  {
+    "question": "Which procurement principle is emphasized under Rule 144?",
+    "options": [
+      "Fairness",
+      "Competition",
+      "Transparency",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "GeM procurement is an:",
+    "options": [
+      "End-to-end online procurement system",
+      "Offline procurement method",
+      "Manual purchase register",
+      "Accounting software"
+    ],
+    "answer": "End-to-end online procurement system"
+  },
+  {
+    "question": "The authority competent to purchase goods is covered under:",
+    "options": [
+      "Rule 145",
+      "Rule 149",
+      "Rule 154",
+      "Rule 170"
+    ],
+    "answer": "Rule 145"
+  },
+  {
+    "question": "Rule 154 deals with:",
+    "options": [
+      "Purchase of goods without quotation",
+      "GeM registration",
+      "Reverse Auction",
+      "CRAC"
+    ],
+    "answer": "Purchase of goods without quotation"
+  },
+  {
+    "question": "Purchase Committee procurement is covered under:",
+    "options": [
+      "Rule 155",
+      "Rule 149",
+      "Rule 151",
+      "Rule 173"
+    ],
+    "answer": "Rule 155"
+  },
+  {
+    "question": "Which of the following is a fundamental procurement objective?",
+    "options": [
+      "Economy",
+      "Efficiency",
+      "Transparency",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "GeM supports procurement of:",
+    "options": [
+      "Goods",
+      "Services",
+      "Both Goods and Services",
+      "None"
+    ],
+    "answer": "Both Goods and Services"
+  },
+  {
+    "question": "Which procurement method promotes maximum competition?",
+    "options": [
+      "Open competitive bidding",
+      "Verbal quotation",
+      "Private negotiation only",
+      "Cash purchase"
+    ],
+    "answer": "Open competitive bidding"
+  },
+  {
+    "question": "Public procurement should ensure:",
+    "options": [
+      "Fair treatment of bidders",
+      "Equal opportunity",
+      "Value for Money",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "GeM improves procurement by:",
+    "options": [
+      "Reducing paperwork",
+      "Digital workflow",
+      "Better audit trail",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "Which document provides proof of receipt and acceptance?",
+    "options": [
+      "CRAC",
+      "GST Return",
+      "Audit Note",
+      "Tender Notice"
+    ],
+    "answer": "CRAC"
+  },
+  {
+    "question": "Reverse Auction on GeM aims to:",
+    "options": [
+      "Achieve competitive pricing",
+      "Increase prices",
+      "Delay procurement",
+      "Restrict bidders"
+    ],
+    "answer": "Achieve competitive pricing"
+  },
+  {
+    "question": "Which principle discourages brand-specific specifications without justification?",
+    "options": [
+      "Fair Competition",
+      "Monopoly",
+      "Negotiation",
+      "Confidentiality"
+    ],
+    "answer": "Fair Competition"
+  },
+  {
+    "question": "GeM helps maintain:",
+    "options": [
+      "Audit trail",
+      "Digital records",
+      "Transparency",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "Which of the following should a procuring entity avoid?",
+    "options": [
+      "Splitting procurements solely to bypass approval or procurement thresholds",
+      "Competitive bidding",
+      "Proper documentation",
+      "Transparent evaluation"
+    ],
+    "answer": "Splitting procurements solely to bypass approval or procurement thresholds"
+  },
+  {
+    "question": "Which document forms the basis of procurement?",
+    "options": [
+      "Approved requirement and specifications",
+      "Invoice",
+      "Salary Register",
+      "Audit Report"
+    ],
+    "answer": "Approved requirement and specifications"
+  },
+  {
+    "question": "GFR promotes:",
+    "options": [
+      "Competition",
+      "Accountability",
+      "Transparency",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "GeM procurement reduces:",
+    "options": [
+      "Human intervention",
+      "Paper-based processes",
+      "Procurement cycle time",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "Rule 147 relates to:",
+    "options": [
+      "Powers for procurement of goods",
+      "GeM registration",
+      "Supplier payment",
+      "CRAC"
+    ],
+    "answer": "Powers for procurement of goods"
+  },
+  {
+    "question": "A Buyer should prepare specifications that are:",
+    "options": [
+      "Functional and non-restrictive",
+      "Brand-specific without reason",
+      "Incomplete",
+      "Ambiguous"
+    ],
+    "answer": "Functional and non-restrictive"
+  },
+  {
+    "question": "Which document establishes contractual obligations?",
+    "options": [
+      "Purchase Order/Contract",
+      "Invoice",
+      "GST Return",
+      "CRAC"
+    ],
+    "answer": "Purchase Order/Contract"
+  },
+  {
+    "question": "GeM encourages:",
+    "options": [
+      "Digital procurement",
+      "Transparency",
+      "Competition",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "Which factor is essential during bid evaluation?",
+    "options": [
+      "Published evaluation criteria",
+      "Personal preference",
+      "Verbal assurance",
+      "Advertisement"
+    ],
+    "answer": "Published evaluation criteria"
+  },
+  {
+    "question": "Procurement decisions should primarily be based on:",
+    "options": [
+      "Value for Money and compliance with the bid conditions",
+      "Personal relationship",
+      "Supplier location only",
+      "Advertisement"
+    ],
+    "answer": "Value for Money and compliance with the bid conditions"
+  },
+  {
+    "question": "The purpose of supplier registration is to:",
+    "options": [
+      "Establish eligible suppliers in accordance with the applicable rules",
+      "Approve payment",
+      "Generate invoices",
+      "Conduct audits"
+    ],
+    "answer": "Establish eligible suppliers in accordance with the applicable rules"
+  },
+  {
+    "question": "Which document is generated after successful bid evaluation?",
+    "options": [
+      "Purchase Order",
+      "GST Return",
+      "Delivery Challan",
+      "Audit Report"
+    ],
+    "answer": "Purchase Order"
+  },
+  {
+    "question": "GeM procurement primarily benefits:",
+    "options": [
+      "Government Buyers",
+      "Registered Sellers",
+      "Public Procurement",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "Rule 149 primarily deals with:",
+    "options": [
+      "Government e-Marketplace",
+      "Supplier Debarment",
+      "Purchase Committee",
+      "Inventory"
+    ],
+    "answer": "Government e-Marketplace"
+  },
+  {
+    "question": "A complete procurement record is important for:",
+    "options": [
+      "Audit",
+      "Accountability",
+      "Transparency",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "Which of the following is NOT a procurement principle?",
+    "options": [
+      "Favoring a particular supplier without justification",
+      "Transparency",
+      "Competition",
+      "Fairness"
+    ],
+    "answer": "Favoring a particular supplier without justification"
+  },
+  {
+    "question": "GeM enables:",
+    "options": [
+      "Online bidding",
+      "Reverse Auction",
+      "Digital Purchase Orders",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "Procurement records should be maintained for:",
+    "options": [
+      "Audit and accountability",
+      "Decoration",
+      "Advertisement",
+      "Publicity only"
+    ],
+    "answer": "Audit and accountability"
+  },
+  {
+    "question": "Which is an important objective of public procurement?",
+    "options": [
+      "Economy",
+      "Efficiency",
+      "Fairness",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "Transparency in procurement helps:",
+    "options": [
+      "Build public trust",
+      "Reduce disputes",
+      "Improve accountability",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "GeM procurement is primarily conducted through:",
+    "options": [
+      "An online portal",
+      "Manual registers",
+      "Postal quotations",
+      "Telephone"
+    ],
+    "answer": "An online portal"
+  },
+  {
+    "question": "Which document confirms satisfactory receipt of goods/services?",
+    "options": [
+      "CRAC",
+      "Purchase Requisition",
+      "GST Return",
+      "Bid"
+    ],
+    "answer": "CRAC"
+  },
+  {
+    "question": "Which rule contains the fundamental principles of public buying?",
+    "options": [
+      "Rule 144",
+      "Rule 149",
+      "Rule 154",
+      "Rule 170"
+    ],
+    "answer": "Rule 144"
+  },
+  {
+    "question": "The purpose of GFR-2017 is to ensure procurement is:",
+    "options": [
+      "Transparent",
+      "Efficient",
+      "Economical",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "The GeM portal provides:",
+    "options": [
+      "End-to-end electronic procurement",
+      "Manual accounting",
+      "Employee payroll",
+      "Tax filing"
+    ],
+    "answer": "End-to-end electronic procurement"
+  },
+  {
+    "question": "The ultimate objective of GFR-2017 and GeM Rules is to:",
+    "options": [
+      "Ensure transparent, fair, competitive, and value-for-money public procurement",
+      "Increase procurement delays",
+      "Restrict competition",
+      "Increase manual processing"
+    ],
+    "answer": "Ensure transparent, fair, competitive, and value-for-money public procurement"
+  },
+  {
+    "question": "The primary objective of procurement in NTPC/CPSEs is:",
+    "options": [
+      "Purchase at the lowest price only",
+      "Ensure economy, efficiency, transparency, and timely availability of materials/services",
+      "Increase inventory",
+      "Promote a particular supplier"
+    ],
+    "answer": "Ensure economy, efficiency, transparency, and timely availability of materials/services"
+  },
+  {
+    "question": "Procurement in NTPC is generally governed by:",
+    "options": [
+      "Personal preference",
+      "Delegation of Powers (DoP), Procurement Manual, and applicable Government guidelines",
+      "Supplier choice",
+      "Market rumors"
+    ],
+    "answer": "Delegation of Powers (DoP), Procurement Manual, and applicable Government guidelines"
+  },
+  {
+    "question": "Which department normally initiates the requirement for procurement?",
+    "options": [
+      "Finance",
+      "User Department",
+      "Security",
+      "HR"
+    ],
+    "answer": "User Department"
+  },
+  {
+    "question": "The document raised by the user department to initiate procurement is generally called:",
+    "options": [
+      "Material Requisition/Indent",
+      "Invoice",
+      "Delivery Challan",
+      "Payment Voucher"
+    ],
+    "answer": "Material Requisition/Indent"
+  },
+  {
+    "question": "Which department generally processes the procurement after receipt of the indent?",
+    "options": [
+      "Purchase/Contracts Department",
+      "Accounts",
+      "Administration",
+      "Security"
+    ],
+    "answer": "Purchase/Contracts Department"
+  },
+  {
+    "question": "The purpose of a technical specification is to:",
+    "options": [
+      "Restrict competition",
+      "Clearly define the required product/service",
+      "Promote one manufacturer",
+      "Increase procurement time"
+    ],
+    "answer": "Clearly define the required product/service"
+  },
+  {
+    "question": "In NTPC, procurement should primarily ensure:",
+    "options": [
+      "Value for Money",
+      "Transparency",
+      "Fair Competition",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "Which evaluation is normally carried out first?",
+    "options": [
+      "Financial Evaluation",
+      "Technical Evaluation",
+      "Payment Evaluation",
+      "Audit Evaluation"
+    ],
+    "answer": "Technical Evaluation"
+  },
+  {
+    "question": "L1 refers to:",
+    "options": [
+      "Largest Supplier",
+      "Lowest Evaluated Responsive Bidder",
+      "Local Supplier",
+      "Longest Warranty"
+    ],
+    "answer": "Lowest Evaluated Responsive Bidder"
+  },
+  {
+    "question": "A responsive bid is one that:",
+    "options": [
+      "Meets all essential tender requirements",
+      "Has the highest price",
+      "Is submitted late",
+      "Is handwritten"
+    ],
+    "answer": "Meets all essential tender requirements"
+  },
+  {
+    "question": "The Purchase Order is issued after:",
+    "options": [
+      "Successful evaluation and approval",
+      "Payment",
+      "Delivery",
+      "Inspection"
+    ],
+    "answer": "Successful evaluation and approval"
+  },
+  {
+    "question": "The purpose of Earnest Money Deposit (EMD), where applicable, is to:",
+    "options": [
+      "Guarantee delivery",
+      "Discourage non-serious bidders",
+      "Pay GST",
+      "Increase revenue"
+    ],
+    "answer": "Discourage non-serious bidders"
+  },
+  {
+    "question": "Performance Security is generally obtained:",
+    "options": [
+      "Before bidding",
+      "After award of contract",
+      "After payment",
+      "During inspection"
+    ],
+    "answer": "After award of contract"
+  },
+  {
+    "question": "The objective of vendor registration is to:",
+    "options": [
+      "Identify eligible suppliers",
+      "Reduce competition",
+      "Delay procurement",
+      "Increase paperwork"
+    ],
+    "answer": "Identify eligible suppliers"
+  },
+  {
+    "question": "Which document legally binds the buyer and seller?",
+    "options": [
+      "Purchase Order/Contract",
+      "Delivery Challan",
+      "Invoice",
+      "Inspection Note"
+    ],
+    "answer": "Purchase Order/Contract"
+  },
+  {
+    "question": "Which department generally inspects the supplied material?",
+    "options": [
+      "Consignee/User Department or authorized inspection agency",
+      "Finance",
+      "HR",
+      "Security"
+    ],
+    "answer": "Consignee/User Department or authorized inspection agency"
+  },
+  {
+    "question": "Payment is generally processed after:",
+    "options": [
+      "Receipt and acceptance of goods/services and submission of required documents",
+      "Bid publication",
+      "Tender opening",
+      "Vendor registration"
+    ],
+    "answer": "Receipt and acceptance of goods/services and submission of required documents"
+  },
+  {
+    "question": "The purpose of an Integrity Pact is to:",
+    "options": [
+      "Promote ethical procurement",
+      "Increase prices",
+      "Restrict competition",
+      "Delay contracts"
+    ],
+    "answer": "Promote ethical procurement"
+  },
+  {
+    "question": "Which procurement method encourages maximum competition?",
+    "options": [
+      "Open Tender",
+      "Single Source Purchase",
+      "Nomination Purchase",
+      "Cash Purchase"
+    ],
+    "answer": "Open Tender"
+  },
+  {
+    "question": "Procurement planning primarily helps in:",
+    "options": [
+      "Timely procurement",
+      "Inventory optimization",
+      "Better budgeting",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "Which evaluation determines compliance with specifications?",
+    "options": [
+      "Technical Evaluation",
+      "Financial Evaluation",
+      "Audit",
+      "Payment"
+    ],
+    "answer": "Technical Evaluation"
+  },
+  {
+    "question": "Reverse Auction is mainly used to:",
+    "options": [
+      "Obtain competitive prices",
+      "Increase prices",
+      "Delay procurement",
+      "Reduce supplier participation"
+    ],
+    "answer": "Obtain competitive prices"
+  },
+  {
+    "question": "Which procurement principle discourages brand-specific specifications without justification?",
+    "options": [
+      "Fair Competition",
+      "Monopoly",
+      "Negotiation",
+      "Advertisement"
+    ],
+    "answer": "Fair Competition"
+  },
+  {
+    "question": "The term \"Value for Money\" means:",
+    "options": [
+      "Lowest price only",
+      "Best overall combination of quality, cost, delivery, and performance",
+      "Highest quality irrespective of cost",
+      "Highest discount"
+    ],
+    "answer": "Best overall combination of quality, cost, delivery, and performance"
+  },
+  {
+    "question": "Bid opening should be:",
+    "options": [
+      "Transparent and as per tender conditions",
+      "Secret",
+      "Informal",
+      "Delayed"
+    ],
+    "answer": "Transparent and as per tender conditions"
+  },
+  {
+    "question": "The User Department is mainly responsible for:",
+    "options": [
+      "Preparing technical specifications",
+      "Processing payments",
+      "Vendor registration",
+      "Audit"
+    ],
+    "answer": "Preparing technical specifications"
+  },
+  {
+    "question": "Which document confirms acceptance of supplied goods?",
+    "options": [
+      "Receipt & Acceptance Certificate/CRAC (as applicable)",
+      "Delivery Challan",
+      "Invoice",
+      "Purchase Requisition"
+    ],
+    "answer": "Receipt & Acceptance Certificate/CRAC (as applicable)"
+  },
+  {
+    "question": "Which department generally processes supplier payments?",
+    "options": [
+      "Finance/Accounts",
+      "HR",
+      "Security",
+      "Purchase"
+    ],
+    "answer": "Finance/Accounts"
+  },
+  {
+    "question": "Which is NOT a good procurement practice?",
+    "options": [
+      "Fair competition",
+      "Transparent evaluation",
+      "Splitting procurement to bypass approval limits",
+      "Proper documentation"
+    ],
+    "answer": "Splitting procurement to bypass approval limits"
+  },
+  {
+    "question": "During financial evaluation, the committee compares:",
+    "options": [
+      "Commercial offers",
+      "Employee records",
+      "Audit reports",
+      "Attendance"
+    ],
+    "answer": "Commercial offers"
+  },
+  {
+    "question": "Procurement records are maintained mainly for:",
+    "options": [
+      "Audit",
+      "Transparency",
+      "Accountability",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "Which of the following is a procurement stage?",
+    "options": [
+      "Requirement Identification",
+      "Tendering",
+      "Evaluation",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "A contract amendment should be:",
+    "options": [
+      "Properly approved and documented",
+      "Verbal only",
+      "Ignored",
+      "Issued by the supplier alone"
+    ],
+    "answer": "Properly approved and documented"
+  },
+  {
+    "question": "The purpose of inspection is to verify:",
+    "options": [
+      "Quantity",
+      "Quality",
+      "Specification compliance",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "Which factor should NOT influence bid evaluation?",
+    "options": [
+      "Published evaluation criteria",
+      "Personal relationship",
+      "Technical compliance",
+      "Commercial responsiveness"
+    ],
+    "answer": "Personal relationship"
+  },
+  {
+    "question": "Procurement files should contain:",
+    "options": [
+      "Indent",
+      "Tender documents",
+      "Evaluation records",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "The primary responsibility for contract administration lies with:",
+    "options": [
+      "The designated contract owner/concerned department as per organizational procedures",
+      "Supplier only",
+      "Transporter",
+      "Customer"
+    ],
+    "answer": "The designated contract owner/concerned department as per organizational procedures"
+  },
+  {
+    "question": "Which procurement principle supports public confidence?",
+    "options": [
+      "Transparency",
+      "Confidentiality during evaluation",
+      "Fair competition",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "A Purchase Committee is generally constituted for:",
+    "options": [
+      "Procurement within specified organizational provisions where committee purchase is permitted",
+      "Income tax assessment",
+      "Employee recruitment",
+      "Payroll"
+    ],
+    "answer": "Procurement within specified organizational provisions where committee purchase is permitted"
+  },
+  {
+    "question": "Vendor performance evaluation helps in:",
+    "options": [
+      "Future procurement decisions",
+      "Tax calculation",
+      "Employee promotion",
+      "Salary processing"
+    ],
+    "answer": "Future procurement decisions"
+  },
+  {
+    "question": "Which of the following is a key procurement document?",
+    "options": [
+      "Tender Document",
+      "Purchase Order",
+      "Contract Agreement",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "Procurement decisions should be based on:",
+    "options": [
+      "Objective criteria",
+      "Personal preference",
+      "Supplier reputation alone",
+      "Advertisement"
+    ],
+    "answer": "Objective criteria"
+  },
+  {
+    "question": "Contract closure is generally completed after:",
+    "options": [
+      "Completion of contractual obligations, final acceptance, and settlement of payments",
+      "Tender publication",
+      "Bid opening",
+      "Technical evaluation"
+    ],
+    "answer": "Completion of contractual obligations, final acceptance, and settlement of payments"
+  },
+  {
+    "question": "Which department ensures budget availability?",
+    "options": [
+      "Finance",
+      "HR",
+      "Security",
+      "Transport"
+    ],
+    "answer": "Finance"
+  },
+  {
+    "question": "Procurement planning reduces:",
+    "options": [
+      "Emergency purchases",
+      "Delays",
+      "Stock-outs",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "Which procurement principle promotes equal opportunity?",
+    "options": [
+      "Open Competition",
+      "Single Source without justification",
+      "Informal negotiation",
+      "Verbal quotation"
+    ],
+    "answer": "Open Competition"
+  },
+  {
+    "question": "Which document contains the detailed commercial and technical conditions?",
+    "options": [
+      "Tender Document",
+      "Delivery Challan",
+      "Invoice",
+      "Salary Slip"
+    ],
+    "answer": "Tender Document"
+  },
+  {
+    "question": "The procurement cycle generally ends with:",
+    "options": [
+      "Contract closure and record completion",
+      "Bid opening",
+      "Tender publication",
+      "Technical evaluation"
+    ],
+    "answer": "Contract closure and record completion"
+  },
+  {
+    "question": "Procurement in CPSEs should comply with:",
+    "options": [
+      "Organizational procurement policies",
+      "Government procurement guidelines, where applicable",
+      "Applicable statutory provisions",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "The ultimate objective of NTPC/CPSE procurement is:",
+    "options": [
+      "Ensure transparent, competitive, economical, timely, and accountable procurement while achieving value for money",
+      "Purchase from a preferred supplier only",
+      "Delay procurement activities",
+      "Increase procurement costs"
+    ],
+    "answer": "Ensure transparent, competitive, economical, timely, and accountable procurement while achieving value for money"
+  },
+  {
+    "question": "PAC stands for:",
+    "options": [
+      "Purchase Approval Certificate",
+      "Proprietary Article Certificate",
+      "Public Approval Certificate",
+      "Product Assessment Certificate"
+    ],
+    "answer": "Proprietary Article Certificate"
+  },
+  {
+    "question": "A PAC is used when:",
+    "options": [
+      "Many equivalent brands are available",
+      "The required item is proprietary and available only from one source",
+      "Open tender is mandatory",
+      "The procurement value is low"
+    ],
+    "answer": "The required item is proprietary and available only from one source"
+  },
+  {
+    "question": "The primary purpose of a PAC is to:",
+    "options": [
+      "Increase competition",
+      "Justify procurement from a single proprietary source",
+      "Register vendors",
+      "Approve payment"
+    ],
+    "answer": "Justify procurement from a single proprietary source"
+  },
+  {
+    "question": "PAC procurement is generally adopted when:",
+    "options": [
+      "Equivalent alternatives are readily available",
+      "Only one manufacturer/source can meet the requirement",
+      "There are many bidders",
+      "Reverse Auction is mandatory"
+    ],
+    "answer": "Only one manufacturer/source can meet the requirement"
+  },
+  {
+    "question": "The authority issuing a PAC should certify that:",
+    "options": [
+      "The item is proprietary and no suitable alternative is available",
+      "The item is the cheapest in the market",
+      "Multiple suppliers exist",
+      "Payment has been made"
+    ],
+    "answer": "The item is proprietary and no suitable alternative is available"
+  },
+  {
+    "question": "PAC procurement is an exception to:",
+    "options": [
+      "Competitive procurement",
+      "Inspection",
+      "Payment",
+      "Inventory management"
+    ],
+    "answer": "Competitive procurement"
+  },
+  {
+    "question": "Before using PAC procurement, the procuring entity should ensure:",
+    "options": [
+      "Adequate justification is recorded",
+      "Competent approval is obtained",
+      "Procurement rules are followed",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "Which procurement method is commonly associated with PAC?",
+    "options": [
+      "Single-source procurement",
+      "Open tender",
+      "Limited tender",
+      "Reverse Auction"
+    ],
+    "answer": "Single-source procurement"
+  },
+  {
+    "question": "PAC procurement should be used:",
+    "options": [
+      "Routinely",
+      "Only when fully justified",
+      "For all purchases",
+      "Only for office stationery"
+    ],
+    "answer": "Only when fully justified"
+  },
+  {
+    "question": "The PAC should normally be issued by:",
+    "options": [
+      "The competent technical authority as per organizational procedures",
+      "The supplier",
+      "The transporter",
+      "The auditor"
+    ],
+    "answer": "The competent technical authority as per organizational procedures"
+  },
+  {
+    "question": "Which document supports proprietary procurement?",
+    "options": [
+      "Proprietary Article Certificate",
+      "Delivery Challan",
+      "GST Return",
+      "Invoice"
+    ],
+    "answer": "Proprietary Article Certificate"
+  },
+  {
+    "question": "PAC procurement should still ensure:",
+    "options": [
+      "Reasonableness of price",
+      "Compliance with procurement rules",
+      "Proper documentation",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "Which factor should be verified before approving a PAC?",
+    "options": [
+      "No suitable equivalent alternative exists",
+      "Several manufacturers are available",
+      "Lowest market price only",
+      "Advertisement"
+    ],
+    "answer": "No suitable equivalent alternative exists"
+  },
+  {
+    "question": "PAC procurement generally avoids:",
+    "options": [
+      "Unnecessary competitive bidding where only one proprietary source exists",
+      "Documentation",
+      "Inspection",
+      "Payment"
+    ],
+    "answer": "Unnecessary competitive bidding where only one proprietary source exists"
+  },
+  {
+    "question": "Which of the following is NOT a valid reason for PAC procurement?",
+    "options": [
+      "Personal preference for a supplier",
+      "Proprietary technology",
+      "Compatibility requirements",
+      "Lack of suitable alternatives"
+    ],
+    "answer": "Personal preference for a supplier"
+  },
+  {
+    "question": "PAC procurement should be:",
+    "options": [
+      "Properly justified and documented",
+      "Verbal",
+      "Informal",
+      "Confidential without records"
+    ],
+    "answer": "Properly justified and documented"
+  },
+  {
+    "question": "Even under PAC procurement, the Buyer should verify:",
+    "options": [
+      "Technical suitability",
+      "Price reasonableness",
+      "Approval requirements",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "PAC is generally applicable to:",
+    "options": [
+      "Proprietary goods",
+      "Generic commodities with many suppliers",
+      "Office attendance",
+      "Salary processing"
+    ],
+    "answer": "Proprietary goods"
+  },
+  {
+    "question": "Compatibility with existing equipment may justify:",
+    "options": [
+      "PAC procurement",
+      "Open auction",
+      "Reverse Auction",
+      "Spot purchase"
+    ],
+    "answer": "PAC procurement"
+  },
+  {
+    "question": "The objective of PAC procurement is:",
+    "options": [
+      "Obtain the required proprietary item efficiently while complying with procurement rules",
+      "Eliminate documentation",
+      "Avoid approvals",
+      "Increase competition"
+    ],
+    "answer": "Obtain the required proprietary item efficiently while complying with procurement rules"
+  },
+  {
+    "question": "PAC procurement requires:",
+    "options": [
+      "Adequate written justification",
+      "Oral approval only",
+      "No records",
+      "Public voting"
+    ],
+    "answer": "Adequate written justification"
+  },
+  {
+    "question": "Which department generally initiates the technical justification for PAC?",
+    "options": [
+      "User/Technical Department",
+      "Security",
+      "HR",
+      "Transport"
+    ],
+    "answer": "User/Technical Department"
+  },
+  {
+    "question": "Before placing a PAC order, the Purchase Department should verify:",
+    "options": [
+      "Validity of the PAC",
+      "Required approvals",
+      "Procurement compliance",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "PAC procurement does not eliminate the need for:",
+    "options": [
+      "Proper documentation",
+      "Inspection",
+      "Contract management",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "A PAC should clearly identify:",
+    "options": [
+      "The proprietary item",
+      "The manufacturer/source",
+      "The justification",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "Which procurement principle still applies under PAC?",
+    "options": [
+      "Accountability",
+      "Transparency in documentation",
+      "Economy",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "Which of the following is a common reason for PAC procurement?",
+    "options": [
+      "Proprietary software licence",
+      "Spare parts for proprietary equipment",
+      "OEM-specific components",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "PAC procurement should not be used merely because:",
+    "options": [
+      "One supplier is preferred",
+      "A proprietary requirement genuinely exists",
+      "Compatibility is essential",
+      "Technical necessity exists"
+    ],
+    "answer": "One supplier is preferred"
+  },
+  {
+    "question": "Which document is issued after successful PAC approval?",
+    "options": [
+      "Purchase Order/Contract",
+      "Attendance Sheet",
+      "Salary Register",
+      "GST Return"
+    ],
+    "answer": "Purchase Order/Contract"
+  },
+  {
+    "question": "During PAC procurement, price should be:",
+    "options": [
+      "Considered for reasonableness",
+      "Ignored",
+      "Fixed by the supplier alone",
+      "Kept confidential from the buyer"
+    ],
+    "answer": "Considered for reasonableness"
+  },
+  {
+    "question": "PAC procurement is subject to:",
+    "options": [
+      "Organizational procurement procedures",
+      "Applicable Government procurement rules",
+      "Competent approval",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "A PAC certificate should generally be signed by:",
+    "options": [
+      "The competent authority designated by the organization",
+      "The supplier",
+      "The transporter",
+      "The consignee"
+    ],
+    "answer": "The competent authority designated by the organization"
+  },
+  {
+    "question": "PAC procurement is most commonly associated with:",
+    "options": [
+      "Single-source procurement",
+      "Open tender",
+      "Global tender",
+      "Reverse Auction"
+    ],
+    "answer": "Single-source procurement"
+  },
+  {
+    "question": "Which procurement objective is maintained under PAC?",
+    "options": [
+      "Meeting operational requirements",
+      "Compliance with procurement rules",
+      "Proper record keeping",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "Which item is most likely to require PAC?",
+    "options": [
+      "Specialized OEM spare part",
+      "Standard A4 paper",
+      "Generic office chair",
+      "Ballpoint pen"
+    ],
+    "answer": "Specialized OEM spare part"
+  },
+  {
+    "question": "A PAC should normally include:",
+    "options": [
+      "Reasons for proprietary procurement",
+      "Description of the item",
+      "Name of the manufacturer/source",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "Which department generally processes the procurement after PAC approval?",
+    "options": [
+      "Purchase/Contracts Department",
+      "HR",
+      "Security",
+      "Medical"
+    ],
+    "answer": "Purchase/Contracts Department"
+  },
+  {
+    "question": "PAC procurement should be periodically reviewed to ensure:",
+    "options": [
+      "Proprietary conditions still exist",
+      "Competition is permanently excluded",
+      "Documentation is unnecessary",
+      "Prices are ignored"
+    ],
+    "answer": "Proprietary conditions still exist"
+  },
+  {
+    "question": "Which of the following is TRUE?",
+    "options": [
+      "PAC procurement removes the need for inspection.",
+      "PAC procurement requires proper approvals and documentation.",
+      "PAC procurement allows purchases without a contract.",
+      "PAC procurement eliminates price evaluation."
+    ],
+    "answer": "PAC procurement requires proper approvals and documentation."
+  },
+  {
+    "question": "PAC procurement supports continuity of operations when:",
+    "options": [
+      "Only a proprietary item can meet technical requirements",
+      "Multiple equivalent products are available",
+      "Reverse Auction is compulsory",
+      "Price alone determines selection"
+    ],
+    "answer": "Only a proprietary item can meet technical requirements"
+  },
+  {
+    "question": "Even under PAC procurement, receipt and acceptance should be documented through:",
+    "options": [
+      "CRAC/Acceptance Certificate (where applicable)",
+      "Attendance Register",
+      "GST Return",
+      "Tender Notice"
+    ],
+    "answer": "CRAC/Acceptance Certificate (where applicable)"
+  },
+  {
+    "question": "Which of the following is essential before issuing a Purchase Order under PAC?",
+    "options": [
+      "Valid PAC and required approvals",
+      "Reverse Auction",
+      "Open bidding",
+      "Vendor lottery"
+    ],
+    "answer": "Valid PAC and required approvals"
+  },
+  {
+    "question": "PAC procurement should be avoided when:",
+    "options": [
+      "Equivalent alternatives are available and meet the requirement",
+      "Compatibility is essential",
+      "Only one OEM manufactures the item",
+      "Patent restrictions apply"
+    ],
+    "answer": "Equivalent alternatives are available and meet the requirement"
+  },
+  {
+    "question": "Which document is important for audit in PAC procurement?",
+    "options": [
+      "PAC Certificate",
+      "Approval Note",
+      "Purchase Order",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "The Purchase Department should maintain:",
+    "options": [
+      "PAC records",
+      "Approval records",
+      "Procurement file",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "The technical justification for PAC should be:",
+    "options": [
+      "Specific and evidence-based",
+      "Vague",
+      "Verbal only",
+      "Optional"
+    ],
+    "answer": "Specific and evidence-based"
+  },
+  {
+    "question": "PAC procurement is primarily intended to:",
+    "options": [
+      "Meet genuine proprietary requirements",
+      "Reduce transparency",
+      "Avoid procurement rules",
+      "Eliminate approvals"
+    ],
+    "answer": "Meet genuine proprietary requirements"
+  },
+  {
+    "question": "Which authority normally reviews PAC procurement during audit?",
+    "options": [
+      "Internal/External Audit, as applicable",
+      "Transport Department",
+      "Security Office",
+      "Marketing Department"
+    ],
+    "answer": "Internal/External Audit, as applicable"
+  },
+  {
+    "question": "Which of the following is NOT required in PAC procurement?",
+    "options": [
+      "Personal recommendation without justification",
+      "Technical justification",
+      "Competent approval",
+      "Procurement documentation"
+    ],
+    "answer": "Personal recommendation without justification"
+  },
+  {
+    "question": "The ultimate objective of PAC procurement is to:",
+    "options": [
+      "Procure genuine proprietary items in a transparent, documented, compliant, and economical manner",
+      "Avoid all competition without justification",
+      "Eliminate documentation",
+      "Reduce accountability"
+    ],
+    "answer": "Procure genuine proprietary items in a transparent, documented, compliant, and economical manner"
+  },
+  {
+    "question": "Contract Management primarily refers to:",
+    "options": [
+      "Vendor registration only",
+      "Managing a contract from award to closure",
+      "Preparation of salary records",
+      "Audit of accounts"
+    ],
+    "answer": "Managing a contract from award to closure"
+  },
+  {
+    "question": "The objective of Contract Management is to:",
+    "options": [
+      "Ensure successful execution of contractual obligations",
+      "Delay procurement",
+      "Increase paperwork",
+      "Avoid documentation"
+    ],
+    "answer": "Ensure successful execution of contractual obligations"
+  },
+  {
+    "question": "A contract comes into effect after:",
+    "options": [
+      "Tender publication",
+      "Acceptance of the offer/Purchase Order by the successful bidder, as applicable",
+      "Bid opening",
+      "Invoice generation"
+    ],
+    "answer": "Acceptance of the offer/Purchase Order by the successful bidder, as applicable"
+  },
+  {
+    "question": "Which document forms the legal basis of a procurement contract?",
+    "options": [
+      "Purchase Order/Contract Agreement",
+      "Delivery Challan",
+      "Invoice",
+      "CRAC"
+    ],
+    "answer": "Purchase Order/Contract Agreement"
+  },
+  {
+    "question": "Which department generally administers procurement contracts?",
+    "options": [
+      "Purchase/Contracts Department",
+      "HR Department",
+      "Medical Department",
+      "Security Department"
+    ],
+    "answer": "Purchase/Contracts Department"
+  },
+  {
+    "question": "The User Department is mainly responsible for:",
+    "options": [
+      "Monitoring contract performance",
+      "Salary processing",
+      "Vendor registration",
+      "Tax payment"
+    ],
+    "answer": "Monitoring contract performance"
+  },
+  {
+    "question": "Contract Management begins after:",
+    "options": [
+      "Contract award",
+      "Bid publication",
+      "Bid opening",
+      "Indent preparation"
+    ],
+    "answer": "Contract award"
+  },
+  {
+    "question": "Which of the following is an important element of contract management?",
+    "options": [
+      "Monitoring delivery schedules",
+      "Monitoring quality",
+      "Monitoring contractual obligations",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "A Purchase Order generally contains:",
+    "options": [
+      "Scope of supply",
+      "Delivery schedule",
+      "Payment terms",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "The supplier should deliver goods:",
+    "options": [
+      "According to the contract schedule",
+      "Whenever convenient",
+      "After payment",
+      "Without documentation"
+    ],
+    "answer": "According to the contract schedule"
+  },
+  {
+    "question": "Delay in delivery may attract:",
+    "options": [
+      "Liquidated Damages (LD), if provided in the contract",
+      "Bonus",
+      "Tax exemption",
+      "Immediate contract closure"
+    ],
+    "answer": "Liquidated Damages (LD), if provided in the contract"
+  },
+  {
+    "question": "LD stands for:",
+    "options": [
+      "Legal Document",
+      "Liquidated Damages",
+      "Limited Delivery",
+      "Logistics Department"
+    ],
+    "answer": "Liquidated Damages"
+  },
+  {
+    "question": "The purpose of Liquidated Damages is to:",
+    "options": [
+      "Compensate for delay as per contract terms",
+      "Increase supplier profit",
+      "Reward late delivery",
+      "Replace warranty"
+    ],
+    "answer": "Compensate for delay as per contract terms"
+  },
+  {
+    "question": "Performance Security is generally obtained to:",
+    "options": [
+      "Secure satisfactory contract performance",
+      "Increase revenue",
+      "Pay GST",
+      "Replace the invoice"
+    ],
+    "answer": "Secure satisfactory contract performance"
+  },
+  {
+    "question": "A contract amendment should be:",
+    "options": [
+      "Approved and documented",
+      "Verbal only",
+      "Informal",
+      "Optional"
+    ],
+    "answer": "Approved and documented"
+  },
+  {
+    "question": "Any change in quantity or delivery schedule should be:",
+    "options": [
+      "Approved as per contract procedures",
+      "Made verbally",
+      "Ignored",
+      "Left to the supplier"
+    ],
+    "answer": "Approved as per contract procedures"
+  },
+  {
+    "question": "Contract performance should be monitored by:",
+    "options": [
+      "Concerned officials as per organizational procedures",
+      "Transporter only",
+      "Auditor only",
+      "Security"
+    ],
+    "answer": "Concerned officials as per organizational procedures"
+  },
+  {
+    "question": "Inspection ensures:",
+    "options": [
+      "Quality compliance",
+      "Quantity verification",
+      "Specification compliance",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "Goods accepted after inspection are generally documented through:",
+    "options": [
+      "CRAC/Receipt & Acceptance Certificate",
+      "Salary Register",
+      "GST Return",
+      "Attendance Sheet"
+    ],
+    "answer": "CRAC/Receipt & Acceptance Certificate"
+  },
+  {
+    "question": "Payment should be made:",
+    "options": [
+      "According to contract terms",
+      "Before the contract",
+      "Before inspection",
+      "Without invoice"
+    ],
+    "answer": "According to contract terms"
+  },
+  {
+    "question": "Warranty clause protects:",
+    "options": [
+      "Buyer against defects during the warranty period",
+      "Seller only",
+      "Transporter",
+      "Auditor"
+    ],
+    "answer": "Buyer against defects during the warranty period"
+  },
+  {
+    "question": "A defect noticed during warranty should normally be:",
+    "options": [
+      "Rectified by the supplier according to contract terms",
+      "Ignored",
+      "Paid again",
+      "Audited only"
+    ],
+    "answer": "Rectified by the supplier according to contract terms"
+  },
+  {
+    "question": "Which document specifies payment conditions?",
+    "options": [
+      "Purchase Order/Contract",
+      "Attendance Register",
+      "Salary Slip",
+      "Audit Report"
+    ],
+    "answer": "Purchase Order/Contract"
+  },
+  {
+    "question": "Which activity is NOT part of Contract Management?",
+    "options": [
+      "Monitoring deliveries",
+      "Performance review",
+      "Employee recruitment",
+      "Contract closure"
+    ],
+    "answer": "Employee recruitment"
+  },
+  {
+    "question": "A contract file should contain:",
+    "options": [
+      "Purchase Order",
+      "Amendments",
+      "Correspondence",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "Force Majeure refers to:",
+    "options": [
+      "Extraordinary events beyond the reasonable control of the parties affecting contract performance",
+      "Routine delivery delay",
+      "Price increase",
+      "Bid evaluation"
+    ],
+    "answer": "Extraordinary events beyond the reasonable control of the parties affecting contract performance"
+  },
+  {
+    "question": "Examples of Force Majeure include:",
+    "options": [
+      "Natural disasters",
+      "War",
+      "Government restrictions (where covered by the clause)",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "Contract disputes should be resolved:",
+    "options": [
+      "According to the dispute resolution clause in the contract",
+      "Through verbal discussion only",
+      "By ignoring the issue",
+      "Through social media"
+    ],
+    "answer": "According to the dispute resolution clause in the contract"
+  },
+  {
+    "question": "Arbitration is generally used for:",
+    "options": [
+      "Dispute resolution",
+      "Vendor registration",
+      "Bid publication",
+      "Inspection"
+    ],
+    "answer": "Dispute resolution"
+  },
+  {
+    "question": "Performance of suppliers should be:",
+    "options": [
+      "Evaluated periodically",
+      "Ignored",
+      "Hidden",
+      "Based only on price"
+    ],
+    "answer": "Evaluated periodically"
+  },
+  {
+    "question": "Which document authorizes supply?",
+    "options": [
+      "Purchase Order",
+      "Invoice",
+      "Delivery Challan",
+      "GST Return"
+    ],
+    "answer": "Purchase Order"
+  },
+  {
+    "question": "Contract closure generally takes place after:",
+    "options": [
+      "Completion of obligations and settlement of payments",
+      "Tender publication",
+      "Bid opening",
+      "Inspection only"
+    ],
+    "answer": "Completion of obligations and settlement of payments"
+  },
+  {
+    "question": "Retention of contract records is important for:",
+    "options": [
+      "Audit",
+      "Legal compliance",
+      "Future reference",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "A contract should clearly define:",
+    "options": [
+      "Scope of work",
+      "Delivery schedule",
+      "Payment terms",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "Which of the following is a contract risk?",
+    "options": [
+      "Delay in supply",
+      "Quality failure",
+      "Cost escalation",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "Risk mitigation in contract management includes:",
+    "options": [
+      "Regular monitoring",
+      "Timely communication",
+      "Proper documentation",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "A supplier seeking additional time should:",
+    "options": [
+      "Request an extension as per the contract before the expiry of the delivery period, where applicable",
+      "Deliver late without informing",
+      "Cancel the contract",
+      "Ignore the schedule"
+    ],
+    "answer": "Request an extension as per the contract before the expiry of the delivery period, where applicable"
+  },
+  {
+    "question": "Extension of delivery period requires:",
+    "options": [
+      "Approval by the competent authority as per contract terms",
+      "Seller's verbal request only",
+      "Finance approval only",
+      "Transporter's approval"
+    ],
+    "answer": "Approval by the competent authority as per contract terms"
+  },
+  {
+    "question": "Which document records changes to the contract?",
+    "options": [
+      "Amendment/Addendum",
+      "Invoice",
+      "CRAC",
+      "Delivery Challan"
+    ],
+    "answer": "Amendment/Addendum"
+  },
+  {
+    "question": "Contract Management aims to ensure:",
+    "options": [
+      "Timely completion",
+      "Cost control",
+      "Quality compliance",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "Which stakeholder is primarily responsible for executing the contract?",
+    "options": [
+      "Supplier",
+      "Buyer",
+      "Both parties according to their contractual obligations",
+      "Auditor"
+    ],
+    "answer": "Both parties according to their contractual obligations"
+  },
+  {
+    "question": "A breach of contract occurs when:",
+    "options": [
+      "A party fails to fulfill contractual obligations",
+      "Goods are inspected",
+      "Invoice is uploaded",
+      "Bid is published"
+    ],
+    "answer": "A party fails to fulfill contractual obligations"
+  },
+  {
+    "question": "Which clause specifies penalties for delayed delivery?",
+    "options": [
+      "Liquidated Damages Clause",
+      "Warranty Clause",
+      "Payment Clause",
+      "Inspection Clause"
+    ],
+    "answer": "Liquidated Damages Clause"
+  },
+  {
+    "question": "Which document provides evidence of satisfactory completion?",
+    "options": [
+      "CRAC/Completion Certificate (as applicable)",
+      "Bid Document",
+      "GST Return",
+      "Salary Register"
+    ],
+    "answer": "CRAC/Completion Certificate (as applicable)"
+  },
+  {
+    "question": "Proper communication during contract execution helps:",
+    "options": [
+      "Prevent disputes",
+      "Improve coordination",
+      "Resolve issues early",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "Supplier performance may be evaluated on:",
+    "options": [
+      "Delivery performance",
+      "Quality",
+      "Responsiveness",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "Which of the following is a key contract management principle?",
+    "options": [
+      "Documentation",
+      "Monitoring",
+      "Compliance",
+      "All of the above"
+    ],
+    "answer": "All of the above"
+  },
+  {
+    "question": "Contract amendments should never:",
+    "options": [
+      "Contradict procurement rules or bypass required approvals",
+      "Be documented",
+      "Be approved",
+      "Be communicated"
+    ],
+    "answer": "Contradict procurement rules or bypass required approvals"
+  },
+  {
+    "question": "The final stage of contract management is:",
+    "options": [
+      "Contract closure and record completion",
+      "Bid publication",
+      "Technical evaluation",
+      "Vendor registration"
+    ],
+    "answer": "Contract closure and record completion"
+  },
+  {
+    "question": "The ultimate objective of contract management is:",
+    "options": [
+      "Ensure that contractual obligations are fulfilled efficiently, transparently, economically, and in accordance with the agreed terms",
+      "Increase disputes",
+      "Delay project completion",
+      "Avoid documentation"
+    ],
+    "answer": "Ensure that contractual obligations are fulfilled efficiently, transparently, economically, and in accordance with the agreed terms"
   }
 ]
