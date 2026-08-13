@@ -1,456 +1,1219 @@
-// =====================================
+// ======================================================
 // NSPCL POWER PULSE
-// DAILY QUIZ SYSTEM V2
-// =====================================
+// DAILY CURRENT AFFAIRS QUIZ
+// VERSION 3
+// ======================================================
 
 
-// Employee Details
+// ======================================================
+// GOOGLE APPS SCRIPT
+// ======================================================
 
-let employeeName =
-localStorage.getItem("employeeName") || "Employee";
-
-
-document.getElementById("employeeName").innerHTML =
-employeeName;
+const SCRIPT_URL =
+"https://script.google.com/macros/s/AKfycbwBbn0mA_VbQG3A4lz7nDGWZm66P6jKBx12zXbYZ-OoCudVBzIvK-MkuZEXxLcECl5wdw/exec";
 
 
+// ======================================================
+// EMPLOYEE DETAILS
+// ======================================================
 
-// ================================
-// DAILY QUESTIONS
-// ================================
+const employeeName =
+    localStorage.getItem("employeeName") || "Employee";
 
-const dailyQuestions = [
-
-{
-question:"Which fuel is mainly used in thermal power plants?",
-options:["Coal","Wind","Solar","Hydrogen"],
-answer:"Coal"
-},
+const employeeId =
+    localStorage.getItem("employeeId") || "Unknown";
 
 
-{
-question:"NSPCL is a joint venture between NTPC and which company?",
-options:["SAIL","BHEL","ONGC","Power Grid"],
-answer:"SAIL"
-},
+const nameElement =
+    document.getElementById("employeeName");
 
-
-{
-question:"Which equipment converts mechanical energy into electrical energy?",
-options:["Boiler","Generator","Transformer","Condenser"],
-answer:"Generator"
-},
-
-
-{
-question:"Which of these is a renewable source of energy?",
-options:["Coal","Oil","Solar","Gas"],
-answer:"Solar"
-},
-
-
-{
-question:"Safety is the responsibility of?",
-options:[
-"Only Manager",
-"Only Engineer",
-"Every Employee",
-"Only Supervisor"
-],
-answer:"Every Employee"
+if (nameElement) {
+    nameElement.innerHTML = employeeName;
 }
+
+
+const idElement =
+    document.getElementById("employeeId");
+
+if (idElement) {
+    idElement.innerHTML = employeeId;
+}
+
+
+// ======================================================
+// VARIABLES
+// ======================================================
+
+let dailyQuestion = null;
+
+let selectedAnswer = null;
+
+let answered = false;
+
+let submitted = false;
+
+let time = 300;
+
+let timer;
+
+
+// ======================================================
+// TODAY'S DATE
+// ======================================================
+
+function getToday() {
+
+    const now = new Date();
+
+    const year = now.getFullYear();
+
+    const month =
+        String(now.getMonth() + 1).padStart(2, "0");
+
+    const day =
+        String(now.getDate()).padStart(2, "0");
+
+    return `${year}-${month}-${day}`;
+
+}
+
+
+const today = getToday();
+
+
+// ======================================================
+// DISPLAY DATE
+// ======================================================
+
+function displayTodayDate() {
+
+    const dateElement =
+        document.getElementById("todayDate");
+
+    if (!dateElement) return;
+
+    const date = new Date();
+
+    dateElement.innerHTML =
+        date.toLocaleDateString(
+            "en-IN",
+            {
+                day: "numeric",
+                month: "long",
+                year: "numeric"
+            }
+        );
+
+}
+
+
+// ======================================================
+// DAILY MOTIVATION FALLBACK
+// ======================================================
+
+const motivations = [
+
+    "Every day is a new opportunity to learn and improve.",
+
+    "Small improvements every day lead to great achievements.",
+
+    "Knowledge grows when it is shared.",
+
+    "Learn something new today and become better tomorrow.",
+
+    "Continuous learning is the foundation of excellence.",
+
+    "Challenge yourself today. Excellence follows.",
+
+    "Curiosity is the beginning of every great learning journey.",
+
+    "Knowledge gives you the power to make better decisions.",
+
+    "Learn • Compete • Grow.",
+
+    "A better tomorrow starts with learning today.",
+
+    "Every question is an opportunity to discover something new.",
+
+    "Stay curious. Stay informed. Keep learning."
 
 ];
 
 
+// ======================================================
+// LOAD MOTIVATION
+// ======================================================
+
+function loadMotivation() {
+
+    const element =
+        document.getElementById("motivation");
+
+    if (!element) return;
 
 
+    /*
+       Select motivation based on the day.
 
-let currentQuestion = 0;
+       It changes automatically every day.
+    */
 
-let score = 0;
-
-let points = 0;
-
-let answered = false;
-
-
-
-
-
+    const dateNumber =
+        Math.floor(
+            new Date().getTime() /
+            (1000 * 60 * 60 * 24)
+        );
 
 
-// ================================
-// LOAD QUESTION
-// ================================
+    const index =
+        dateNumber % motivations.length;
 
 
-function loadQuestion(){
-
-
-answered=false;
-
-
-let q=dailyQuestions[currentQuestion];
-
-
-
-document.getElementById("question").innerHTML =
-
-(currentQuestion+1)+". "+q.question;
-
-
-
-document.getElementById("questionNumber").innerHTML =
-currentQuestion+1;
-
-
-
-document.getElementById("totalQuestions").innerHTML =
-dailyQuestions.length;
-
-
-
-let html="";
-
-
-
-q.options.forEach(option=>{
-
-
-html += `
-
-<button onclick="checkAnswer(this,'${option}')">
-
-${option}
-
-</button>
-
-`;
-
-});
-
-
-document.getElementById("options").innerHTML=html;
-
-
-
-updateProgress();
-
+    element.innerHTML =
+        `"${motivations[index]}"`;
 
 }
 
 
+// ======================================================
+// LOAD DAILY QUESTION
+// ======================================================
 
+async function loadDailyQuestion() {
 
+    const questionElement =
+        document.getElementById("question");
 
 
+    if (questionElement) {
 
-// ================================
-// CHECK ANSWER
-// ================================
+        questionElement.innerHTML =
+            "⏳ Loading today's current-affairs question...";
 
+    }
 
-function checkAnswer(button,selected){
 
+    try {
 
-if(answered)
-return;
+        /*
+          The Google Apps Script will provide:
 
+          question
+          options
+          answer
+          explanation
+          category
+          date
+        */
 
-answered=true;
+        const response =
+            await fetch(
+                SCRIPT_URL +
+                "?action=dailyQuiz&date=" +
+                encodeURIComponent(today)
+            );
 
 
+        if (!response.ok) {
 
-let correct =
-dailyQuestions[currentQuestion].answer;
+            throw new Error(
+                "Unable to connect to quiz server"
+            );
 
+        }
 
 
-let buttons =
-document.querySelectorAll("#options button");
+        const data =
+            await response.json();
 
 
+        console.log(
+            "Daily Quiz Data:",
+            data
+        );
 
-buttons.forEach(btn=>{
 
-btn.disabled=true;
+        if (
+            !data ||
+            data.status !== "success"
+        ) {
 
-});
+            throw new Error(
+                "Daily question unavailable"
+            );
 
+        }
 
 
-if(selected===correct){
+        dailyQuestion = data.question;
 
 
-score++;
+        showQuestion();
 
 
-points=score*10;
+    }
 
+    catch(error) {
 
-button.style.background="#00c853";
+        console.error(
+            "Daily Quiz Error:",
+            error
+        );
 
 
-}
+        /*
+          Temporary fallback question.
+          This prevents the page from appearing blank
+          if the Apps Script is temporarily unavailable.
+        */
 
-else{
+        dailyQuestion = {
 
+            question:
+                "Which organization is India's largest power generation utility?",
 
-button.style.background="#ff5252";
+            options: [
 
+                "NTPC Limited",
 
-}
+                "SAIL",
 
+                "BHEL",
 
+                "Power Grid Corporation"
 
-document.getElementById("points").innerHTML =
-points;
+            ],
 
+            answer:
+                "NTPC Limited",
 
+            explanation:
+                "NTPC Limited is India's largest power generation utility.",
 
-}
+            category:
+                "Power Sector"
 
+        };
 
 
+        showQuestion();
 
-
-
-
-
-// ================================
-// NEXT QUESTION
-// ================================
-
-
-function nextQuestion(){
-
-
-if(!answered){
-
-alert("Please select an answer");
-
-return;
-
-}
-
-
-
-if(currentQuestion < dailyQuestions.length-1){
-
-
-currentQuestion++;
-
-
-loadQuestion();
-
-
-}
-
-else{
-
-
-finishQuiz();
-
-
-}
-
-
-}
-
-
-
-
-
-
-
-
-
-// ================================
-// PROGRESS
-// ================================
-
-
-function updateProgress(){
-
-
-let percent =
-((currentQuestion)/
-dailyQuestions.length)*100;
-
-
-
-let bar=document.getElementById("progress");
-
-
-if(bar){
-
-bar.style.width=
-percent+"%";
+    }
 
 }
 
 
+// ======================================================
+// DISPLAY QUESTION
+// ======================================================
+
+function showQuestion() {
+
+    if (!dailyQuestion) return;
+
+
+    const questionElement =
+        document.getElementById("question");
+
+
+    if (questionElement) {
+
+        questionElement.innerHTML =
+            dailyQuestion.question;
+
+    }
+
+
+    const category =
+        document.getElementById("category");
+
+
+    if (category) {
+
+        category.innerHTML =
+            dailyQuestion.category ||
+            "Current Affairs";
+
+    }
+
+
+    const optionsElement =
+        document.getElementById("options");
+
+
+    if (!optionsElement) return;
+
+
+    let html = "";
+
+
+    dailyQuestion.options.forEach(
+        function(option, index) {
+
+
+            const letter =
+                ["A", "B", "C", "D"][index];
+
+
+            html += `
+
+                <button
+                    class="option"
+                    onclick="selectAnswer(this, '${escapeHTML(option)}')">
+
+                    <strong>${letter}</strong>
+
+                    &nbsp;
+
+                    ${option}
+
+                </button>
+
+            `;
+
+        }
+    );
+
+
+    optionsElement.innerHTML = html;
+
+
+    const submitButton =
+        document.getElementById("submitBtn");
+
+
+    if (submitButton) {
+
+        submitButton.disabled = true;
+
+    }
+
+
+    startTimer();
+
 }
 
 
+// ======================================================
+// ESCAPE HTML
+// ======================================================
 
+function escapeHTML(text) {
 
+    return String(text)
 
+        .replace(/&/g, "&amp;")
 
+        .replace(/</g, "&lt;")
 
+        .replace(/>/g, "&gt;")
 
+        .replace(/"/g, "&quot;")
 
-// ================================
-// FINISH QUIZ
-// ================================
-
-
-function finishQuiz(){
-
-
-
-let percentage =
-(score/dailyQuestions.length)*100;
-
-
-
-localStorage.setItem(
-"dailyScore",
-points
-);
-
-
-
-document.querySelector(".quiz-container").innerHTML =
-
-
-`
-
-<div class="completion-card">
-
-
-<h1>
-🎉 Daily Mission Completed
-</h1>
-
-
-<h2>
-${employeeName}
-</h2>
-
-
-<h3>
-Score:
-${score}/${dailyQuestions.length}
-</h3>
-
-
-<h3>
-⭐ Points:
-${points}
-</h3>
-
-
-<p>
-
-Performance:
-${percentage}%
-
-</p>
-
-
-
-<button class="mission-btn"
-onclick="location.href='daily.html'">
-
-Back To Daily Challenge
-
-</button>
-
-
-</div>
-
-`;
-
-
+        .replace(/'/g, "&#039;");
 
 }
 
 
+// ======================================================
+// SELECT ANSWER
+// ======================================================
+
+function selectAnswer(button, answer) {
+
+    if (answered) return;
 
 
+    selectedAnswer = answer;
 
 
+    const buttons =
+        document.querySelectorAll(
+            "#options .option"
+        );
 
 
-// ================================
+    buttons.forEach(
+        function(btn) {
+
+            btn.classList.remove(
+                "selected"
+            );
+
+        }
+    );
+
+
+    button.classList.add(
+        "selected"
+    );
+
+
+    const submitButton =
+        document.getElementById("submitBtn");
+
+
+    if (submitButton) {
+
+        submitButton.disabled = false;
+
+    }
+
+}
+
+
+// ======================================================
+// SUBMIT ANSWER
+// ======================================================
+
+async function submitAnswer() {
+
+    if (answered) return;
+
+
+    if (!selectedAnswer) {
+
+        alert(
+            "Please select an answer first."
+        );
+
+        return;
+
+    }
+
+
+    answered = true;
+
+    clearInterval(timer);
+
+
+    const correctAnswer =
+        dailyQuestion.answer;
+
+
+    const isCorrect =
+        selectedAnswer.trim() ===
+        correctAnswer.trim();
+
+
+    const buttons =
+        document.querySelectorAll(
+            "#options .option"
+        );
+
+
+    buttons.forEach(
+        function(button) {
+
+            button.disabled = true;
+
+
+            const text =
+                button.innerText
+                    .replace(/^[A-D]\s*/i, "")
+                    .trim();
+
+
+            if (
+                text ===
+                correctAnswer.trim()
+            ) {
+
+                button.classList.add(
+                    "correct"
+                );
+
+            }
+
+
+            if (
+                text ===
+                selectedAnswer.trim() &&
+                !isCorrect
+            ) {
+
+                button.classList.add(
+                    "wrong"
+                );
+
+            }
+
+        }
+    );
+
+
+    const submitButton =
+        document.getElementById("submitBtn");
+
+
+    if (submitButton) {
+
+        submitButton.disabled = true;
+
+    }
+
+
+    // ==========================================
+    // RESULT
+    // ==========================================
+
+    const result =
+        document.getElementById("result");
+
+
+    const explanation =
+        document.getElementById(
+            "explanation"
+        );
+
+
+    if (isCorrect) {
+
+        if (result) {
+
+            result.innerHTML = `
+
+                <div class="result-success">
+
+                    🎉 <strong>Correct Answer!</strong>
+
+                    <br><br>
+
+                    ⚡ You earned
+                    <strong>10 Power Points</strong>.
+
+                </div>
+
+            `;
+
+        }
+
+
+        if (explanation) {
+
+            explanation.style.display =
+                "block";
+
+            explanation.innerHTML =
+
+                "<strong>💡 Explanation:</strong><br>" +
+
+                (
+                    dailyQuestion.explanation ||
+                    "Well done! Keep learning."
+                );
+
+        }
+
+
+        await recordCorrectAnswer();
+
+
+        loadPowerPerformers();
+
+    }
+
+    else {
+
+        if (result) {
+
+            result.innerHTML = `
+
+                <div class="result-wrong">
+
+                    ❌ <strong>Incorrect Answer</strong>
+
+                    <br><br>
+
+                    Correct Answer:
+                    <strong>
+                        ${correctAnswer}
+                    </strong>
+
+                </div>
+
+            `;
+
+        }
+
+
+        if (explanation) {
+
+            explanation.style.display =
+                "block";
+
+            explanation.innerHTML =
+
+                "<strong>💡 Explanation:</strong><br>" +
+
+                (
+                    dailyQuestion.explanation ||
+                    "Keep learning and try again tomorrow!"
+                );
+
+        }
+
+
+        /*
+           We still record the attempt,
+           but no points are awarded.
+        */
+
+        await recordAttempt(false);
+
+
+        loadPowerPerformers();
+
+    }
+
+}
+
+
+// ======================================================
+// RECORD CORRECT ANSWER
+// ======================================================
+
+async function recordCorrectAnswer() {
+
+    if (submitted) return;
+
+
+    submitted = true;
+
+
+    try {
+
+        await fetch(
+            SCRIPT_URL +
+            "?action=submitDailyQuiz",
+
+            {
+
+                method: "POST",
+
+                mode: "no-cors",
+
+                headers: {
+
+                    "Content-Type":
+                        "application/json"
+
+                },
+
+                body: JSON.stringify({
+
+                    employeeId:
+                        employeeId,
+
+                    employeeName:
+                        employeeName,
+
+                    date:
+                        today,
+
+                    question:
+                        dailyQuestion.question,
+
+                    answer:
+                        selectedAnswer,
+
+                    correct:
+                        true,
+
+                    points:
+                        10,
+
+                    dateTime:
+                        new Date().toISOString()
+
+                })
+
+            }
+        );
+
+
+        localStorage.setItem(
+            "dailyLastDate",
+            today
+        );
+
+
+    }
+
+    catch(error) {
+
+        console.error(
+            "Score submission error:",
+            error
+        );
+
+    }
+
+}
+
+
+// ======================================================
+// RECORD INCORRECT ANSWER
+// ======================================================
+
+async function recordAttempt(correct) {
+
+    if (submitted) return;
+
+
+    submitted = true;
+
+
+    try {
+
+        await fetch(
+            SCRIPT_URL +
+            "?action=submitDailyQuiz",
+
+            {
+
+                method: "POST",
+
+                mode: "no-cors",
+
+                headers: {
+
+                    "Content-Type":
+                        "application/json"
+
+                },
+
+                body: JSON.stringify({
+
+                    employeeId:
+                        employeeId,
+
+                    employeeName:
+                        employeeName,
+
+                    date:
+                        today,
+
+                    question:
+                        dailyQuestion.question,
+
+                    answer:
+                        selectedAnswer,
+
+                    correct:
+                        false,
+
+                    points:
+                        0,
+
+                    dateTime:
+                        new Date().toISOString()
+
+                })
+
+            }
+
+        );
+
+    }
+
+    catch(error) {
+
+        console.error(
+            "Attempt submission error:",
+            error
+        );
+
+    }
+
+}
+
+
+// ======================================================
+// POWER PERFORMERS
+// ======================================================
+
+async function loadPowerPerformers() {
+
+    const performers =
+        document.getElementById(
+            "performers"
+        );
+
+
+    const count =
+        document.getElementById(
+            "performerCount"
+        );
+
+
+    if (!performers) return;
+
+
+    performers.innerHTML =
+        "⏳ Loading today's Power Performers...";
+
+
+    try {
+
+        const response =
+            await fetch(
+
+                SCRIPT_URL +
+                "?action=dailyPerformers&date=" +
+                encodeURIComponent(today)
+
+            );
+
+
+        const data =
+            await response.json();
+
+
+        console.log(
+            "Power Performers:",
+            data
+        );
+
+
+        if (
+            !data ||
+            data.status !== "success"
+        ) {
+
+            throw new Error(
+                "Performers unavailable"
+            );
+
+        }
+
+
+        const list =
+            data.performers || [];
+
+
+        if (count) {
+
+            count.innerHTML =
+
+                list.length +
+
+                " employee" +
+
+                (list.length === 1
+                    ? ""
+                    : "s") +
+
+                " answered correctly today.";
+
+        }
+
+
+        if (list.length === 0) {
+
+            performers.innerHTML = `
+
+                <div class="performer">
+
+                    🏆
+
+                    <span class="performer-name">
+
+                        Be the first Power Performer today!
+
+                    </span>
+
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+
+        performers.innerHTML = "";
+
+
+        list.forEach(
+            function(person, index) {
+
+                const medals =
+                    ["🥇", "🥈", "🥉"];
+
+
+                const medal =
+                    medals[index] ||
+                    "⚡";
+
+
+                const div =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                div.className =
+                    "performer";
+
+
+                div.innerHTML = `
+
+                    <span
+                        class="performer-medal">
+
+                        ${medal}
+
+                    </span>
+
+                    <span
+                        class="performer-name">
+
+                        ${person.employeeName}
+
+                    </span>
+
+                `;
+
+
+                performers.appendChild(
+                    div
+                );
+
+            }
+        );
+
+
+    }
+
+    catch(error) {
+
+        console.error(
+            "Performer Error:",
+            error
+        );
+
+
+        performers.innerHTML = `
+
+            <div class="performer">
+
+                ⚡
+
+                <span class="performer-name">
+
+                    Power Performers will appear
+                    after the first correct answer.
+
+                </span>
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+// ======================================================
 // TIMER
-// ================================
+// ======================================================
+
+function startTimer() {
+
+    clearInterval(timer);
 
 
-let time=300;
+    time = 300;
 
 
-function startTimer(){
+    updateTimer();
 
 
-let timer=setInterval(()=>{
+    timer =
+        setInterval(
+            function() {
+
+                time--;
 
 
-let min=Math.floor(time/60);
+                updateTimer();
 
 
-let sec=time%60;
+                if (time <= 0) {
+
+                    clearInterval(timer);
 
 
+                    if (!answered) {
 
-let timerBox=
-document.getElementById("timer");
+                        timeUp();
 
+                    }
 
+                }
 
-if(timerBox){
+            },
 
-timerBox.innerHTML=
+            1000
 
-`${min}:${sec<10?"0":""}${sec}`;
-
-}
-
-
-
-time--;
-
-
-
-if(time<0){
-
-
-clearInterval(timer);
-
-
-finishQuiz();
-
+        );
 
 }
 
 
+// ======================================================
+// UPDATE TIMER
+// ======================================================
 
-},1000);
+function updateTimer() {
 
+    const timerElement =
+        document.getElementById(
+            "timer"
+        );
+
+
+    if (!timerElement) return;
+
+
+    const minutes =
+        Math.floor(time / 60);
+
+
+    const seconds =
+        time % 60;
+
+
+    timerElement.innerHTML =
+
+        `${minutes}:` +
+
+        `${seconds < 10 ? "0" : ""}` +
+
+        `${seconds}`;
 
 }
 
 
+// ======================================================
+// TIME UP
+// ======================================================
+
+function timeUp() {
+
+    answered = true;
 
 
+    const buttons =
+        document.querySelectorAll(
+            "#options .option"
+        );
 
 
+    buttons.forEach(
+        function(button) {
+
+            button.disabled = true;
 
 
+            const text =
+                button.innerText
+                    .replace(/^[A-D]\s*/i, "")
+                    .trim();
+
+
+            if (
+                text ===
+                dailyQuestion.answer.trim()
+            ) {
+
+                button.classList.add(
+                    "correct"
+                );
+
+            }
+
+        }
+    );
+
+
+    const result =
+        document.getElementById(
+            "result"
+        );
+
+
+    if (result) {
+
+        result.innerHTML = `
+
+            <div class="result-wrong">
+
+                ⏰ <strong>Time's Up!</strong>
+
+                <br><br>
+
+                Correct Answer:
+                <strong>
+                    ${dailyQuestion.answer}
+                </strong>
+
+            </div>
+
+        `;
+
+    }
+
+
+    const explanation =
+        document.getElementById(
+            "explanation"
+        );
+
+
+    if (explanation) {
+
+        explanation.style.display =
+            "block";
+
+        explanation.innerHTML =
+
+            "<strong>💡 Explanation:</strong><br>" +
+
+            (
+                dailyQuestion.explanation ||
+                "Keep learning and come back tomorrow!"
+            );
+
+    }
+
+
+    recordAttempt(false);
+
+}
+
+
+// ======================================================
+// INITIALISE PAGE
+// ======================================================
+
+async function initialiseDailyQuiz() {
+
+    displayTodayDate();
+
+    loadMotivation();
+
+    await loadDailyQuestion();
+
+    loadPowerPerformers();
+
+}
+
+
+// ======================================================
 // START
+// ======================================================
 
-loadQuestion();
-
-startTimer();
+initialiseDailyQuiz();
