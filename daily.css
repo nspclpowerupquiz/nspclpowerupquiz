@@ -1,12 +1,7 @@
-/* =========================================================
+/* ==========================================================
    NSPCL POWER PULSE
-   PREMIUM DAILY CHALLENGE DESIGN
-========================================================= */
-
-
-/* =========================================================
-   RESET
-========================================================= */
+   PREMIUM ANIMATED DAILY CHALLENGE
+========================================================== */
 
 * {
     box-sizing: border-box;
@@ -18,23 +13,14 @@ html {
 
 body {
     margin: 0;
-    padding: 0;
-
-    font-family:
-        "Segoe UI",
-        Arial,
-        Helvetica,
-        sans-serif;
-
-    color: #ffffff;
-
-    overflow-x: hidden;
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: white;
 }
 
 
-/* =========================================================
-   MAIN PAGE
-========================================================= */
+/* ==========================================================
+   ANIMATED PAGE BACKGROUND
+========================================================== */
 
 .daily-page {
 
@@ -42,43 +28,44 @@ body {
 
     position: relative;
 
-    overflow: hidden;
+    overflow-x: hidden;
 
     background:
         radial-gradient(
-            circle at 10% 15%,
-            rgba(0, 229, 255, 0.18),
-            transparent 28%
-        ),
-
-        radial-gradient(
-            circle at 90% 20%,
-            rgba(255, 193, 7, 0.13),
+            circle at 10% 10%,
+            rgba(0, 238, 255, .25),
             transparent 25%
         ),
 
         radial-gradient(
-            circle at 50% 100%,
-            rgba(0, 150, 255, 0.20),
-            transparent 35%
+            circle at 90% 15%,
+            rgba(255, 193, 7, .20),
+            transparent 25%
+        ),
+
+        radial-gradient(
+            circle at 50% 90%,
+            rgba(138, 43, 226, .18),
+            transparent 30%
         ),
 
         linear-gradient(
             135deg,
-            #031a33 0%,
-            #063b63 45%,
-            #075985 70%,
-            #032b4e 100%
+            #03172d,
+            #043b62,
+            #006b91,
+            #06325c,
+            #021b38
         );
 
-    background-size: 200% 200%;
+    background-size: 300% 300%;
 
     animation:
-        backgroundAnimation 15s ease infinite;
+        backgroundMove 18s ease infinite;
 }
 
 
-@keyframes backgroundAnimation {
+@keyframes backgroundMove {
 
     0% {
         background-position: 0% 50%;
@@ -91,12 +78,13 @@ body {
     100% {
         background-position: 0% 50%;
     }
+
 }
 
 
-/* =========================================================
-   GLOWING BACKGROUND CIRCLES
-========================================================= */
+/* ==========================================================
+   FLOATING LIGHT 1
+========================================================== */
 
 .daily-page::before {
 
@@ -104,27 +92,58 @@ body {
 
     position: fixed;
 
-    width: 350px;
-    height: 350px;
+    width: 320px;
+    height: 320px;
 
-    left: -150px;
-    top: 20%;
+    left: -140px;
+    top: 25%;
 
     border-radius: 50%;
 
     background:
-        rgba(0, 238, 255, 0.13);
+        radial-gradient(
+            circle,
+            rgba(0, 238, 255, .30),
+            transparent 70%
+        );
 
-    filter: blur(70px);
+    filter: blur(20px);
 
     pointer-events: none;
 
     animation:
-        floatingGlow 8s ease-in-out infinite;
+        floatingLight1 9s ease-in-out infinite;
 
     z-index: 0;
 }
 
+
+@keyframes floatingLight1 {
+
+    0% {
+        transform:
+            translate(0, 0)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            translate(180px, -80px)
+            scale(1.3);
+    }
+
+    100% {
+        transform:
+            translate(0, 0)
+            scale(1);
+    }
+
+}
+
+
+/* ==========================================================
+   FLOATING LIGHT 2
+========================================================== */
 
 .daily-page::after {
 
@@ -132,44 +151,58 @@ body {
 
     position: fixed;
 
-    width: 350px;
-    height: 350px;
+    width: 300px;
+    height: 300px;
 
-    right: -150px;
+    right: -120px;
     bottom: 10%;
 
     border-radius: 50%;
 
     background:
-        rgba(255, 193, 7, 0.10);
+        radial-gradient(
+            circle,
+            rgba(255, 193, 7, .25),
+            transparent 70%
+        );
 
-    filter: blur(75px);
+    filter: blur(25px);
 
     pointer-events: none;
 
     animation:
-        floatingGlow 10s ease-in-out infinite reverse;
+        floatingLight2 10s ease-in-out infinite;
 
     z-index: 0;
 }
 
 
-@keyframes floatingGlow {
+@keyframes floatingLight2 {
 
-    0%,
-    100% {
-        transform: translateY(0) scale(1);
+    0% {
+        transform:
+            translate(0, 0)
+            scale(1);
     }
 
     50% {
-        transform: translateY(-35px) scale(1.15);
+        transform:
+            translate(-150px, -70px)
+            scale(1.25);
     }
+
+    100% {
+        transform:
+            translate(0, 0)
+            scale(1);
+    }
+
 }
 
 
-/* =========================================================
-   HEADER
-========================================================= */
+/* ==========================================================
+   HERO
+========================================================== */
 
 .daily-hero {
 
@@ -179,101 +212,131 @@ body {
 
     text-align: center;
 
-    padding: 55px 20px 40px;
+    padding:
+        55px 20px 40px;
 
     background:
         linear-gradient(
             135deg,
-            rgba(0, 191, 255, 0.16),
-            rgba(0, 60, 110, 0.35)
+            rgba(0, 198, 255, .20),
+            rgba(0, 50, 100, .30)
         );
 
     border-bottom:
         1px solid
-        rgba(255,255,255,0.18);
+        rgba(255,255,255,.18);
 
     backdrop-filter:
-        blur(18px);
+        blur(20px);
 
     animation:
-        heroAppear .8s ease;
+        heroEntry 1s ease;
 }
 
 
-@keyframes heroAppear {
+@keyframes heroEntry {
 
     from {
         opacity: 0;
-        transform: translateY(-25px);
+        transform: translateY(-35px);
     }
 
     to {
         opacity: 1;
         transform: translateY(0);
     }
+
 }
 
+
+/* ==========================================================
+   HERO TITLE
+========================================================== */
 
 .daily-hero h1 {
 
     margin: 0;
 
     font-size:
-        clamp(32px, 5vw, 52px);
+        clamp(32px, 5vw, 54px);
 
-    font-weight: 800;
+    font-weight: 900;
 
-    letter-spacing: .5px;
+    letter-spacing: 1px;
 
     background:
         linear-gradient(
             90deg,
             #ffffff,
-            #73f7ff,
+            #00f5ff,
+            #ffffff,
             #ffd84d,
             #ffffff
         );
 
-    background-size: 250% auto;
+    background-size:
+        300% auto;
 
     -webkit-background-clip: text;
 
     -webkit-text-fill-color: transparent;
 
     animation:
-        titleAnimation 4s linear infinite;
-
-    text-shadow:
-        0 0 30px
-        rgba(0,220,255,.15);
+        titleGlow 5s linear infinite;
 }
 
 
-@keyframes titleAnimation {
+@keyframes titleGlow {
 
-    from {
+    0% {
         background-position: 0% center;
     }
 
-    to {
-        background-position: 250% center;
+    100% {
+        background-position: 300% center;
     }
+
 }
 
+
+/* ==========================================================
+   HERO SUBTITLE
+========================================================== */
 
 .daily-hero h2 {
 
     margin:
         12px 0 10px;
 
-    color: #ffd84d;
-
     font-size:
         clamp(22px, 3vw, 30px);
 
+    color: #ffd84d;
+
     text-shadow:
         0 0 15px
-        rgba(255,216,77,.35);
+        rgba(255,216,77,.55);
+
+    animation:
+        subtitlePulse 2.5s ease-in-out infinite;
+}
+
+
+@keyframes subtitlePulse {
+
+    0%,
+    100% {
+        text-shadow:
+            0 0 10px
+            rgba(255,216,77,.3);
+    }
+
+    50% {
+        text-shadow:
+            0 0 25px
+            rgba(255,216,77,.8);
+    }
+
 }
 
 
@@ -281,16 +344,16 @@ body {
 
     margin: 0;
 
-    color:
-        rgba(255,255,255,.82);
-
     font-size: 16px;
+
+    color:
+        rgba(255,255,255,.85);
 }
 
 
-/* =========================================================
-   DAILY CARD
-========================================================= */
+/* ==========================================================
+   GLASS CARDS
+========================================================== */
 
 .daily-card {
 
@@ -300,59 +363,82 @@ body {
 
     max-width: 900px;
 
-    margin: 25px auto;
+    margin:
+        25px auto;
 
-    padding: 30px;
+    padding:
+        30px;
 
-    border-radius: 25px;
+    border-radius:
+        25px;
 
     background:
         linear-gradient(
             145deg,
-            rgba(255,255,255,.16),
+            rgba(255,255,255,.17),
             rgba(255,255,255,.06)
         );
 
     border:
         1px solid
-        rgba(255,255,255,.22);
+        rgba(255,255,255,.25);
 
     backdrop-filter:
-        blur(18px);
+        blur(20px);
 
     -webkit-backdrop-filter:
-        blur(18px);
+        blur(20px);
 
     box-shadow:
-        0 20px 55px
-        rgba(0,0,0,.22);
+        0 20px 60px
+        rgba(0,0,0,.25);
 
     animation:
-        cardAppear .8s ease;
+        cardEntry .9s ease;
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
 }
 
 
-@keyframes cardAppear {
+.daily-card:hover {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 25px 70px
+        rgba(0,220,255,.16);
+}
+
+
+@keyframes cardEntry {
 
     from {
+
         opacity: 0;
+
         transform:
-            translateY(25px)
-            scale(.97);
+            translateY(35px)
+            scale(.96);
     }
 
     to {
+
         opacity: 1;
+
         transform:
             translateY(0)
             scale(1);
     }
+
 }
 
 
-/* =========================================================
-   CARD TOP GLOW
-========================================================= */
+/* ==========================================================
+   CARD TOP LIGHT
+========================================================== */
 
 .daily-card::before {
 
@@ -362,11 +448,13 @@ body {
 
     top: 0;
 
-    left: 12%;
+    left: 10%;
 
-    width: 76%;
+    width: 80%;
 
-    height: 2px;
+    height: 3px;
+
+    border-radius: 50%;
 
     background:
         linear-gradient(
@@ -374,19 +462,35 @@ body {
             transparent,
             #00eaff,
             #ffd84d,
+            #ff4ecd,
             #00eaff,
             transparent
         );
 
-    border-radius: 50%;
+    background-size:
+        200% 100%;
 
-    opacity: .9;
+    animation:
+        topLight 4s linear infinite;
 }
 
 
-/* =========================================================
+@keyframes topLight {
+
+    from {
+        background-position: 0% 50%;
+    }
+
+    to {
+        background-position: 200% 50%;
+    }
+
+}
+
+
+/* ==========================================================
    MOTIVATION
-========================================================= */
+========================================================== */
 
 .quote-card {
 
@@ -400,13 +504,13 @@ body {
     margin:
         0 0 15px;
 
-    color: #ffd84d;
-
     font-size: 24px;
 
+    color: #ffd84d;
+
     text-shadow:
-        0 0 15px
-        rgba(255,216,77,.35);
+        0 0 18px
+        rgba(255,216,77,.5);
 }
 
 
@@ -416,22 +520,38 @@ body {
 
     line-height: 1.7;
 
+    font-style: italic;
+
     color:
         rgba(255,255,255,.92);
 
-    min-height: 30px;
+    animation:
+        quoteFloat 3s ease-in-out infinite;
 }
 
 
-/* =========================================================
-   QUESTION CARD
-========================================================= */
+@keyframes quoteFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-3px);
+    }
+
+}
+
+
+/* ==========================================================
+   QUESTION
+========================================================== */
 
 .question-card {
 
     padding:
         35px;
-
 }
 
 
@@ -439,34 +559,60 @@ body {
 
     color: #ffd84d;
 
+    font-size: 23px;
+
     margin:
         0 0 20px;
 
-    font-size: 22px;
-
+    text-shadow:
+        0 0 12px
+        rgba(255,216,77,.3);
 }
 
 
 #dailyQuestion {
 
     font-size:
-        clamp(20px, 3vw, 28px);
+        clamp(21px, 3vw, 29px);
+
+    font-weight: 800;
 
     line-height: 1.5;
-
-    font-weight: 700;
-
-    color: #ffffff;
 
     margin:
         20px 0 25px;
 
+    color: #ffffff;
+
+    animation:
+        questionAppear .8s ease;
 }
 
 
-/* =========================================================
-   OPTIONS
-========================================================= */
+@keyframes questionAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateX(-20px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateX(0);
+    }
+
+}
+
+
+/* ==========================================================
+   ANSWER GRID
+========================================================== */
 
 #dailyOptions {
 
@@ -481,73 +627,100 @@ body {
 }
 
 
+/* ==========================================================
+   ANSWER BUTTON
+========================================================== */
+
 .daily-option {
 
     position: relative;
 
     overflow: hidden;
 
-    border: none;
+    min-height: 68px;
 
-    min-height: 65px;
+    padding:
+        16px 20px;
 
-    padding: 16px 20px;
+    border:
+        1px solid
+        rgba(255,255,255,.15);
 
-    border-radius: 16px;
+    border-radius:
+        17px;
 
     background:
         linear-gradient(
             135deg,
-            #079fc9,
-            #11b9d5
+            #009dc8,
+            #12bfd7
         );
 
     color: white;
 
     font-size: 16px;
 
-    font-weight: 700;
-
-    cursor: pointer;
+    font-weight: 800;
 
     text-align: left;
 
+    cursor: pointer;
+
     box-shadow:
-        0 8px 22px
+        0 8px 25px
         rgba(0,0,0,.20);
 
     transition:
         transform .25s ease,
         box-shadow .25s ease,
         filter .25s ease;
+
+    animation:
+        optionEntry .5s ease both;
 }
 
 
-.daily-option:hover {
+.daily-option:nth-child(1) {
+    animation-delay: .1s;
+}
 
-    transform:
-        translateY(-5px)
-        scale(1.015);
+.daily-option:nth-child(2) {
+    animation-delay: .2s;
+}
 
-    filter:
-        brightness(1.08);
+.daily-option:nth-child(3) {
+    animation-delay: .3s;
+}
 
-    box-shadow:
-        0 15px 35px
-        rgba(0,220,255,.28);
+.daily-option:nth-child(4) {
+    animation-delay: .4s;
 }
 
 
-.daily-option:active {
+@keyframes optionEntry {
 
-    transform:
-        scale(.97);
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(20px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
 }
 
 
-/* =========================================================
-   OPTION SHINE
-========================================================= */
+/* ==========================================================
+   BUTTON SHINE
+========================================================== */
 
 .daily-option::after {
 
@@ -567,7 +740,7 @@ body {
         linear-gradient(
             90deg,
             transparent,
-            rgba(255,255,255,.25),
+            rgba(255,255,255,.35),
             transparent
         );
 
@@ -575,7 +748,7 @@ body {
         skewX(-20deg);
 
     transition:
-        left .6s ease;
+        left .7s ease;
 }
 
 
@@ -585,63 +758,94 @@ body {
 }
 
 
-/* =========================================================
-   CORRECT ANSWER
-========================================================= */
+.daily-option:hover {
+
+    transform:
+        translateY(-6px)
+        scale(1.02);
+
+    filter:
+        brightness(1.12);
+
+    box-shadow:
+        0 15px 35px
+        rgba(0,220,255,.35);
+}
+
+
+.daily-option:active {
+
+    transform:
+        scale(.97);
+}
+
+
+/* ==========================================================
+   CORRECT
+========================================================== */
 
 .daily-option.correct {
 
     background:
         linear-gradient(
             135deg,
-            #00b956,
-            #00dc76
+            #00a94f,
+            #00e676
         );
 
     box-shadow:
-        0 0 28px
-        rgba(0,220,110,.35);
+        0 0 30px
+        rgba(0,230,118,.45);
 
     animation:
-        correctAnimation .6s ease;
+        correctPulse .7s ease;
 }
 
 
-@keyframes correctAnimation {
+@keyframes correctPulse {
 
     0% {
         transform: scale(1);
     }
 
-    50% {
-        transform: scale(1.04);
+    40% {
+        transform: scale(1.06);
+    }
+
+    70% {
+        transform: scale(.98);
     }
 
     100% {
         transform: scale(1);
     }
+
 }
 
 
-/* =========================================================
-   WRONG ANSWER
-========================================================= */
+/* ==========================================================
+   WRONG
+========================================================== */
 
 .daily-option.incorrect {
 
     background:
         linear-gradient(
             135deg,
-            #e53935,
+            #d92828,
             #ff5252
         );
 
+    box-shadow:
+        0 0 25px
+        rgba(255,82,82,.35);
+
     animation:
-        wrongAnimation .45s ease;
+        wrongShake .45s ease;
 }
 
 
-@keyframes wrongAnimation {
+@keyframes wrongShake {
 
     0%,
     100% {
@@ -649,18 +853,23 @@ body {
     }
 
     25% {
-        transform: translateX(-6px);
+        transform: translateX(-8px);
+    }
+
+    50% {
+        transform: translateX(8px);
     }
 
     75% {
-        transform: translateX(6px);
+        transform: translateX(-5px);
     }
+
 }
 
 
-/* =========================================================
+/* ==========================================================
    SUBMIT BUTTON
-========================================================= */
+========================================================== */
 
 .daily-btn {
 
@@ -672,14 +881,15 @@ body {
 
     gap: 8px;
 
-    margin-top: 25px;
-
     padding:
-        14px 30px;
+        15px 32px;
+
+    margin-top: 25px;
 
     border: none;
 
-    border-radius: 50px;
+    border-radius:
+        50px;
 
     background:
         linear-gradient(
@@ -689,19 +899,19 @@ body {
         );
 
     color:
-        #06304d;
+        #06304c;
 
     font-size: 16px;
 
-    font-weight: 800;
-
-    cursor: pointer;
+    font-weight: 900;
 
     text-decoration: none;
 
+    cursor: pointer;
+
     box-shadow:
         0 10px 30px
-        rgba(0,220,255,.25);
+        rgba(0,220,255,.30);
 
     transition:
         transform .25s ease,
@@ -712,32 +922,31 @@ body {
 .daily-btn:hover {
 
     transform:
-        translateY(-4px)
-        scale(1.04);
+        translateY(-5px)
+        scale(1.05);
 
     box-shadow:
         0 15px 40px
-        rgba(0,220,255,.40);
+        rgba(0,220,255,.50);
 }
 
 
 .daily-btn:active {
 
     transform:
-        scale(.97);
+        scale(.96);
 }
 
 
-/* =========================================================
+/* ==========================================================
    RESULT
-========================================================= */
+========================================================== */
 
 #dailyResult {
 
-    margin-top: 22px;
+    margin-top: 25px;
 
     line-height: 1.6;
-
 }
 
 
@@ -748,14 +957,22 @@ body {
     border-radius: 18px;
 
     background:
-        rgba(0,200,83,.16);
+        linear-gradient(
+            135deg,
+            rgba(0,230,118,.20),
+            rgba(0,180,80,.08)
+        );
 
     border:
         1px solid
-        #00d875;
+        #00e676;
+
+    box-shadow:
+        0 0 25px
+        rgba(0,230,118,.12);
 
     animation:
-        resultAppear .5s ease;
+        resultPop .5s ease;
 }
 
 
@@ -766,34 +983,45 @@ body {
     border-radius: 18px;
 
     background:
-        rgba(255,82,82,.16);
+        linear-gradient(
+            135deg,
+            rgba(255,82,82,.20),
+            rgba(200,30,30,.08)
+        );
 
     border:
         1px solid
         #ff5252;
 
     animation:
-        resultAppear .5s ease;
+        resultPop .5s ease;
 }
 
 
-@keyframes resultAppear {
+@keyframes resultPop {
 
     from {
+
         opacity: 0;
-        transform: scale(.95);
+
+        transform:
+            scale(.90);
     }
 
     to {
+
         opacity: 1;
-        transform: scale(1);
+
+        transform:
+            scale(1);
     }
+
 }
 
 
-/* =========================================================
+/* ==========================================================
    STATS
-========================================================= */
+========================================================== */
 
 .daily-grid {
 
@@ -820,58 +1048,121 @@ body {
 
 .daily-stat {
 
-    padding: 25px;
+    position: relative;
+
+    overflow: hidden;
+
+    padding:
+        28px 20px;
 
     text-align: center;
 
-    border-radius: 22px;
+    border-radius:
+        22px;
 
     background:
         linear-gradient(
             145deg,
-            rgba(255,255,255,.14),
+            rgba(255,255,255,.17),
             rgba(255,255,255,.06)
         );
 
     border:
         1px solid
-        rgba(255,255,255,.18);
+        rgba(255,255,255,.20);
 
     backdrop-filter:
-        blur(15px);
+        blur(16px);
 
     box-shadow:
-        0 15px 35px
-        rgba(0,0,0,.18);
+        0 15px 40px
+        rgba(0,0,0,.20);
 
     transition:
-        transform .25s ease,
-        box-shadow .25s ease;
+        transform .3s ease,
+        box-shadow .3s ease;
+
+    animation:
+        statEntry .7s ease both;
+}
+
+
+.daily-stat:nth-child(1) {
+    animation-delay: .2s;
+}
+
+.daily-stat:nth-child(2) {
+    animation-delay: .35s;
+}
+
+.daily-stat:nth-child(3) {
+    animation-delay: .5s;
+}
+
+
+@keyframes statEntry {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(25px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
 }
 
 
 .daily-stat:hover {
 
     transform:
-        translateY(-6px);
+        translateY(-8px);
 
     box-shadow:
         0 20px 45px
-        rgba(0,220,255,.18);
+        rgba(0,220,255,.20);
 }
 
 
 .daily-stat h3 {
 
-    margin: 0 0 10px;
+    margin:
+        0 0 10px;
 
-    font-size: 34px;
+    font-size:
+        36px;
 
-    color: #ffd84d;
+    color:
+        #ffd84d;
 
     text-shadow:
-        0 0 15px
-        rgba(255,216,77,.3);
+        0 0 20px
+        rgba(255,216,77,.50);
+
+    animation:
+        numberGlow 2s ease-in-out infinite;
+}
+
+
+@keyframes numberGlow {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
 }
 
 
@@ -879,16 +1170,16 @@ body {
 
     margin: 0;
 
-    font-size: 14px;
-
     color:
-        rgba(255,255,255,.8);
+        rgba(255,255,255,.85);
+
+    font-size: 14px;
 }
 
 
-/* =========================================================
-   BACK HOME
-========================================================= */
+/* ==========================================================
+   HOME BUTTON
+========================================================== */
 
 .home-section {
 
@@ -899,7 +1190,7 @@ body {
     text-align: center;
 
     padding:
-        20px 20px 50px;
+        15px 20px 50px;
 }
 
 
@@ -914,24 +1205,29 @@ body {
     gap: 10px;
 
     padding:
-        15px 32px;
+        16px 34px;
 
-    border-radius: 50px;
+    border-radius:
+        50px;
 
     text-decoration: none;
 
     color: white;
 
-    font-size: 16px;
+    font-size: 17px;
 
-    font-weight: 800;
+    font-weight: 900;
 
     background:
         linear-gradient(
             135deg,
-            #008fd3,
-            #00c6e8
+            #0077b6,
+            #00bcd4,
+            #008cff
         );
+
+    background-size:
+        200% auto;
 
     border:
         1px solid
@@ -939,29 +1235,52 @@ body {
 
     box-shadow:
         0 10px 30px
-        rgba(0,200,255,.25);
+        rgba(0,190,255,.30);
 
     transition:
-        transform .25s ease,
-        box-shadow .25s ease;
+        transform .3s ease,
+        box-shadow .3s ease;
+
+    animation:
+        homeGradient 4s linear infinite;
+}
+
+
+@keyframes homeGradient {
+
+    0% {
+        background-position: 0% center;
+    }
+
+    100% {
+        background-position: 200% center;
+    }
+
 }
 
 
 .home-button:hover {
 
     transform:
-        translateY(-5px)
-        scale(1.04);
+        translateY(-6px)
+        scale(1.05);
 
     box-shadow:
-        0 15px 40px
-        rgba(0,220,255,.40);
+        0 18px 45px
+        rgba(0,220,255,.50);
 }
 
 
-/* =========================================================
+.home-button:active {
+
+    transform:
+        scale(.96);
+}
+
+
+/* ==========================================================
    FOOTER
-========================================================= */
+========================================================== */
 
 footer {
 
@@ -975,7 +1294,7 @@ footer {
         25px 20px;
 
     background:
-        rgba(0,0,0,.16);
+        rgba(0,0,0,.18);
 
     border-top:
         1px solid
@@ -988,33 +1307,34 @@ footer {
 
 footer p {
 
-    margin: 5px;
+    margin:
+        5px;
 }
 
 
-/* =========================================================
+/* ==========================================================
    LOADING
-========================================================= */
+========================================================== */
 
 .loading {
 
     text-align: center;
 
-    padding: 25px;
+    padding: 30px;
 
     color:
         rgba(255,255,255,.8);
 
     animation:
-        loadingAnimation 1.5s ease-in-out infinite;
+        loadingPulse 1.4s ease-in-out infinite;
 }
 
 
-@keyframes loadingAnimation {
+@keyframes loadingPulse {
 
     0%,
     100% {
-        opacity: .45;
+        opacity: .4;
     }
 
     50% {
@@ -1023,9 +1343,9 @@ footer p {
 }
 
 
-/* =========================================================
+/* ==========================================================
    MOBILE
-========================================================= */
+========================================================== */
 
 @media (max-width: 700px) {
 
@@ -1066,17 +1386,17 @@ footer p {
     }
 
 
-    .daily-option {
-
-        min-height:
-            60px;
-    }
-
-
     #dailyQuestion {
 
         font-size:
             20px;
+    }
+
+
+    .daily-option {
+
+        min-height:
+            62px;
     }
 
 
@@ -1090,21 +1410,23 @@ footer p {
 }
 
 
-/* =========================================================
-   VERY SMALL SCREENS
-========================================================= */
+/* ==========================================================
+   SMALL MOBILE
+========================================================== */
 
 @media (max-width: 400px) {
 
     .daily-hero h1 {
 
-        font-size: 30px;
+        font-size:
+            30px;
     }
 
 
     .daily-hero h2 {
 
-        font-size: 22px;
+        font-size:
+            21px;
     }
 
 
@@ -1117,7 +1439,8 @@ footer p {
 
     .daily-btn {
 
-        width: 100%;
+        width:
+            100%;
     }
 
 }
