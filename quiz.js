@@ -16,14 +16,13 @@ const QUESTION_TIME = 5;
 // VARIABLES
 // ==========================
 
+let questionPool = [];
 let questions = [];
 
 let currentQuestion = 0;
-
 let score = 0;
 
 let timer;
-
 let time = QUESTION_TIME;
 
 
@@ -32,7 +31,6 @@ let time = QUESTION_TIME;
 // ==========================
 
 let employee = localStorage.getItem("employeeId");
-
 let employeeName = localStorage.getItem("employeeName");
 
 
@@ -73,7 +71,11 @@ window.onload = function () {
     if (user) {
 
         user.innerHTML =
-        "Welcome <b>" + employeeName + "</b> (" + employee + ")";
+            "Welcome <b>" +
+            escapeHTML(employeeName) +
+            "</b> (" +
+            escapeHTML(employee) +
+            ")";
 
     }
 
@@ -88,22 +90,31 @@ async function loadQuestions() {
 
     try {
 
-        let response = await fetch("questions.json");
+        let response = await fetch(
+            "questions.json?version=" + Date.now()
+        );
+
 
         if (!response.ok) {
 
-            throw new Error("questions.json missing");
+            throw new Error(
+                "questions.json could not be loaded"
+            );
 
         }
 
-        // Load ALL questions from question pool
 
-        let questionPool = await response.json();
+        questionPool = await response.json();
 
 
-        if (!Array.isArray(questionPool) || questionPool.length === 0) {
+        if (
+            !Array.isArray(questionPool) ||
+            questionPool.length === 0
+        ) {
 
-            throw new Error("No questions found");
+            throw new Error(
+                "Question pool is empty"
+            );
 
         }
 
@@ -115,35 +126,49 @@ async function loadQuestions() {
 
 
         // ==========================
-        // RANDOMIZE QUESTION POOL
+        // CHECK QUESTION COUNT
         // ==========================
 
-        questionPool = shuffleArray(questionPool);
+        if (questionPool.length < TOTAL_QUIZ_QUESTIONS) {
+
+            throw new Error(
+                "Question pool contains fewer than " +
+                TOTAL_QUIZ_QUESTIONS +
+                " questions"
+            );
+
+        }
 
 
         // ==========================
-        // SELECT 30 QUESTIONS
+        // SELECT RANDOM 30 QUESTIONS
         // ==========================
 
-        questions = questionPool.slice(
-            0,
-            Math.min(TOTAL_QUIZ_QUESTIONS, questionPool.length)
+        questions = getRandomQuestions(
+            questionPool,
+            TOTAL_QUIZ_QUESTIONS
         );
 
 
         console.log(
-            "Questions selected for this quiz:",
+            "Random questions selected:",
             questions.length
         );
 
-
     }
+
 
     catch (error) {
 
-        console.error(error);
+        console.error(
+            "Question loading error:",
+            error
+        );
 
-        alert("Unable to load questions");
+
+        alert(
+            "Unable to load the quiz questions. Please try again."
+        );
 
     }
 
@@ -151,18 +176,26 @@ async function loadQuestions() {
 
 
 // ==========================
-// SHUFFLE ARRAY
+// RANDOM QUESTION SELECTION
 // FISHER-YATES SHUFFLE
 // ==========================
 
-function shuffleArray(array) {
+function getRandomQuestions(pool, count) {
 
-    let shuffled = [...array];
+    let shuffled = [...pool];
 
-    for (let i = shuffled.length - 1; i > 0; i--) {
+
+    for (
+        let i = shuffled.length - 1;
+        i > 0;
+        i--
+    ) {
 
         let randomIndex =
-            Math.floor(Math.random() * (i + 1));
+            Math.floor(
+                Math.random() * (i + 1)
+            );
+
 
         [
             shuffled[i],
@@ -175,7 +208,46 @@ function shuffleArray(array) {
 
     }
 
-    return shuffled;
+
+    return shuffled.slice(0, count);
+
+}
+
+
+// ==========================
+// RANDOMIZE OPTIONS
+// ==========================
+
+function shuffleOptions(question) {
+
+    let options = [...question.options];
+
+
+    for (
+        let i = options.length - 1;
+        i > 0;
+        i--
+    ) {
+
+        let randomIndex =
+            Math.floor(
+                Math.random() * (i + 1)
+            );
+
+
+        [
+            options[i],
+            options[randomIndex]
+        ] =
+        [
+            options[randomIndex],
+            options[i]
+        ];
+
+    }
+
+
+    return options;
 
 }
 
@@ -189,28 +261,69 @@ async function startQuiz() {
     await loadQuestions();
 
 
-    if (questions.length === 0) {
-
-        alert("No questions available");
+    if (
+        !questions ||
+        questions.length === 0
+    ) {
 
         return;
 
     }
 
 
+    // ==========================
+    // RESET QUIZ
+    // ==========================
+
     currentQuestion = 0;
 
     score = 0;
 
 
-    document.getElementById("liveScore").innerHTML = score;
+    // ==========================
+    // RESET SCORE DISPLAY
+    // ==========================
+
+    let liveScore =
+        document.getElementById("liveScore");
 
 
-    document.querySelector(".quiz-intro").style.display = "none";
+    if (liveScore) {
+
+        liveScore.innerHTML = "0";
+
+    }
 
 
-    document.getElementById("quiz-area").style.display = "block";
+    // ==========================
+    // SHOW QUIZ
+    // ==========================
 
+    let intro =
+        document.querySelector(".quiz-intro");
+
+
+    if (intro) {
+
+        intro.style.display = "none";
+
+    }
+
+
+    let quizArea =
+        document.getElementById("quiz-area");
+
+
+    if (quizArea) {
+
+        quizArea.style.display = "block";
+
+    }
+
+
+    // ==========================
+    // LOAD FIRST QUESTION
+    // ==========================
 
     loadQuestion();
 
@@ -230,7 +343,9 @@ function loadQuestion() {
     // CHECK QUIZ COMPLETION
     // ==========================
 
-    if (currentQuestion >= questions.length) {
+    if (
+        currentQuestion >= questions.length
+    ) {
 
         showResult();
 
@@ -245,81 +360,141 @@ function loadQuestion() {
 
     time = QUESTION_TIME;
 
-    document.getElementById("time").innerHTML = time;
+
+    let timeElement =
+        document.getElementById("time");
+
+
+    if (timeElement) {
+
+        timeElement.innerHTML = time;
+
+    }
 
 
     // ==========================
     // CURRENT QUESTION
     // ==========================
 
-    let q = questions[currentQuestion];
+    let q =
+        questions[currentQuestion];
 
 
     // ==========================
     // PROGRESS
     // ==========================
 
-    document.getElementById("progress").innerHTML =
+    let progress =
+        document.getElementById("progress");
 
-        (currentQuestion + 1) +
-        " / " +
-        questions.length;
+
+    if (progress) {
+
+        progress.innerHTML =
+            (currentQuestion + 1) +
+            " / " +
+            TOTAL_QUIZ_QUESTIONS;
+
+    }
 
 
     // ==========================
     // QUESTION TEXT
     // ==========================
 
-    document.getElementById("question").innerHTML =
+    let questionElement =
+        document.getElementById("question");
 
-        "Q" +
-        (currentQuestion + 1) +
-        ". " +
-        q.question;
+
+    if (questionElement) {
+
+        questionElement.innerHTML =
+            "Q" +
+            (currentQuestion + 1) +
+            ". " +
+            escapeHTML(q.question);
+
+    }
 
 
     // ==========================
-    // OPTIONS
+    // RANDOMIZE OPTIONS
+    // ==========================
+
+    let randomizedOptions =
+        shuffleOptions(q);
+
+
+    // Save randomized options
+    // for the current question
+
+    q.currentOptions =
+        randomizedOptions;
+
+
+    // ==========================
+    // CREATE OPTIONS
     // ==========================
 
     let optionHTML = "";
 
-    let letters = ["A", "B", "C", "D"];
+    let letters =
+        ["A", "B", "C", "D"];
 
 
-    q.options.forEach(function (option, index) {
-
-        optionHTML += `
-
-        <button
-            class="option"
-            onclick="checkAnswer(this, '${escapeHTML(option)}')"
-        >
-
-            <span class="option-letter">
-
-                ${letters[index]}
-
-            </span>
-
-            ${option}
-
-        </button>
-
-        `;
-
-    });
+    randomizedOptions.forEach(
+        function (option, index) {
 
 
-    document.getElementById("options").innerHTML =
-        optionHTML;
+            optionHTML += `
+
+                <button
+                    class="option"
+                    data-answer="${escapeHTML(option)}"
+                    onclick="checkAnswer(this)"
+                >
+
+                    <span class="option-letter">
+                        ${letters[index]}
+                    </span>
+
+                    <span class="option-text">
+                        ${escapeHTML(option)}
+                    </span>
+
+                </button>
+
+            `;
+
+        }
+    );
+
+
+    let optionsElement =
+        document.getElementById("options");
+
+
+    if (optionsElement) {
+
+        optionsElement.innerHTML =
+            optionHTML;
+
+    }
 
 
     // ==========================
     // DISABLE NEXT BUTTON
     // ==========================
 
-    document.getElementById("nextBtn").disabled = true;
+    let nextButton =
+        document.getElementById("nextBtn");
+
+
+    if (nextButton) {
+
+        nextButton.disabled = true;
+
+    }
 
 
     // ==========================
@@ -337,26 +512,57 @@ function loadQuestion() {
 
 function startTimer() {
 
-    timer = setInterval(function () {
-
-        time--;
-
-        document.getElementById("time").innerHTML =
-            time;
+    clearInterval(timer);
 
 
-        if (time <= 0) {
+    timer = setInterval(
+        function () {
 
-            clearInterval(timer);
 
-            disableOptions();
+            time--;
 
-            document.getElementById("nextBtn").disabled =
-                false;
 
-        }
+            let timeElement =
+                document.getElementById("time");
 
-    }, 1000);
+
+            if (timeElement) {
+
+                timeElement.innerHTML =
+                    time;
+
+            }
+
+
+            // ==========================
+            // TIME UP
+            // ==========================
+
+            if (time <= 0) {
+
+                clearInterval(timer);
+
+
+                disableOptions();
+
+
+                let nextButton =
+                    document.getElementById("nextBtn");
+
+
+                if (nextButton) {
+
+                    nextButton.disabled =
+                        false;
+
+                }
+
+            }
+
+
+        },
+        1000
+    );
 
 }
 
@@ -365,76 +571,135 @@ function startTimer() {
 // CHECK ANSWER
 // ==========================
 
-function checkAnswer(button, selectedAnswer) {
+function checkAnswer(button) {
 
     clearInterval(timer);
 
 
-    let correctAnswer =
-        questions[currentQuestion].answer;
+    // ==========================
+    // GET CURRENT QUESTION
+    // ==========================
 
+    let q =
+        questions[currentQuestion];
+
+
+    let correctAnswer =
+        String(q.answer).trim();
+
+
+    // ==========================
+    // GET SELECTED ANSWER
+    // ==========================
+
+    let selectedAnswer =
+        button
+            .getAttribute("data-answer")
+            .trim();
+
+
+    // ==========================
+    // GET ALL OPTIONS
+    // ==========================
 
     let buttons =
         document.querySelectorAll(".option");
 
 
-    buttons.forEach(function (btn) {
+    // ==========================
+    // DISABLE ALL OPTIONS
+    // ==========================
 
-        btn.disabled = true;
+    buttons.forEach(
+        function (btn) {
+
+            btn.disabled = true;
 
 
-        if (
-            btn.innerText.trim().endsWith(
-                correctAnswer.trim()
-            )
-        ) {
+            let answer =
+                btn
+                    .getAttribute("data-answer")
+                    .trim();
 
-            btn.style.background = "#16a34a";
 
-            btn.style.color = "white";
+            // Show correct answer
+
+            if (
+                answer === correctAnswer
+            ) {
+
+                btn.style.background =
+                    "#16a34a";
+
+                btn.style.color =
+                    "white";
+
+            }
 
         }
-
-    });
+    );
 
 
     // ==========================
-    // CORRECT ANSWER
+    // CHECK SELECTED ANSWER
     // ==========================
 
     if (
-        selectedAnswer.trim() ===
-        correctAnswer.trim()
+        selectedAnswer ===
+        correctAnswer
     ) {
 
         score++;
 
-        document.getElementById("liveScore").innerHTML =
-            score;
+
+        let liveScore =
+            document.getElementById(
+                "liveScore"
+            );
 
 
-        button.style.background = "#16a34a";
+        if (liveScore) {
 
-        button.style.color = "white";
+            liveScore.innerHTML =
+                score;
+
+        }
+
+
+        button.style.background =
+            "#16a34a";
+
+        button.style.color =
+            "white";
 
     }
 
-
-    // ==========================
-    // WRONG ANSWER
-    // ==========================
 
     else {
 
-        button.style.background = "#dc2626";
+        button.style.background =
+            "#dc2626";
 
-        button.style.color = "white";
+        button.style.color =
+            "white";
 
     }
 
 
-    document.getElementById("nextBtn").disabled =
-        false;
+    // ==========================
+    // ENABLE NEXT BUTTON
+    // ==========================
+
+    let nextButton =
+        document.getElementById("nextBtn");
+
+
+    if (nextButton) {
+
+        nextButton.disabled =
+            false;
+
+    }
 
 }
 
@@ -449,28 +714,42 @@ function disableOptions() {
         document.querySelectorAll(".option");
 
 
+    let q =
+        questions[currentQuestion];
+
+
     let correctAnswer =
-        questions[currentQuestion].answer;
+        String(q.answer).trim();
 
 
-    buttons.forEach(function (btn) {
+    buttons.forEach(
+        function (btn) {
 
-        btn.disabled = true;
+            btn.disabled = true;
 
 
-        if (
-            btn.innerText.trim().endsWith(
-                correctAnswer.trim()
-            )
-        ) {
+            let answer =
+                btn
+                    .getAttribute("data-answer")
+                    .trim();
 
-            btn.style.background = "#16a34a";
 
-            btn.style.color = "white";
+            // Highlight correct answer
+
+            if (
+                answer === correctAnswer
+            ) {
+
+                btn.style.background =
+                    "#16a34a";
+
+                btn.style.color =
+                    "white";
+
+            }
 
         }
-
-    });
+    );
 
 }
 
@@ -492,43 +771,82 @@ function nextQuestion() {
 // SEND SCORE TO GOOGLE SHEET
 // ==========================
 
-function submitScore(score, percentage) {
+function submitScore(
+    finalScore,
+    percentage
+) {
+
 
     let data = {
 
-        employeeId: employee,
+        employeeId:
+            employee,
 
-        employeeName: employeeName,
+        employeeName:
+            employeeName,
 
-        score: score,
+        score:
+            finalScore,
 
-        totalQuestions: questions.length,
+        totalQuestions:
+            TOTAL_QUIZ_QUESTIONS,
 
-        percentage: percentage,
+        percentage:
+            percentage,
 
-        dateTime: new Date().toISOString()
+        dateTime:
+            new Date().toISOString()
 
     };
 
 
-    console.log("Sending:", data);
+    console.log(
+        "Sending quiz result:",
+        data
+    );
 
 
-    fetch(sheetURL, {
+    fetch(
+        sheetURL,
+        {
 
-        method: "POST",
+            method: "POST",
 
-        mode: "no-cors",
+            mode: "no-cors",
 
-        headers: {
+            headers: {
 
-            "Content-Type": "application/json"
+                "Content-Type":
+                    "application/json"
 
-        },
+            },
 
-        body: JSON.stringify(data)
+            body:
+                JSON.stringify(data)
 
-    });
+        }
+    )
+
+    .then(
+        function () {
+
+            console.log(
+                "Quiz result submitted."
+            );
+
+        }
+    )
+
+    .catch(
+        function (error) {
+
+            console.error(
+                "Score submission error:",
+                error
+            );
+
+        }
+    );
 
 }
 
@@ -542,36 +860,51 @@ function showResult() {
     clearInterval(timer);
 
 
-    document.getElementById("quiz-area").style.display =
-        "none";
+    // ==========================
+    // HIDE QUIZ
+    // ==========================
+
+    let quizArea =
+        document.getElementById(
+            "quiz-area"
+        );
+
+
+    if (quizArea) {
+
+        quizArea.style.display =
+            "none";
+
+    }
 
 
     // ==========================
     // CALCULATE PERCENTAGE
     // ==========================
 
-    let percentage = Math.round(
-        (score / questions.length) * 100
-    );
-
-
-    // ==========================
-    // SAVE RESULT TO GOOGLE SHEET
-    // ==========================
-
-    submitScore(score, percentage);
+    let percentage =
+        Math.round(
+            (score /
+                TOTAL_QUIZ_QUESTIONS) *
+            100
+        );
 
 
     // ==========================
     // SAVE LOCALLY
     // ==========================
 
-    localStorage.setItem("score", score);
+    localStorage.setItem(
+        "score",
+        score
+    );
+
 
     localStorage.setItem(
         "totalQuestions",
-        questions.length
+        TOTAL_QUIZ_QUESTIONS
     );
+
 
     localStorage.setItem(
         "percentage",
@@ -580,50 +913,74 @@ function showResult() {
 
 
     // ==========================
-    // SHOW RESULT
+    // SEND RESULT
     // ==========================
 
-    document.getElementById("result").innerHTML = `
+    submitScore(
+        score,
+        percentage
+    );
 
-        <div class="result-card">
 
-            <h2>
-                🎉 Congratulations
-                ${employeeName}
-                (${employee})
-            </h2>
+    // ==========================
+    // DISPLAY RESULT
+    // ==========================
 
-            <h3>
-                NSPCL Power-Up Quiz Completed Successfully
-            </h3>
+    let result =
+        document.getElementById(
+            "result"
+        );
 
-            <h1>
-                ${score} / ${questions.length}
-            </h1>
 
-            <h2>
-                ${percentage}%
-            </h2>
+    if (result) {
 
-            <p>
-                🏆 Generating your certificate...
-            </p>
+        result.innerHTML = `
 
-        </div>
+            <div class="result-card">
 
-    `;
+                <h2>
+                    🎉 Congratulations
+                    ${escapeHTML(employeeName)}
+                    (${escapeHTML(employee)})
+                </h2>
+
+                <h3>
+                    NSPCL Power-Up Quiz
+                    Completed Successfully
+                </h3>
+
+                <h1>
+                    ${score} / ${TOTAL_QUIZ_QUESTIONS}
+                </h1>
+
+                <h2>
+                    ${percentage}%
+                </h2>
+
+                <p>
+                    🏆 Generating your certificate...
+                </p>
+
+            </div>
+
+        `;
+
+    }
 
 
     // ==========================
     // OPEN CERTIFICATE
     // ==========================
 
-    setTimeout(function () {
+    setTimeout(
+        function () {
 
-        window.location.href =
-            "certificate.html";
+            window.location.href =
+                "certificate.html";
 
-    }, 2000);
+        },
+        2000
+    );
 
 }
 
@@ -640,21 +997,36 @@ function restartQuiz() {
 
 
 // ==========================
-// BASIC HTML ESCAPE
+// ESCAPE HTML
 // ==========================
 
-function escapeHTML(text) {
+function escapeHTML(value) {
 
-    return String(text)
+    return String(value)
 
-        .replace(/&/g, "&amp;")
+        .replace(
+            /&/g,
+            "&amp;"
+        )
 
-        .replace(/</g, "&lt;")
+        .replace(
+            /</g,
+            "&lt;"
+        )
 
-        .replace(/>/g, "&gt;")
+        .replace(
+            />/g,
+            "&gt;"
+        )
 
-        .replace(/"/g, "&quot;")
+        .replace(
+            /"/g,
+            "&quot;"
+        )
 
-        .replace(/'/g, "&#039;");
+        .replace(
+            /'/g,
+            "&#039;"
+        );
 
 }
