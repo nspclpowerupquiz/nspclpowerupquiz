@@ -4,75 +4,531 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Daily Mission | NSPCL Power-Up Quiz</title>
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="style.css">
+<title>Daily Power Pulse | NSPCL</title>
+
+<link rel="stylesheet"
+href="style.css">
+
+<style>
+
+/* =====================================
+   DAILY POWER PULSE
+===================================== */
+
+.daily-page {
+
+    min-height:100vh;
+
+    background:
+    linear-gradient(
+        135deg,
+        #062b52,
+        #084b78,
+        #062b52
+    );
+
+    color:white;
+
+}
+
+
+/* HEADER */
+
+.daily-header {
+
+    text-align:center;
+
+    padding:35px 20px 20px;
+
+}
+
+
+.daily-header h1 {
+
+    font-size:32px;
+
+    margin-bottom:8px;
+
+}
+
+
+.daily-header p {
+
+    opacity:.85;
+
+}
+
+
+/* MOTIVATION */
+
+.motivation-card {
+
+    max-width:900px;
+
+    margin:20px auto;
+
+    padding:25px;
+
+    text-align:center;
+
+    background:
+    rgba(255,255,255,.12);
+
+    border:
+    1px solid
+    rgba(255,255,255,.2);
+
+    border-radius:20px;
+
+    backdrop-filter:
+    blur(12px);
+
+}
+
+
+.motivation-title {
+
+    color:#ffd84d;
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    margin-bottom:12px;
+
+}
+
+
+#motivation {
+
+    font-size:18px;
+
+    font-style:italic;
+
+}
+
+
+/* MAIN */
+
+.daily-wrapper {
+
+    max-width:900px;
+
+    margin:auto;
+
+    padding:20px;
+
+}
+
+
+/* EMPLOYEE */
+
+.employee-card {
+
+    text-align:center;
+
+    margin-bottom:20px;
+
+}
+
+
+.employee-card span {
+
+    color:#ffd84d;
+
+    font-weight:bold;
+
+}
+
+
+/* QUESTION */
+
+.question-card {
+
+    background:
+    rgba(255,255,255,.13);
+
+    border:
+    1px solid
+    rgba(255,255,255,.22);
+
+    border-radius:24px;
+
+    padding:35px;
+
+    box-shadow:
+    0 15px 40px
+    rgba(0,0,0,.25);
+
+}
+
+
+.question-label {
+
+    color:#ffd84d;
+
+    font-weight:bold;
+
+    margin-bottom:15px;
+
+}
+
+
+#question {
+
+    line-height:1.5;
+
+    font-size:23px;
+
+}
+
+
+/* OPTIONS */
+
+#options {
+
+    display:grid;
+
+    grid-template-columns:
+    1fr 1fr;
+
+    gap:15px;
+
+    margin-top:25px;
+
+}
+
+
+.daily-option {
+
+    border:none;
+
+    padding:18px;
+
+    border-radius:14px;
+
+    background:
+    rgba(0,190,220,.85);
+
+    color:white;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+
+.daily-option:hover {
+
+    transform:
+    translateY(-2px);
+
+}
+
+
+.daily-option:disabled {
+
+    cursor:not-allowed;
+
+}
+
+
+.option-letter {
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    width:30px;
+
+    height:30px;
+
+    margin-right:8px;
+
+    border-radius:50%;
+
+    background:
+    rgba(0,0,0,.2);
+
+}
+
+
+/* RESULT */
+
+#answerResult {
+
+    margin-top:20px;
+
+    line-height:1.5;
+
+}
+
+
+.correct-message {
+
+    padding:18px;
+
+    border-radius:15px;
+
+    background:
+    rgba(0,200,83,.2);
+
+    border:
+    1px solid
+    #00c853;
+
+}
+
+
+.wrong-message {
+
+    padding:18px;
+
+    border-radius:15px;
+
+    background:
+    rgba(255,82,82,.2);
+
+    border:
+    1px solid
+    #ff5252;
+
+}
+
+
+/* SOURCE */
+
+#newsSource {
+
+    margin-top:18px;
+
+    opacity:.7;
+
+    font-size:13px;
+
+}
+
+
+/* PERFORMERS */
+
+.performers-card {
+
+    margin-top:30px;
+
+    padding:25px;
+
+    background:
+    rgba(255,255,255,.12);
+
+    border-radius:20px;
+
+}
+
+
+.performers-card h2 {
+
+    text-align:center;
+
+    color:#ffd84d;
+
+    margin-bottom:20px;
+
+}
+
+
+.performer {
+
+    display:flex;
+
+    align-items:center;
+
+    padding:14px;
+
+    margin-bottom:10px;
+
+    border-radius:12px;
+
+    background:
+    rgba(255,255,255,.09);
+
+}
+
+
+.performer-rank {
+
+    font-size:22px;
+
+    width:45px;
+
+}
+
+
+.performer-name {
+
+    flex:1;
+
+    font-weight:bold;
+
+}
+
+
+.performer-points {
+
+    color:#ffd84d;
+
+    font-weight:bold;
+
+}
+
+
+.no-performers {
+
+    text-align:center;
+
+    opacity:.75;
+
+}
+
+
+/* TIMER */
+
+.timer-box {
+
+    text-align:center;
+
+    margin:20px;
+
+    font-size:20px;
+
+}
+
+
+#timer {
+
+    color:#ffd84d;
+
+    font-weight:bold;
+
+}
+
+
+/* LOADING */
+
+.loading {
+
+    text-align:center;
+
+    padding:30px;
+
+}
+
+
+/* MOBILE */
+
+@media(
+max-width:700px
+) {
+
+    #options {
+
+        grid-template-columns:
+        1fr;
+
+    }
+
+
+    .question-card {
+
+        padding:22px;
+
+    }
+
+
+    #question {
+
+        font-size:19px;
+
+    }
+
+}
+
+</style>
 
 </head>
 
 
-<body>
+<body class="daily-page">
 
 
-<header class="header">
+<header class="daily-header">
 
 <h1>
 ⚡ NSPCL Power Pulse
 </h1>
 
 <p>
-Daily Learning Mission
+Daily Current Affairs Challenge
 </p>
 
 </header>
 
 
+<!-- MOTIVATION -->
+
+<section class="motivation-card">
+
+<div class="motivation-title">
+
+✨ Daily Motivation
+
+</div>
+
+<div id="motivation">
+
+Preparing today's motivation...
+
+</div>
+
+</section>
 
 
-
-<section class="quiz-container">
-
-
-<div class="challenge-card">
+<main class="daily-wrapper">
 
 
-<h2>
-🔥 Today's Power Challenge
-</h2>
+<!-- EMPLOYEE -->
 
+<div class="employee-card">
 
-<div class="employee-info">
+👋 Welcome
 
-👋 Welcome 
 <span id="employeeName">
 Employee
 </span>
 
-
-<br><br>
-
-
-🏆 Points:
-<span id="points">
-0
-</span>
-
-
 </div>
 
 
+<!-- QUESTION CARD -->
+
+<section class="question-card">
+
+
+<div class="question-label">
+
+🔥 TODAY'S POWER CHALLENGE
 
 </div>
-
-
-
-
-
-
-
-<div class="mission-info">
 
 
 <p>
@@ -80,138 +536,96 @@ Employee
 Question:
 
 <strong>
-
 <span id="questionNumber">
 1
 </span>
-
 /
-
 <span id="totalQuestions">
-5
+1
 </span>
-
 </strong>
 
 </p>
-
-
-
-<p>
-
-⏳ Time:
-
-<strong>
-
-<span id="timer">
-05:00
-</span>
-
-</strong>
-
-</p>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="progress-bar">
-
-
-<div 
-class="progress-fill"
-id="progress">
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-
-
-<div class="question-card">
 
 
 <h2 id="question">
 
-Loading Question...
+Preparing today's current-affairs question...
 
 </h2>
 
 
+<div class="timer-box">
+
+⏳ Time:
+
+<span id="timer">
+5:00
+</span>
+
+</div>
 
 
-<div id="options"
-class="options">
+<div id="options">
 
 </div>
 
 
+<div id="answerResult">
 
 </div>
 
 
-
-
-
-
-
-
-
-<button 
-id="nextBtn"
-class="mission-btn"
-onclick="nextQuestion()">
-
-Next Question ➡️
-
-</button>
-
-
-
-
-
-
-<div id="result">
+<div id="newsSource">
 
 </div>
-
 
 
 </section>
 
 
+<!-- PERFORMERS -->
+
+<section class="performers-card">
+
+<h2>
+
+🏆 Today's Power Performers
+
+</h2>
 
 
+<div id="performers">
+
+<p class="no-performers">
+
+Be the first Power Performer today! ⚡
+
+</p>
+
+</div>
+
+</section>
 
 
+</main>
 
 
 <footer>
 
+<p>
+
 © 2026 NSPCL Power-Up Quiz
 
-<br>
+</p>
 
-Learn • Compete • Grow
+<p>
+
+Learn • Compete • Grow ⚡
+
+</p>
 
 </footer>
-
-
-
-
-
 
 
 <script src="daily-quiz.js"></script>
