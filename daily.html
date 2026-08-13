@@ -8,87 +8,350 @@
 <meta name="viewport"
       content="width=device-width, initial-scale=1.0">
 
-<title>Daily Power Pulse | NSPCL</title>
+<title>NSPCL Power Pulse | Daily Challenge</title>
 
 <link rel="stylesheet" href="style.css">
 
 <style>
 
-/* =====================================
-   DAILY POWER PULSE
-===================================== */
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    overflow-x: hidden;
+}
+
+
+/* =====================================================
+   ANIMATED BACKGROUND
+===================================================== */
 
 .daily-page {
 
     min-height: 100vh;
 
-    background:
-    linear-gradient(
-        135deg,
-        #062b52,
-        #084b78,
-        #062b52
-    );
+    position: relative;
 
-    color: white;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 10% 20%,
+            rgba(0, 220, 255, .18),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 10%,
+            rgba(255, 210, 60, .12),
+            transparent 28%
+        ),
+        linear-gradient(
+            135deg,
+            #031d38,
+            #063e67,
+            #075b86,
+            #032c50
+        );
+
+    background-size: 200% 200%;
+
+    animation:
+        backgroundMove 12s ease infinite;
 
 }
 
 
-/* =====================================
+@keyframes backgroundMove {
+
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+
+}
+
+
+/* =====================================================
+   FLOATING LIGHTS
+===================================================== */
+
+.daily-page::before,
+.daily-page::after {
+
+    content: "";
+
+    position: fixed;
+
+    width: 300px;
+
+    height: 300px;
+
+    border-radius: 50%;
+
+    filter: blur(80px);
+
+    pointer-events: none;
+
+    z-index: 0;
+
+}
+
+
+.daily-page::before {
+
+    top: 15%;
+
+    left: -150px;
+
+    background:
+        rgba(0, 220, 255, .18);
+
+    animation:
+        floatGlow 8s ease-in-out infinite;
+
+}
+
+
+.daily-page::after {
+
+    right: -150px;
+
+    bottom: 10%;
+
+    background:
+        rgba(255, 193, 7, .13);
+
+    animation:
+        floatGlow 10s ease-in-out infinite reverse;
+
+}
+
+
+@keyframes floatGlow {
+
+    0%,
+    100% {
+        transform: translateY(0) scale(1);
+    }
+
+    50% {
+        transform: translateY(-35px) scale(1.15);
+    }
+
+}
+
+
+/* =====================================================
    HEADER
-===================================== */
+===================================================== */
 
 .daily-header {
 
+    position: relative;
+
+    z-index: 2;
+
     text-align: center;
 
-    padding: 35px 20px 20px;
+    padding: 45px 20px 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0, 175, 255, .18),
+            rgba(0, 65, 110, .35)
+        );
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.18);
+
+    backdrop-filter:
+        blur(18px);
+
+    animation:
+        headerAppear .8s ease;
+
+}
+
+
+@keyframes headerAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 
 }
 
 
 .daily-header h1 {
 
-    font-size: 32px;
+    margin: 0;
 
-    margin-bottom: 8px;
+    font-size: clamp(30px, 5vw, 48px);
+
+    font-weight: 800;
+
+    letter-spacing: .5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffffff,
+            #8ff7ff,
+            #ffd84d,
+            #ffffff
+        );
+
+    background-size: 250% auto;
+
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+
+    animation:
+        titleShine 4s linear infinite;
+
+}
+
+
+@keyframes titleShine {
+
+    0% {
+        background-position: 0% center;
+    }
+
+    100% {
+        background-position: 250% center;
+    }
 
 }
 
 
 .daily-header p {
 
+    margin: 12px 0 0;
+
+    font-size: 16px;
+
     opacity: .85;
 
 }
 
 
-/* =====================================
+/* =====================================================
+   MAIN
+===================================================== */
+
+.daily-wrapper {
+
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 950px;
+
+    margin: auto;
+
+    padding: 25px 20px 50px;
+
+}
+
+
+/* =====================================================
    MOTIVATION
-===================================== */
+===================================================== */
 
 .motivation-card {
 
+    position: relative;
+
+    z-index: 2;
+
     max-width: 900px;
 
-    margin: 20px auto;
+    margin: 25px auto;
 
-    padding: 25px;
+    padding: 28px;
 
     text-align: center;
 
     background:
-    rgba(255,255,255,.12);
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.15),
+            rgba(255,255,255,.07)
+        );
 
     border:
-    1px solid
-    rgba(255,255,255,.2);
+        1px solid
+        rgba(255,255,255,.22);
 
-    border-radius: 20px;
+    border-radius: 24px;
 
     backdrop-filter:
-    blur(12px);
+        blur(18px);
+
+    box-shadow:
+        0 20px 50px
+        rgba(0,0,0,.22);
+
+    animation:
+        cardAppear .9s ease;
+
+}
+
+
+.motivation-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: 10%;
+
+    right: 10%;
+
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #00eaff,
+            #ffd84d,
+            #00eaff,
+            transparent
+        );
+
+    border-radius: 50%;
 
 }
 
@@ -97,11 +360,15 @@
 
     color: #ffd84d;
 
-    font-size: 22px;
+    font-size: 23px;
 
-    font-weight: bold;
+    font-weight: 800;
 
     margin-bottom: 12px;
+
+    text-shadow:
+        0 0 15px
+        rgba(255,216,77,.35);
 
 }
 
@@ -112,33 +379,25 @@
 
     font-style: italic;
 
-}
-
-
-/* =====================================
-   MAIN
-===================================== */
-
-.daily-wrapper {
-
-    max-width: 900px;
-
-    margin: auto;
-
-    padding: 20px;
+    color: #f4fbff;
 
 }
 
 
-/* =====================================
+/* =====================================================
    EMPLOYEE
-===================================== */
+===================================================== */
 
 .employee-card {
 
     text-align: center;
 
-    margin-bottom: 20px;
+    margin: 25px 0;
+
+    font-size: 17px;
+
+    animation:
+        fadeUp 1s ease;
 
 }
 
@@ -147,31 +406,93 @@
 
     color: #ffd84d;
 
-    font-weight: bold;
+    font-weight: 800;
+
+    padding: 5px 12px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(255,216,77,.10);
 
 }
 
 
-/* =====================================
+/* =====================================================
    QUESTION CARD
-===================================== */
+===================================================== */
 
 .question-card {
 
+    position: relative;
+
+    overflow: hidden;
+
     background:
-    rgba(255,255,255,.13);
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.16),
+            rgba(255,255,255,.07)
+        );
 
     border:
-    1px solid
-    rgba(255,255,255,.22);
+        1px solid
+        rgba(255,255,255,.25);
 
-    border-radius: 24px;
+    border-radius: 28px;
 
     padding: 35px;
 
     box-shadow:
-    0 15px 40px
-    rgba(0,0,0,.25);
+        0 25px 60px
+        rgba(0,0,0,.28);
+
+    backdrop-filter:
+        blur(18px);
+
+    animation:
+        questionAppear .9s ease;
+
+}
+
+
+@keyframes questionAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+
+.question-card::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+
+    height: 180px;
+
+    right: -80px;
+
+    top: -80px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(0,220,255,.10);
+
+    filter: blur(20px);
+
+    pointer-events: none;
 
 }
 
@@ -180,9 +501,13 @@
 
     color: #ffd84d;
 
-    font-weight: bold;
+    font-size: 17px;
+
+    font-weight: 800;
 
     margin-bottom: 15px;
+
+    letter-spacing: .5px;
 
 }
 
@@ -191,51 +516,198 @@
 
     line-height: 1.5;
 
-    font-size: 23px;
+    font-size: clamp(20px, 3vw, 27px);
+
+    margin: 12px 0 20px;
+
+    color: white;
 
 }
 
 
-/* =====================================
+/* =====================================================
+   QUESTION NUMBER
+===================================================== */
+
+.question-card > p {
+
+    color: rgba(255,255,255,.75);
+
+    font-size: 14px;
+
+}
+
+
+#questionNumber,
+#totalQuestions {
+
+    color: #ffd84d;
+
+}
+
+
+/* =====================================================
+   TIMER
+===================================================== */
+
+.timer-box {
+
+    text-align: center;
+
+    margin: 20px 0 25px;
+
+    padding: 12px;
+
+    border-radius: 15px;
+
+    background:
+        rgba(0,0,0,.16);
+
+    border:
+        1px solid
+        rgba(255,255,255,.10);
+
+}
+
+
+#timer {
+
+    color: #ffd84d;
+
+    font-size: 23px;
+
+    font-weight: 900;
+
+    text-shadow:
+        0 0 12px
+        rgba(255,216,77,.4);
+
+}
+
+
+/* =====================================================
    OPTIONS
-===================================== */
+===================================================== */
 
 #options {
 
     display: grid;
 
     grid-template-columns:
-    1fr 1fr;
+        1fr 1fr;
 
-    gap: 15px;
+    gap: 16px;
 
-    margin-top: 25px;
+    margin-top: 20px;
 
 }
 
 
 .daily-option {
 
+    position: relative;
+
+    overflow: hidden;
+
     border: none;
 
     padding: 18px;
 
-    border-radius: 14px;
+    min-height: 65px;
+
+    border-radius: 16px;
 
     background:
-    rgba(0,190,220,.85);
+        linear-gradient(
+            135deg,
+            #079fca,
+            #10b8d2
+        );
 
     color: white;
 
     font-size: 16px;
 
-    font-weight: bold;
+    font-weight: 700;
 
     cursor: pointer;
 
-    transition: .2s;
-
     text-align: left;
+
+    box-shadow:
+        0 8px 20px
+        rgba(0,0,0,.18);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        filter .25s ease;
+
+    animation:
+        optionAppear .5s ease both;
+
+}
+
+
+.daily-option:nth-child(1) {
+    animation-delay: .1s;
+}
+
+.daily-option:nth-child(2) {
+    animation-delay: .2s;
+}
+
+.daily-option:nth-child(3) {
+    animation-delay: .3s;
+}
+
+.daily-option:nth-child(4) {
+    animation-delay: .4s;
+}
+
+
+@keyframes optionAppear {
+
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+}
+
+
+.daily-option::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: -100%;
+
+    width: 60%;
+
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.25),
+            transparent
+        );
+
+    transform:
+        skewX(-20deg);
+
+    transition:
+        left .5s ease;
 
 }
 
@@ -243,7 +715,30 @@
 .daily-option:hover {
 
     transform:
-    translateY(-2px);
+        translateY(-5px)
+        scale(1.015);
+
+    box-shadow:
+        0 14px 30px
+        rgba(0,220,255,.22);
+
+    filter:
+        brightness(1.08);
+
+}
+
+
+.daily-option:hover::after {
+
+    left: 130%;
+
+}
+
+
+.daily-option:active {
+
+    transform:
+        scale(.98);
 
 }
 
@@ -252,10 +747,12 @@
 
     cursor: not-allowed;
 
-    opacity: .9;
-
 }
 
+
+/* =====================================================
+   OPTION LETTER
+===================================================== */
 
 .option-letter {
 
@@ -265,28 +762,45 @@
 
     justify-content: center;
 
-    width: 30px;
+    width: 34px;
 
-    height: 30px;
+    height: 34px;
 
-    margin-right: 8px;
+    margin-right: 10px;
 
     border-radius: 50%;
 
     background:
-    rgba(0,0,0,.2);
+        rgba(0,0,0,.22);
+
+    border:
+        1px solid
+        rgba(255,255,255,.18);
+
+    font-weight: 900;
 
 }
 
 
-/* =====================================
+/* =====================================================
    CORRECT / WRONG
-===================================== */
+===================================================== */
 
 .daily-option.correct {
 
     background:
-    rgba(0,200,83,.9);
+        linear-gradient(
+            135deg,
+            #00b956,
+            #00d875
+        );
+
+    box-shadow:
+        0 0 25px
+        rgba(0,220,100,.35);
+
+    animation:
+        correctPulse .6s ease;
 
 }
 
@@ -294,63 +808,143 @@
 .daily-option.incorrect {
 
     background:
-    rgba(255,82,82,.9);
+        linear-gradient(
+            135deg,
+            #e53935,
+            #ff5252
+        );
+
+    animation:
+        wrongShake .4s ease;
 
 }
 
 
-/* =====================================
+@keyframes correctPulse {
+
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.04);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+
+}
+
+
+@keyframes wrongShake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-6px);
+    }
+
+    75% {
+        transform: translateX(6px);
+    }
+
+}
+
+
+/* =====================================================
    RESULT
-===================================== */
+===================================================== */
 
 #answerResult {
 
-    margin-top: 20px;
+    margin-top: 22px;
 
-    line-height: 1.5;
+    line-height: 1.6;
+
+}
+
+
+.correct-message,
+.wrong-message {
+
+    padding: 20px;
+
+    border-radius: 18px;
+
+    animation:
+        resultAppear .5s ease;
+
+}
+
+
+@keyframes resultAppear {
+
+    from {
+        opacity: 0;
+        transform: scale(.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 
 }
 
 
 .correct-message {
 
-    padding: 18px;
-
-    border-radius: 15px;
-
     background:
-    rgba(0,200,83,.2);
+        linear-gradient(
+            135deg,
+            rgba(0,200,83,.22),
+            rgba(0,200,83,.08)
+        );
 
     border:
-    1px solid
-    #00c853;
+        1px solid
+        #00d875;
+
+    box-shadow:
+        0 0 25px
+        rgba(0,200,83,.12);
 
 }
 
 
 .wrong-message {
 
-    padding: 18px;
-
-    border-radius: 15px;
-
     background:
-    rgba(255,82,82,.2);
+        linear-gradient(
+            135deg,
+            rgba(255,82,82,.22),
+            rgba(255,82,82,.08)
+        );
 
     border:
-    1px solid
-    #ff5252;
+        1px solid
+        #ff5252;
 
 }
 
 
-/* =====================================
+/* =====================================================
    SOURCE
-===================================== */
+===================================================== */
 
 #newsSource {
 
-    margin-top: 18px;
+    margin-top: 20px;
+
+    padding-top: 14px;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.10);
 
     opacity: .7;
 
@@ -359,20 +953,38 @@
 }
 
 
-/* =====================================
+/* =====================================================
    PERFORMERS
-===================================== */
+===================================================== */
 
 .performers-card {
 
     margin-top: 30px;
 
-    padding: 25px;
+    padding: 28px;
 
     background:
-    rgba(255,255,255,.12);
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.14),
+            rgba(255,255,255,.06)
+        );
 
-    border-radius: 20px;
+    border:
+        1px solid
+        rgba(255,255,255,.18);
+
+    border-radius: 24px;
+
+    backdrop-filter:
+        blur(15px);
+
+    box-shadow:
+        0 15px 40px
+        rgba(0,0,0,.20);
+
+    animation:
+        fadeUp 1s ease;
 
 }
 
@@ -383,7 +995,7 @@
 
     color: #ffd84d;
 
-    margin-bottom: 20px;
+    margin-bottom: 22px;
 
 }
 
@@ -394,14 +1006,29 @@
 
     align-items: center;
 
-    padding: 14px;
+    padding: 15px;
 
     margin-bottom: 10px;
 
-    border-radius: 12px;
+    border-radius: 14px;
 
     background:
-    rgba(255,255,255,.09);
+        rgba(255,255,255,.08);
+
+    transition:
+        transform .2s ease,
+        background .2s ease;
+
+}
+
+
+.performer:hover {
+
+    transform:
+        translateX(5px);
+
+    background:
+        rgba(255,255,255,.13);
 
 }
 
@@ -442,54 +1069,139 @@
 }
 
 
-/* =====================================
-   TIMER
-===================================== */
+/* =====================================================
+   HOME BUTTON
+===================================================== */
 
-.timer-box {
+.home-section {
 
-    text-align: center;
+    position: relative;
 
-    margin: 20px;
-
-    font-size: 20px;
-
-}
-
-
-#timer {
-
-    color: #ffd84d;
-
-    font-weight: bold;
-
-}
-
-
-/* =====================================
-   LOADING
-===================================== */
-
-.loading {
+    z-index: 2;
 
     text-align: center;
 
-    padding: 30px;
+    padding: 10px 20px 40px;
 
 }
 
 
-/* =====================================
+.home-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    padding: 15px 30px;
+
+    border-radius: 50px;
+
+    text-decoration: none;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: 800;
+
+    background:
+        linear-gradient(
+            135deg,
+            #00bcd4,
+            #0077b6
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,.3);
+
+    box-shadow:
+        0 10px 30px
+        rgba(0,180,220,.25);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        background .25s ease;
+
+    animation:
+        homeFloat 3s ease-in-out infinite;
+
+}
+
+
+.home-button:hover {
+
+    transform:
+        translateY(-5px)
+        scale(1.04);
+
+    box-shadow:
+        0 15px 40px
+        rgba(0,220,255,.38);
+
+    background:
+        linear-gradient(
+            135deg,
+            #00d4ff,
+            #0088cc
+        );
+
+}
+
+
+.home-button:active {
+
+    transform:
+        scale(.97);
+
+}
+
+
+@keyframes homeFloat {
+
+    0%,
+    100% {
+        box-shadow:
+            0 10px 30px
+            rgba(0,180,220,.25);
+    }
+
+    50% {
+        box-shadow:
+            0 15px 40px
+            rgba(0,220,255,.40);
+    }
+
+}
+
+
+/* =====================================================
    FOOTER
-===================================== */
+===================================================== */
 
 footer {
 
+    position: relative;
+
+    z-index: 2;
+
     text-align: center;
 
-    padding: 30px 20px;
+    padding: 25px 20px;
 
-    opacity: .75;
+    background:
+        rgba(0,0,0,.16);
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.08);
+
+    opacity: .85;
 
 }
 
@@ -501,37 +1213,124 @@ footer p {
 }
 
 
-/* =====================================
+/* =====================================================
+   LOADING
+===================================================== */
+
+.loading {
+
+    text-align: center;
+
+    padding: 30px;
+
+    color: #dffaff;
+
+    animation:
+        loadingPulse 1.5s ease-in-out infinite;
+
+}
+
+
+@keyframes loadingPulse {
+
+    0%,
+    100% {
+        opacity: .5;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+}
+
+
+/* =====================================================
+   GENERAL ANIMATION
+===================================================== */
+
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =====================================================
    MOBILE
-===================================== */
+===================================================== */
 
 @media (max-width: 700px) {
 
-    #options {
+    .daily-header {
 
-        grid-template-columns:
-        1fr;
+        padding: 35px 15px 25px;
+
+    }
+
+
+    .daily-wrapper {
+
+        padding:
+            15px 12px 40px;
 
     }
 
 
     .question-card {
 
-        padding: 22px;
+        padding: 23px 18px;
+
+        border-radius: 20px;
+
+    }
+
+
+    #options {
+
+        grid-template-columns:
+            1fr;
 
     }
 
 
     #question {
 
-        font-size: 19px;
+        font-size: 20px;
 
     }
 
 
-    .daily-header h1 {
+    .motivation-card {
 
-        font-size: 26px;
+        margin:
+            18px 12px;
+
+        padding: 22px;
+
+    }
+
+
+    .performers-card {
+
+        padding: 20px;
+
+    }
+
+
+    .home-button {
+
+        width: 90%;
+
+        max-width: 320px;
 
     }
 
@@ -545,9 +1344,9 @@ footer p {
 <body class="daily-page">
 
 
-<!-- =====================================
+<!-- =====================================================
      HEADER
-===================================== -->
+===================================================== -->
 
 <header class="daily-header">
 
@@ -562,9 +1361,9 @@ footer p {
 </header>
 
 
-<!-- =====================================
+<!-- =====================================================
      MOTIVATION
-===================================== -->
+===================================================== -->
 
 <section class="motivation-card">
 
@@ -583,9 +1382,9 @@ footer p {
 </section>
 
 
-<!-- =====================================
+<!-- =====================================================
      MAIN
-===================================== -->
+===================================================== -->
 
 <main class="daily-wrapper">
 
@@ -603,9 +1402,9 @@ footer p {
     </div>
 
 
-    <!-- =================================
-         QUESTION CARD
-    ================================== -->
+    <!-- =================================================
+         QUESTION
+    ================================================== -->
 
     <section class="question-card">
 
@@ -638,8 +1437,6 @@ footer p {
         </p>
 
 
-        <!-- QUESTION FROM GOOGLE SHEETS -->
-
         <h2 id="question">
 
             ⚡ Preparing today's Power Pulse...
@@ -660,7 +1457,7 @@ footer p {
         </div>
 
 
-        <!-- OPTIONS FROM GOOGLE SHEETS -->
+        <!-- OPTIONS -->
 
         <div id="options">
 
@@ -675,24 +1472,20 @@ footer p {
 
         <!-- RESULT -->
 
-        <div id="answerResult">
-
-        </div>
+        <div id="answerResult"></div>
 
 
         <!-- SOURCE -->
 
-        <div id="newsSource">
-
-        </div>
+        <div id="newsSource"></div>
 
 
     </section>
 
 
-    <!-- =================================
+    <!-- =================================================
          PERFORMERS
-    ================================== -->
+    ================================================== -->
 
     <section class="performers-card">
 
@@ -719,9 +1512,27 @@ footer p {
 </main>
 
 
-<!-- =====================================
+<!-- =====================================================
+     RETURN HOME
+===================================================== -->
+
+<section class="home-section">
+
+    <a
+        href="index.html"
+        class="home-button">
+
+        🏠
+        <span>Return to Home</span>
+
+    </a>
+
+</section>
+
+
+<!-- =====================================================
      FOOTER
-===================================== -->
+===================================================== -->
 
 <footer>
 
@@ -736,9 +1547,9 @@ footer p {
 </footer>
 
 
-<!-- =====================================
-     ONLY DAILY QUIZ SCRIPT
-===================================== -->
+<!-- =====================================================
+     DAILY QUIZ SCRIPT
+===================================================== -->
 
 <script src="dailyquiz.js?v=20260813"></script>
 
