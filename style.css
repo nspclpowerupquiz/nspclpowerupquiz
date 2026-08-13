@@ -9989,3 +9989,187 @@ footer p {
     }
 
 }
+/* =====================================================
+   FORCE LARGE FONT - NSPCL POWER UP SSC-C&M QUIZ
+   ===================================================== */
+
+body {
+    font-size: 20px !important;
+}
+
+/* All normal text */
+p,
+li,
+span,
+label,
+a,
+button {
+    font-size: 19px !important;
+    line-height: 1.7 !important;
+}
+
+/* Main headings */
+h1 {
+    font-size: 44px !important;
+    line-height: 1.2 !important;
+}
+
+h2 {
+    font-size: 34px !important;
+    line-height: 1.3 !important;
+}
+
+h3 {
+    font-size: 25px !important;
+    line-height: 1.4 !important;
+}
+
+/* =====================================================
+   ABOUT PAGE
+   ===================================================== */
+
+.about-section {
+    font-size: 20px !important;
+}
+
+.about-section p {
+    font-size: 22px !important;
+    line-height: 1.9 !important;
+}
+
+.about-section h2,
+.section-title {
+    font-size: 36px !important;
+}
+
+/* Cards */
+.card p,
+.feature-card p {
+    font-size: 19px !important;
+    line-height: 1.8 !important;
+}
+
+.card h3,
+.feature-card h3 {
+    font-size: 25px !important;
+}
+
+/* =====================================================
+   HEADER
+   ===================================================== */
+
+.header .logo h2,
+.logo h2 {
+    font-size: 27px !important;
+}
+
+.header .logo span,
+.logo span {
+    font-size: 17px !important;
+}
+
+.header nav a,
+.header nav button {
+    font-size: 17px !important;
+}
+
+/* =====================================================
+   HERO
+   ===================================================== */
+
+.hero-content h1,
+.about-hero h1 {
+    font-size: 48px !important;
+}
+
+.hero-content h2,
+.about-hero h2 {
+    font-size: 30px !important;
+}
+
+.hero-content p,
+.about-hero p {
+    font-size: 21px !important;
+    line-height: 1.8 !important;
+}
+
+/* =====================================================
+   BUTTONS
+   ===================================================== */
+
+.btn,
+button {
+    font-size: 19px !important;
+    padding: 14px 24px;
+}
+
+/* =====================================================
+   STATISTICS
+   ===================================================== */
+
+.stat-card h2,
+.stat-box h2 {
+    font-size: 38px !important;
+}
+
+.stat-card p,
+.stat-box p {
+    font-size: 19px !important;
+}
+
+/* =====================================================
+   FOOTER
+   ===================================================== */
+
+footer,
+footer p {
+    font-size: 18px !important;
+    line-height: 1.7 !important;
+}
+
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
+@media (max-width: 700px) {
+
+    body {
+        font-size: 18px !important;
+    }
+
+    p,
+    li,
+    span,
+    label {
+        font-size: 18px !important;
+    }
+
+    h1 {
+        font-size: 34px !important;
+    }
+
+    h2 {
+        font-size: 28px !important;
+    }
+
+    h3 {
+        font-size: 22px !important;
+    }
+
+    .about-section p {
+        font-size: 19px !important;
+        line-height: 1.8 !important;
+    }
+
+    .hero-content h1,
+    .about-hero h1 {
+        font-size: 35px !important;
+    }
+
+    .hero-content p,
+    .about-hero p {
+        font-size: 18px !important;
+    }
+
+}
