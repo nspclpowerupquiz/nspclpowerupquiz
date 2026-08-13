@@ -1,11 +1,11 @@
 // ==========================================================
 // NSPCL POWER PULSE
-// AUTOMATIC DAILY CURRENT-AFFAIRS QUIZ
+// AUTOMATIC DAILY QUIZ
+// QUESTION BANK FROM GOOGLE SHEETS
 // ==========================================================
 
-
 const SCRIPT_URL =
-"https://script.google.com/macros/s/AKfycbziOrV0Tit-jAwCXLZTLJovnnpIh1zTLpZVOOmhtjXyigCj6uxFxY-UYfK6_gn1xXW-yA/exec";
+"https://script.google.com/macros/s/AKfycbziOrV0Tit-jAwCXLZTLJovnnpIh1zTLpZVOOmhtjXyigCj6uxFxY-UyFk6_gn1xXW-yA/exec";
 
 
 // ==========================================================
@@ -18,11 +18,12 @@ localStorage.getItem("employeeId") || "";
 const employeeName =
 localStorage.getItem("employeeName") || "Employee";
 
+const employeeNameElement =
+document.getElementById("employeeName");
 
-document.getElementById(
-"employeeName"
-).innerHTML =
-employeeName;
+if (employeeNameElement) {
+    employeeNameElement.innerHTML = escapeHTML(employeeName);
+}
 
 
 // ==========================================================
@@ -30,13 +31,10 @@ employeeName;
 // ==========================================================
 
 let dailyQuestion = null;
-
 let selectedAnswer = "";
-
 let answered = false;
 
 let seconds = 300;
-
 let timer = null;
 
 
@@ -50,112 +48,129 @@ async function loadDailyQuiz() {
 
         showLoading();
 
-
-        const response =
-        await fetch(
-            SCRIPT_URL +
-            "?action=dailyQuiz"
+        const response = await fetch(
+            SCRIPT_URL + "?action=dailyQuiz"
         );
 
+        if (!response.ok) {
+            throw new Error("Unable to connect to quiz server.");
+        }
 
-        const data =
-        await response.json();
+        const data = await response.json();
 
+        console.log("Daily Quiz:", data);
 
-        console.log(
-            "Daily Quiz:",
-            data
-        );
-
-
-        if (
-            data.status !==
-            "success"
-        ) {
+        if (data.status !== "success") {
 
             throw new Error(
                 data.message ||
-                "Daily question unavailable"
+                "Today's question is unavailable."
             );
 
         }
 
+        dailyQuestion = data.question;
 
-        dailyQuestion =
-        data.question;
+        if (!dailyQuestion) {
+            throw new Error("Question data is missing.");
+        }
 
 
+        // ==================================================
         // MOTIVATION
+        // ==================================================
 
         const motivation =
-        document.getElementById(
-            "motivation"
-        );
-
+        document.getElementById("motivation");
 
         if (motivation) {
 
             motivation.innerHTML =
-            "✨ " +
-            (
-                data.motivation ||
-                "Every day is a new opportunity to learn and improve."
-            );
+                "⚡ " +
+                escapeHTML(
+                    data.motivation ||
+                    dailyQuestion.motivation ||
+                    "Every day is a new opportunity to learn and improve."
+                );
 
         }
 
 
+        // ==================================================
+        // CATEGORY
+        // ==================================================
+
+        const category =
+        document.getElementById("category");
+
+        if (category && dailyQuestion.category) {
+
+            category.innerHTML =
+                escapeHTML(dailyQuestion.category);
+
+        }
+
+
+        // ==================================================
         // SOURCE
+        // ==================================================
 
         const source =
-        document.getElementById(
-            "newsSource"
-        );
+        document.getElementById("newsSource");
 
+        if (source) {
 
-        if (
-            source &&
-            data.source
-        ) {
+            if (data.source) {
 
-            source.innerHTML =
-            "📰 Source: " +
-            data.source;
+                source.innerHTML =
+                    "📚 Source: " +
+                    escapeHTML(data.source);
+
+            } else {
+
+                source.innerHTML =
+                    "📚 NSPCL Power Pulse Question Bank";
+
+            }
 
         }
 
+
+        // ==================================================
+        // DISPLAY
+        // ==================================================
 
         displayQuestion();
 
-
         loadPerformers();
-
 
         startTimer();
 
     }
 
-    catch(error) {
+    catch (error) {
 
-        console.error(
-            error
-        );
+        console.error("Daily Quiz Error:", error);
 
+        const question =
+        document.getElementById("question");
 
-        document.getElementById(
-            "question"
-        ).innerHTML =
+        if (question) {
 
-        "⚠️ Today's Daily Power Pulse could not be loaded.";
+            question.innerHTML =
+                "⚠️ Today's Power Pulse could not be loaded.";
 
+        }
 
-        document.getElementById(
-            "options"
-        ).innerHTML =
+        const options =
+        document.getElementById("options");
 
-        `<p>
-        Please try again in a few moments.
-        </p>`;
+        if (options) {
+
+            options.innerHTML =
+                `<p>Please try again in a few moments.</p>`;
+
+        }
 
     }
 
@@ -168,94 +183,111 @@ async function loadDailyQuiz() {
 
 function displayQuestion() {
 
-    answered =
-    false;
+    answered = false;
+    selectedAnswer = "";
 
-    selectedAnswer =
-    "";
+    const question =
+    document.getElementById("question");
 
+    if (question) {
 
-    document.getElementById(
-        "question"
-    ).innerHTML =
+        question.innerHTML =
+            escapeHTML(dailyQuestion.question);
 
-    dailyQuestion.question;
+    }
 
 
     const options =
-    document.getElementById(
-        "options"
-    );
+    document.getElementById("options");
 
+    if (!options) return;
 
     options.innerHTML = "";
 
 
-    dailyQuestion.options
-    .forEach(
+    // ------------------------------------------
+    // SUPPORT BOTH FORMATS
+    // ------------------------------------------
+
+    let questionOptions =
+        dailyQuestion.options;
+
+    // If backend sends optionA/B/C/D instead
+    if (
+        !questionOptions ||
+        !Array.isArray(questionOptions)
+    ) {
+
+        questionOptions = [
+            dailyQuestion.optionA,
+            dailyQuestion.optionB,
+            dailyQuestion.optionC,
+            dailyQuestion.optionD
+        ];
+
+    }
+
+
+    questionOptions.forEach(
         function(option, index) {
 
+            if (
+                option === undefined ||
+                option === null ||
+                option === ""
+            ) {
+                return;
+            }
 
             const button =
-            document.createElement(
-                "button"
-            );
-
+            document.createElement("button");
 
             button.className =
-            "daily-option";
-
+                "daily-option";
 
             button.innerHTML =
-
-            `<span class="option-letter">
-            ${String.fromCharCode(65 + index)}
-            </span>
-            ${option}`;
-
+                `<span class="option-letter">
+                    ${String.fromCharCode(65 + index)}
+                 </span>
+                 ${escapeHTML(option)}`;
 
             button.onclick =
             function() {
 
                 selectAnswer(
                     button,
-                    option
+                    String(option)
                 );
 
             };
 
-
-            options.appendChild(
-                button
-            );
+            options.appendChild(button);
 
         }
     );
 
 
-    document.getElementById(
-        "questionNumber"
-    ).innerHTML =
-    "1";
+    const questionNumber =
+    document.getElementById("questionNumber");
+
+    if (questionNumber) {
+        questionNumber.innerHTML = "1";
+    }
 
 
-    document.getElementById(
-        "totalQuestions"
-    ).innerHTML =
-    "1";
+    const totalQuestions =
+    document.getElementById("totalQuestions");
+
+    if (totalQuestions) {
+        totalQuestions.innerHTML = "1";
+    }
 
 
     const progress =
-    document.getElementById(
-        "progress"
-    );
-
+    document.getElementById("progress");
 
     if (progress) {
-
-        progress.style.width =
-        "100%";
-
+        progress.style.width = "100%";
     }
 
 }
@@ -265,21 +297,15 @@ function displayQuestion() {
 // SELECT ANSWER
 // ==========================================================
 
-function selectAnswer(
-    button,
-    option
-) {
+function selectAnswer(button, option) {
 
-    if (answered)
-    return;
+    if (answered) return;
 
+    answered = true;
 
-    answered =
-    true;
+    selectedAnswer = option;
 
-
-    selectedAnswer =
-    option;
+    clearInterval(timer);
 
 
     const buttons =
@@ -287,55 +313,53 @@ function selectAnswer(
         "#options button"
     );
 
-
     buttons.forEach(
         function(btn) {
-
-            btn.disabled =
-            true;
-
+            btn.disabled = true;
         }
     );
 
 
     const correct =
-    dailyQuestion.answer;
+        String(
+            dailyQuestion.answer || ""
+        ).trim();
 
 
     const isCorrect =
-    option.trim() ===
-    correct.trim();
+        option.trim().toLowerCase() ===
+        correct.toLowerCase();
 
+
+    // ==================================================
+    // SHOW CORRECT / WRONG
+    // ==================================================
 
     if (isCorrect) {
 
-        button.classList.add(
-            "correct"
-        );
+        button.classList.add("correct");
 
     }
 
     else {
 
-        button.classList.add(
-            "incorrect"
-        );
+        button.classList.add("incorrect");
 
 
         buttons.forEach(
             function(btn) {
 
-                if (
+                const text =
                     btn.innerText
-                    .trim()
-                    .endsWith(
-                        correct.trim()
-                    )
+                    .replace(/^[A-D]\s*/, "")
+                    .trim();
+
+                if (
+                    text.toLowerCase() ===
+                    correct.toLowerCase()
                 ) {
 
-                    btn.classList.add(
-                        "correct"
-                    );
+                    btn.classList.add("correct");
 
                 }
 
@@ -345,45 +369,52 @@ function selectAnswer(
     }
 
 
-    // SHOW EXPLANATION
+    // ==================================================
+    // EXPLANATION
+    // ==================================================
 
     const result =
-    document.getElementById(
-        "answerResult"
-    );
-
+    document.getElementById("answerResult");
 
     if (result) {
 
-        result.innerHTML =
+        if (isCorrect) {
 
-        isCorrect
+            result.innerHTML =
+                `<div class="correct-message">
+                    ✅ Correct! +10 Power Points
+                    <br><br>
+                    ${escapeHTML(
+                        dailyQuestion.explanation || ""
+                    )}
+                </div>`;
 
-        ?
+        }
 
-        `<div class="correct-message">
-        ✅ Correct! +10 Power Points
-        <br><br>
-        ${dailyQuestion.explanation || ""}
-        </div>`
+        else {
 
-        :
+            result.innerHTML =
+                `<div class="wrong-message">
+                    ❌ Incorrect
+                    <br>
+                    Correct Answer:
+                    <strong>
+                        ${escapeHTML(correct)}
+                    </strong>
+                    <br><br>
+                    ${escapeHTML(
+                        dailyQuestion.explanation || ""
+                    )}
+                </div>`;
 
-        `<div class="wrong-message">
-        ❌ Incorrect
-        <br>
-        Correct Answer:
-        <strong>
-        ${correct}
-        </strong>
-        <br><br>
-        ${dailyQuestion.explanation || ""}
-        </div>`;
+        }
 
     }
 
 
-    // SUBMIT
+    // ==================================================
+    // SUBMIT RESULT
+    // ==================================================
 
     submitAnswer(
         option,
@@ -391,7 +422,9 @@ function selectAnswer(
     );
 
 
-    // REFRESH PERFORMERS
+    // ==================================================
+    // REFRESH LEADERBOARD
+    // ==================================================
 
     setTimeout(
         loadPerformers,
@@ -417,32 +450,30 @@ async function submitAnswer(
             SCRIPT_URL,
             {
 
-                method:
-                "POST",
+                method: "POST",
 
-                body:
-                JSON.stringify({
+                body: JSON.stringify({
 
                     action:
-                    "submitDailyQuiz",
+                        "submitDailyQuiz",
 
                     employeeId:
-                    employeeId,
+                        employeeId,
 
                     employeeName:
-                    employeeName,
+                        employeeName,
 
                     question:
-                    dailyQuestion.question,
+                        dailyQuestion.question,
 
                     answer:
-                    answer,
+                        answer,
 
                     correct:
-                    correct,
+                        correct,
 
                     points:
-                    correct ? 10 : 0
+                        correct ? 10 : 0
 
                 })
 
@@ -452,7 +483,6 @@ async function submitAnswer(
 
         const data =
         await response.json();
-
 
         console.log(
             "Submission:",
@@ -520,10 +550,9 @@ async function loadPerformers() {
         ) {
 
             container.innerHTML =
-
-            `<p class="no-performers">
-            Be the first Power Performer today! ⚡
-            </p>`;
+                `<p class="no-performers">
+                    Be the first Power Performer today! ⚡
+                 </p>`;
 
             return;
 
@@ -533,49 +562,36 @@ async function loadPerformers() {
         let html = "";
 
 
-        data.performers
-        .forEach(
+        data.performers.forEach(
             function(person, index) {
 
+                let medal = "⭐";
 
-                let medal =
-                "⭐";
+                if (index === 0)
+                    medal = "🥇";
 
+                if (index === 1)
+                    medal = "🥈";
 
-                if (
-                    index === 0
-                )
-                medal = "🥇";
-
-
-                if (
-                    index === 1
-                )
-                medal = "🥈";
-
-
-                if (
-                    index === 2
-                )
-                medal = "🥉";
+                if (index === 2)
+                    medal = "🥉";
 
 
                 html +=
-
                 `<div class="performer">
 
                     <span class="performer-rank">
-                    ${medal}
+                        ${medal}
                     </span>
 
                     <span class="performer-name">
-                    ${escapeHTML(
-                        person.employeeName
-                    )}
+                        ${escapeHTML(
+                            person.employeeName
+                        )}
                     </span>
 
                     <span class="performer-points">
-                    +${person.points} ⚡
+                        +${Number(person.points) || 0} ⚡
                     </span>
 
                 </div>`;
@@ -585,7 +601,7 @@ async function loadPerformers() {
 
 
         container.innerHTML =
-        html;
+            html;
 
     }
 
@@ -607,73 +623,82 @@ async function loadPerformers() {
 
 function startTimer() {
 
-    clearInterval(
-        timer
-    );
+    clearInterval(timer);
+
+    seconds = 300;
 
 
-    seconds =
-    300;
+    const timerBox =
+    document.getElementById("timer");
 
 
-    timer =
-    setInterval(
-        function() {
+    function updateTimer() {
 
+        const min =
+            Math.floor(seconds / 60);
 
-            const min =
-            Math.floor(
-                seconds / 60
-            );
-
-
-            const sec =
+        const sec =
             seconds % 60;
 
 
-            const timerBox =
-            document.getElementById(
-                "timer"
-            );
+        if (timerBox) {
 
-
-            if (timerBox) {
-
-                timerBox.innerHTML =
-
+            timerBox.innerHTML =
                 `${min}:${sec < 10 ? "0" : ""}${sec}`;
 
-            }
+        }
 
 
-            if (
-                seconds <= 0
-            ) {
+        if (seconds <= 0) {
 
-                clearInterval(
-                    timer
+            clearInterval(timer);
+
+            if (!answered) {
+
+                answered = true;
+
+                const buttons =
+                document.querySelectorAll(
+                    "#options button"
+                );
+
+                buttons.forEach(
+                    function(btn) {
+                        btn.disabled = true;
+                    }
                 );
 
 
-                if (!answered) {
+                const result =
+                document.getElementById(
+                    "answerResult"
+                );
 
-                    document.getElementById(
-                        "answerResult"
-                    ).innerHTML =
+                if (result) {
 
-                    `<div class="wrong-message">
-                    ⏰ Time's up!
-                    </div>`;
+                    result.innerHTML =
+                        `<div class="wrong-message">
+                            ⏰ Time's up!
+                         </div>`;
 
                 }
 
             }
 
+            return;
 
-            seconds--;
+        }
 
-        },
+        seconds--;
 
+    }
+
+
+    updateTimer();
+
+    timer =
+    setInterval(
+        updateTimer,
         1000
     );
 
@@ -686,20 +711,28 @@ function startTimer() {
 
 function showLoading() {
 
-    document.getElementById(
-        "question"
-    ).innerHTML =
+    const question =
+    document.getElementById("question");
 
-    "⚡ Preparing today's current-affairs question...";
+    if (question) {
+
+        question.innerHTML =
+            "⚡ Preparing today's Power Pulse...";
+
+    }
 
 
-    document.getElementById(
-        "options"
-    ).innerHTML =
+    const options =
+    document.getElementById("options");
 
-    `<div class="loading">
-    Fetching today's Power Pulse...
-    </div>`;
+    if (options) {
+
+        options.innerHTML =
+            `<div class="loading">
+                Loading today's challenge...
+             </div>`;
+
+    }
 
 }
 
@@ -708,33 +741,34 @@ function showLoading() {
 // ESCAPE HTML
 // ==========================================================
 
-function escapeHTML(
-    value
-) {
+function escapeHTML(value) {
 
-    return String(
-        value || ""
-    )
-    .replace(
-        /&/g,
-        "&amp;"
-    )
-    .replace(
-        /</g,
-        "&lt;"
-    )
-    .replace(
-        />/g,
-        "&gt;"
-    )
-    .replace(
-        /"/g,
-        "&quot;"
-    )
-    .replace(
-        /'/g,
-        "&#039;"
-    );
+    return String(value || "")
+
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+
+        .replace(
+            /</g,
+            "&lt;"
+        )
+
+        .replace(
+            />/g,
+            "&gt;"
+        )
+
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+
+        .replace(
+            /'/g,
+            "&#039;"
+        );
 
 }
 
@@ -746,7 +780,9 @@ function escapeHTML(
 loadDailyQuiz();
 
 
-// Refresh performers every 20 seconds
+// ==========================================================
+// REFRESH PERFORMERS
+// ==========================================================
 
 setInterval(
     loadPerformers,
