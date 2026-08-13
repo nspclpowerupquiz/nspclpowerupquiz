@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>NSPCL Power-Up Quiz | Admin Dashboard</title>
+<title>NSPCL Power-Up Quiz SSC-C&amp;M Quiz | Admin Dashboard</title>
 
 <link rel="stylesheet" href="admin.css">
 
@@ -35,12 +35,10 @@
 
 <div class="logo-area">
 
-<h1>⚡ NSPCL Power-Up Quiz</h1>
+<h1>⚡ NSPCL Power-Up Quiz SSC-C&amp;M Quiz</h1>
 
 <p>
-
 Administrator Dashboard
-
 </p>
 
 </div>
@@ -52,9 +50,7 @@ Administrator Dashboard
 🕒
 
 <span id="liveClock">
-
 Loading...
-
 </span>
 
 </div>
@@ -62,27 +58,19 @@ Loading...
 <nav>
 
 <a href="index.html">
-
 🏠 Home
-
 </a>
 
 <a href="leaderboard.html">
-
 🏆 Leaderboard
-
 </a>
 
 <a href="analytics.html">
-
 📊 Analytics
-
 </a>
 
 <a href="certificate.html">
-
 📜 Certificate
-
 </a>
 
 </nav>
@@ -91,6 +79,7 @@ Loading...
 
 </header>
 
+
 <!-- ================= WELCOME ================= -->
 
 <section class="welcome">
@@ -98,15 +87,11 @@ Loading...
 <div>
 
 <h2>
-
 Welcome Administrator
-
 </h2>
 
 <p>
-
 Monitor all quiz activities, employee performance, certificates and analytics from one place.
-
 </p>
 
 </div>
@@ -121,6 +106,7 @@ System Online
 
 </section>
 
+
 <!-- ================= DASHBOARD ================= -->
 
 <section class="dashboard">
@@ -128,15 +114,11 @@ System Online
 <div class="dashboard-title">
 
 <h2>
-
 📊 Dashboard Overview
-
 </h2>
 
 <p>
-
 Live data from Google Sheets
-
 </p>
 
 </div>
@@ -146,101 +128,80 @@ Live data from Google Sheets
 <div class="card participants">
 
 <div class="icon">
-
 👥
-
 </div>
 
 <div>
 
 <h3>
-
 Total Participants
-
 </h3>
 
 <h1 id="participants">
-
 0
-
 </h1>
 
 </div>
 
 </div>
+
 
 <div class="card attempts">
 
 <div class="icon">
-
 📝
-
 </div>
 
 <div>
 
 <h3>
-
 Quiz Attempts
-
 </h3>
 
 <h1 id="attempts">
-
 0
-
 </h1>
 
 </div>
 
 </div>
+
 
 <div class="card highest">
 
 <div class="icon">
-
 🏆
-
 </div>
 
 <div>
 
 <h3>
-
 Highest Score
-
 </h3>
 
 <h1 id="highest">
-
 0
-
 </h1>
 
 </div>
 
 </div>
+
 
 <div class="card certificates">
 
 <div class="icon">
-
 📜
-
 </div>
 
 <div>
 
 <h3>
-
 Certificates
-
 </h3>
 
 <h1 id="certificates">
-
 0
-
 </h1>
 
 </div>
@@ -250,79 +211,90 @@ Certificates
 </div>
 
 </section>
+
+
 <!-- ================= CHARTS ================= -->
 
 <section class="charts">
 
-    <div class="chart-box">
+<div class="chart-box">
 
-        <div class="box-header">
+<div class="box-header">
 
-            <h2>📈 Employee Scores</h2>
+<h2>
+📈 Employee Scores
+</h2>
 
-            <span class="live-tag">LIVE</span>
+<span class="live-tag">
+LIVE
+</span>
 
-        </div>
+</div>
 
-        <canvas id="scoreChart"></canvas>
+<canvas id="scoreChart"></canvas>
 
-    </div>
+</div>
 
-    <div class="chart-box">
 
-        <div class="box-header">
+<div class="chart-box">
 
-            <h2>🍩 Pass vs Fail</h2>
+<div class="box-header">
 
-            <span class="live-tag">LIVE</span>
+<h2>
+🍩 Pass vs Fail
+</h2>
 
-        </div>
+<span class="live-tag">
+LIVE
+</span>
 
-        <canvas id="passChart"></canvas>
+</div>
 
-    </div>
+<canvas id="passChart"></canvas>
+
+</div>
 
 </section>
 
-    <!-- =========================================
-TOP 5 PERFORMERS
-========================================= -->
+
+<!-- ================= TOP 5 PERFORMERS ================= -->
 
 <section class="top-section">
 
-    <div class="top-box">
+<div class="top-box">
 
-        <h2>🏆 Top 5 Performers</h2>
+<h2>
+🏆 Top 5 Performers
+</h2>
 
-        <div id="topFiveList">
+<div id="topFiveList">
 
-            Loading Top Performers...
+Loading Top Performers...
 
-        </div>
+</div>
 
-    </div>
+</div>
 
 </section>
 
 
-
-<!-- =========================================
-RECENT ACTIVITY
-========================================= -->
+<!-- ================= RECENT ACTIVITY ================= -->
 
 <section class="activity-section">
 
-    <div class="activity-box">
+<div class="activity-box">
 
-        <h2>🕒 Recent Activity</h2>
+<h2>
+🕒 Recent Activity
+</h2>
 
-        <div id="recentActivity">
+<div id="recentActivity">
 
-            Loading Activity...
+Loading Activity...
 
-        </div>
+</div>
 
-    </div>
+</div>
 
 </section>
 
@@ -331,84 +303,74 @@ RECENT ACTIVITY
 
 <section class="info-grid">
 
-    <!-- TOP PERFORMERS -->
+<div class="info-card">
 
-    <div class="info-card">
+<h2>
+🥇 Top Performers
+</h2>
 
-        <h2>🥇 Top Performers</h2>
+<div id="topPerformers">
 
-        <div id="topPerformers">
+<p>
+Loading...
+</p>
 
-            <p>Loading...</p>
+</div>
 
-        </div>
-
-    </div>
+</div>
 
 
+<div class="info-card">
 
-    <!-- DAILY STATS -->
+<h2>
+📅 Today's Statistics
+</h2>
 
-    <div class="info-card">
+<div class="mini-stats">
 
-        <h2>📅 Today's Statistics</h2>
+<div>
 
-        <div class="mini-stats">
+<h3 id="todayAttempts">
+0
+</h3>
 
-            <div>
+<p>
+Attempts Today
+</p>
 
-                <h3 id="todayAttempts">
+</div>
 
-                    0
 
-                </h3>
+<div>
 
-                <p>
+<h3 id="todayCertificates">
+0
+</h3>
 
-                    Attempts Today
+<p>
+Certificates
+</p>
 
-                </p>
+</div>
 
-            </div>
 
-            <div>
+<div>
 
-                <h3 id="todayCertificates">
+<h3 id="todayHighest">
+0
+</h3>
 
-                    0
+<p>
+Best Score
+</p>
 
-                </h3>
+</div>
 
-                <p>
+</div>
 
-                    Certificates
-
-                </p>
-
-            </div>
-
-            <div>
-
-                <h3 id="todayHighest">
-
-                    0
-
-                </h3>
-
-                <p>
-
-                    Best Score
-
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
+</div>
 
 </section>
-
 
 
 <!-- ================= QUICK ACTIONS ================= -->
@@ -416,9 +378,7 @@ RECENT ACTIVITY
 <section class="quick-actions">
 
 <h2>
-
 ⚡ Quick Actions
-
 </h2>
 
 <div class="action-grid">
@@ -426,7 +386,6 @@ RECENT ACTIVITY
 <button onclick="loadDashboard()">
 
 🔄
-
 Refresh Dashboard
 
 </button>
@@ -434,7 +393,6 @@ Refresh Dashboard
 <button onclick="window.print()">
 
 🖨
-
 Print Dashboard
 
 </button>
@@ -442,7 +400,6 @@ Print Dashboard
 <button onclick="exportExcel()">
 
 📥
-
 Export Excel
 
 </button>
@@ -450,7 +407,6 @@ Export Excel
 <button onclick="exportPDF()">
 
 📄
-
 Export PDF
 
 </button>
@@ -458,7 +414,6 @@ Export PDF
 <button onclick="downloadLeaderboard()">
 
 🏆
-
 Leaderboard
 
 </button>
@@ -466,7 +421,6 @@ Leaderboard
 <button onclick="downloadCertificates()">
 
 📜
-
 Certificates
 
 </button>
@@ -474,6 +428,8 @@ Certificates
 </div>
 
 </section>
+
+
 <!-- ================= SEARCH ================= -->
 
 <section class="search-area">
@@ -482,7 +438,9 @@ Certificates
 
 <div class="search-box">
 
-<span class="search-icon">🔍</span>
+<span class="search-icon">
+🔍
+</span>
 
 <input
 type="text"
@@ -494,9 +452,7 @@ placeholder="Search Employee ID or Employee Name...">
 <div class="search-info">
 
 <span id="recordCount">
-
 0 Records
-
 </span>
 
 </div>
@@ -504,6 +460,7 @@ placeholder="Search Employee ID or Employee Name...">
 </div>
 
 </section>
+
 
 <div class="table-buttons">
 
@@ -527,6 +484,7 @@ placeholder="Search Employee ID or Employee Name...">
 
 </div>
 
+
 <!-- ================= EMPLOYEE TABLE ================= -->
 
 <section class="table-section">
@@ -534,9 +492,7 @@ placeholder="Search Employee ID or Employee Name...">
 <div class="table-header">
 
 <h2>
-
 📋 Employee Quiz Results
-
 </h2>
 
 <div class="table-buttons">
@@ -556,7 +512,6 @@ placeholder="Search Employee ID or Employee Name...">
 </div>
 
 </div>
-
 
 
 <div class="table-container">
@@ -590,7 +545,6 @@ placeholder="Search Employee ID or Employee Name...">
 </thead>
 
 
-
 <tbody id="resultTable">
 
 <tr>
@@ -610,7 +564,6 @@ Loading employee records...
 </div>
 
 
-
 <div class="table-footer">
 
 <div>
@@ -618,9 +571,7 @@ Loading employee records...
 Showing
 
 <span id="showingRecords">
-
 0
-
 </span>
 
 Records
@@ -632,9 +583,7 @@ Records
 Last Updated :
 
 <span id="lastRefresh">
-
 --
-
 </span>
 
 </div>
@@ -644,124 +593,128 @@ Last Updated :
 </section>
 
 
-
 <!-- ================= TOP 5 LIST ================= -->
 
 <section class="top-five">
 
 <h2>
-
 🏆 Top 5 Employees
-
 </h2>
 
 <div id="topFiveList">
 
 <div class="loading">
-
 Loading...
-
 </div>
 
 </div>
 
 </section>
+
+
 <!-- ================= SYSTEM STATUS ================= -->
 
 <section class="activity">
 
-    <div class="section-title">
+<div class="section-title">
 
-        <h2>🖥 System Status</h2>
+<h2>
+🖥 System Status
+</h2>
 
-        <span class="live-status">
+<span class="live-status">
 
-            <span class="green-dot"></span>
+<span class="green-dot"></span>
 
-            LIVE
+LIVE
 
-        </span>
+</span>
 
-    </div>
+</div>
 
-    <div class="activity-grid">
 
-        <div class="activity-card">
+<div class="activity-grid">
 
-            <h3>☁ Google Sheets</h3>
+<div class="activity-card">
 
-            <p id="sheetStatus">
+<h3>
+☁ Google Sheets
+</h3>
 
-                Connected
+<p id="sheetStatus">
+Connected
+</p>
 
-            </p>
+</div>
 
-        </div>
 
-        <div class="activity-card">
+<div class="activity-card">
 
-            <h3>📊 Analytics</h3>
+<h3>
+📊 Analytics
+</h3>
 
-            <p>
+<p>
+Live Dashboard Enabled
+</p>
 
-                Live Dashboard Enabled
+</div>
 
-            </p>
 
-        </div>
+<div class="activity-card">
 
-        <div class="activity-card">
+<h3>
+🏆 Leaderboard
+</h3>
 
-            <h3>🏆 Leaderboard</h3>
+<p>
+Connected
+</p>
 
-            <p>
+</div>
 
-                Connected
 
-            </p>
+<div class="activity-card">
 
-        </div>
+<h3>
+📜 Certificate API
+</h3>
 
-        <div class="activity-card">
+<p>
+Active
+</p>
 
-            <h3>📜 Certificate API</h3>
+</div>
 
-            <p>
 
-                Active
+<div class="activity-card">
 
-            </p>
+<h3>
+🔄 Auto Refresh
+</h3>
 
-        </div>
+<p>
+Every 30 Seconds
+</p>
 
-        <div class="activity-card">
+</div>
 
-            <h3>🔄 Auto Refresh</h3>
 
-            <p>
+<div class="activity-card">
 
-                Every 30 Seconds
+<h3>
+⚡ Server
+</h3>
 
-            </p>
+<p>
+Running Normally
+</p>
 
-        </div>
+</div>
 
-        <div class="activity-card">
-
-            <h3>⚡ Server</h3>
-
-            <p>
-
-                Running Normally
-
-            </p>
-
-        </div>
-
-    </div>
+</div>
 
 </section>
-
 
 
 <!-- ================= RECENT ACTIVITY ================= -->
@@ -769,29 +722,22 @@ Loading...
 <section class="recent-activity">
 
 <h2>
-
 🕒 Recent Activity
-
 </h2>
 
 <div id="recentActivity">
 
 <p>
-
 🟢 Dashboard Loaded Successfully
-
 </p>
 
 <p>
-
 📊 Waiting for latest Google Sheet updates...
-
 </p>
 
 </div>
 
 </section>
-
 
 
 <!-- ================= DASHBOARD INFO ================= -->
@@ -801,31 +747,40 @@ Loading...
 <div class="info-box">
 
 <h3>
-
 ℹ Dashboard Information
-
 </h3>
 
 <ul>
 
-<li>✔ Live data from Google Sheets</li>
+<li>
+✔ Live data from Google Sheets
+</li>
 
-<li>✔ Employee performance tracking</li>
+<li>
+✔ Employee performance tracking
+</li>
 
-<li>✔ Auto-refresh every 30 seconds</li>
+<li>
+✔ Auto-refresh every 30 seconds
+</li>
 
-<li>✔ Charts update automatically</li>
+<li>
+✔ Charts update automatically
+</li>
 
-<li>✔ Certificate Generator Connected</li>
+<li>
+✔ Certificate Generator Connected
+</li>
 
-<li>✔ Leaderboard Connected</li>
+<li>
+✔ Leaderboard Connected
+</li>
 
 </ul>
 
 </div>
 
 </section>
-
 
 
 <!-- ================= FOOTER ================= -->
@@ -835,27 +790,19 @@ Loading...
 <div class="footer-content">
 
 <h2>
-
-⚡ NSPCL Power-Up Quiz
-
+⚡ NSPCL Power-Up Quiz SSC-C&amp;M Quiz
 </h2>
 
 <p>
-
 Administrator Dashboard Version 2.0
-
 </p>
 
 <p>
-
 NTPC SAIL POWER COMPANY LIMITED
-
 </p>
 
 <p>
-
 © 2026 All Rights Reserved
-
 </p>
 
 </div>
@@ -865,16 +812,15 @@ NTPC SAIL POWER COMPANY LIMITED
 </div>
 
 
-
 <!-- ================= LIVE CLOCK ================= -->
 
 <script>
 
 function updateClock(){
 
-const now=new Date();
+const now = new Date();
 
-document.getElementById("liveClock").innerHTML=
+document.getElementById("liveClock").innerHTML =
 
 now.toLocaleString("en-IN",{
 
@@ -899,7 +845,6 @@ updateClock();
 setInterval(updateClock,1000);
 
 </script>
-
 
 
 <script src="admin.js"></script>
