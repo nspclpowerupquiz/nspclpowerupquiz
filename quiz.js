@@ -1,20 +1,22 @@
-// ==========================
-// NSPCL POWER-UP QUIZ
+// ======================================================
+// NSPCL POWER UP SSC-C&M QUIZ
 // QUIZ.JS
-// ==========================
+// ======================================================
 
 
-// ==========================
+// ======================================================
 // QUIZ SETTINGS
-// ==========================
+// ======================================================
 
 const TOTAL_QUIZ_QUESTIONS = 30;
+
+// 15 SECOND TIMER
 const QUESTION_TIME = 15;
 
 
-// ==========================
+// ======================================================
 // VARIABLES
-// ==========================
+// ======================================================
 
 let questionPool = [];
 let questions = [];
@@ -26,25 +28,28 @@ let timer;
 let time = QUESTION_TIME;
 
 
-// ==========================
+// ======================================================
 // EMPLOYEE INFORMATION
-// ==========================
+// ======================================================
 
-let employee = localStorage.getItem("employeeId");
-let employeeName = localStorage.getItem("employeeName");
+let employee =
+    localStorage.getItem("employeeId");
+
+let employeeName =
+    localStorage.getItem("employeeName");
 
 
-// ==========================
+// ======================================================
 // GOOGLE SHEET WEB APP URL
-// ==========================
+// ======================================================
 
 const sheetURL =
 "https://script.google.com/macros/s/AKfycbwBbn0mA_VbQG3A4lz7nDGWZm66P6jKBx12zXbYZ-OoCudVBzIvK-MkuZEXxLcECl5wdw/exec";
 
 
-// ==========================
+// ======================================================
 // LOGIN CHECK
-// ==========================
+// ======================================================
 
 if (employee == null) {
 
@@ -60,13 +65,14 @@ if (employeeName == null) {
 }
 
 
-// ==========================
+// ======================================================
 // SHOW EMPLOYEE NAME
-// ==========================
+// ======================================================
 
 window.onload = function () {
 
-    let user = document.getElementById("welcomeUser");
+    let user =
+        document.getElementById("welcomeUser");
 
     if (user) {
 
@@ -82,9 +88,9 @@ window.onload = function () {
 };
 
 
-// ==========================
+// ======================================================
 // LOAD QUESTION POOL
-// ==========================
+// ======================================================
 
 async function loadQuestions() {
 
@@ -104,7 +110,8 @@ async function loadQuestions() {
         }
 
 
-        questionPool = await response.json();
+        questionPool =
+            await response.json();
 
 
         if (
@@ -125,11 +132,14 @@ async function loadQuestions() {
         );
 
 
-        // ==========================
+        // ==================================================
         // CHECK QUESTION COUNT
-        // ==========================
+        // ==================================================
 
-        if (questionPool.length < TOTAL_QUIZ_QUESTIONS) {
+        if (
+            questionPool.length <
+            TOTAL_QUIZ_QUESTIONS
+        ) {
 
             throw new Error(
                 "Question pool contains fewer than " +
@@ -140,14 +150,15 @@ async function loadQuestions() {
         }
 
 
-        // ==========================
+        // ==================================================
         // SELECT RANDOM 30 QUESTIONS
-        // ==========================
+        // ==================================================
 
-        questions = getRandomQuestions(
-            questionPool,
-            TOTAL_QUIZ_QUESTIONS
-        );
+        questions =
+            getRandomQuestions(
+                questionPool,
+                TOTAL_QUIZ_QUESTIONS
+            );
 
 
         console.log(
@@ -175,14 +186,18 @@ async function loadQuestions() {
 }
 
 
-// ==========================
+// ======================================================
 // RANDOM QUESTION SELECTION
 // FISHER-YATES SHUFFLE
-// ==========================
+// ======================================================
 
-function getRandomQuestions(pool, count) {
+function getRandomQuestions(
+    pool,
+    count
+) {
 
-    let shuffled = [...pool];
+    let shuffled =
+        [...pool];
 
 
     for (
@@ -193,7 +208,8 @@ function getRandomQuestions(pool, count) {
 
         let randomIndex =
             Math.floor(
-                Math.random() * (i + 1)
+                Math.random() *
+                (i + 1)
             );
 
 
@@ -209,18 +225,22 @@ function getRandomQuestions(pool, count) {
     }
 
 
-    return shuffled.slice(0, count);
+    return shuffled.slice(
+        0,
+        count
+    );
 
 }
 
 
-// ==========================
+// ======================================================
 // RANDOMIZE OPTIONS
-// ==========================
+// ======================================================
 
 function shuffleOptions(question) {
 
-    let options = [...question.options];
+    let options =
+        [...question.options];
 
 
     for (
@@ -231,7 +251,8 @@ function shuffleOptions(question) {
 
         let randomIndex =
             Math.floor(
-                Math.random() * (i + 1)
+                Math.random() *
+                (i + 1)
             );
 
 
@@ -252,9 +273,9 @@ function shuffleOptions(question) {
 }
 
 
-// ==========================
+// ======================================================
 // START QUIZ
-// ==========================
+// ======================================================
 
 async function startQuiz() {
 
@@ -271,80 +292,90 @@ async function startQuiz() {
     }
 
 
-    // ==========================
+    // ==================================================
     // RESET QUIZ
-    // ==========================
+    // ==================================================
 
     currentQuestion = 0;
 
     score = 0;
 
 
-    // ==========================
+    // ==================================================
     // RESET SCORE DISPLAY
-    // ==========================
+    // ==================================================
 
     let liveScore =
-        document.getElementById("liveScore");
+        document.getElementById(
+            "liveScore"
+        );
 
 
     if (liveScore) {
 
-        liveScore.innerHTML = "0";
+        liveScore.innerHTML =
+            "0";
 
     }
 
 
-    // ==========================
+    // ==================================================
     // SHOW QUIZ
-    // ==========================
+    // ==================================================
 
     let intro =
-        document.querySelector(".quiz-intro");
+        document.querySelector(
+            ".quiz-intro"
+        );
 
 
     if (intro) {
 
-        intro.style.display = "none";
+        intro.style.display =
+            "none";
 
     }
 
 
     let quizArea =
-        document.getElementById("quiz-area");
+        document.getElementById(
+            "quiz-area"
+        );
 
 
     if (quizArea) {
 
-        quizArea.style.display = "block";
+        quizArea.style.display =
+            "block";
 
     }
 
 
-    // ==========================
+    // ==================================================
     // LOAD FIRST QUESTION
-    // ==========================
+    // ==================================================
 
     loadQuestion();
 
 }
 
 
-// ==========================
+// ======================================================
 // LOAD QUESTION
-// ==========================
+// ======================================================
 
 function loadQuestion() {
 
     clearInterval(timer);
 
 
-    // ==========================
+    // ==================================================
     // CHECK QUIZ COMPLETION
-    // ==========================
+    // ==================================================
 
     if (
-        currentQuestion >= questions.length
+        currentQuestion >=
+        questions.length
     ) {
 
         showResult();
@@ -354,38 +385,44 @@ function loadQuestion() {
     }
 
 
-    // ==========================
-    // RESET TIMER
-    // ==========================
+    // ==================================================
+    // RESET TIMER TO 15 SECONDS
+    // ==================================================
 
-    time = QUESTION_TIME;
+    time =
+        QUESTION_TIME;
 
 
     let timeElement =
-        document.getElementById("time");
+        document.getElementById(
+            "time"
+        );
 
 
     if (timeElement) {
 
-        timeElement.innerHTML = time;
+        timeElement.innerHTML =
+            time;
 
     }
 
 
-    // ==========================
+    // ==================================================
     // CURRENT QUESTION
-    // ==========================
+    // ==================================================
 
     let q =
         questions[currentQuestion];
 
 
-    // ==========================
+    // ==================================================
     // PROGRESS
-    // ==========================
+    // ==================================================
 
     let progress =
-        document.getElementById("progress");
+        document.getElementById(
+            "progress"
+        );
 
 
     if (progress) {
@@ -398,12 +435,14 @@ function loadQuestion() {
     }
 
 
-    // ==========================
+    // ==================================================
     // QUESTION TEXT
-    // ==========================
+    // ==================================================
 
     let questionElement =
-        document.getElementById("question");
+        document.getElementById(
+            "question"
+        );
 
 
     if (questionElement) {
@@ -412,39 +451,47 @@ function loadQuestion() {
             "Q" +
             (currentQuestion + 1) +
             ". " +
-            escapeHTML(q.question);
+            escapeHTML(
+                q.question
+            );
 
     }
 
 
-    // ==========================
+    // ==================================================
     // RANDOMIZE OPTIONS
-    // ==========================
+    // ==================================================
 
     let randomizedOptions =
         shuffleOptions(q);
 
 
     // Save randomized options
-    // for the current question
 
     q.currentOptions =
         randomizedOptions;
 
 
-    // ==========================
+    // ==================================================
     // CREATE OPTIONS
-    // ==========================
+    // ==================================================
 
     let optionHTML = "";
 
     let letters =
-        ["A", "B", "C", "D"];
+        [
+            "A",
+            "B",
+            "C",
+            "D"
+        ];
 
 
     randomizedOptions.forEach(
-        function (option, index) {
-
+        function (
+            option,
+            index
+        ) {
 
             optionHTML += `
 
@@ -471,7 +518,9 @@ function loadQuestion() {
 
 
     let optionsElement =
-        document.getElementById("options");
+        document.getElementById(
+            "options"
+        );
 
 
     if (optionsElement) {
@@ -482,150 +531,168 @@ function loadQuestion() {
     }
 
 
-    // ==========================
+    // ==================================================
     // DISABLE NEXT BUTTON
-    // ==========================
+    // ==================================================
 
     let nextButton =
-        document.getElementById("nextBtn");
+        document.getElementById(
+            "nextBtn"
+        );
 
 
     if (nextButton) {
 
-        nextButton.disabled = true;
+        nextButton.disabled =
+            true;
 
     }
 
 
-    // ==========================
-    // START TIMER
-    // ==========================
+    // ==================================================
+    // START 15 SECOND TIMER
+    // ==================================================
 
     startTimer();
 
 }
 
 
-// ==========================
+// ======================================================
 // TIMER
-// ==========================
+// ======================================================
 
 function startTimer() {
 
     clearInterval(timer);
 
 
-    timer = setInterval(
-        function () {
+    timer =
+        setInterval(
+            function () {
+
+                time--;
 
 
-            time--;
+                let timeElement =
+                    document.getElementById(
+                        "time"
+                    );
 
 
-            let timeElement =
-                document.getElementById("time");
+                if (timeElement) {
 
-
-            if (timeElement) {
-
-                timeElement.innerHTML =
-                    time;
-
-            }
-
-
-            // ==========================
-            // TIME UP
-            // ==========================
-
-            if (time <= 0) {
-
-                clearInterval(timer);
-
-
-                disableOptions();
-
-
-                let nextButton =
-                    document.getElementById("nextBtn");
-
-
-                if (nextButton) {
-
-                    nextButton.disabled =
-                        false;
+                    timeElement.innerHTML =
+                        time;
 
                 }
 
-            }
+
+                // ==================================================
+                // TIME UP
+                // ==================================================
+
+                if (time <= 0) {
+
+                    clearInterval(timer);
 
 
-        },
-        1000
-    );
+                    disableOptions();
+
+
+                    let nextButton =
+                        document.getElementById(
+                            "nextBtn"
+                        );
+
+
+                    if (nextButton) {
+
+                        nextButton.disabled =
+                            false;
+
+                    }
+
+                }
+
+            },
+            1000
+        );
 
 }
 
 
-// ==========================
+// ======================================================
 // CHECK ANSWER
-// ==========================
+// ======================================================
 
 function checkAnswer(button) {
 
     clearInterval(timer);
 
 
-    // ==========================
-    // GET CURRENT QUESTION
-    // ==========================
+    // ==================================================
+    // CURRENT QUESTION
+    // ==================================================
 
     let q =
         questions[currentQuestion];
 
 
     let correctAnswer =
-        String(q.answer).trim();
+        String(
+            q.answer
+        ).trim();
 
 
-    // ==========================
-    // GET SELECTED ANSWER
-    // ==========================
+    // ==================================================
+    // SELECTED ANSWER
+    // ==================================================
 
     let selectedAnswer =
         button
-            .getAttribute("data-answer")
+            .getAttribute(
+                "data-answer"
+            )
             .trim();
 
 
-    // ==========================
+    // ==================================================
     // GET ALL OPTIONS
-    // ==========================
+    // ==================================================
 
     let buttons =
-        document.querySelectorAll(".option");
+        document.querySelectorAll(
+            ".option"
+        );
 
 
-    // ==========================
+    // ==================================================
     // DISABLE ALL OPTIONS
-    // ==========================
+    // ==================================================
 
     buttons.forEach(
         function (btn) {
 
-            btn.disabled = true;
+            btn.disabled =
+                true;
 
 
             let answer =
                 btn
-                    .getAttribute("data-answer")
+                    .getAttribute(
+                        "data-answer"
+                    )
                     .trim();
 
 
-            // Show correct answer
+            // ==================================================
+            // SHOW CORRECT ANSWER
+            // ==================================================
 
             if (
-                answer === correctAnswer
+                answer ===
+                correctAnswer
             ) {
 
                 btn.style.background =
@@ -640,9 +707,9 @@ function checkAnswer(button) {
     );
 
 
-    // ==========================
+    // ==================================================
     // CHECK SELECTED ANSWER
-    // ==========================
+    // ==================================================
 
     if (
         selectedAnswer ===
@@ -686,12 +753,14 @@ function checkAnswer(button) {
     }
 
 
-    // ==========================
+    // ==================================================
     // ENABLE NEXT BUTTON
-    // ==========================
+    // ==================================================
 
     let nextButton =
-        document.getElementById("nextBtn");
+        document.getElementById(
+            "nextBtn"
+        );
 
 
     if (nextButton) {
@@ -704,14 +773,16 @@ function checkAnswer(button) {
 }
 
 
-// ==========================
+// ======================================================
 // DISABLE OPTIONS
-// ==========================
+// ======================================================
 
 function disableOptions() {
 
     let buttons =
-        document.querySelectorAll(".option");
+        document.querySelectorAll(
+            ".option"
+        );
 
 
     let q =
@@ -719,25 +790,33 @@ function disableOptions() {
 
 
     let correctAnswer =
-        String(q.answer).trim();
+        String(
+            q.answer
+        ).trim();
 
 
     buttons.forEach(
         function (btn) {
 
-            btn.disabled = true;
+            btn.disabled =
+                true;
 
 
             let answer =
                 btn
-                    .getAttribute("data-answer")
+                    .getAttribute(
+                        "data-answer"
+                    )
                     .trim();
 
 
-            // Highlight correct answer
+            // ==================================================
+            // HIGHLIGHT CORRECT ANSWER
+            // ==================================================
 
             if (
-                answer === correctAnswer
+                answer ===
+                correctAnswer
             ) {
 
                 btn.style.background =
@@ -754,9 +833,9 @@ function disableOptions() {
 }
 
 
-// ==========================
+// ======================================================
 // NEXT QUESTION
-// ==========================
+// ======================================================
 
 function nextQuestion() {
 
@@ -767,15 +846,14 @@ function nextQuestion() {
 }
 
 
-// ==========================
+// ======================================================
 // SEND SCORE TO GOOGLE SHEET
-// ==========================
+// ======================================================
 
 function submitScore(
     finalScore,
     percentage
 ) {
-
 
     let data = {
 
@@ -810,9 +888,11 @@ function submitScore(
         sheetURL,
         {
 
-            method: "POST",
+            method:
+                "POST",
 
-            mode: "no-cors",
+            mode:
+                "no-cors",
 
             headers: {
 
@@ -822,7 +902,9 @@ function submitScore(
             },
 
             body:
-                JSON.stringify(data)
+                JSON.stringify(
+                    data
+                )
 
         }
     )
@@ -851,18 +933,18 @@ function submitScore(
 }
 
 
-// ==========================
+// ======================================================
 // SHOW RESULT
-// ==========================
+// ======================================================
 
 function showResult() {
 
     clearInterval(timer);
 
 
-    // ==========================
+    // ==================================================
     // HIDE QUIZ
-    // ==========================
+    // ==================================================
 
     let quizArea =
         document.getElementById(
@@ -878,21 +960,23 @@ function showResult() {
     }
 
 
-    // ==========================
+    // ==================================================
     // CALCULATE PERCENTAGE
-    // ==========================
+    // ==================================================
 
     let percentage =
         Math.round(
-            (score /
-                TOTAL_QUIZ_QUESTIONS) *
+            (
+                score /
+                TOTAL_QUIZ_QUESTIONS
+            ) *
             100
         );
 
 
-    // ==========================
+    // ==================================================
     // SAVE LOCALLY
-    // ==========================
+    // ==================================================
 
     localStorage.setItem(
         "score",
@@ -912,9 +996,9 @@ function showResult() {
     );
 
 
-    // ==========================
-    // SEND RESULT
-    // ==========================
+    // ==================================================
+    // SEND RESULT TO GOOGLE SHEETS
+    // ==================================================
 
     submitScore(
         score,
@@ -922,9 +1006,9 @@ function showResult() {
     );
 
 
-    // ==========================
+    // ==================================================
     // DISPLAY RESULT
-    // ==========================
+    // ==================================================
 
     let result =
         document.getElementById(
@@ -945,12 +1029,14 @@ function showResult() {
                 </h2>
 
                 <h3>
-                    NSPCL Power-Up Quiz
+                    NSPCL Power Up SSC-C&amp;M Quiz
+                    <br>
                     Completed Successfully
                 </h3>
 
                 <h1>
-                    ${score} / ${TOTAL_QUIZ_QUESTIONS}
+                    ${score} /
+                    ${TOTAL_QUIZ_QUESTIONS}
                 </h1>
 
                 <h2>
@@ -968,9 +1054,9 @@ function showResult() {
     }
 
 
-    // ==========================
+    // ==================================================
     // OPEN CERTIFICATE
-    // ==========================
+    // ==================================================
 
     setTimeout(
         function () {
@@ -985,9 +1071,9 @@ function showResult() {
 }
 
 
-// ==========================
+// ======================================================
 // RESTART QUIZ
-// ==========================
+// ======================================================
 
 function restartQuiz() {
 
@@ -996,9 +1082,9 @@ function restartQuiz() {
 }
 
 
-// ==========================
+// ======================================================
 // ESCAPE HTML
-// ==========================
+// ======================================================
 
 function escapeHTML(value) {
 
