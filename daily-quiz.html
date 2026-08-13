@@ -6,12 +6,12 @@
 <meta charset="UTF-8">
 
 <meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+      content="width=device-width, initial-scale=1.0">
 
 <title>Daily Power Pulse | NSPCL</title>
 
 <link rel="stylesheet"
-href="style.css">
+      href="style.css">
 
 <style>
 
@@ -21,7 +21,7 @@ href="style.css">
 
 .daily-page {
 
-    min-height:100vh;
+    min-height: 100vh;
 
     background:
     linear-gradient(
@@ -31,49 +31,53 @@ href="style.css">
         #062b52
     );
 
-    color:white;
+    color: white;
 
 }
 
 
-/* HEADER */
+/* =====================================
+   HEADER
+===================================== */
 
 .daily-header {
 
-    text-align:center;
+    text-align: center;
 
-    padding:35px 20px 20px;
+    padding: 35px 20px 20px;
 
 }
 
 
 .daily-header h1 {
 
-    font-size:32px;
+    font-size: 32px;
 
-    margin-bottom:8px;
+    margin-bottom: 8px;
 
 }
 
 
 .daily-header p {
 
-    opacity:.85;
+    opacity: .85;
 
 }
 
 
-/* MOTIVATION */
+/* =====================================
+   MOTIVATION
+===================================== */
 
 .motivation-card {
 
-    max-width:900px;
+    max-width: 900px;
 
-    margin:20px auto;
+    margin: 20px auto;
 
-    padding:25px;
+    padding: 25px;
 
-    text-align:center;
+    text-align: center;
 
     background:
     rgba(255,255,255,.12);
@@ -82,7 +86,7 @@ href="style.css">
     1px solid
     rgba(255,255,255,.2);
 
-    border-radius:20px;
+    border-radius: 20px;
 
     backdrop-filter:
     blur(12px);
@@ -92,60 +96,66 @@ href="style.css">
 
 .motivation-title {
 
-    color:#ffd84d;
+    color: #ffd84d;
 
-    font-size:22px;
+    font-size: 22px;
 
-    font-weight:bold;
+    font-weight: bold;
 
-    margin-bottom:12px;
+    margin-bottom: 12px;
 
 }
 
 
 #motivation {
 
-    font-size:18px;
+    font-size: 18px;
 
-    font-style:italic;
+    font-style: italic;
 
 }
 
 
-/* MAIN */
+/* =====================================
+   MAIN
+===================================== */
 
 .daily-wrapper {
 
-    max-width:900px;
+    max-width: 900px;
 
-    margin:auto;
+    margin: auto;
 
-    padding:20px;
+    padding: 20px;
 
 }
 
 
-/* EMPLOYEE */
+/* =====================================
+   EMPLOYEE
+===================================== */
 
 .employee-card {
 
-    text-align:center;
+    text-align: center;
 
-    margin-bottom:20px;
+    margin-bottom: 20px;
 
 }
 
 
 .employee-card span {
 
-    color:#ffd84d;
+    color: #ffd84d;
 
-    font-weight:bold;
+    font-weight: bold;
 
 }
 
 
-/* QUESTION */
+/* =====================================
+   QUESTION CARD
+===================================== */
 
 .question-card {
 
@@ -156,9 +166,9 @@ href="style.css">
     1px solid
     rgba(255,255,255,.22);
 
-    border-radius:24px;
+    border-radius: 24px;
 
-    padding:35px;
+    padding: 35px;
 
     box-shadow:
     0 15px 40px
@@ -169,60 +179,64 @@ href="style.css">
 
 .question-label {
 
-    color:#ffd84d;
+    color: #ffd84d;
 
-    font-weight:bold;
+    font-weight: bold;
 
-    margin-bottom:15px;
+    margin-bottom: 15px;
 
 }
 
 
 #question {
 
-    line-height:1.5;
+    line-height: 1.5;
 
-    font-size:23px;
+    font-size: 23px;
 
 }
 
 
-/* OPTIONS */
+/* =====================================
+   OPTIONS
+===================================== */
 
 #options {
 
-    display:grid;
+    display: grid;
 
     grid-template-columns:
     1fr 1fr;
 
-    gap:15px;
+    gap: 15px;
 
-    margin-top:25px;
+    margin-top: 25px;
 
 }
 
 
 .daily-option {
 
-    border:none;
+    border: none;
 
-    padding:18px;
+    padding: 18px;
 
-    border-radius:14px;
+    border-radius: 14px;
 
     background:
     rgba(0,190,220,.85);
 
-    color:white;
+    color: white;
 
-    font-size:16px;
+    font-size: 16px;
 
-    font-weight:bold;
+    font-weight: bold;
 
-    cursor:pointer;
+    cursor: pointer;
 
-    transition:.2s;
+    transition: .2s;
+
+    text-align: left;
 
 }
 
@@ -237,26 +251,28 @@ href="style.css">
 
 .daily-option:disabled {
 
-    cursor:not-allowed;
+    cursor: not-allowed;
+
+    opacity: .9;
 
 }
 
 
 .option-letter {
 
-    display:inline-flex;
+    display: inline-flex;
 
-    align-items:center;
+    align-items: center;
 
-    justify-content:center;
+    justify-content: center;
 
-    width:30px;
+    width: 30px;
 
-    height:30px;
+    height: 30px;
 
-    margin-right:8px;
+    margin-right: 8px;
 
-    border-radius:50%;
+    border-radius: 50%;
 
     background:
     rgba(0,0,0,.2);
@@ -264,22 +280,44 @@ href="style.css">
 }
 
 
-/* RESULT */
+/* =====================================
+   CORRECT / WRONG
+===================================== */
+
+.daily-option.correct {
+
+    background:
+    rgba(0,200,83,.9);
+
+}
+
+
+.daily-option.incorrect {
+
+    background:
+    rgba(255,82,82,.9);
+
+}
+
+
+/* =====================================
+   RESULT
+===================================== */
 
 #answerResult {
 
-    margin-top:20px;
+    margin-top: 20px;
 
-    line-height:1.5;
+    line-height: 1.5;
 
 }
 
 
 .correct-message {
 
-    padding:18px;
+    padding: 18px;
 
-    border-radius:15px;
+    border-radius: 15px;
 
     background:
     rgba(0,200,83,.2);
@@ -293,9 +331,9 @@ href="style.css">
 
 .wrong-message {
 
-    padding:18px;
+    padding: 18px;
 
-    border-radius:15px;
+    border-radius: 15px;
 
     background:
     rgba(255,82,82,.2);
@@ -307,57 +345,61 @@ href="style.css">
 }
 
 
-/* SOURCE */
+/* =====================================
+   SOURCE
+===================================== */
 
 #newsSource {
 
-    margin-top:18px;
+    margin-top: 18px;
 
-    opacity:.7;
+    opacity: .7;
 
-    font-size:13px;
+    font-size: 13px;
 
 }
 
 
-/* PERFORMERS */
+/* =====================================
+   PERFORMERS
+===================================== */
 
 .performers-card {
 
-    margin-top:30px;
+    margin-top: 30px;
 
-    padding:25px;
+    padding: 25px;
 
     background:
     rgba(255,255,255,.12);
 
-    border-radius:20px;
+    border-radius: 20px;
 
 }
 
 
 .performers-card h2 {
 
-    text-align:center;
+    text-align: center;
 
-    color:#ffd84d;
+    color: #ffd84d;
 
-    margin-bottom:20px;
+    margin-bottom: 20px;
 
 }
 
 
 .performer {
 
-    display:flex;
+    display: flex;
 
-    align-items:center;
+    align-items: center;
 
-    padding:14px;
+    padding: 14px;
 
-    margin-bottom:10px;
+    margin-bottom: 10px;
 
-    border-radius:12px;
+    border-radius: 12px;
 
     background:
     rgba(255,255,255,.09);
@@ -367,78 +409,104 @@ href="style.css">
 
 .performer-rank {
 
-    font-size:22px;
+    font-size: 22px;
 
-    width:45px;
+    width: 45px;
 
 }
 
 
 .performer-name {
 
-    flex:1;
+    flex: 1;
 
-    font-weight:bold;
+    font-weight: bold;
 
 }
 
 
 .performer-points {
 
-    color:#ffd84d;
+    color: #ffd84d;
 
-    font-weight:bold;
+    font-weight: bold;
 
 }
 
 
 .no-performers {
 
-    text-align:center;
+    text-align: center;
 
-    opacity:.75;
+    opacity: .75;
 
 }
 
 
-/* TIMER */
+/* =====================================
+   TIMER
+===================================== */
 
 .timer-box {
 
-    text-align:center;
+    text-align: center;
 
-    margin:20px;
+    margin: 20px;
 
-    font-size:20px;
+    font-size: 20px;
 
 }
 
 
 #timer {
 
-    color:#ffd84d;
+    color: #ffd84d;
 
-    font-weight:bold;
+    font-weight: bold;
 
 }
 
 
-/* LOADING */
+/* =====================================
+   LOADING
+===================================== */
 
 .loading {
 
-    text-align:center;
+    text-align: center;
 
-    padding:30px;
+    padding: 30px;
 
 }
 
 
-/* MOBILE */
+/* =====================================
+   FOOTER
+===================================== */
 
-@media(
-max-width:700px
-) {
+footer {
+
+    text-align: center;
+
+    padding: 30px 20px;
+
+    opacity: .75;
+
+}
+
+
+footer p {
+
+    margin: 5px;
+
+}
+
+
+/* =====================================
+   MOBILE
+===================================== */
+
+@media (max-width: 700px) {
 
     #options {
 
@@ -450,14 +518,21 @@ max-width:700px
 
     .question-card {
 
-        padding:22px;
+        padding: 22px;
 
     }
 
 
     #question {
 
-        font-size:19px;
+        font-size: 19px;
+
+    }
+
+
+    .daily-header h1 {
+
+        font-size: 26px;
 
     }
 
@@ -471,164 +546,203 @@ max-width:700px
 <body class="daily-page">
 
 
+<!-- =====================================
+     HEADER
+===================================== -->
+
 <header class="daily-header">
 
-<h1>
-⚡ NSPCL Power Pulse
-</h1>
+    <h1>
+        ⚡ NSPCL Power Pulse
+    </h1>
 
-<p>
-Daily Current Affairs Challenge
-</p>
+    <p>
+        Daily Power Knowledge Challenge
+    </p>
 
 </header>
 
 
-<!-- MOTIVATION -->
+<!-- =====================================
+     MOTIVATION
+===================================== -->
 
 <section class="motivation-card">
 
-<div class="motivation-title">
+    <div class="motivation-title">
 
-✨ Daily Motivation
+        ✨ Daily Motivation
 
-</div>
+    </div>
 
-<div id="motivation">
+    <div id="motivation">
 
-Preparing today's motivation...
+        Preparing today's motivation...
 
-</div>
+    </div>
 
 </section>
 
+
+<!-- =====================================
+     MAIN
+===================================== -->
 
 <main class="daily-wrapper">
 
 
-<!-- EMPLOYEE -->
+    <!-- EMPLOYEE -->
 
-<div class="employee-card">
+    <div class="employee-card">
 
-👋 Welcome
+        👋 Welcome
 
-<span id="employeeName">
-Employee
-</span>
+        <span id="employeeName">
+            Employee
+        </span>
 
-</div>
-
-
-<!-- QUESTION CARD -->
-
-<section class="question-card">
+    </div>
 
 
-<div class="question-label">
+    <!-- =================================
+         QUESTION CARD
+    ================================== -->
 
-🔥 TODAY'S POWER CHALLENGE
-
-</div>
-
-
-<p>
-
-Question:
-
-<strong>
-<span id="questionNumber">
-1
-</span>
-/
-<span id="totalQuestions">
-1
-</span>
-</strong>
-
-</p>
+    <section class="question-card">
 
 
-<h2 id="question">
+        <div class="question-label">
 
-Preparing today's current-affairs question...
+            🔥 TODAY'S POWER CHALLENGE
 
-</h2>
-
-
-<div class="timer-box">
-
-⏳ Time:
-
-<span id="timer">
-5:00
-</span>
-
-</div>
+        </div>
 
 
-<div id="options">
+        <p>
 
-</div>
+            Question:
 
+            <strong>
 
-<div id="answerResult">
+                <span id="questionNumber">
+                    1
+                </span>
 
-</div>
+                /
 
+                <span id="totalQuestions">
+                    1
+                </span>
 
-<div id="newsSource">
+            </strong>
 
-</div>
-
-
-</section>
-
-
-<!-- PERFORMERS -->
-
-<section class="performers-card">
-
-<h2>
-
-🏆 Today's Power Performers
-
-</h2>
+        </p>
 
 
-<div id="performers">
+        <!-- QUESTION FROM GOOGLE SHEETS -->
 
-<p class="no-performers">
+        <h2 id="question">
 
-Be the first Power Performer today! ⚡
+            ⚡ Preparing today's Power Pulse...
 
-</p>
+        </h2>
 
-</div>
 
-</section>
+        <!-- TIMER -->
+
+        <div class="timer-box">
+
+            ⏳ Time:
+
+            <span id="timer">
+                5:00
+            </span>
+
+        </div>
+
+
+        <!-- OPTIONS FROM GOOGLE SHEETS -->
+
+        <div id="options">
+
+            <div class="loading">
+
+                Loading today's challenge...
+
+            </div>
+
+        </div>
+
+
+        <!-- RESULT -->
+
+        <div id="answerResult">
+
+        </div>
+
+
+        <!-- SOURCE -->
+
+        <div id="newsSource">
+
+        </div>
+
+
+    </section>
+
+
+    <!-- =================================
+         PERFORMERS
+    ================================== -->
+
+    <section class="performers-card">
+
+        <h2>
+
+            🏆 Today's Power Performers
+
+        </h2>
+
+
+        <div id="performers">
+
+            <p class="no-performers">
+
+                Be the first Power Performer today! ⚡
+
+            </p>
+
+        </div>
+
+    </section>
 
 
 </main>
 
 
+<!-- =====================================
+     FOOTER
+===================================== -->
+
 <footer>
 
-<p>
+    <p>
+        © 2026 NSPCL Power-Up Quiz
+    </p>
 
-© 2026 NSPCL Power-Up Quiz
-
-</p>
-
-<p>
-
-Learn • Compete • Grow ⚡
-
-</p>
+    <p>
+        Learn • Compete • Grow ⚡
+    </p>
 
 </footer>
 
 
-<script src="daily-quiz.js"></script>
+<!-- =====================================
+     IMPORTANT
+     LOAD EXACT FILE NAME
+===================================== -->
+
+<script src="dailyquiz.js"></script>
 
 
 </body>
