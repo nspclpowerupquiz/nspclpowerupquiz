@@ -1,781 +1,1123 @@
-/* ==========================================
+/* =========================================================
    NSPCL POWER PULSE
-   DAILY CHALLENGE ULTRA PREMIUM UI
-========================================== */
+   PREMIUM DAILY CHALLENGE DESIGN
+========================================================= */
 
 
-*{
-box-sizing:border-box;
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    color: #ffffff;
+
+    overflow-x: hidden;
 }
 
 
+/* =========================================================
+   MAIN PAGE
+========================================================= */
 
-body{
+.daily-page {
 
-margin:0;
+    min-height: 100vh;
 
-font-family:
-'Segoe UI',
-sans-serif;
+    position: relative;
 
-background:
+    overflow: hidden;
 
-linear-gradient(
-135deg,
-#001845,
-#003566,
-#0077b6,
-#00b4d8
-);
+    background:
+        radial-gradient(
+            circle at 10% 15%,
+            rgba(0, 229, 255, 0.18),
+            transparent 28%
+        ),
 
-background-size:400% 400%;
+        radial-gradient(
+            circle at 90% 20%,
+            rgba(255, 193, 7, 0.13),
+            transparent 25%
+        ),
 
-animation:
-powerBackground 18s ease infinite;
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(0, 150, 255, 0.20),
+            transparent 35%
+        ),
 
-color:white;
+        linear-gradient(
+            135deg,
+            #031a33 0%,
+            #063b63 45%,
+            #075985 70%,
+            #032b4e 100%
+        );
 
+    background-size: 200% 200%;
+
+    animation:
+        backgroundAnimation 15s ease infinite;
 }
 
 
+@keyframes backgroundAnimation {
 
+    0% {
+        background-position: 0% 50%;
+    }
 
-@keyframes powerBackground{
+    50% {
+        background-position: 100% 50%;
+    }
 
-0%{
-background-position:0% 50%;
-}
-
-50%{
-background-position:100% 50%;
-}
-
-100%{
-background-position:0% 50%;
-}
-
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 
+/* =========================================================
+   GLOWING BACKGROUND CIRCLES
+========================================================= */
 
-/* PAGE */
+.daily-page::before {
 
+    content: "";
 
-.daily-page{
+    position: fixed;
 
-padding:35px;
+    width: 350px;
+    height: 350px;
 
-position:relative;
+    left: -150px;
+    top: 20%;
 
-overflow:hidden;
+    border-radius: 50%;
 
+    background:
+        rgba(0, 238, 255, 0.13);
+
+    filter: blur(70px);
+
+    pointer-events: none;
+
+    animation:
+        floatingGlow 8s ease-in-out infinite;
+
+    z-index: 0;
 }
 
 
+.daily-page::after {
 
+    content: "";
 
+    position: fixed;
 
-/* ELECTRIC PARTICLES */
+    width: 350px;
+    height: 350px;
 
+    right: -150px;
+    bottom: 10%;
 
-.daily-page:before,
-.daily-page:after{
+    border-radius: 50%;
 
-content:"⚡";
+    background:
+        rgba(255, 193, 7, 0.10);
 
-position:absolute;
+    filter: blur(75px);
 
-font-size:80px;
+    pointer-events: none;
 
-opacity:.15;
+    animation:
+        floatingGlow 10s ease-in-out infinite reverse;
 
-animation:
-electricFloat 8s infinite alternate;
-
+    z-index: 0;
 }
 
 
+@keyframes floatingGlow {
 
-.daily-page:before{
+    0%,
+    100% {
+        transform: translateY(0) scale(1);
+    }
 
-top:10%;
-
-left:5%;
-
+    50% {
+        transform: translateY(-35px) scale(1.15);
+    }
 }
 
 
+/* =========================================================
+   HEADER
+========================================================= */
 
-.daily-page:after{
+.daily-hero {
 
-bottom:10%;
+    position: relative;
 
-right:5%;
+    z-index: 2;
 
-animation-delay:3s;
+    text-align: center;
 
+    padding: 55px 20px 40px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0, 191, 255, 0.16),
+            rgba(0, 60, 110, 0.35)
+        );
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,0.18);
+
+    backdrop-filter:
+        blur(18px);
+
+    animation:
+        heroAppear .8s ease;
 }
 
 
+@keyframes heroAppear {
 
-@keyframes electricFloat{
+    from {
+        opacity: 0;
+        transform: translateY(-25px);
+    }
 
-from{
-
-transform:
-translateY(0)
-rotate(0deg);
-
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 
-to{
+.daily-hero h1 {
 
-transform:
-translateY(-120px)
-rotate(25deg);
+    margin: 0;
 
-}
+    font-size:
+        clamp(32px, 5vw, 52px);
 
-}
+    font-weight: 800;
 
+    letter-spacing: .5px;
 
+    background:
+        linear-gradient(
+            90deg,
+            #ffffff,
+            #73f7ff,
+            #ffd84d,
+            #ffffff
+        );
 
+    background-size: 250% auto;
 
+    -webkit-background-clip: text;
 
-/* HERO */
+    -webkit-text-fill-color: transparent;
 
+    animation:
+        titleAnimation 4s linear infinite;
 
-.daily-hero{
-
-
-background:
-
-linear-gradient(
-135deg,
-rgba(255,255,255,.25),
-rgba(255,255,255,.05)
-);
-
-
-border:
-
-1px solid rgba(255,255,255,.35);
-
-
-backdrop-filter:
-
-blur(20px);
-
-
-border-radius:35px;
-
-
-padding:55px 25px;
-
-
-text-align:center;
-
-
-box-shadow:
-
-0 25px 70px rgba(0,0,0,.45);
-
-
-animation:
-
-heroEntry 1s ease;
-
-
+    text-shadow:
+        0 0 30px
+        rgba(0,220,255,.15);
 }
 
 
+@keyframes titleAnimation {
 
+    from {
+        background-position: 0% center;
+    }
 
-@keyframes heroEntry{
-
-from{
-
-opacity:0;
-
-transform:
-translateY(-80px)
-scale(.8);
-
+    to {
+        background-position: 250% center;
+    }
 }
 
 
-to{
+.daily-hero h2 {
 
-opacity:1;
+    margin:
+        12px 0 10px;
 
-transform:
-translateY(0)
-scale(1);
+    color: #ffd84d;
 
-}
+    font-size:
+        clamp(22px, 3vw, 30px);
 
-}
-
-
-
-
-.daily-hero h1{
-
-
-font-size:48px;
-
-
-margin:0;
-
-
-background:
-
-linear-gradient(
-90deg,
-#ffffff,
-#00ffff,
-#ffffff
-);
-
-
-background-size:200%;
-
-
--webkit-background-clip:text;
-
-
-color:transparent;
-
-
-animation:
-
-shine 3s infinite;
-
-
+    text-shadow:
+        0 0 15px
+        rgba(255,216,77,.35);
 }
 
 
+.daily-hero p {
 
+    margin: 0;
 
-@keyframes shine{
+    color:
+        rgba(255,255,255,.82);
 
-from{
-
-background-position:0%;
-
-}
-
-to{
-
-background-position:200%;
-
-}
-
+    font-size: 16px;
 }
 
 
+/* =========================================================
+   DAILY CARD
+========================================================= */
 
+.daily-card {
 
-.daily-hero h2{
+    position: relative;
 
-font-size:34px;
+    z-index: 2;
 
-margin:15px;
+    max-width: 900px;
 
+    margin: 25px auto;
+
+    padding: 30px;
+
+    border-radius: 25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.16),
+            rgba(255,255,255,.06)
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,.22);
+
+    backdrop-filter:
+        blur(18px);
+
+    -webkit-backdrop-filter:
+        blur(18px);
+
+    box-shadow:
+        0 20px 55px
+        rgba(0,0,0,.22);
+
+    animation:
+        cardAppear .8s ease;
 }
 
 
+@keyframes cardAppear {
 
+    from {
+        opacity: 0;
+        transform:
+            translateY(25px)
+            scale(.97);
+    }
 
-.daily-hero p{
-
-font-size:20px;
-
-opacity:.9;
-
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
 }
 
 
+/* =========================================================
+   CARD TOP GLOW
+========================================================= */
 
+.daily-card::before {
 
+    content: "";
 
-/* CARDS */
+    position: absolute;
 
+    top: 0;
 
-.daily-card{
+    left: 12%;
 
+    width: 76%;
 
-margin-top:35px;
+    height: 2px;
 
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #00eaff,
+            #ffd84d,
+            #00eaff,
+            transparent
+        );
 
-background:
+    border-radius: 50%;
 
-rgba(255,255,255,.16);
-
-
-border-radius:30px;
-
-
-padding:35px;
-
-
-border:
-
-1px solid rgba(255,255,255,.3);
-
-
-backdrop-filter:
-
-blur(20px);
-
-
-box-shadow:
-
-0 25px 60px rgba(0,0,0,.35);
-
-
-position:relative;
-
-
-overflow:hidden;
-
-
-animation:
-
-cardFloat 5s infinite ease-in-out;
-
-
+    opacity: .9;
 }
 
 
+/* =========================================================
+   MOTIVATION
+========================================================= */
 
+.quote-card {
 
-.daily-card:before{
-
-
-content:"";
-
-
-position:absolute;
-
-
-width:150%;
-
-
-height:4px;
-
-
-background:
-
-linear-gradient(
-90deg,
-transparent,
-cyan,
-transparent
-);
-
-
-top:0;
-
-
-left:-150%;
-
-
-animation:
-
-borderMove 4s infinite;
-
-
-}
-
-
-
-
-@keyframes borderMove{
-
-
-to{
-
-left:150%;
-
-}
+    text-align: center;
 
 }
 
 
+.quote-card h2 {
 
+    margin:
+        0 0 15px;
 
+    color: #ffd84d;
 
-@keyframes cardFloat{
+    font-size: 24px;
 
-
-50%{
-
-transform:
-translateY(-8px);
-
-}
-
-}
-
-
-
-
-
-
-.daily-card h2{
-
-
-text-align:center;
-
-
-font-size:30px;
-
-
-color:#ffe066;
-
-
-text-shadow:
-
-0 0 15px #ffe066;
-
-
+    text-shadow:
+        0 0 15px
+        rgba(255,216,77,.35);
 }
 
 
+#dailyQuote {
+
+    font-size: 18px;
+
+    line-height: 1.7;
+
+    color:
+        rgba(255,255,255,.92);
+
+    min-height: 30px;
+}
 
 
+/* =========================================================
+   QUESTION CARD
+========================================================= */
 
+.question-card {
 
-/* QUESTION */
-
-
-#dailyQuestion{
-
-
-font-size:24px;
-
-
-font-weight:600;
-
-
-text-align:center;
-
-
-padding:25px;
-
-
-line-height:1.7;
-
+    padding:
+        35px;
 
 }
 
 
+.question-card h2 {
 
+    color: #ffd84d;
 
-/* OPTIONS */
+    margin:
+        0 0 20px;
 
-
-#dailyOptions{
-
-
-display:grid;
-
-
-grid-template-columns:
-
-repeat(2,1fr);
-
-
-gap:20px;
-
+    font-size: 22px;
 
 }
 
 
+#dailyQuestion {
 
-.daily-option{
+    font-size:
+        clamp(20px, 3vw, 28px);
 
+    line-height: 1.5;
 
-padding:18px;
+    font-weight: 700;
 
+    color: #ffffff;
 
-border-radius:18px;
-
-
-border:none;
-
-
-cursor:pointer;
-
-
-font-size:17px;
-
-
-font-weight:600;
-
-
-color:white;
-
-
-background:
-
-
-linear-gradient(
-135deg,
-#0077b6,
-#00b4d8
-);
-
-
-box-shadow:
-
-0 10px 25px rgba(0,0,0,.3);
-
-
-transition:.4s;
-
+    margin:
+        20px 0 25px;
 
 }
 
 
+/* =========================================================
+   OPTIONS
+========================================================= */
 
-.daily-option:hover{
+#dailyOptions {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 16px;
+
+    margin-top: 20px;
+}
 
 
-transform:
+.daily-option {
 
-translateY(-8px)
-scale(1.04);
+    position: relative;
+
+    overflow: hidden;
+
+    border: none;
+
+    min-height: 65px;
+
+    padding: 16px 20px;
+
+    border-radius: 16px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #079fc9,
+            #11b9d5
+        );
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    text-align: left;
+
+    box-shadow:
+        0 8px 22px
+        rgba(0,0,0,.20);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        filter .25s ease;
+}
 
 
-box-shadow:
+.daily-option:hover {
 
-0 0 30px cyan;
+    transform:
+        translateY(-5px)
+        scale(1.015);
 
+    filter:
+        brightness(1.08);
+
+    box-shadow:
+        0 15px 35px
+        rgba(0,220,255,.28);
+}
+
+
+.daily-option:active {
+
+    transform:
+        scale(.97);
+}
+
+
+/* =========================================================
+   OPTION SHINE
+========================================================= */
+
+.daily-option::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: -120%;
+
+    width: 70%;
+
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.25),
+            transparent
+        );
+
+    transform:
+        skewX(-20deg);
+
+    transition:
+        left .6s ease;
+}
+
+
+.daily-option:hover::after {
+
+    left: 130%;
+}
+
+
+/* =========================================================
+   CORRECT ANSWER
+========================================================= */
+
+.daily-option.correct {
+
+    background:
+        linear-gradient(
+            135deg,
+            #00b956,
+            #00dc76
+        );
+
+    box-shadow:
+        0 0 28px
+        rgba(0,220,110,.35);
+
+    animation:
+        correctAnimation .6s ease;
+}
+
+
+@keyframes correctAnimation {
+
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.04);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+/* =========================================================
+   WRONG ANSWER
+========================================================= */
+
+.daily-option.incorrect {
+
+    background:
+        linear-gradient(
+            135deg,
+            #e53935,
+            #ff5252
+        );
+
+    animation:
+        wrongAnimation .45s ease;
+}
+
+
+@keyframes wrongAnimation {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-6px);
+    }
+
+    75% {
+        transform: translateX(6px);
+    }
+}
+
+
+/* =========================================================
+   SUBMIT BUTTON
+========================================================= */
+
+.daily-btn {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    margin-top: 25px;
+
+    padding:
+        14px 30px;
+
+    border: none;
+
+    border-radius: 50px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #00e5ff,
+            #ffd84d
+        );
+
+    color:
+        #06304d;
+
+    font-size: 16px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    text-decoration: none;
+
+    box-shadow:
+        0 10px 30px
+        rgba(0,220,255,.25);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+
+.daily-btn:hover {
+
+    transform:
+        translateY(-4px)
+        scale(1.04);
+
+    box-shadow:
+        0 15px 40px
+        rgba(0,220,255,.40);
+}
+
+
+.daily-btn:active {
+
+    transform:
+        scale(.97);
+}
+
+
+/* =========================================================
+   RESULT
+========================================================= */
+
+#dailyResult {
+
+    margin-top: 22px;
+
+    line-height: 1.6;
 
 }
 
 
+.correct-message {
+
+    padding: 20px;
+
+    border-radius: 18px;
+
+    background:
+        rgba(0,200,83,.16);
+
+    border:
+        1px solid
+        #00d875;
+
+    animation:
+        resultAppear .5s ease;
+}
 
 
+.wrong-message {
 
-/* QUOTE */
+    padding: 20px;
+
+    border-radius: 18px;
+
+    background:
+        rgba(255,82,82,.16);
+
+    border:
+        1px solid
+        #ff5252;
+
+    animation:
+        resultAppear .5s ease;
+}
 
 
-#dailyQuote{
+@keyframes resultAppear {
+
+    from {
+        opacity: 0;
+        transform: scale(.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
 
 
-font-size:24px;
+/* =========================================================
+   STATS
+========================================================= */
+
+.daily-grid {
+
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 900px;
+
+    margin:
+        30px auto;
+
+    padding:
+        0 20px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 18px;
+}
 
 
-text-align:center;
+.daily-stat {
+
+    padding: 25px;
+
+    text-align: center;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.14),
+            rgba(255,255,255,.06)
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,.18);
+
+    backdrop-filter:
+        blur(15px);
+
+    box-shadow:
+        0 15px 35px
+        rgba(0,0,0,.18);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
 
 
-font-style:italic;
+.daily-stat:hover {
+
+    transform:
+        translateY(-6px);
+
+    box-shadow:
+        0 20px 45px
+        rgba(0,220,255,.18);
+}
 
 
-line-height:1.8;
+.daily-stat h3 {
 
+    margin: 0 0 10px;
+
+    font-size: 34px;
+
+    color: #ffd84d;
+
+    text-shadow:
+        0 0 15px
+        rgba(255,216,77,.3);
+}
+
+
+.daily-stat p {
+
+    margin: 0;
+
+    font-size: 14px;
+
+    color:
+        rgba(255,255,255,.8);
+}
+
+
+/* =========================================================
+   BACK HOME
+========================================================= */
+
+.home-section {
+
+    position: relative;
+
+    z-index: 3;
+
+    text-align: center;
+
+    padding:
+        20px 20px 50px;
+}
+
+
+.home-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    padding:
+        15px 32px;
+
+    border-radius: 50px;
+
+    text-decoration: none;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: 800;
+
+    background:
+        linear-gradient(
+            135deg,
+            #008fd3,
+            #00c6e8
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,.25);
+
+    box-shadow:
+        0 10px 30px
+        rgba(0,200,255,.25);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+
+.home-button:hover {
+
+    transform:
+        translateY(-5px)
+        scale(1.04);
+
+    box-shadow:
+        0 15px 40px
+        rgba(0,220,255,.40);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+
+    position: relative;
+
+    z-index: 2;
+
+    text-align: center;
+
+    padding:
+        25px 20px;
+
+    background:
+        rgba(0,0,0,.16);
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.08);
+
+    color:
+        rgba(255,255,255,.75);
+}
+
+
+footer p {
+
+    margin: 5px;
+}
+
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.loading {
+
+    text-align: center;
+
+    padding: 25px;
+
+    color:
+        rgba(255,255,255,.8);
+
+    animation:
+        loadingAnimation 1.5s ease-in-out infinite;
+}
+
+
+@keyframes loadingAnimation {
+
+    0%,
+    100% {
+        opacity: .45;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .daily-hero {
+
+        padding:
+            40px 15px 30px;
+    }
+
+
+    .daily-card {
+
+        margin:
+            18px 12px;
+
+        padding:
+            24px 18px;
+
+        border-radius:
+            20px;
+    }
+
+
+    #dailyOptions {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .daily-grid {
+
+        grid-template-columns:
+            1fr;
+
+        padding:
+            0 12px;
+    }
+
+
+    .daily-option {
+
+        min-height:
+            60px;
+    }
+
+
+    #dailyQuestion {
+
+        font-size:
+            20px;
+    }
+
+
+    .home-button {
+
+        width: 90%;
+
+        max-width: 320px;
+    }
 
 }
 
 
+/* =========================================================
+   VERY SMALL SCREENS
+========================================================= */
 
+@media (max-width: 400px) {
 
+    .daily-hero h1 {
 
-/* BUTTON */
+        font-size: 30px;
+    }
 
 
-.daily-btn{
+    .daily-hero h2 {
 
+        font-size: 22px;
+    }
 
-display:block;
 
+    .daily-card {
 
-width:max-content;
+        padding:
+            20px 15px;
+    }
 
 
-margin:30px auto;
+    .daily-btn {
 
-
-padding:16px 45px;
-
-
-border-radius:50px;
-
-
-background:
-
-linear-gradient(
-90deg,
-#00ffff,
-#ffe066
-);
-
-
-color:#002855;
-
-
-font-weight:bold;
-
-
-font-size:18px;
-
-
-text-decoration:none;
-
-
-box-shadow:
-
-0 0 25px cyan;
-
-
-transition:.4s;
-
-
-}
-
-
-
-
-.daily-btn:hover{
-
-
-transform:
-
-scale(1.12);
-
-
-}
-
-
-
-
-/* STATS */
-
-
-.daily-grid{
-
-
-display:grid;
-
-
-grid-template-columns:
-
-repeat(3,1fr);
-
-
-gap:25px;
-
-
-margin-top:45px;
-
-
-}
-
-
-
-
-.daily-stat{
-
-
-background:
-
-rgba(255,255,255,.18);
-
-
-padding:30px;
-
-
-border-radius:25px;
-
-
-text-align:center;
-
-
-backdrop-filter:
-
-blur(15px);
-
-
-transition:.4s;
-
-
-}
-
-
-
-.daily-stat:hover{
-
-
-transform:
-
-translateY(-15px);
-
-
-box-shadow:
-
-0 20px 40px rgba(0,0,0,.4);
-
-
-}
-
-
-
-.daily-stat h3{
-
-
-font-size:45px;
-
-
-margin:0;
-
-
-color:#00ffff;
-
-
-}
-
-
-
-
-
-/* MOBILE */
-
-
-@media(max-width:700px){
-
-
-.daily-page{
-
-padding:15px;
-
-}
-
-
-#dailyOptions{
-
-
-grid-template-columns:1fr;
-
-}
-
-
-.daily-grid{
-
-
-grid-template-columns:1fr;
-
-}
-
-
-.daily-hero h1{
-
-font-size:34px;
-
-}
-
+        width: 100%;
+    }
 
 }
