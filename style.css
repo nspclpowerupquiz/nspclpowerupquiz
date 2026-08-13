@@ -9855,3 +9855,137 @@ footer p {
     }
 
 }
+/* =========================================
+   GLOBAL FONT SIZE BOOST
+   NSPCL POWER UP SSC-C&M QUIZ
+========================================= */
+
+html {
+    font-size: 18px;
+}
+
+body {
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+/* Main headings */
+h1 {
+    font-size: 42px;
+}
+
+h2 {
+    font-size: 32px;
+}
+
+h3 {
+    font-size: 24px;
+}
+
+/* Paragraphs */
+p {
+    font-size: 19px;
+    line-height: 1.8;
+}
+
+/* Header */
+.header {
+    font-size: 18px;
+}
+
+.header nav a {
+    font-size: 17px;
+}
+
+.logo h2 {
+    font-size: 26px;
+}
+
+.logo span {
+    font-size: 16px;
+}
+
+/* About section */
+.about-section p {
+    font-size: 20px;
+    line-height: 1.9;
+}
+
+/* Feature cards */
+.feature-card p,
+.card p {
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.feature-card h3,
+.card h3 {
+    font-size: 23px;
+}
+
+/* Buttons */
+button,
+.btn {
+    font-size: 18px;
+}
+
+/* Statistics */
+.stat-card p,
+.stat-box p {
+    font-size: 18px;
+}
+
+.stat-card h2,
+.stat-box h2 {
+    font-size: 34px;
+}
+
+/* Footer */
+footer {
+    font-size: 17px;
+}
+
+footer p {
+    font-size: 17px;
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+    html {
+        font-size: 17px;
+    }
+
+    body {
+        font-size: 17px;
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+
+    h2 {
+        font-size: 27px;
+    }
+
+    h3 {
+        font-size: 21px;
+    }
+
+    p {
+        font-size: 18px;
+        line-height: 1.7;
+    }
+
+    .about-section p {
+        font-size: 18px;
+    }
+
+    .header nav a {
+        font-size: 16px;
+    }
+
+}
