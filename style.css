@@ -9618,3 +9618,240 @@ footer p {
     }
 
 }
+/* =========================================================
+   NSPCL POWERUP SSC-C&M QUIZ
+   GLOBAL FONT SIZE UPGRADE
+   Add this at the VERY BOTTOM of style.css
+========================================================= */
+
+
+/* =========================
+   GENERAL WEBSITE TEXT
+========================= */
+
+body {
+    font-size: 18px !important;
+}
+
+
+/* =========================
+   HEADER / NAVIGATION
+========================= */
+
+.logo h2 {
+    font-size: 25px !important;
+}
+
+.logo span {
+    font-size: 14px !important;
+}
+
+nav a {
+    font-size: 16px !important;
+}
+
+
+/* =========================
+   MAIN HEADINGS
+========================= */
+
+h1 {
+    font-size: 42px !important;
+}
+
+h2 {
+    font-size: 32px !important;
+}
+
+h3 {
+    font-size: 24px !important;
+}
+
+
+/* =========================
+   PARAGRAPHS
+========================= */
+
+p {
+    font-size: 18px !important;
+    line-height: 1.8 !important;
+}
+
+
+/* =========================
+   HERO SECTION
+========================= */
+
+.hero-content h1 {
+    font-size: 56px !important;
+}
+
+.hero-content h2 {
+    font-size: 32px !important;
+}
+
+.hero-content p {
+    font-size: 20px !important;
+    line-height: 1.8 !important;
+}
+
+
+/* =========================
+   ABOUT SECTION
+========================= */
+
+.about-section h2 {
+    font-size: 40px !important;
+}
+
+.about-section p {
+    font-size: 22px !important;
+    line-height: 2 !important;
+}
+
+
+/* =========================
+   STAT CARDS
+========================= */
+
+.stat-card h2 {
+    font-size: 44px !important;
+}
+
+.stat-card p {
+    font-size: 18px !important;
+}
+
+
+/* =========================
+   FEATURE SECTION
+========================= */
+
+.features > h2 {
+    font-size: 40px !important;
+}
+
+.feature-card h3 {
+    font-size: 23px !important;
+}
+
+.feature-card p {
+    font-size: 18px !important;
+    line-height: 1.8 !important;
+}
+
+
+/* =========================
+   CTA
+========================= */
+
+.cta h2 {
+    font-size: 42px !important;
+}
+
+.cta p {
+    font-size: 20px !important;
+    line-height: 1.8 !important;
+}
+
+.cta button {
+    font-size: 19px !important;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+button,
+.btn {
+    font-size: 17px !important;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer p {
+    font-size: 16px !important;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    body {
+        font-size: 17px !important;
+    }
+
+    h1 {
+        font-size: 34px !important;
+    }
+
+    h2 {
+        font-size: 28px !important;
+    }
+
+    h3 {
+        font-size: 21px !important;
+    }
+
+    p {
+        font-size: 17px !important;
+        line-height: 1.7 !important;
+    }
+
+    .logo h2 {
+        font-size: 20px !important;
+    }
+
+    .logo span {
+        font-size: 12px !important;
+    }
+
+    nav a {
+        font-size: 14px !important;
+    }
+
+    .hero-content h1 {
+        font-size: 36px !important;
+    }
+
+    .hero-content h2 {
+        font-size: 24px !important;
+    }
+
+    .hero-content p {
+        font-size: 17px !important;
+    }
+
+    .about-section h2 {
+        font-size: 30px !important;
+    }
+
+    .about-section p {
+        font-size: 18px !important;
+        line-height: 1.8 !important;
+    }
+
+    .features > h2 {
+        font-size: 30px !important;
+    }
+
+    .feature-card h3 {
+        font-size: 21px !important;
+    }
+
+    .feature-card p {
+        font-size: 17px !important;
+    }
+
+    .cta h2 {
+        font-size: 32px !important;
+    }
+
+}
