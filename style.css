@@ -8612,3 +8612,1009 @@ footer p {
     }
 
 }
+/* =========================================================
+   NSPCL POWERUP SSC-C&M QUIZ
+   PREMIUM HOME PAGE DESIGN
+========================================================= */
+
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: #ffffff;
+    background:
+        linear-gradient(
+            135deg,
+            #031b34,
+            #063b66,
+            #007ca8,
+            #031b34
+        );
+    background-size: 400% 400%;
+    animation: backgroundFlow 15s ease infinite;
+}
+
+@keyframes backgroundFlow {
+
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header {
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 15px 35px;
+
+    background:
+        rgba(3, 27, 52, 0.88);
+
+    backdrop-filter: blur(18px);
+
+    border-bottom:
+        1px solid
+        rgba(0, 229, 255, 0.35);
+
+    box-shadow:
+        0 5px 25px rgba(0, 0, 0, 0.25);
+
+}
+
+
+/* Logo */
+
+.logo h2 {
+
+    margin: 0;
+
+    font-size: 23px;
+
+    font-weight: 800;
+
+    color: #ffffff;
+
+    text-shadow:
+        0 0 12px
+        rgba(0, 229, 255, 0.55);
+
+}
+
+
+.logo span {
+
+    display: block;
+
+    margin-top: 3px;
+
+    font-size: 12px;
+
+    color: #b8efff;
+
+    letter-spacing: 1px;
+
+}
+
+
+/* Navigation */
+
+nav {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+}
+
+
+nav a {
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    padding: 9px 12px;
+
+    border-radius: 10px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    transition:
+        all 0.3s ease;
+
+}
+
+
+nav a:hover {
+
+    color: #001d32;
+
+    background: #4df6ff;
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 0 15px
+        rgba(77, 246, 255, 0.6);
+
+}
+
+
+#themeToggle {
+
+    border: none;
+
+    background:
+        rgba(255,255,255,0.12);
+
+    color: white;
+
+    width: 38px;
+
+    height: 38px;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    font-size: 18px;
+
+    transition: 0.3s;
+
+}
+
+
+#themeToggle:hover {
+
+    transform:
+        rotate(20deg)
+        scale(1.1);
+
+    background:
+        rgba(0,229,255,0.3);
+
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+
+    position: relative;
+
+    min-height: 570px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: hidden;
+
+}
+
+
+/* Video */
+
+.hero-video {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    z-index: 0;
+
+    filter:
+        brightness(0.55)
+        saturate(1.2);
+
+}
+
+
+/* Overlay */
+
+.hero-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 1;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0, 20, 45, 0.92),
+            rgba(0, 90, 130, 0.55),
+            rgba(0, 15, 35, 0.88)
+        );
+
+}
+
+
+/* Animated glow */
+
+.hero::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+
+    height: 500px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(0, 229, 255, 0.12);
+
+    filter: blur(80px);
+
+    right: -150px;
+
+    bottom: -200px;
+
+    z-index: 2;
+
+    animation:
+        heroGlow 6s ease-in-out infinite alternate;
+
+}
+
+
+@keyframes heroGlow {
+
+    from {
+        transform: scale(0.8);
+    }
+
+    to {
+        transform: scale(1.3);
+    }
+
+}
+
+
+/* Hero content */
+
+.hero-content {
+
+    position: relative;
+
+    z-index: 3;
+
+    text-align: center;
+
+    max-width: 1000px;
+
+    padding: 40px 25px;
+
+    animation:
+        heroEntrance 1.2s ease;
+
+}
+
+
+@keyframes heroEntrance {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(35px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+.hero-content h1 {
+
+    margin: 0 0 18px;
+
+    font-size:
+        clamp(38px, 5vw, 64px);
+
+    font-weight: 900;
+
+    letter-spacing: 0.5px;
+
+    color: #ffffff;
+
+    text-shadow:
+        0 0 10px rgba(0,229,255,.6),
+        0 0 30px rgba(0,150,255,.4);
+
+}
+
+
+.hero-content h2 {
+
+    margin: 0 0 20px;
+
+    font-size:
+        clamp(24px, 3vw, 34px);
+
+    color: #ffe36e;
+
+    font-weight: 800;
+
+}
+
+
+.hero-content p {
+
+    max-width: 850px;
+
+    margin: auto;
+
+    font-size: 19px;
+
+    line-height: 1.8;
+
+    color: #eefcff;
+
+}
+
+
+/* =========================================================
+   ABOUT SECTION
+========================================================= */
+
+.about-section {
+
+    position: relative;
+
+    padding: 80px 25px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,.07),
+            rgba(255,255,255,.02)
+        );
+
+}
+
+
+.about-section::before {
+
+    content: "";
+
+    display: block;
+
+    width: 90px;
+
+    height: 4px;
+
+    margin:
+        0 auto 25px;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #00e5ff,
+            #ffe36e
+        );
+
+    box-shadow:
+        0 0 15px
+        rgba(0,229,255,.7);
+
+}
+
+
+.about-section h2 {
+
+    font-size: 38px;
+
+    margin-bottom: 28px;
+
+    font-weight: 850;
+
+    color: #ffe36e;
+
+}
+
+
+.about-section p {
+
+    max-width: 1000px;
+
+    margin: auto;
+
+    font-size: 19px !important;
+
+    line-height: 1.9 !important;
+
+    font-weight: 500 !important;
+
+    color: #f2fbff !important;
+
+}
+
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.stats {
+
+    max-width: 1200px;
+
+    margin:
+        0 auto;
+
+    padding:
+        55px 25px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 20px;
+
+}
+
+
+.stat-card {
+
+    position: relative;
+
+    padding: 30px 20px;
+
+    text-align: center;
+
+    border-radius: 22px;
+
+    background:
+        rgba(255,255,255,.11);
+
+    border:
+        1px solid
+        rgba(255,255,255,.2);
+
+    backdrop-filter:
+        blur(15px);
+
+    box-shadow:
+        0 15px 35px
+        rgba(0,0,0,.18);
+
+    transition:
+        all .35s ease;
+
+    overflow: hidden;
+
+}
+
+
+.stat-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 100px;
+
+    height: 100px;
+
+    background:
+        rgba(0,229,255,.15);
+
+    border-radius: 50%;
+
+    top: -45px;
+
+    right: -45px;
+
+    filter: blur(5px);
+
+}
+
+
+.stat-card:hover {
+
+    transform:
+        translateY(-10px);
+
+    border-color:
+        rgba(0,229,255,.7);
+
+    box-shadow:
+        0 20px 45px
+        rgba(0,229,255,.2);
+
+}
+
+
+.stat-card h2 {
+
+    font-size: 44px;
+
+    margin: 0 0 10px;
+
+}
+
+
+.stat-card p {
+
+    margin: 0;
+
+    font-size: 17px;
+
+    font-weight: 700;
+
+    color: #ffffff;
+
+}
+
+
+/* =========================================================
+   FEATURES
+========================================================= */
+
+.features {
+
+    padding:
+        80px 25px;
+
+    text-align: center;
+
+}
+
+
+.features > h2 {
+
+    font-size: 38px;
+
+    margin-bottom: 45px;
+
+    color: #ffe36e;
+
+    font-weight: 850;
+
+}
+
+
+.feature-container {
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+
+}
+
+
+.feature-card {
+
+    position: relative;
+
+    padding: 35px 25px;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.14),
+            rgba(255,255,255,.06)
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,.2);
+
+    backdrop-filter:
+        blur(15px);
+
+    transition:
+        all .35s ease;
+
+    overflow: hidden;
+
+}
+
+
+.feature-card::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: 0;
+
+    width: 0;
+
+    height: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #00e5ff,
+            #ffe36e
+        );
+
+    transition:
+        width .4s ease;
+
+}
+
+
+.feature-card:hover {
+
+    transform:
+        translateY(-10px);
+
+    background:
+        rgba(255,255,255,.18);
+
+    border-color:
+        rgba(0,229,255,.65);
+
+    box-shadow:
+        0 20px 45px
+        rgba(0,0,0,.25);
+
+}
+
+
+.feature-card:hover::after {
+
+    width: 100%;
+
+}
+
+
+.feature-card .icon {
+
+    font-size: 46px;
+
+    margin-bottom: 12px;
+
+    display: inline-block;
+
+    transition:
+        transform .35s ease;
+
+}
+
+
+.feature-card:hover .icon {
+
+    transform:
+        scale(1.18)
+        rotate(5deg);
+
+}
+
+
+.feature-card h3 {
+
+    font-size: 21px;
+
+    margin:
+        10px 0 12px;
+
+    font-weight: 800;
+
+}
+
+
+.feature-card p {
+
+    font-size: 16px;
+
+    line-height: 1.7;
+
+    color: #e3f7ff;
+
+    margin: 0;
+
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.cta {
+
+    position: relative;
+
+    text-align: center;
+
+    padding:
+        90px 25px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0,229,255,.12),
+            rgba(255,227,110,.08)
+        );
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.12);
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.12);
+
+}
+
+
+.cta h2 {
+
+    font-size: 42px;
+
+    margin-bottom: 15px;
+
+    color: #ffffff;
+
+    font-weight: 900;
+
+}
+
+
+.cta p {
+
+    font-size: 19px;
+
+    color: #dff9ff;
+
+    margin-bottom: 30px;
+
+}
+
+
+.cta button {
+
+    border: none;
+
+    padding:
+        16px 35px;
+
+    border-radius: 50px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #00e5ff,
+            #ffe36e
+        );
+
+    color: #03243b;
+
+    font-size: 17px;
+
+    font-weight: 850;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 20px
+        rgba(0,229,255,.45);
+
+    transition:
+        all .3s ease;
+
+}
+
+
+.cta button:hover {
+
+    transform:
+        translateY(-5px)
+        scale(1.05);
+
+    box-shadow:
+        0 10px 35px
+        rgba(0,229,255,.55);
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+
+    padding:
+        30px 20px;
+
+    text-align: center;
+
+    background:
+        rgba(0,0,0,.25);
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.1);
+
+}
+
+
+footer p {
+
+    margin: 5px;
+
+    font-size: 14px;
+
+    color: #c9edf7;
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .header {
+
+        flex-direction: column;
+
+        gap: 15px;
+
+        padding: 15px;
+
+    }
+
+    nav {
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+    }
+
+    .stats {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+    .feature-container {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .hero {
+
+        min-height: 520px;
+
+    }
+
+    .hero-content h1 {
+
+        font-size: 35px;
+
+    }
+
+    .hero-content h2 {
+
+        font-size: 23px;
+
+    }
+
+    .hero-content p {
+
+        font-size: 16px;
+
+    }
+
+    .stats {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .feature-container {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .about-section h2,
+    .features > h2 {
+
+        font-size: 29px;
+
+    }
+
+    .about-section p {
+
+        font-size: 17px !important;
+
+    }
+
+    .cta h2 {
+
+        font-size: 32px;
+
+    }
+
+}
