@@ -9,7 +9,7 @@
 // ==========================
 
 const TOTAL_QUIZ_QUESTIONS = 30;
-const QUESTION_TIME = 5;
+const QUESTION_TIME = 15;
 
 
 // ==========================
