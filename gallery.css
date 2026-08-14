@@ -1,7 +1,7 @@
 /* =========================================================
    NSPCL POWER-UP GALLERY
-   CONSISTENT WITH HOME PAGE
-   Theme: Charcoal • Gold • Warm Orange
+   PREMIUM • LIVELY • MODERN
+   Theme: Sunset Orange + Violet + Pink + Mint
 ========================================================= */
 
 
@@ -17,42 +17,51 @@ html {
     scroll-behavior: smooth;
 }
 
-body.gallery-page {
-
+body {
     margin: 0;
+    min-height: 100vh;
 
     font-family:
         "Segoe UI",
         Arial,
         sans-serif;
 
-    color: #f8f5ef;
+    color: #ffffff;
 
-    min-height: 100vh;
+    overflow-x: hidden;
 
     background:
         radial-gradient(
-            circle at 10% 10%,
-            rgba(255, 183, 77, 0.10),
+            circle at 8% 15%,
+            rgba(255, 154, 92, 0.28),
+            transparent 27%
+        ),
+
+        radial-gradient(
+            circle at 92% 18%,
+            rgba(190, 100, 255, 0.28),
             transparent 28%
         ),
+
         radial-gradient(
-            circle at 90% 30%,
-            rgba(255, 126, 50, 0.08),
+            circle at 50% 85%,
+            rgba(79, 224, 184, 0.18),
             transparent 30%
         ),
+
         linear-gradient(
             135deg,
-            #171717,
-            #24211d,
-            #1d1c1a,
-            #29231d
+            #24152f,
+            #402044,
+            #302044,
+            #44253c,
+            #24152f
         );
 
-    background-size: 200% 200%;
+    background-size: 250% 250%;
 
     animation:
-        galleryBackground 18s ease infinite;
+        galleryBackground 18s ease-in-out infinite;
 }
 
 
@@ -74,16 +83,89 @@ body.gallery-page {
 
 
 /* =========================================================
+   FLOATING LIGHTS
+========================================================= */
+
+body::before,
+body::after {
+
+    content: "";
+
+    position: fixed;
+
+    width: 300px;
+    height: 300px;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    filter: blur(80px);
+
+    z-index: 0;
+}
+
+
+body::before {
+
+    left: -150px;
+    top: 30%;
+
+    background:
+        rgba(255, 128, 90, 0.18);
+
+    animation:
+        floatingLight 10s ease-in-out infinite;
+}
+
+
+body::after {
+
+    right: -150px;
+    bottom: 15%;
+
+    background:
+        rgba(190, 90, 255, 0.18);
+
+    animation:
+        floatingLight 12s ease-in-out infinite reverse;
+}
+
+
+@keyframes floatingLight {
+
+    0%,
+    100% {
+        transform:
+            translate(0, 0)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            translate(-30px, -50px)
+            scale(1.2);
+    }
+
+}
+
+
+/* =========================================================
    TOP NAVIGATION
 ========================================================= */
 
 .top-navbar {
 
+    position: relative;
+
+    z-index: 1000;
+
     width: 100%;
 
     min-height: 72px;
 
-    padding: 10px 28px;
+    padding:
+        10px 28px;
 
     display: flex;
 
@@ -91,23 +173,25 @@ body.gallery-page {
 
     justify-content: space-between;
 
-    gap: 20px;
+    gap: 25px;
 
     background:
-        rgba(25, 24, 22, 0.94);
+        linear-gradient(
+            135deg,
+            rgba(43, 20, 55, 0.94),
+            rgba(91, 42, 76, 0.92)
+        );
 
     border-bottom:
         1px solid
-        rgba(255, 193, 7, 0.20);
+        rgba(255,255,255,0.15);
 
     box-shadow:
         0 8px 30px
         rgba(0,0,0,0.30);
 
-    position: relative;
-
-    z-index: 1000;
-
+    backdrop-filter:
+        blur(18px);
 }
 
 
@@ -129,42 +213,56 @@ body.gallery-page {
 
 .brand-icon {
 
-    width: 46px;
+    width: 48px;
+    height: 48px;
 
-    height: 46px;
-
-    border-radius: 13px;
+    border-radius: 14px;
 
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 
-    font-size: 26px;
+    font-size: 28px;
 
     background:
         linear-gradient(
             135deg,
-            #ffd166,
-            #f28c28
+            #ffb347,
+            #ff6b6b,
+            #c77dff
         );
 
-    color: #241b12;
-
     box-shadow:
-        0 6px 18px
-        rgba(242,140,40,0.25);
+        0 6px 22px
+        rgba(255,130,100,0.35);
+
+    animation:
+        iconPulse 3s ease-in-out infinite;
+}
+
+
+@keyframes iconPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.06);
+    }
+
 }
 
 
 .brand-title {
 
-    font-size: 18px;
+    font-size: 19px;
 
     font-weight: 800;
 
-    letter-spacing: .5px;
+    letter-spacing: 1px;
 
     color: #ffffff;
 
@@ -174,18 +272,19 @@ body.gallery-page {
 
 .brand-subtitle {
 
-    font-size: 10px;
+    font-size: 11px;
 
-    letter-spacing: 1.8px;
+    letter-spacing: 2px;
 
-    color: #d8cfc3;
+    color:
+        #ffd6b3;
 
     margin-top: 4px;
 }
 
 
 /* =========================================================
-   NAV LINKS
+   NAVIGATION LINKS
 ========================================================= */
 
 .nav-links {
@@ -196,7 +295,7 @@ body.gallery-page {
 
     justify-content: flex-end;
 
-    gap: 6px;
+    gap: 7px;
 
     flex-wrap: wrap;
 }
@@ -208,13 +307,14 @@ body.gallery-page {
 
     align-items: center;
 
-    gap: 6px;
+    gap: 7px;
 
-    padding: 10px 13px;
+    padding:
+        11px 14px;
 
-    border-radius: 10px;
+    border-radius: 12px;
 
-    color: #eee9e1;
+    color: #ffffff;
 
     text-decoration: none;
 
@@ -226,19 +326,19 @@ body.gallery-page {
         1px solid transparent;
 
     transition:
-        all .25s ease;
+        transform .25s ease,
+        background .25s ease,
+        box-shadow .25s ease;
 }
 
 
 .nav-links a:hover {
 
-    color: #ffd166;
-
     background:
-        rgba(255,193,7,0.08);
+        rgba(255,255,255,0.10);
 
     border-color:
-        rgba(255,193,7,0.15);
+        rgba(255,255,255,0.16);
 
     transform:
         translateY(-2px);
@@ -246,26 +346,48 @@ body.gallery-page {
 
 
 /* =========================================================
-   ACTIVE GALLERY TAB
+   ACTIVE GALLERY
 ========================================================= */
 
 .nav-links a.active {
 
-    color: #241b12;
-
     background:
         linear-gradient(
             135deg,
-            #ffd166,
-            #f28c28
+            #ff9a5c,
+            #ff6f91,
+            #b76cff
         );
 
-    border-color:
-        rgba(255,255,255,0.25);
+    background-size:
+        200% 200%;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.35);
 
     box-shadow:
-        0 6px 18px
-        rgba(242,140,40,0.22);
+        0 6px 22px
+        rgba(255,110,140,0.35);
+
+    animation:
+        activeGallery 4s ease infinite;
+}
+
+
+@keyframes activeGallery {
+
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 
 }
 
@@ -278,65 +400,93 @@ body.gallery-page {
 
     position: relative;
 
+    z-index: 2;
+
     text-align: center;
 
     padding:
-        65px 20px 55px;
+        55px 20px 45px;
 
     background:
         linear-gradient(
             135deg,
-            rgba(255,193,7,0.10),
-            rgba(242,140,40,0.07),
-            transparent
+            rgba(255,154,92,0.14),
+            rgba(199,125,255,0.14),
+            rgba(79,224,184,0.08)
         );
 
     border-bottom:
         1px solid
-        rgba(255,255,255,0.06);
+        rgba(255,255,255,0.12);
+
+    backdrop-filter:
+        blur(12px);
+
+    animation:
+        headerAppear .8s ease;
+}
+
+
+@keyframes headerAppear {
+
+    from {
+        opacity: 0;
+        transform:
+            translateY(-25px);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0);
+    }
+
 }
 
 
 .gallery-header h1 {
 
-    margin: 0;
+    margin:
+        5px 0 12px;
 
-    font-size: clamp(32px, 5vw, 48px);
+    font-size:
+        clamp(32px, 5vw, 50px);
 
-    font-weight: 850;
+    font-weight: 900;
 
-    letter-spacing: .5px;
+    letter-spacing: 1px;
 
     background:
         linear-gradient(
             90deg,
-            #ffe29a,
             #ffd166,
-            #f6a23a,
-            #ffe29a
+            #ff8fab,
+            #c77dff,
+            #7fffd4,
+            #ffd166
         );
 
-    background-size: 250% auto;
+    background-size:
+        300% auto;
 
     -webkit-background-clip: text;
-
     background-clip: text;
 
     -webkit-text-fill-color: transparent;
 
     animation:
-        titleGlow 6s linear infinite;
+        titleFlow 6s linear infinite;
 }
 
 
-@keyframes titleGlow {
+@keyframes titleFlow {
 
     0% {
         background-position: 0% center;
     }
 
     100% {
-        background-position: 250% center;
+        background-position: 300% center;
     }
 
 }
@@ -344,58 +494,14 @@ body.gallery-page {
 
 .gallery-header p {
 
-    max-width: 700px;
+    margin: 0;
 
-    margin:
-        14px auto 0;
+    font-size: 18px;
 
-    font-size: 17px;
+    color:
+        rgba(255,240,245,0.88);
 
-    line-height: 1.6;
-
-    color: #d8d1c8;
-}
-
-
-/* =========================================================
-   SECTION TITLES
-========================================================= */
-
-.section-title {
-
-    text-align: center;
-
-    font-size: 30px;
-
-    color: #f5eee5;
-
-    margin:
-        50px 0 25px;
-}
-
-
-.section-title::after {
-
-    content: "";
-
-    display: block;
-
-    width: 65px;
-
-    height: 3px;
-
-    margin:
-        12px auto;
-
-    border-radius: 10px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #ffd166,
-            #f28c28
-        );
-
+    letter-spacing: .4px;
 }
 
 
@@ -405,96 +511,207 @@ body.gallery-page {
 
 .stats-container {
 
+    position: relative;
+
+    z-index: 2;
+
     display: grid;
 
     grid-template-columns:
         repeat(
             auto-fit,
-            minmax(200px, 1fr)
+            minmax(210px, 1fr)
         );
 
-    gap: 20px;
+    gap: 22px;
 
     padding:
-        25px 6%;
+        40px 6%;
 }
 
 
 .stat-card {
 
-    padding: 28px 20px;
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 28px;
 
     text-align: center;
+
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.15),
+            rgba(255,255,255,0.05)
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,0.18);
+
+    backdrop-filter:
+        blur(16px);
+
+    box-shadow:
+        0 15px 40px
+        rgba(0,0,0,0.25);
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+
+.stat-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 10%;
+
+    width: 80%;
+    height: 3px;
 
     border-radius: 20px;
 
     background:
         linear-gradient(
-            145deg,
-            rgba(255,255,255,0.09),
-            rgba(255,255,255,0.035)
+            90deg,
+            #ff9a5c,
+            #ff8fab,
+            #c77dff,
+            #7fffd4
         );
 
-    border:
-        1px solid
-        rgba(255,255,255,0.10);
+    animation:
+        statGlow 3s linear infinite;
+}
 
-    box-shadow:
-        0 12px 30px
-        rgba(0,0,0,0.22);
 
-    backdrop-filter:
-        blur(12px);
+@keyframes statGlow {
 
-    transition:
-        transform .3s ease,
-        border-color .3s ease;
+    0% {
+        transform: translateX(-20%);
+        opacity: .4;
+    }
+
+    50% {
+        transform: translateX(20%);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(-20%);
+        opacity: .4;
+    }
+
 }
 
 
 .stat-card:hover {
 
     transform:
-        translateY(-7px);
+        translateY(-9px);
 
-    border-color:
-        rgba(255,193,7,0.30);
+    box-shadow:
+        0 22px 50px
+        rgba(199,125,255,0.22);
 }
 
 
 .stat-card h2 {
 
-    margin: 0 0 8px;
+    margin:
+        0 0 10px;
 
-    font-size: 40px;
+    font-size: 43px;
 
-    color: #ffd166;
-}
+    color:
+        #ffd166;
 
-
-.stat-card p {
-
-    margin: 0;
-
-    color: #d7d0c7;
+    text-shadow:
+        0 0 18px
+        rgba(255,209,102,0.35);
 }
 
 
 /* =========================================================
-   WINNER SECTION
+   SECTION TITLES
+========================================================= */
+
+.section-title {
+
+    position: relative;
+
+    z-index: 2;
+
+    text-align: center;
+
+    font-size:
+        clamp(26px, 4vw, 34px);
+
+    margin:
+        45px 0 25px;
+
+    color: #ffffff;
+}
+
+
+.section-title::after {
+
+    content: "";
+
+    display: block;
+
+    width: 90px;
+
+    height: 4px;
+
+    margin:
+        12px auto;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff9a5c,
+            #ff8fab,
+            #c77dff,
+            #7fffd4
+        );
+
+    box-shadow:
+        0 0 15px
+        rgba(255,139,171,0.35);
+}
+
+
+/* =========================================================
+   WINNERS
 ========================================================= */
 
 .winner-container {
+
+    position: relative;
+
+    z-index: 2;
 
     display: grid;
 
     grid-template-columns:
         repeat(
             auto-fit,
-            minmax(240px,1fr)
+            minmax(250px,1fr)
         );
 
-    gap: 20px;
+    gap: 22px;
 
     padding:
         20px 6%;
@@ -505,55 +722,60 @@ body.gallery-page {
 
     padding: 24px;
 
-    border-radius: 18px;
+    border-radius: 22px;
+
+    color: #351b38;
 
     background:
         linear-gradient(
-            145deg,
-            #302b25,
-            #211f1c
+            135deg,
+            #fff4df,
+            #ffe4ef,
+            #eee1ff
         );
 
-    border:
-        1px solid
-        rgba(255,193,7,0.12);
-
     box-shadow:
-        0 12px 30px
+        0 15px 35px
         rgba(0,0,0,0.25);
 
     transition:
         transform .3s ease,
-        border-color .3s ease;
+        box-shadow .3s ease;
 }
 
 
 .winner-card:hover {
 
     transform:
-        translateY(-6px);
+        translateY(-8px);
 
-    border-color:
-        rgba(255,193,7,0.35);
+    box-shadow:
+        0 22px 45px
+        rgba(255,139,171,0.25);
 }
 
 
 .winner-card h3 {
 
-    color: #ffd166;
+    color:
+        #9b4dca;
 
     margin-top: 0;
 }
 
 
 /* =========================================================
-   GALLERY GRID
+   MAIN GALLERY GRID
 ========================================================= */
 
 .gallery-container {
 
+    position: relative;
+
+    z-index: 2;
+
     padding:
-        35px 6% 60px;
+        40px 6%;
 
     display: grid;
 
@@ -563,7 +785,7 @@ body.gallery-page {
             minmax(280px,1fr)
         );
 
-    gap: 26px;
+    gap: 30px;
 }
 
 
@@ -577,40 +799,65 @@ body.gallery-page {
 
     overflow: hidden;
 
-    border-radius: 20px;
+    border-radius: 25px;
 
     background:
-        #24221f;
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.16),
+            rgba(255,255,255,0.05)
+        );
 
     border:
         1px solid
-        rgba(255,255,255,0.10);
+        rgba(255,255,255,0.20);
+
+    backdrop-filter:
+        blur(15px);
 
     box-shadow:
-        0 15px 40px
-        rgba(0,0,0,0.28);
+        0 18px 45px
+        rgba(0,0,0,0.30);
 
     transition:
-        transform .35s ease,
-        box-shadow .35s ease,
-        border-color .35s ease;
+        transform .4s ease,
+        box-shadow .4s ease,
+        border-color .4s ease;
 
     animation:
-        slideUp .7s ease both;
+        cardAppear .7s ease both;
 }
 
 
 .gallery-card:hover {
 
     transform:
-        translateY(-8px);
+        translateY(-10px)
+        scale(1.015);
 
     border-color:
-        rgba(255,193,7,0.35);
+        rgba(255,209,102,0.45);
 
     box-shadow:
-        0 22px 50px
-        rgba(0,0,0,0.38);
+        0 28px 60px
+        rgba(199,125,255,0.28);
+}
+
+
+@keyframes cardAppear {
+
+    from {
+        opacity: 0;
+        transform:
+            translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0);
+    }
+
 }
 
 
@@ -620,69 +867,70 @@ body.gallery-page {
 
 .gallery-card img {
 
+    display: block;
+
     width: 100%;
 
-    height: 270px;
-
-    display: block;
+    height: 280px;
 
     object-fit: cover;
 
     transition:
-        transform .55s ease,
-        filter .55s ease;
+        transform .7s ease,
+        filter .5s ease;
 }
 
 
 .gallery-card:hover img {
 
     transform:
-        scale(1.06);
+        scale(1.10);
 
     filter:
         brightness(1.08)
-        saturate(1.08);
+        saturate(1.15);
 }
 
 
 /* =========================================================
-   IMAGE INFO
+   IMAGE SHINE
 ========================================================= */
 
-.gallery-info {
+.gallery-card::after {
 
-    padding:
-        18px 18px 20px;
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -120%;
+
+    width: 70%;
+    height: 100%;
+
+    pointer-events: none;
 
     background:
         linear-gradient(
-            180deg,
-            #292622,
-            #211f1c
+            90deg,
+            transparent,
+            rgba(255,255,255,0.22),
+            transparent
         );
+
+    transform:
+        skewX(-20deg);
+
+    transition:
+        left .8s ease;
+
+    z-index: 3;
 }
 
 
-.gallery-info h3 {
+.gallery-card:hover::after {
 
-    margin:
-        0 0 7px;
-
-    font-size: 20px;
-
-    color: #f7f0e8;
-}
-
-
-.gallery-info p {
-
-    margin: 0;
-
-    color: #cfc7bd;
-
-    line-height: 1.5;
-
-    font-size: 14px;
+    left: 140%;
 }
 
 
@@ -695,102 +943,77 @@ body.gallery-page {
     content:
         "⚡ NSPCL";
 
-    position:
-        absolute;
+    position: absolute;
 
-    top: 15px;
+    top: 16px;
+    left: 16px;
 
-    left: 15px;
+    z-index: 5;
 
     padding:
-        7px 13px;
+        7px 15px;
 
-    border-radius:
-        20px;
+    border-radius: 30px;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    color:
+        #402044;
 
     background:
         linear-gradient(
             135deg,
             #ffd166,
-            #f28c28
+            #ff9a5c
         );
 
-    color:
-        #2b2117;
-
-    font-size:
-        12px;
-
-    font-weight:
-        800;
-
-    z-index:
-        5;
-
     box-shadow:
-        0 5px 15px
-        rgba(0,0,0,0.25);
+        0 5px 18px
+        rgba(255,154,92,0.30);
 }
 
 
 /* =========================================================
-   BUTTONS
+   GALLERY INFORMATION
 ========================================================= */
 
-.gallery-page .btn,
-.gallery-page button {
+.gallery-info {
 
-    display: inline-flex;
+    position: relative;
 
-    align-items: center;
-
-    justify-content: center;
+    z-index: 4;
 
     padding:
-        11px 20px;
+        18px 20px 21px;
 
-    border: none;
-
-    border-radius: 10px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #ffd166,
-            #f28c28
-        );
-
-    color:
-        #251b12;
-
-    font-weight:
-        800;
-
-    text-decoration:
-        none;
-
-    cursor:
-        pointer;
-
-    box-shadow:
-        0 8px 20px
-        rgba(242,140,40,0.20);
-
-    transition:
-        transform .25s ease,
-        box-shadow .25s ease;
+    color: #ffffff;
 }
 
 
-.gallery-page .btn:hover,
-.gallery-page button:hover {
+.gallery-info h3 {
 
-    transform:
-        translateY(-3px);
+    margin:
+        0 0 8px;
 
-    box-shadow:
-        0 12px 28px
-        rgba(242,140,40,0.30);
+    font-size: 21px;
+
+    color:
+        #ffd6e5;
+}
+
+
+.gallery-info p {
+
+    margin: 0;
+
+    color:
+        rgba(255,255,255,0.75);
+
+    line-height: 1.6;
+
+    font-size: 14px;
 }
 
 
@@ -806,60 +1029,88 @@ body.gallery-page {
 
     inset: 0;
 
-    padding: 25px;
+    z-index: 99999;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
 
     background:
-        rgba(10,10,10,0.90);
+        rgba(25,10,30,0.90);
 
-    justify-content:
-        center;
-
-    align-items:
-        center;
-
-    z-index:
-        99999;
+    backdrop-filter:
+        blur(10px);
 }
 
 
 .popup img {
 
-    max-width:
-        min(92%, 1100px);
+    max-width: 92%;
 
-    max-height:
-        82vh;
+    max-height: 82vh;
 
-    border-radius:
-        15px;
+    object-fit: contain;
+
+    border-radius: 20px;
+
+    border:
+        2px solid
+        rgba(255,255,255,0.25);
 
     box-shadow:
-        0 20px 60px
+        0 25px 70px
         rgba(0,0,0,0.60);
+
+    animation:
+        popupAppear .35s ease;
+}
+
+
+@keyframes popupAppear {
+
+    from {
+        opacity: 0;
+        transform:
+            scale(.85);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            scale(1);
+    }
+
 }
 
 
 /* =========================================================
-   ANIMATION
+   FOOTER
 ========================================================= */
 
-@keyframes slideUp {
+footer {
 
-    from {
+    position: relative;
 
-        opacity: 0;
+    z-index: 2;
 
-        transform:
-            translateY(30px);
-    }
+    margin-top: 30px;
 
-    to {
+    padding:
+        25px 20px;
 
-        opacity: 1;
+    text-align: center;
 
-        transform:
-            translateY(0);
-    }
+    background:
+        rgba(25,10,35,0.55);
+
+    border-top:
+        1px solid
+        rgba(255,255,255,0.10);
+
+    color:
+        rgba(255,255,255,0.75);
 }
 
 
@@ -871,11 +1122,10 @@ body.gallery-page {
 
     .top-navbar {
 
+        flex-direction: column;
+
         padding:
             12px 15px;
-
-        flex-direction:
-            column;
 
         gap: 12px;
     }
@@ -885,8 +1135,7 @@ body.gallery-page {
 
         width: 100%;
 
-        justify-content:
-            center;
+        justify-content: center;
     }
 
 
@@ -894,64 +1143,56 @@ body.gallery-page {
 
         width: 100%;
 
-        justify-content:
-            center;
+        justify-content: center;
 
-        gap: 4px;
+        gap: 5px;
     }
 
 
     .nav-links a {
 
         padding:
-            8px 10px;
+            9px 10px;
 
-        font-size:
-            12px;
+        font-size: 13px;
     }
 
 
     .gallery-header {
 
         padding:
-            45px 18px;
-    }
-
-
-    .gallery-header h1 {
-
-        font-size:
-            32px;
+            40px 15px 32px;
     }
 
 
     .gallery-header p {
 
-        font-size:
-            15px;
-    }
-
-
-    .gallery-container {
-
-        padding:
-            25px 15px 45px;
-
-        gap: 18px;
-    }
-
-
-    .gallery-card img {
-
-        height:
-            220px;
+        font-size: 15px;
     }
 
 
     .stats-container {
 
         padding:
-            20px 15px;
+            25px 15px;
+    }
+
+
+    .gallery-container {
+
+        padding:
+            25px 15px;
+
+        grid-template-columns:
+            1fr;
+
+        gap: 22px;
+    }
+
+
+    .gallery-card img {
+
+        height: 230px;
     }
 
 
@@ -972,31 +1213,22 @@ body.gallery-page {
 
     .brand-icon {
 
-        width:
-            40px;
+        width: 42px;
+        height: 42px;
 
-        height:
-            40px;
-
-        font-size:
-            22px;
+        font-size: 23px;
     }
 
 
     .brand-title {
 
-        font-size:
-            15px;
+        font-size: 16px;
     }
 
 
     .brand-subtitle {
 
-        font-size:
-            8px;
-
-        letter-spacing:
-            1px;
+        font-size: 9px;
     }
 
 
@@ -1005,29 +1237,31 @@ body.gallery-page {
         padding:
             7px 8px;
 
-        font-size:
-            11px;
+        font-size: 11px;
     }
 
 
     .gallery-header h1 {
 
-        font-size:
-            28px;
+        font-size: 29px;
     }
 
 
-    .section-title {
+    .stat-card h2 {
 
-        font-size:
-            25px;
+        font-size: 36px;
+    }
+
+
+    .gallery-card {
+
+        border-radius: 20px;
     }
 
 
     .gallery-card img {
 
-        height:
-            200px;
+        height: 210px;
     }
 
 }
