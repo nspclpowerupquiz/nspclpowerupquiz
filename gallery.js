@@ -13,6 +13,40 @@ const SCRIPT_URL =
 
 
 // =======================================
+// FIXED GALLERY IMAGE → TITLE MAPPING
+// API DOES NOT NEED TO BE CHANGED
+// =======================================
+
+const GALLERY_TITLES = {
+
+    "gallery1.jpg": "Vendor Meet",
+
+    "gallery2.jpg": "C&M Initiatives",
+
+    "gallery3.jpg": "Monthly Reward Session",
+
+    "gallery4.jpg": "Training Program",
+
+    "gallery5.jpg": "Reward to Support Staff",
+
+    "gallery6.jpg": "Team Collaboration",
+
+    "gallery7.jpg": "Welcome & Farewell",
+
+    "gallery8.jpg": "Reward to Support Staff",
+
+    "gallery9.jpg": "Retirement Celebration",
+
+    "gallery10.jpg": "Materials Management",
+
+    "gallery11.jpg": "Vendor Management",
+
+    "gallery12.jpg": "Professional Meet"
+
+};
+
+
+// =======================================
 // LOAD GALLERY
 // =======================================
 
@@ -187,7 +221,6 @@ function loadGallery() {
 }
 
 
-
 // =======================================
 // SHOW EMPTY GALLERY
 // =======================================
@@ -213,6 +246,142 @@ function showNoGallery(gallery) {
 
 }
 
+
+// =======================================
+// GET FILE NAME FROM IMAGE URL
+// =======================================
+
+function getImageFileName(url) {
+
+    if (!url) {
+
+        return "";
+
+    }
+
+
+    url = String(url).trim();
+
+
+    // Remove query parameters
+
+    const cleanURL =
+        url.split("?")[0];
+
+
+    // Get last part of URL
+
+    const parts =
+        cleanURL.split("/");
+
+
+    let fileName =
+        parts[parts.length - 1];
+
+
+    // Decode URL if required
+
+    try {
+
+        fileName =
+            decodeURIComponent(fileName);
+
+    }
+
+    catch (error) {
+
+        console.warn(
+            "Could not decode filename:",
+            fileName
+        );
+
+    }
+
+
+    return fileName.toLowerCase().trim();
+
+}
+
+
+// =======================================
+// GET FIXED GALLERY TITLE
+// =======================================
+
+function getGalleryTitle(imageURL, fallbackTitle, index) {
+
+    const fileName =
+        getImageFileName(imageURL);
+
+
+    // =======================================
+    // DIRECT FILE NAME MATCH
+    // =======================================
+
+    if (
+        GALLERY_TITLES[fileName]
+    ) {
+
+        return GALLERY_TITLES[fileName];
+
+    }
+
+
+    // =======================================
+    // HANDLE GOOGLE DRIVE URLs
+    // =======================================
+
+    const galleryNumberMatch =
+        imageURL.match(
+            /gallery\s*([0-9]+)/i
+        );
+
+
+    if (
+        galleryNumberMatch
+    ) {
+
+        const galleryNumber =
+            galleryNumberMatch[1];
+
+
+        const mappedFile =
+            "gallery" +
+            galleryNumber +
+            ".jpg";
+
+
+        if (
+            GALLERY_TITLES[mappedFile]
+        ) {
+
+            return GALLERY_TITLES[mappedFile];
+
+        }
+
+    }
+
+
+    // =======================================
+    // FALLBACK
+    // =======================================
+
+    if (
+        fallbackTitle &&
+        String(fallbackTitle).trim() !== ""
+    ) {
+
+        return String(
+            fallbackTitle
+        ).trim();
+
+    }
+
+
+    return (
+        "NSPCL Power-Up Quiz"
+    );
+
+}
 
 
 // =======================================
@@ -243,6 +412,26 @@ function createGalleryCard(
 
 
     // =======================================
+    // GET CORRECT FIXED TITLE
+    // =======================================
+
+    const displayTitle =
+        getGalleryTitle(
+            imageURL,
+            item.title,
+            index
+        );
+
+
+    console.log(
+        "Gallery:",
+        imageURL,
+        "→",
+        displayTitle
+    );
+
+
+    // =======================================
     // IMAGE
     // =======================================
 
@@ -255,8 +444,7 @@ function createGalleryCard(
 
 
     img.alt =
-        item.title ||
-        "NSPCL Power-Up Quiz";
+        displayTitle;
 
 
     img.loading =
@@ -311,7 +499,10 @@ function createGalleryCard(
 
             if (imageURL) {
 
-                openImage(imageURL);
+                openImage(
+                    imageURL,
+                    displayTitle
+                );
 
             }
 
@@ -332,8 +523,7 @@ function createGalleryCard(
 
 
     title.textContent =
-        item.title ||
-        "NSPCL Power-Up Quiz";
+        displayTitle;
 
 
     // =======================================
@@ -377,7 +567,9 @@ function createGalleryCard(
     card.appendChild(title);
 
 
-    if (info.children.length > 0) {
+    if (
+        info.children.length > 0
+    ) {
 
         card.appendChild(info);
 
@@ -387,7 +579,6 @@ function createGalleryCard(
     gallery.appendChild(card);
 
 }
-
 
 
 // =======================================
@@ -522,12 +713,14 @@ function convertDriveLink(url) {
 }
 
 
-
 // =======================================
 // IMAGE POPUP
 // =======================================
 
-function openImage(src) {
+function openImage(
+    src,
+    titleText
+) {
 
     if (!src) {
 
@@ -561,7 +754,25 @@ function openImage(src) {
 
 
     image.alt =
+        titleText ||
         "NSPCL Gallery Image";
+
+
+    // =======================================
+    // TITLE IN POPUP
+    // =======================================
+
+    const popupTitle =
+        document.createElement("div");
+
+
+    popupTitle.className =
+        "gallery-popup-title";
+
+
+    popupTitle.textContent =
+        titleText ||
+        "NSPCL Power-Up Quiz";
 
 
     // =======================================
@@ -594,9 +805,19 @@ function openImage(src) {
         };
 
 
-    popup.appendChild(image);
+    popup.appendChild(
+        image
+    );
 
-    popup.appendChild(close);
+
+    popup.appendChild(
+        popupTitle
+    );
+
+
+    popup.appendChild(
+        close
+    );
 
 
     // =======================================
@@ -622,7 +843,6 @@ function openImage(src) {
     );
 
 }
-
 
 
 // =======================================
