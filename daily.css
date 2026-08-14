@@ -40,10 +40,11 @@ background:
         transparent 30%
     ),
     linear-gradient(
-        135deg,
-        #180b28,
-        #35133f,
-        #24102f
+       135deg,
+            #020b24,
+            #061a40,
+            #082b5c,
+            #03132f
     );
 
 }
