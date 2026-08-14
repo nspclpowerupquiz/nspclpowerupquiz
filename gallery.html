@@ -12,6 +12,7 @@
 
 <link rel="stylesheet" href="style.css">
 
+
 <style>
 
 /* =========================================================
@@ -19,78 +20,101 @@
 ========================================================= */
 
 body {
+
     margin: 0;
-    font-family: 'Segoe UI', Arial, sans-serif;
+
+    font-family:
+        'Segoe UI',
+        Arial,
+        sans-serif;
 
     background:
-        linear-gradient(135deg, #001f3f, #0074a8);
+        linear-gradient(
+            135deg,
+            #001f3f,
+            #0074a8
+        );
 
     color: white;
 
     min-height: 100vh;
+
 }
 
 
-<!-- =======================================================
-     ATTRACTIVE GALLERY NAVIGATION BAR
-======================================================= -->
+/* =========================================================
+   NAVIGATION
+========================================================= */
 
-<nav class="top-navbar">
+nav {
 
-    <!-- BRAND -->
-    <div class="nav-brand">
+    display: flex;
 
-        <div class="brand-icon">
-            ⚡
-        </div>
+    justify-content: center;
 
-        <div class="brand-text">
+    align-items: center;
 
-            <div class="brand-title">
-                NSPCL POWER-UP
-            </div>
+    flex-wrap: wrap;
 
-            <div class="brand-subtitle">
-                SSC-C&M QUIZ
-            </div>
+    gap: 10px;
 
-        </div>
+    padding: 15px 20px;
 
-    </div>
+    background:
+        rgba(0, 0, 0, 0.25);
+
+    backdrop-filter:
+        blur(12px);
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,0.15);
+
+}
 
 
-    <!-- NAVIGATION -->
-    <div class="nav-links">
+nav a {
 
-        <a href="index.html">
-            🏠
-            <span>Home</span>
-        </a>
+    color: white;
 
-        <a href="quiz.html">
-            ⚡
-            <span>Start Quiz</span>
-        </a>
+    text-decoration: none;
 
-        <a href="leaderboard.html">
-            🏆
-            <span>Leaderboard</span>
-        </a>
+    padding:
+        10px 16px;
 
-        <a href="analytics.html">
-            📊
-            <span>Analytics</span>
-        </a>
+    border-radius: 12px;
 
-        <a href="gallery.html"
-           class="active">
-            📸
-            <span>Gallery</span>
-        </a>
+    font-size: 15px;
 
-    </div>
+    font-weight: 600;
 
-</nav>
+    transition:
+        all 0.3s ease;
+
+}
+
+
+nav a:hover {
+
+    background:
+        rgba(255,255,255,0.15);
+
+    transform:
+        translateY(-2px);
+
+}
+
+
+nav a.active {
+
+    background:
+        rgba(255,255,255,0.22);
+
+    box-shadow:
+        0 4px 15px
+        rgba(0,0,0,0.20);
+
+}
 
 
 /* =========================================================
@@ -101,25 +125,33 @@ body {
 
     text-align: center;
 
-    padding: 45px 20px;
+    padding:
+        45px 20px;
 
     background:
         rgba(255,255,255,0.10);
 
-    backdrop-filter: blur(12px);
+    backdrop-filter:
+        blur(12px);
 
     border-bottom:
-        1px solid rgba(255,255,255,0.15);
+        1px solid
+        rgba(255,255,255,0.15);
+
 }
+
 
 .gallery-header h1 {
 
     font-size: 42px;
 
-    margin: 10px 0;
+    margin:
+        10px 0;
 
     font-weight: 700;
+
 }
+
 
 .gallery-header p {
 
@@ -127,7 +159,9 @@ body {
 
     color: #d9f7ff;
 
-    margin: 10px 0;
+    margin:
+        10px 0;
+
 }
 
 
@@ -140,7 +174,10 @@ body {
     display: grid;
 
     grid-template-columns:
-        repeat(auto-fit, minmax(210px, 1fr));
+        repeat(
+            auto-fit,
+            minmax(210px,1fr)
+        );
 
     gap: 25px;
 
@@ -149,7 +186,9 @@ body {
     max-width: 1300px;
 
     margin: auto;
+
 }
+
 
 .stat-card {
 
@@ -163,18 +202,25 @@ body {
     text-align: center;
 
     box-shadow:
-        0 10px 25px rgba(0,0,0,0.30);
+        0 10px 25px
+        rgba(0,0,0,0.30);
 
-    backdrop-filter: blur(10px);
+    backdrop-filter:
+        blur(10px);
 
-    transition: 0.4s;
+    transition:
+        0.4s;
+
 }
+
 
 .stat-card:hover {
 
     transform:
         translateY(-8px);
+
 }
+
 
 .stat-card h2 {
 
@@ -182,16 +228,21 @@ body {
 
     color: #00ffff;
 
-    margin: 5px 0 10px;
+    margin:
+        5px 0 10px;
 
-    word-break: break-word;
+    word-break:
+        break-word;
+
 }
+
 
 .stat-card p {
 
     margin: 0;
 
     font-size: 16px;
+
 }
 
 
@@ -207,6 +258,7 @@ body {
 
     margin:
         35px 20px 15px;
+
 }
 
 
@@ -219,16 +271,22 @@ body {
     display: grid;
 
     grid-template-columns:
-        repeat(auto-fit, minmax(250px, 1fr));
+        repeat(
+            auto-fit,
+            minmax(250px,1fr)
+        );
 
     gap: 20px;
 
-    padding: 25px 35px;
+    padding:
+        25px 35px;
 
     max-width: 1300px;
 
     margin: auto;
+
 }
+
 
 .winner-card {
 
@@ -241,22 +299,29 @@ body {
     border-radius: 18px;
 
     box-shadow:
-        0 8px 20px rgba(0,0,0,0.25);
+        0 8px 20px
+        rgba(0,0,0,0.25);
 
-    transition: 0.3s;
+    transition:
+        0.3s;
+
 }
+
 
 .winner-card:hover {
 
     transform:
         translateY(-6px);
+
 }
+
 
 .winner-card h3 {
 
     margin-top: 0;
 
     color: #0066cc;
+
 }
 
 
@@ -269,7 +334,10 @@ body {
     display: grid;
 
     grid-template-columns:
-        repeat(auto-fit, minmax(280px, 1fr));
+        repeat(
+            auto-fit,
+            minmax(280px,1fr)
+        );
 
     gap: 25px;
 
@@ -278,6 +346,7 @@ body {
     max-width: 1400px;
 
     margin: auto;
+
 }
 
 
@@ -298,15 +367,20 @@ body {
     cursor: pointer;
 
     box-shadow:
-        0 8px 25px rgba(0,0,0,0.28);
+        0 8px 25px
+        rgba(0,0,0,0.28);
 
     transition:
         transform 0.35s,
         box-shadow 0.35s;
 
     animation:
-        galleryAppear 0.6s ease;
+        galleryAppear
+        0.6s
+        ease;
+
 }
+
 
 .gallery-card:hover {
 
@@ -315,7 +389,9 @@ body {
         scale(1.02);
 
     box-shadow:
-        0 15px 35px rgba(0,0,0,0.35);
+        0 15px 35px
+        rgba(0,0,0,0.35);
+
 }
 
 
@@ -333,16 +409,20 @@ body {
 
     display: block;
 
-    background: #eeeeee;
+    background:
+        #eeeeee;
 
     transition:
         transform 0.4s;
+
 }
+
 
 .gallery-card:hover img {
 
     transform:
         scale(1.04);
+
 }
 
 
@@ -352,8 +432,11 @@ body {
 
 .gallery-info {
 
-    padding: 16px 18px 20px;
+    padding:
+        16px 18px 20px;
+
 }
+
 
 .gallery-info h3 {
 
@@ -362,19 +445,25 @@ body {
 
     font-size: 20px;
 
-    color: #0066cc;
+    color:
+        #0066cc;
+
 }
+
 
 .gallery-info p {
 
     margin:
         5px 0;
 
-    color: #555;
+    color:
+        #555;
 
     font-size: 14px;
 
-    line-height: 1.5;
+    line-height:
+        1.5;
+
 }
 
 
@@ -394,30 +483,43 @@ body {
 
     justify-content: center;
 
-    background: #eeeeee;
+    background:
+        #eeeeee;
 
-    color: #777;
+    color:
+        #777;
 
     text-align: center;
 
-    padding: 10px;
+    padding:
+        10px;
 
-    box-sizing: border-box;
+    box-sizing:
+        border-box;
 
-    font-weight: 600;
+    font-weight:
+        600;
+
 }
+
 
 .image-error small {
 
-    margin-top: 8px;
+    margin-top:
+        8px;
 
-    font-size: 10px;
+    font-size:
+        10px;
 
-    font-weight: normal;
+    font-weight:
+        normal;
 
-    word-break: break-all;
+    word-break:
+        break-all;
 
-    max-width: 90%;
+    max-width:
+        90%;
+
 }
 
 
@@ -429,12 +531,15 @@ body {
 
     text-align: center;
 
-    padding: 50px 20px;
+    padding:
+        50px 20px;
 
-    font-size: 20px;
+    font-size:
+        20px;
 
     grid-column:
         1 / -1;
+
 }
 
 
@@ -459,50 +564,74 @@ body {
     background:
         rgba(0,0,0,0.90);
 
-    justify-content: center;
+    justify-content:
+        center;
 
-    align-items: center;
+    align-items:
+        center;
 
-    z-index: 9999;
+    z-index:
+        9999;
 
-    cursor: pointer;
+    cursor:
+        pointer;
 
-    padding: 20px;
+    padding:
+        20px;
 
-    box-sizing: border-box;
+    box-sizing:
+        border-box;
+
 }
+
 
 .popup img {
 
-    max-width: 92%;
+    max-width:
+        92%;
 
-    max-height: 88%;
+    max-height:
+        88%;
 
-    border-radius: 20px;
+    border-radius:
+        20px;
 
     box-shadow:
-        0 10px 50px rgba(0,0,0,0.8);
+        0 10px 50px
+        rgba(0,0,0,0.8);
 
-    object-fit: contain;
+    object-fit:
+        contain;
+
 }
+
 
 .close {
 
-    position: absolute;
+    position:
+        absolute;
 
-    right: 30px;
+    right:
+        30px;
 
-    top: 15px;
+    top:
+        15px;
 
-    font-size: 45px;
+    font-size:
+        45px;
 
-    cursor: pointer;
+    cursor:
+        pointer;
 
-    color: white;
+    color:
+        white;
 
-    z-index: 10000;
+    z-index:
+        10000;
 
-    line-height: 1;
+    line-height:
+        1;
+
 }
 
 
@@ -514,7 +643,8 @@ body {
 
     from {
 
-        opacity: 0;
+        opacity:
+            0;
 
         transform:
             translateY(20px);
@@ -523,7 +653,8 @@ body {
 
     to {
 
-        opacity: 1;
+        opacity:
+            1;
 
         transform:
             translateY(0);
@@ -541,102 +672,136 @@ body {
 
     nav {
 
-        padding: 12px;
+        padding:
+            12px;
 
-        gap: 8px;
+        gap:
+            6px;
 
     }
+
 
     nav a {
 
-        font-size: 14px;
+        font-size:
+            13px;
 
-        padding: 7px 9px;
+        padding:
+            8px 10px;
 
     }
+
 
     .gallery-header {
 
-        padding: 30px 15px;
+        padding:
+            30px 15px;
 
     }
+
 
     .gallery-header h1 {
 
-        font-size: 29px;
+        font-size:
+            29px;
 
     }
+
 
     .gallery-header p {
 
-        font-size: 15px;
+        font-size:
+            15px;
 
     }
+
 
     .stats-container {
 
-        padding: 20px;
+        padding:
+            20px;
 
-        gap: 15px;
+        gap:
+            15px;
 
     }
+
 
     .stat-card {
 
-        padding: 20px;
+        padding:
+            20px;
 
     }
+
 
     .stat-card h2 {
 
-        font-size: 32px;
+        font-size:
+            32px;
 
     }
+
 
     .section-title {
 
-        font-size: 25px;
+        font-size:
+            25px;
 
     }
+
 
     .winner-container {
 
-        padding: 20px;
+        padding:
+            20px;
 
     }
 
+
     .gallery-container {
 
-        padding: 20px;
+        padding:
+            20px;
 
         grid-template-columns:
             1fr;
 
-        gap: 20px;
+        gap:
+            20px;
 
     }
+
 
     .gallery-card img {
 
-        height: 220px;
+        height:
+            220px;
 
     }
+
 
     .popup img {
 
-        max-width: 96%;
+        max-width:
+            96%;
 
-        max-height: 80%;
+        max-height:
+            80%;
 
     }
 
+
     .close {
 
-        right: 18px;
+        right:
+            18px;
 
-        top: 10px;
+        top:
+            10px;
 
-        font-size: 38px;
+        font-size:
+            38px;
 
     }
 
@@ -647,14 +812,19 @@ body {
    TABLET
 ========================================================= */
 
-@media (min-width: 601px) and (max-width: 900px) {
+@media (
+    min-width: 601px
+) and (
+    max-width: 900px
+) {
 
     .gallery-container {
 
         grid-template-columns:
-            repeat(2, 1fr);
+            repeat(2,1fr);
 
-        padding: 25px;
+        padding:
+            25px;
 
     }
 
@@ -670,7 +840,7 @@ body {
     .gallery-container {
 
         grid-template-columns:
-            repeat(4, 1fr);
+            repeat(4,1fr);
 
     }
 
@@ -876,7 +1046,7 @@ const SCRIPT_URL =
 // ============================================================
 
 window.addEventListener(
-    "load",
+    "DOMContentLoaded",
     function() {
 
         loadStats();
@@ -894,7 +1064,9 @@ window.addEventListener(
 function loadStats() {
 
     fetch(
-        SCRIPT_URL + "?action=stats"
+        SCRIPT_URL +
+        "?action=stats&t=" +
+        Date.now()
     )
 
     .then(function(response) {
@@ -953,7 +1125,7 @@ function loadStats() {
         ) {
 
             data.top.forEach(
-                function(item, index) {
+                function(item,index) {
 
                     html += `
 
@@ -1075,11 +1247,19 @@ function loadGallery() {
 
 
     // ========================================================
-    // FETCH GOOGLE APPS SCRIPT
+    // API REQUEST
     // ========================================================
 
     fetch(
-        SCRIPT_URL + "?action=gallery"
+        SCRIPT_URL +
+        "?action=gallery&t=" +
+        Date.now(),
+
+        {
+            method: "GET",
+
+            cache: "no-store"
+        }
     )
 
     .then(function(response) {
@@ -1113,12 +1293,68 @@ function loadGallery() {
 
 
         // ====================================================
-        // CHECK DATA
+        // EXPECTED API RESPONSE:
+        //
+        // {
+        //   status: "success",
+        //   count: 12,
+        //   gallery: [...]
+        // }
         // ====================================================
 
         if (
-            !Array.isArray(data) ||
-            data.length === 0
+            !data ||
+            data.status !== "success" ||
+            !Array.isArray(data.gallery)
+        ) {
+
+            console.error(
+                "Invalid Gallery API response:",
+                data
+            );
+
+
+            gallery.innerHTML = `
+
+                <div class="loading">
+
+                    ⚠️ Invalid Gallery Data
+
+                    <br>
+
+                    <small>
+                        Please check the Google Apps Script.
+                    </small>
+
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+
+        // ====================================================
+        // GET GALLERY ARRAY
+        // ====================================================
+
+        const galleryData =
+            data.gallery;
+
+
+        console.log(
+            "Gallery Count:",
+            galleryData.length
+        );
+
+
+        // ====================================================
+        // NO IMAGES
+        // ====================================================
+
+        if (
+            galleryData.length === 0
         ) {
 
             gallery.innerHTML = `
@@ -1144,21 +1380,23 @@ function loadGallery() {
 
 
         // ====================================================
-        // CREATE EACH GALLERY CARD
+        // CREATE GALLERY CARDS
         // ====================================================
 
-        data.forEach(
-            function(item, index) {
+        galleryData.forEach(
+            function(item,index) {
 
 
                 // --------------------------------------------
-                // GET IMAGE URL DIRECTLY FROM SHEET
+                // IMAGE URL
                 // --------------------------------------------
 
                 const imageURL =
-                    String(
-                        item.image || ""
-                    ).trim();
+                    item.image
+                        ? String(
+                            item.image
+                          ).trim()
+                        : "";
 
 
                 console.log(
@@ -1170,7 +1408,7 @@ function loadGallery() {
 
 
                 // --------------------------------------------
-                // CREATE CARD
+                // CARD
                 // --------------------------------------------
 
                 const card =
@@ -1209,29 +1447,10 @@ function loadGallery() {
 
 
                     // ----------------------------------------
-                    // CLICK IMAGE
+                    // IMAGE SUCCESS
                     // ----------------------------------------
 
-                    img.addEventListener(
-                        "click",
-                        function(event) {
-
-                            event.stopPropagation();
-
-                            openPopup(
-                                imageURL
-                            );
-
-                        }
-                    );
-
-
-                    // ----------------------------------------
-                    // IMAGE LOAD SUCCESS
-                    // ----------------------------------------
-
-                    img.addEventListener(
-                        "load",
+                    img.onload =
                         function() {
 
                             console.log(
@@ -1239,16 +1458,14 @@ function loadGallery() {
                                 imageURL
                             );
 
-                        }
-                    );
+                        };
 
 
                     // ----------------------------------------
-                    // IMAGE LOAD ERROR
+                    // IMAGE ERROR
                     // ----------------------------------------
 
-                    img.addEventListener(
-                        "error",
+                    img.onerror =
                         function() {
 
                             console.error(
@@ -1257,7 +1474,7 @@ function loadGallery() {
                             );
 
 
-                            img.style.display =
+                            this.style.display =
                                 "none";
 
 
@@ -1276,9 +1493,11 @@ function loadGallery() {
                                 ⚠️ Image could not be loaded
 
                                 <small>
+
                                     ${escapeHTML(
                                         imageURL
                                     )}
+
                                 </small>
 
                             `;
@@ -1287,6 +1506,23 @@ function loadGallery() {
                             card.insertBefore(
                                 errorBox,
                                 card.firstChild
+                            );
+
+                        };
+
+
+                    // ----------------------------------------
+                    // OPEN POPUP
+                    // ----------------------------------------
+
+                    img.addEventListener(
+                        "click",
+                        function(event) {
+
+                            event.stopPropagation();
+
+                            openPopup(
+                                imageURL
                             );
 
                         }
@@ -1346,6 +1582,7 @@ function loadGallery() {
 
                     </h3>
 
+
                     <p>
 
                         📂
@@ -1355,6 +1592,7 @@ function loadGallery() {
                         )}
 
                     </p>
+
 
                     <p>
 
@@ -1374,7 +1612,7 @@ function loadGallery() {
 
 
                 // --------------------------------------------
-                // ADD CARD TO GALLERY
+                // ADD CARD
                 // --------------------------------------------
 
                 gallery.appendChild(
@@ -1384,7 +1622,15 @@ function loadGallery() {
             }
         );
 
+
+        console.log(
+            "SUCCESS: " +
+            galleryData.length +
+            " gallery images displayed."
+        );
+
     })
+
 
     .catch(function(error) {
 
@@ -1403,7 +1649,11 @@ function loadGallery() {
                 <br>
 
                 <small>
-                    Please refresh the page.
+
+                    ${escapeHTML(
+                        error.message
+                    )}
+
                 </small>
 
             </div>
@@ -1466,13 +1716,29 @@ function closePopup() {
         );
 
 
+    if (!popup) {
+
+        return;
+
+    }
+
+
     popup.style.display =
         "none";
 
 
-    document.getElementById(
-        "popupImage"
-    ).src = "";
+    const popupImage =
+        document.getElementById(
+            "popupImage"
+        );
+
+
+    if (popupImage) {
+
+        popupImage.src =
+            "";
+
+    }
 
 
     document.body.style.overflow =
@@ -1482,7 +1748,7 @@ function closePopup() {
 
 
 // ============================================================
-// ESC KEY CLOSE POPUP
+// ESC KEY
 // ============================================================
 
 document.addEventListener(
