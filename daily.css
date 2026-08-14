@@ -1,1133 +1,1483 @@
-/* =========================================================
-   NSPCL POWER-UP — DAILY CHALLENGE
-   Lively Modern Theme
-   Navy • Violet • Cyan • Pink
-========================================================= */
+/* =====================================================
+NSPCL POWER PULSE - SAFE TEST CSS
+===================================================== */
 
-
-/* =========================================================
-   GLOBAL
-========================================================= */
-
-* {
-    box-sizing: border-box;
+{
+box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
+html,
+body {
+margin: 0;
+padding: 0;
+min-height: 100%;
+width: 100%;
+overflow-x: hidden;
+overflow-y: auto;
 }
 
 body {
-    margin: 0;
-    min-height: 100vh;
-
-    font-family:
-        "Segoe UI",
-        Arial,
-        sans-serif;
-
-    color: #ffffff;
-
-    background:
-        radial-gradient(
-            circle at 10% 15%,
-            rgba(0, 229, 255, 0.20),
-            transparent 28%
-        ),
-        radial-gradient(
-            circle at 90% 10%,
-            rgba(124, 77, 255, 0.25),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 50% 100%,
-            rgba(255, 64, 129, 0.16),
-            transparent 32%
-        ),
-        linear-gradient(
-            135deg,
-            #07152f,
-            #101c45,
-            #17265c,
-            #0a2745
-        );
-
-    background-size: 250% 250%;
-
-    animation:
-        dailyBackground 18s ease infinite;
-
-    overflow-x: hidden;
+font-family: "Segoe UI", Arial, sans-serif;
+color: white;
+background: #24102f;
 }
 
+/* Main page */
+.daily-page {
+min-height: 100vh;
+width: 100%;
+padding-bottom: 40px;
+
+background:
+    radial-gradient(
+        circle at 10% 10%,
+        rgba(255, 70, 170, .25),
+        transparent 30%
+    ),
+    radial-gradient(
+        circle at 90% 20%,
+        rgba(255, 170, 60, .25),
+        transparent 30%
+    ),
+    linear-gradient(
+        135deg,
+        #180b28,
+        #35133f,
+        #24102f
+    );
+
+}
+
+/* Header */
+.daily-header {
+padding: 45px 20px 30px;
+text-align: center;
+
+background: rgba(255,255,255,.08);
+
+border-bottom:
+    1px solid rgba(255,255,255,.18);
+
+backdrop-filter: blur(15px);
+
+}
+
+.daily-header h1 {
+margin: 0;
+
+font-size: clamp(30px, 5vw, 52px);
+
+font-weight: 900;
+
+color: white;
+
+text-shadow:
+    0 0 20px rgba(255,80,180,.7);
+
+}
+
+.daily-header p {
+margin-top: 10px;
+color: rgba(255,255,255,.8);
+}
+
+/* Wrapper */
+.daily-wrapper {
+width: 100%;
+max-width: 950px;
+
+margin: auto;
+
+padding:
+    25px 20px 50px;
+
+}
+
+/* Cards */
+.motivation-card,
+.question-card,
+.performers-card {
+
+background:
+    rgba(255,255,255,.10);
+
+border:
+    1px solid rgba(255,255,255,.20);
+
+border-radius: 22px;
+
+padding: 25px;
+
+margin-bottom: 25px;
+
+backdrop-filter:
+    blur(15px);
+
+box-shadow:
+    0 15px 40px
+    rgba(0,0,0,.25);
+
+}
+
+/* Motivation */
+.motivation-title {
+color: #ffd166;
+text-align: center;
+}
+
+#motivation {
+text-align: center;
+color: white;
+font-size: 18px;
+line-height: 1.6;
+}
+
+/* Employee */
+.employee-card {
+text-align: center;
+margin: 20px 0;
+}
+
+.employee-card span {
+color: #ffd166;
+font-weight: bold;
+}
+
+/* Question */
+#question {
+color: white;
+
+font-size:
+    clamp(20px, 3vw, 28px);
+
+line-height: 1.5;
+
+font-weight: 800;
+
+margin: 20px 0;
+
+}
+
+/* Question numbers */
+#questionNumber,
+#totalQuestions {
+color: #ffd166;
+font-weight: 900;
+}
+
+/* Timer */
+#timer {
+color: #ff9f43;
+
+font-size: 28px;
+
+font-weight: 900;
+
+text-align: center;
+
+margin: 20px 0;
+
+}
+
+/* Options */
+#options {
+display: grid;
+
+grid-template-columns:
+    repeat(2, 1fr);
+
+gap: 15px;
+
+}
+
+/* Answer button */
+.daily-option {
+
+min-height: 65px;
+
+padding: 15px;
+
+border: none;
+
+border-radius: 15px;
+
+background:
+    linear-gradient(
+        135deg,
+        #7b2cbf,
+        #d63384
+    );
+
+color: white;
+
+font-size: 16px;
+
+font-weight: 800;
+
+text-align: left;
+
+cursor: pointer;
+
+transition:
+    .25s ease;
+
+box-shadow:
+    0 8px 25px
+    rgba(0,0,0,.25);
+
+}
+
+.daily-option {
+
+transform:
+    translateY(-5px);
+
+box-shadow:
+    0 15px 35px
+    rgba(255,60,170,.35);
+
+}
+
+/* Option letter */
+.option-letter {
+
+display: inline-flex;
+
+align-items: center;
+
+justify-content: center;
+
+width: 34px;
+height: 34px;
+
+margin-right: 8px;
+
+border-radius: 50%;
+
+background:
+    rgba(0,0,0,.25);
+
+font-weight: 900;
+
+}
+
+/* Correct */
+.daily-option.correct {
+
+background:
+    linear-gradient(
+        135deg,
+        #00a878,
+        #20d890
+    );
+
+box-shadow:
+    0 0 30px
+    rgba(32,216,144,.45);
+
+}
+
+/* Wrong */
+.daily-option.incorrect {
+
+background:
+    linear-gradient(
+        135deg,
+        #d83a68,
+        #ff5c7c
+    );
+
+box-shadow:
+    0 0 30px
+    rgba(255,92,124,.40);
+
+}
+
+/* Result */
+#answerResult {
+margin-top: 20px;
+line-height: 1.6;
+}
+
+.correct-message,
+.wrong-message {
+
+padding: 20px;
+
+border-radius: 15px;
+
+}
+
+.correct-message {
+
+background:
+    rgba(0,190,125,.15);
+
+border:
+    1px solid #20d890;
+
+}
+
+.wrong-message {
+
+background:
+    rgba(255,70,100,.15);
+
+border:
+    1px solid #ff5c7c;
+
+}
+
+/* Category */
+#category {
+
+display: inline-block;
+
+margin-top: 10px;
+
+padding:
+    6px 12px;
+
+border-radius: 20px;
+
+color: #ffd166;
+
+background:
+    rgba(255,209,102,.10);
+
+}
+
+/* Source */
+#newsSource {
+
+margin-top: 15px;
+
+padding-top: 12px;
+
+border-top:
+    1px solid rgba(255,255,255,.10);
+
+color:
+    rgba(255,255,255,.60);
+
+font-size: 13px;
+
+}
+
+/* Performers */
+.performers-card h2 {
+
+margin-top: 0;
+
+text-align: center;
+
+color: #ffd166;
+
+}
+
+.performer {
+
+display: flex;
+
+align-items: center;
+
+padding: 13px;
+
+margin-bottom: 8px;
+
+border-radius: 12px;
+
+background:
+    rgba(255,255,255,.06);
+
+}
+
+.performer-rank {
+width: 45px;
+}
+
+.performer-name {
+flex: 1;
+font-weight: 700;
+}
+
+.performer-points {
+color: #ffd166;
+font-weight: 900;
+}
+
+/* Home */
+.home-section {
+
+text-align: center;
+
+padding:
+    10px 20px 40px;
+
+}
+
+.home-button {
+
+display: inline-block;
+
+padding:
+    14px 30px;
+
+border-radius: 40px;
+
+text-decoration: none;
+
+color: white;
+
+font-weight: 900;
+
+background:
+    linear-gradient(
+        135deg,
+        #7b2cbf,
+        #e83e8c,
+        #ff9f43
+    );
+
+transition:
+    .25s ease;
+
+}
+
+.home-button {
+transform:
+translateY(-4px)
+scale(1.04);
+}
+
+/* Footer */
+footer {
+
+padding: 25px;
+
+text-align: center;
+
+color:
+    rgba(255,255,255,.7);
+
+background:
+    rgba(0,0,0,.20);
+
+}
+
+/* =====================================================
+MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+
+.daily-header {
+    padding:
+        32px 15px 25px;
+}
+
+.daily-wrapper {
+    padding:
+        18px 12px 40px;
+}
+
+.motivation-card,
+.question-card,
+.performers-card {
+    padding:
+        20px 16px;
+
+    border-radius:
+        18px;
+}
+
+#options {
+    grid-template-columns: 1fr;
+}
+
+#question {
+    font-size: 20px;
+}
+
+.daily-option {
+    min-height: 62px;
+}
+
+.home-button {
+    width: 90%;
+    max-width: 320px;
+}
+
+}
+/* =========================================================
+NSPCL DAILY CHALLENGE — LIVELY NEW COLOR THEME
+Gold • Coral • Violet • Mint
+Add at the VERY END of daily.css
+========================================================= */
+
+/* =========================================================
+MAIN DAILY PAGE
+========================================================= */
+
+.daily-page {
+
+background:
+    radial-gradient(
+        circle at 8% 12%,
+        rgba(255, 209, 102, 0.24),
+        transparent 28%
+    ),
+    radial-gradient(
+        circle at 92% 18%,
+        rgba(255, 105, 150, 0.20),
+        transparent 30%
+    ),
+    radial-gradient(
+        circle at 50% 88%,
+        rgba(127, 255, 212, 0.16),
+        transparent 32%
+    ),
+    linear-gradient(
+        135deg,
+        #25152f,
+        #472449,
+        #30364a,
+        #263d3c,
+        #351b3d
+    );
+
+background-size: 300% 300%;
+
+animation:
+    dailyColorFlow 16s ease infinite;
+
+}
+
+@keyframes dailyColorFlow {
+
+0% {
+    background-position: 0% 50%;
+}
+
+50% {
+    background-position: 100% 50%;
+}
+
+100% {
+    background-position: 0% 50%;
+}
+
+}
+
+/* =========================================================
+FLOATING GLOW
+========================================================= */
+
+.daily-page::before {
+
+background:
+    radial-gradient(
+        circle,
+        rgba(255, 209, 102, 0.28),
+        transparent 70%
+    );
+
+filter: blur(45px);
+
+animation:
+    dailyGlowLeft 9s ease-in-out infinite;
+
+}
+
+.daily-page::after {
+
+background:
+    radial-gradient(
+        circle,
+        rgba(199, 125, 255, 0.22),
+        transparent 70%
+    );
+
+filter: blur(50px);
+
+animation:
+    dailyGlowRight 11s ease-in-out infinite;
+
+}
+
+@keyframes dailyGlowLeft {
+
+0%,
+100% {
+    transform:
+        translate(0,0)
+        scale(1);
+}
+
+50% {
+    transform:
+        translate(150px,-50px)
+        scale(1.25);
+}
+
+}
+
+@keyframes dailyGlowRight {
+
+0%,
+100% {
+    transform:
+        translate(0,0)
+        scale(1);
+}
+
+50% {
+    transform:
+        translate(-120px,-60px)
+        scale(1.25);
+}
+
+}
+
+/* =========================================================
+DAILY HEADER
+========================================================= */
+
+.daily-header {
+
+background:
+    linear-gradient(
+        135deg,
+        rgba(255,209,102,0.16),
+        rgba(255,105,150,0.12),
+        rgba(127,255,212,0.10)
+    );
+
+border-bottom:
+    1px solid
+    rgba(255,255,255,0.18);
+
+box-shadow:
+    0 12px 40px
+    rgba(0,0,0,0.20);
+
+}
+
+/* =========================================================
+HEADER TITLE
+========================================================= */
+
+.daily-header h1 {
+
+background:
+    linear-gradient(
+        90deg,
+        #ffffff,
+        #ffd166,
+        #ff8fab,
+        #c77dff,
+        #7fffd4,
+        #ffffff
+    );
+
+background-size: 400% auto;
+
+-webkit-background-clip: text;
+background-clip: text;
+
+-webkit-text-fill-color: transparent;
+
+animation:
+    dailyTitleColor 6s linear infinite;
+
+}
+
+@keyframes dailyTitleColor {
+
+0% {
+    background-position: 0% center;
+}
+
+100% {
+    background-position: 400% center;
+}
+
+}
+
+/* =========================================================
+MOTIVATION CARD
+========================================================= */
+
+.motivation-card {
+
+background:
+    linear-gradient(
+        145deg,
+        rgba(255,255,255,0.17),
+        rgba(255,255,255,0.055)
+    );
+
+border:
+    1px solid
+    rgba(255,209,102,0.25);
+
+box-shadow:
+    0 20px 60px
+    rgba(0,0,0,0.25);
+
+}
+
+.motivation-card::before {
+
+background:
+    linear-gradient(
+        90deg,
+        transparent,
+        #ffd166,
+        #ff8fab,
+        #c77dff,
+        #7fffd4,
+        transparent
+    );
+
+box-shadow:
+    0 0 20px
+    rgba(255,209,102,0.45);
+
+}
+
+.motivation-title {
+
+color: #ffd166;
+
+text-shadow:
+    0 0 18px
+    rgba(255,209,102,0.45);
+
+}
+
+/* =========================================================
+EMPLOYEE BADGE
+========================================================= */
+
+.employee-card span {
+
+color: #ffd166;
+
+background:
+    rgba(255,209,102,0.10);
+
+border-color:
+    rgba(255,209,102,0.28);
+
+box-shadow:
+    0 0 18px
+    rgba(255,209,102,0.12);
+
+}
+
+/* =========================================================
+QUESTION CARD
+========================================================= */
+
+.question-card {
+
+background:
+    linear-gradient(
+        145deg,
+        rgba(255,255,255,0.18),
+        rgba(255,255,255,0.055)
+    );
+
+border:
+    1px solid
+    rgba(255,255,255,0.22);
+
+box-shadow:
+    0 25px 70px
+    rgba(0,0,0,0.30);
+
+}
+
+/* Question decorative glow */
+
+.question-card::before {
+
+background:
+    rgba(255,105,150,0.13);
+
+}
+
+.question-card::after {
+
+background:
+    rgba(127,255,212,0.12);
+
+}
+
+/* =========================================================
+QUESTION LABEL
+========================================================= */
+
+.question-label {
+
+color: #ffd166;
+
+background:
+    rgba(255,209,102,0.11);
+
+border-color:
+    rgba(255,209,102,0.28);
+
+box-shadow:
+    0 0 18px
+    rgba(255,209,102,0.12);
+
+}
+
+/* =========================================================
+QUESTION NUMBER
+========================================================= */
+
+#questionNumber,
+#totalQuestions {
+
+color: #ffd166;
+
+}
+
+/* =========================================================
+QUESTION TEXT
+========================================================= */
+
+#question {
+
+color: #ffffff;
+
+text-shadow:
+    0 2px 14px
+    rgba(0,0,0,0.30);
+
+}
+
+/* =========================================================
+TIMER
+========================================================= */
+
+.timer-box {
+
+background:
+    rgba(20,10,30,0.28);
+
+border:
+    1px solid
+    rgba(255,255,255,0.14);
+
+}
+
+#timer {
+
+color: #ffd166;
+
+text-shadow:
+    0 0 18px
+    rgba(255,209,102,0.60);
+
+animation:
+    livelyTimer 1.5s ease-in-out infinite;
+
+}
+
+@keyframes livelyTimer {
+
+0%,
+100% {
+    transform: scale(1);
+
+    text-shadow:
+        0 0 12px
+        rgba(255,209,102,0.45);
+}
+
+50% {
+    transform: scale(1.06);
+
+    text-shadow:
+        0 0 28px
+        rgba(255,209,102,0.90);
+}
+
+}
+
+/* =========================================================
+ANSWER OPTIONS
+========================================================= */
+
+.daily-option {
+
+background:
+    linear-gradient(
+        135deg,
+        #75458f,
+        #b84f76
+    );
+
+border:
+    1px solid
+    rgba(255,255,255,0.18);
+
+box-shadow:
+    0 10px 28px
+    rgba(0,0,0,0.22);
+
+}
+
+/* Different colors for individual answers */
+
+.daily-option(1) {
+
+background:
+    linear-gradient(
+        135deg,
+        #8e4f78,
+        #c65f72
+    );
+
+}
+
+.daily-option(2) {
+
+background:
+    linear-gradient(
+        135deg,
+        #76509d,
+        #a45fbd
+    );
+
+}
+
+.daily-option(3) {
+
+background:
+    linear-gradient(
+        135deg,
+        #397f76,
+        #4cae91
+    );
+
+}
+
+.daily-option(4) {
+
+background:
+    linear-gradient(
+        135deg,
+        #a36a3f,
+        #d18a4d
+    );
+
+}
+
+/* =========================================================
+OPTION HOVER
+========================================================= */
+
+.daily-option {
+
+transform:
+    translateY(-6px)
+    scale(1.02);
+
+filter:
+    brightness(1.12);
+
+box-shadow:
+    0 16px 38px
+    rgba(255,180,100,0.25);
+
+}
+
+/* =========================================================
+OPTION LETTER
+========================================================= */
+
+.option-letter {
+
+background:
+    rgba(20,10,30,0.25);
+
+border:
+    1px solid
+    rgba(255,255,255,0.22);
+
+}
+
+/* =========================================================
+CORRECT ANSWER
+========================================================= */
+
+.daily-option.correct {
+
+background:
+    linear-gradient(
+        135deg,
+        #258f68,
+        #65d6a4
+    );
+
+box-shadow:
+    0 0 35px
+    rgba(101,214,164,0.45);
+
+}
+
+/* =========================================================
+WRONG ANSWER
+========================================================= */
+
+.daily-option.incorrect {
+
+background:
+    linear-gradient(
+        135deg,
+        #c94b68,
+        #f07878
+    );
+
+box-shadow:
+    0 0 30px
+    rgba(240,120,120,0.38);
+
+}
+
+/* =========================================================
+ANSWER RESULT
+========================================================= */
+
+.correct-message {
+
+background:
+    linear-gradient(
+        135deg,
+        rgba(101,214,164,0.22),
+        rgba(50,150,110,0.08)
+    );
+
+border-color:
+    #65d6a4;
+
+box-shadow:
+    0 0 30px
+    rgba(101,214,164,0.16);
+
+}
+
+.wrong-message {
+
+background:
+    linear-gradient(
+        135deg,
+        rgba(240,120,120,0.22),
+        rgba(200,60,90,0.08)
+    );
+
+border-color:
+    #f07878;
+
+box-shadow:
+    0 0 30px
+    rgba(240,120,120,0.14);
+
+}
+
+/* =========================================================
+PERFORMERS
+========================================================= */
+
+.performers-card {
+
+background:
+    linear-gradient(
+        145deg,
+        rgba(255,255,255,0.16),
+        rgba(255,255,255,0.055)
+    );
+
+border:
+    1px solid
+    rgba(255,255,255,0.20);
+
+}
+
+.performers-card h2 {
+
+color: #ffd166;
+
+text-shadow:
+    0 0 18px
+    rgba(255,209,102,0.35);
+
+}
+
+.performer {
+
+background:
+    rgba(255,255,255,0.065);
+
+border:
+    1px solid
+    rgba(255,255,255,0.08);
+
+}
+
+.performer {
+
+background:
+    rgba(255,255,255,0.13);
+
+transform:
+    translateX(7px);
+
+}
+
+.performer-points {
+
+color: #7fffd4;
+
+text-shadow:
+    0 0 12px
+    rgba(127,255,212,0.30);
+
+}
+
+/* =========================================================
+HOME BUTTON
+========================================================= */
+
+.home-button {
+
+background:
+    linear-gradient(
+        135deg,
+        #ffd166,
+        #ff8fab,
+        #c77dff,
+        #7fffd4
+    );
+
+background-size:
+    300% auto;
+
+color:
+    #281633;
+
+box-shadow:
+    0 10px 30px
+    rgba(255,170,100,0.28);
+
+animation:
+    dailyHomeGradient 5s linear infinite;
+
+}
+
+@keyframes dailyHomeGradient {
+
+0% {
+    background-position: 0% center;
+}
+
+100% {
+    background-position: 300% center;
+}
+
+}
+
+.home-button {
+
+box-shadow:
+    0 18px 45px
+    rgba(255,180,100,0.45);
+
+}
+
+/* =========================================================
+MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+.daily-page {
+
+    background-size:
+        350% 350%;
+}
+
+.daily-option:nth-child(1),
+.daily-option:nth-child(2),
+.daily-option:nth-child(3),
+.daily-option:nth-child(4) {
+
+    min-height: 64px;
+}
+
+}
+/* =========================================================
+NSPCL DAILY CHALLENGE
+Warm Charcoal • Orange • Gold Theme
+========================================================= */
+
+body.daily-page {
+
+margin: 0;
+
+color: #f8f4ed;
+
+background:
+    radial-gradient(
+        circle at 15% 15%,
+        rgba(255, 193, 7, 0.14),
+        transparent 30%
+    ),
+    radial-gradient(
+        circle at 85% 25%,
+        rgba(255, 126, 50, 0.12),
+        transparent 32%
+    ),
+    radial-gradient(
+        circle at 50% 100%,
+        rgba(255, 170, 60, 0.08),
+        transparent 35%
+    ),
+    linear-gradient(
+        135deg,
+        #181716,
+        #27231e,
+        #1d1c1a,
+        #30251d
+    );
+
+background-size: 200% 200%;
+
+animation: dailyBackground 18s ease infinite;
+
+min-height: 100vh;
+
+}
 
 @keyframes dailyBackground {
 
-    0% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0% 50%;
-    }
-
+0% {
+    background-position: 0% 50%;
 }
 
+50% {
+    background-position: 100% 50%;
+}
+
+100% {
+    background-position: 0% 50%;
+}
+
+}
 
 /* =========================================================
-   ANIMATED LIGHT ORBS
+DAILY CHALLENGE HEADER
 ========================================================= */
 
-body::before,
-body::after {
+.daily-page .daily-header {
 
-    content: "";
+background:
+    linear-gradient(
+        135deg,
+        rgba(255,193,7,0.12),
+        rgba(242,140,40,0.08),
+        transparent
+    );
 
-    position: fixed;
-
-    width: 280px;
-    height: 280px;
-
-    border-radius: 50%;
-
-    pointer-events: none;
-
-    filter: blur(70px);
-
-    opacity: 0.25;
-
-    z-index: -1;
+border-bottom:
+    1px solid
+    rgba(255,193,7,0.15);
 
 }
-
-
-body::before {
-
-    top: 15%;
-    left: -100px;
-
-    background: #00e5ff;
-
-    animation:
-        floatingOrb 9s ease-in-out infinite alternate;
-}
-
-
-body::after {
-
-    right: -100px;
-    bottom: 10%;
-
-    background: #9c4dff;
-
-    animation:
-        floatingOrb2 11s ease-in-out infinite alternate;
-}
-
-
-@keyframes floatingOrb {
-
-    from {
-        transform: translate(0, 0);
-    }
-
-    to {
-        transform: translate(120px, 80px);
-    }
-
-}
-
-
-@keyframes floatingOrb2 {
-
-    from {
-        transform: translate(0, 0);
-    }
-
-    to {
-        transform: translate(-100px, -70px);
-    }
-
-}
-
 
 /* =========================================================
-   HEADER / NAVIGATION
+DAILY TITLE
 ========================================================= */
 
-.top-navbar {
+.daily-page h1 {
 
-    width: 100%;
+color: #ffd166;
 
-    min-height: 72px;
+text-shadow:
+    0 0 20px
+    rgba(255,193,7,0.20);
 
-    padding: 10px 28px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    gap: 20px;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(5, 20, 52, 0.96),
-            rgba(18, 36, 82, 0.94)
-        );
-
-    border-bottom:
-        1px solid
-        rgba(0, 229, 255, 0.20);
-
-    box-shadow:
-        0 8px 30px
-        rgba(0, 0, 0, 0.30);
-
-    position: relative;
-
-    z-index: 1000;
-
-    backdrop-filter: blur(15px);
 }
 
+.daily-page h2 {
+
+color: #f6a23a;
+
+}
 
 /* =========================================================
-   BRAND
+DAILY QUESTION CARD
 ========================================================= */
 
-.nav-brand {
+.daily-page .quiz-card,
+.daily-page .question-card,
+.daily-page .daily-card {
 
-    display: flex;
+background:
+    linear-gradient(
+        145deg,
+        rgba(255,255,255,0.10),
+        rgba(255,255,255,0.035)
+    );
 
-    align-items: center;
+border:
+    1px solid
+    rgba(255,193,7,0.16);
 
-    gap: 12px;
+border-radius:
+    20px;
 
-    flex-shrink: 0;
-}
+box-shadow:
+    0 18px 45px
+    rgba(0,0,0,0.28);
 
-
-.brand-icon {
-
-    width: 48px;
-    height: 48px;
-
-    border-radius: 14px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    font-size: 27px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #00e5ff,
-            #7c4dff
-        );
-
-    box-shadow:
-        0 0 25px
-        rgba(0, 229, 255, 0.35);
-
-    animation:
-        iconPulse 3s ease-in-out infinite;
-}
-
-
-@keyframes iconPulse {
-
-    0%,
-    100% {
-        box-shadow:
-            0 0 20px
-            rgba(0, 229, 255, 0.30);
-    }
-
-    50% {
-        box-shadow:
-            0 0 35px
-            rgba(124, 77, 255, 0.50);
-    }
+backdrop-filter:
+    blur(14px);
 
 }
-
-
-.brand-title {
-
-    font-size: 19px;
-
-    font-weight: 800;
-
-    letter-spacing: 0.7px;
-
-    line-height: 1.1;
-}
-
-
-.brand-subtitle {
-
-    font-size: 11px;
-
-    letter-spacing: 2px;
-
-    color: #9eeeff;
-
-    margin-top: 4px;
-}
-
 
 /* =========================================================
-   NAVIGATION LINKS
+ANSWER OPTIONS
 ========================================================= */
 
-.nav-links {
+.daily-page .option,
+.daily-page .option-btn,
+.daily-page .answer-option {
 
-    display: flex;
+background:
+    rgba(255,255,255,0.06);
 
-    align-items: center;
+border:
+    1px solid
+    rgba(255,255,255,0.10);
 
-    justify-content: flex-end;
+color:
+    #f5eee5;
 
-    gap: 7px;
-
-    flex-wrap: wrap;
-}
-
-
-.nav-links a {
-
-    padding: 10px 13px;
-
-    border-radius: 11px;
-
-    color: #ffffff;
-
-    text-decoration: none;
-
-    font-size: 14px;
-
-    font-weight: 600;
-
-    border:
-        1px solid transparent;
-
-    transition:
-        all 0.3s ease;
-}
-
-
-.nav-links a:hover {
-
-    background:
-        rgba(0, 229, 255, 0.10);
-
-    border-color:
-        rgba(0, 229, 255, 0.25);
-
-    transform:
-        translateY(-2px);
+transition:
+    all .25s ease;
 
 }
 
+.daily-page .option,
+.daily-page .option-btn,
+.daily-page .answer-option {
 
-/* ACTIVE DAILY CHALLENGE */
+background:
+    rgba(255,193,7,0.12);
 
-.nav-links a.active {
+border-color:
+    rgba(255,193,7,0.40);
 
-    background:
-        linear-gradient(
-            135deg,
-            #00cfff,
-            #7c4dff
-        );
-
-    color: white;
-
-    border-color:
-        rgba(255,255,255,0.30);
-
-    box-shadow:
-        0 0 22px
-        rgba(0, 207, 255, 0.35);
+transform:
+    translateY(-2px);
 
 }
-
 
 /* =========================================================
-   DAILY HERO
+TIMER
 ========================================================= */
 
-.daily-hero {
+.daily-page .timer {
 
-    position: relative;
+color:
+    #ffd166;
 
-    max-width: 1100px;
+background:
+    rgba(255,193,7,0.08);
 
-    margin: 45px auto 25px;
+border:
+    1px solid
+    rgba(255,193,7,0.20);
 
-    padding: 60px 30px;
-
-    text-align: center;
-
-    border-radius: 30px;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(0, 229, 255, 0.12),
-            rgba(124, 77, 255, 0.16),
-            rgba(255, 64, 129, 0.10)
-        );
-
-    border:
-        1px solid
-        rgba(255,255,255,0.14);
-
-    box-shadow:
-        0 25px 70px
-        rgba(0,0,0,0.28);
-
-    backdrop-filter:
-        blur(18px);
-
-    overflow: hidden;
-}
-
-
-.daily-hero::before {
-
-    content: "";
-
-    position: absolute;
-
-    width: 250px;
-    height: 250px;
-
-    top: -130px;
-    right: -80px;
-
-    border-radius: 50%;
-
-    background:
-        rgba(0, 229, 255, 0.18);
-
-    filter:
-        blur(30px);
+border-radius:
+    12px;
 
 }
-
-
-.daily-hero h1 {
-
-    margin: 0;
-
-    font-size: clamp(32px, 6vw, 58px);
-
-    font-weight: 900;
-
-    background:
-        linear-gradient(
-            90deg,
-            #00e5ff,
-            #ffffff,
-            #b388ff,
-            #ff80ab,
-            #00e5ff
-        );
-
-    background-size: 300% auto;
-
-    -webkit-background-clip: text;
-    background-clip: text;
-
-    -webkit-text-fill-color: transparent;
-
-    animation:
-        titleFlow 6s linear infinite;
-}
-
-
-@keyframes titleFlow {
-
-    from {
-        background-position: 0% center;
-    }
-
-    to {
-        background-position: 300% center;
-    }
-
-}
-
-
-.daily-hero p {
-
-    max-width: 750px;
-
-    margin:
-        18px auto 0;
-
-    font-size: 17px;
-
-    line-height: 1.7;
-
-    color: #d9f8ff;
-}
-
 
 /* =========================================================
-   DAILY DATE BADGE
+BUTTON
 ========================================================= */
 
-.daily-date {
+.daily-page .btn,
+.daily-page button {
 
-    display: inline-block;
+background:
+    linear-gradient(
+        135deg,
+        #ffd166,
+        #f28c28
+    );
 
-    margin-top: 20px;
+color:
+    #241b12;
 
-    padding: 9px 18px;
+border:
+    none;
 
-    border-radius: 30px;
+font-weight:
+    800;
 
-    background:
-        rgba(0,229,255,0.10);
+border-radius:
+    10px;
 
-    border:
-        1px solid
-        rgba(0,229,255,0.30);
+box-shadow:
+    0 8px 22px
+    rgba(242,140,40,0.22);
 
-    color:
-        #8ff3ff;
+transition:
+    all .25s ease;
 
-    font-weight: 700;
-
-    box-shadow:
-        0 0 20px
-        rgba(0,229,255,0.12);
 }
 
+.daily-page .btn,
+.daily-page button {
+
+transform:
+    translateY(-3px);
+
+box-shadow:
+    0 12px 30px
+    rgba(242,140,40,0.32);
+
+}
 
 /* =========================================================
-   QUIZ CONTAINER
+MOTIVATIONAL TEXT
 ========================================================= */
 
-.daily-container {
+.daily-page .motivation {
 
-    width: min(900px, 92%);
-
-    margin: 30px auto 60px;
+color:
+    #e8c98b;
 
 }
-
 
 /* =========================================================
-   QUIZ CARD
+MOBILE
 ========================================================= */
 
-.quiz-card {
+@media (max-width: 600px) {
 
-    position: relative;
-
-    padding: 35px;
-
-    border-radius: 28px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,0.12),
-            rgba(255,255,255,0.045)
-        );
-
-    border:
-        1px solid
-        rgba(255,255,255,0.16);
-
-    backdrop-filter:
-        blur(20px);
-
-    box-shadow:
-        0 25px 65px
-        rgba(0,0,0,0.35);
-
-    overflow: hidden;
-
-    animation:
-        cardAppear 0.7s ease;
-}
-
-
-@keyframes cardAppear {
-
-    from {
-        opacity: 0;
-        transform: translateY(25px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-}
-
-
-.quiz-card::before {
-
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 3px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #00e5ff,
-            #7c4dff,
-            #ff4081,
-            #00e5ff
-        );
+body.daily-page {
 
     background-size:
-        300% auto;
-
-    animation:
-        borderFlow 5s linear infinite;
+        300% 300%;
 }
-
-
-@keyframes borderFlow {
-
-    from {
-        background-position: 0%;
-    }
-
-    to {
-        background-position: 300%;
-    }
-
-}
-
-
-/* =========================================================
-   QUESTION
-========================================================= */
-
-.question {
-
-    font-size: 24px;
-
-    line-height: 1.5;
-
-    font-weight: 750;
-
-    margin-bottom: 28px;
-
-    color: #ffffff;
-}
-
-
-/* =========================================================
-   OPTIONS
-========================================================= */
-
-.options {
-
-    display: grid;
-
-    gap: 14px;
-}
-
-
-.option {
-
-    width: 100%;
-
-    padding: 16px 20px;
-
-    text-align: left;
-
-    border-radius: 15px;
-
-    background:
-        rgba(255,255,255,0.07);
-
-    border:
-        1px solid
-        rgba(255,255,255,0.13);
-
-    color: white;
-
-    font-size: 16px;
-
-    cursor: pointer;
-
-    transition:
-        all 0.25s ease;
-}
-
-
-.option:hover {
-
-    transform:
-        translateX(7px);
-
-    background:
-        rgba(0,229,255,0.12);
-
-    border-color:
-        rgba(0,229,255,0.40);
-
-    box-shadow:
-        0 8px 25px
-        rgba(0,229,255,0.12);
-}
-
-
-/* CORRECT */
-
-.option.correct {
-
-    background:
-        rgba(0, 220, 150, 0.18);
-
-    border-color:
-        #4dffca;
-
-    box-shadow:
-        0 0 20px
-        rgba(77,255,202,0.20);
-}
-
-
-/* WRONG */
-
-.option.wrong {
-
-    background:
-        rgba(255,64,129,0.18);
-
-    border-color:
-        #ff80ab;
-}
-
-
-/* =========================================================
-   TIMER
-========================================================= */
-
-.timer-container {
-
-    margin:
-        10px 0 25px;
-
-}
-
-
-.timer {
-
-    height: 8px;
-
-    width: 100%;
-
-    border-radius: 20px;
-
-    overflow: hidden;
-
-    background:
-        rgba(255,255,255,0.10);
-}
-
-
-.timer-bar {
-
-    height: 100%;
-
-    width: 100%;
-
-    border-radius: inherit;
-
-    background:
-        linear-gradient(
-            90deg,
-            #00e5ff,
-            #7c4dff,
-            #ff4081
-        );
-
-    transform-origin:
-        left;
-
-    box-shadow:
-        0 0 15px
-        rgba(0,229,255,0.35);
-}
-
-
-/* =========================================================
-   QUESTION NUMBER
-========================================================= */
-
-.question-number {
-
-    display: inline-flex;
-
-    align-items: center;
-
-    padding: 7px 14px;
-
-    margin-bottom: 15px;
-
-    border-radius: 20px;
-
-    background:
-        rgba(124,77,255,0.16);
-
-    border:
-        1px solid
-        rgba(179,136,255,0.30);
-
-    color:
-        #d2baff;
-
-    font-size: 13px;
-
-    font-weight: 700;
-}
-
-
-/* =========================================================
-   BUTTONS
-========================================================= */
-
-.btn,
-button {
-
-    border: none;
-
-    border-radius: 14px;
-
-    padding: 13px 23px;
-
-    font-size: 15px;
-
-    font-weight: 800;
-
-    cursor: pointer;
-
-    color: white;
-
-    background:
-        linear-gradient(
-            135deg,
-            #00cfff,
-            #7c4dff,
-            #ff4081
-        );
-
-    background-size:
-        200% auto;
-
-    box-shadow:
-        0 10px 30px
-        rgba(124,77,255,0.25);
-
-    transition:
-        all 0.3s ease;
-}
-
-
-.btn:hover,
-button:hover {
-
-    transform:
-        translateY(-3px);
-
-    background-position:
-        right center;
-
-    box-shadow:
-        0 15px 40px
-        rgba(0,229,255,0.25);
-}
-
-
-/* =========================================================
-   SCORE
-========================================================= */
-
-.score-card {
-
-    text-align: center;
-
-    padding: 35px;
-
-    border-radius: 25px;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(0,229,255,0.10),
-            rgba(124,77,255,0.15)
-        );
-
-    border:
-        1px solid
-        rgba(255,255,255,0.15);
-
-    box-shadow:
-        0 20px 50px
-        rgba(0,0,0,0.30);
-}
-
-
-.score-card h2 {
-
-    font-size: 42px;
-
-    margin: 5px 0;
-
-    background:
-        linear-gradient(
-            90deg,
-            #00e5ff,
-            #b388ff,
-            #ff80ab
-        );
-
-    -webkit-background-clip: text;
-    background-clip: text;
-
-    -webkit-text-fill-color: transparent;
-}
-
-
-/* =========================================================
-   MOTIVATION
-========================================================= */
-
-.motivation {
-
-    margin-top: 25px;
-
-    padding: 22px;
-
-    text-align: center;
-
-    border-radius: 20px;
-
-    background:
-        rgba(255,255,255,0.06);
-
-    border:
-        1px solid
-        rgba(255,255,255,0.10);
-
-    color:
-        #c9f7ff;
-
-    font-style: italic;
-
-    box-shadow:
-        0 10px 30px
-        rgba(0,0,0,0.15);
-}
-
-
-/* =========================================================
-   FOOTER
-========================================================= */
-
-footer {
-
-    margin-top: 70px;
-
-    padding: 35px 20px;
-
-    text-align: center;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(5,18,45,0.95),
-            rgba(20,24,65,0.95)
-        );
-
-    border-top:
-        1px solid
-        rgba(0,229,255,0.15);
-
-    color:
-        #a9dfea;
-
-}
-
-
-footer strong {
-
-    color:
-        #00e5ff;
-}
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media (max-width: 800px) {
-
-    .top-navbar {
-
-        padding: 12px 15px;
-
-        flex-direction: column;
-
-    }
-
-
-    .nav-brand {
-
-        width: 100%;
-
-        justify-content: center;
-
-    }
-
-
-    .nav-links {
-
-        justify-content: center;
-
-        width: 100%;
-
-    }
-
-
-    .nav-links a {
-
-        padding: 8px 10px;
-
-        font-size: 12px;
-
-    }
-
-
-    .daily-hero {
-
-        width: 92%;
-
-        margin-top: 25px;
-
-        padding: 40px 20px;
-
-        border-radius: 24px;
-
-    }
-
-
-    .quiz-card {
-
-        padding: 23px;
-
-        border-radius: 22px;
-
-    }
-
-
-    .question {
-
-        font-size: 20px;
-
-    }
-
-
-    .option {
-
-        font-size: 15px;
-
-        padding: 14px 15px;
-
-    }
-
-}
-
-
-@media (max-width: 500px) {
-
-    .brand-icon {
-
-        width: 42px;
-
-        height: 42px;
-
-        font-size: 23px;
-
-    }
-
-
-    .brand-title {
-
-        font-size: 16px;
-
-    }
-
-
-    .brand-subtitle {
-
-        font-size: 9px;
-
-    }
-
-
-    .nav-links {
-
-        gap: 4px;
-
-    }
-
-
-    .nav-links a {
-
-        padding: 7px 8px;
-
-        font-size: 11px;
-
-    }
-
-
-    .daily-hero h1 {
-
-        font-size: 32px;
-
-    }
-
-
-    .daily-hero p {
-
-        font-size: 14px;
-
-    }
-
-
-    .quiz-card {
-
-        padding: 18px;
-
-    }
 
 }
