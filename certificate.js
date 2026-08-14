@@ -69,6 +69,7 @@ if (
 
 // ==========================================================
 // SAFETY CHECK
+// NEVER ALLOW SCORE > TOTAL QUESTIONS
 // ==========================================================
 
 if (
@@ -223,58 +224,13 @@ function loadCertificate() {
 
 
     // ======================================================
-    // REMARK
-    // ======================================================
-
-    const remark =
-        document.getElementById(
-            "remark"
-        );
-
-
-    if (remark) {
-
-        remark.textContent =
-            getRemark(
-                percentage
-            );
-
-    }
-
-
-    // ======================================================
-    // ACHIEVEMENT
+    // GET ACHIEVEMENT
     // ======================================================
 
     const achievement =
         getAchievement(
             percentage
         );
-
-
-    // ======================================================
-    // NO GRADE
-    // ======================================================
-    //
-    // Grade is intentionally NOT displayed.
-    //
-    // If an old grade element still exists in HTML,
-    // clear its content.
-    //
-    // ======================================================
-
-    const grade =
-        document.getElementById(
-            "grade"
-        );
-
-
-    if (grade) {
-
-        grade.textContent =
-            "";
-
-    }
 
 
     // ======================================================
@@ -303,13 +259,29 @@ function loadCertificate() {
 
             <div class="badgeSubtitle">
                 ${escapeHTML(
-                    achievement.subtitle
+                    achievement.remark
                 )}
             </div>
 
         `;
 
     }
+
+
+    // ======================================================
+    // REMARK
+    // ======================================================
+    // If your HTML contains a separate element:
+    //
+    // <span id="remark"></span>
+    //
+    // it will also be filled automatically.
+    // ======================================================
+
+    setText(
+        "remark",
+        achievement.remark
+    );
 
 
     // ======================================================
@@ -348,7 +320,7 @@ function loadCertificate() {
 
 
     // ======================================================
-    // CONSOLE
+    // CONSOLE RESULT
     // ======================================================
 
     console.log(
@@ -358,7 +330,7 @@ function loadCertificate() {
 
     console.log(
         "Remark:",
-        getRemark(percentage)
+        achievement.remark
     );
 
     console.log(
@@ -384,8 +356,6 @@ function loadCertificate() {
 
                     spread: 120,
 
-                    startVelocity: 35,
-
                     origin: {
                         y: 0.6
                     }
@@ -402,95 +372,16 @@ function loadCertificate() {
 
 
 // ==========================================================
-// REMARK SYSTEM
-// ==========================================================
-//
-// The remark changes according to performance.
-// No grade is used.
-// ==========================================================
-
-function getRemark(
-    percentage
-) {
-
-
-    // ======================================================
-    // 90% AND ABOVE
-    // ======================================================
-
-    if (
-        percentage >= 90
-    ) {
-
-        return (
-            "Your exceptional performance and enthusiastic " +
-            "participation reflect a strong commitment to " +
-            "continuous learning and excellence. Your pursuit " +
-            "of knowledge is truly commendable."
-        );
-
-    }
-
-
-    // ======================================================
-    // 75% TO 89%
-    // ======================================================
-
-    if (
-        percentage >= 75
-    ) {
-
-        return (
-            "Your excellent performance demonstrates a strong " +
-            "spirit of learning and professional development. " +
-            "Your enthusiasm and commitment to knowledge " +
-            "enhancement are highly appreciated."
-        );
-
-    }
-
-
-    // ======================================================
-    // 60% TO 74%
-    // ======================================================
-
-    if (
-        percentage >= 60
-    ) {
-
-        return (
-            "Your sincere participation and positive approach " +
-            "towards learning are highly appreciated. Keep " +
-            "building your knowledge and continue striving " +
-            "towards excellence."
-        );
-
-    }
-
-
-    // ======================================================
-    // BELOW 60%
-    // ======================================================
-
-    return (
-        "Your participation in the NSPCL Power Up SSC-C&M Quiz " +
-        "is appreciated. Keep learning, keep improving and " +
-        "continue your journey towards knowledge and excellence."
-    );
-
-}
-
-
-// ==========================================================
 // ACHIEVEMENT SYSTEM
 // ==========================================================
 //
-// 90% and above = GOLD CHAMPION
-// 75% to 89%   = SILVER ACHIEVER
-// 60% to 74%   = BRONZE PERFORMER
-// Below 60%    = POWER PARTICIPANT
+// 90% and above  = GOLD
+// 75% to 89%     = SILVER
+// 60% to 74%     = BRONZE
+// Below 60%      = PARTICIPANT
 //
-// NO GRADE.
+// NO GRADE IS USED.
+// SHORT REMARKS ARE USED.
 // ==========================================================
 
 function getAchievement(
@@ -511,8 +402,8 @@ function getAchievement(
             title:
                 "GOLD CHAMPION",
 
-            subtitle:
-                "Outstanding Achievement",
+            remark:
+                "Outstanding Performance",
 
             icon:
                 "🏆"
@@ -535,8 +426,8 @@ function getAchievement(
             title:
                 "SILVER ACHIEVER",
 
-            subtitle:
-                "Excellent Performance",
+            remark:
+                "Excellent Achievement",
 
             icon:
                 "🥈"
@@ -559,7 +450,7 @@ function getAchievement(
             title:
                 "BRONZE PERFORMER",
 
-            subtitle:
+            remark:
                 "Very Good Performance",
 
             icon:
@@ -579,8 +470,8 @@ function getAchievement(
         title:
             "POWER PARTICIPANT",
 
-        subtitle:
-            "Thank You for Participating",
+        remark:
+            "Valued Participation",
 
         icon:
             "⭐"
@@ -623,13 +514,11 @@ function generateCertificateNumber() {
 
 
     const cleanEmployeeId =
-        String(
-            employeeId
-        )
-        .replace(
-            /[^a-zA-Z0-9]/g,
-            ""
-        );
+        String(employeeId)
+            .replace(
+                /[^a-zA-Z0-9]/g,
+                ""
+            );
 
 
     return (
@@ -712,14 +601,21 @@ function prepareCertificate() {
     elements.forEach(
         function (el) {
 
+            // Disable animation
             el.style.animation =
                 "none";
 
+            // Disable transitions
             el.style.transition =
                 "none";
 
+            // Keep elements visible
             el.style.opacity =
                 "1";
+
+            // IMPORTANT:
+            // Do NOT remove transforms.
+            // This preserves certificate positioning.
 
         }
     );
@@ -759,7 +655,7 @@ async function downloadPDF() {
 
 
     // ======================================================
-    // WAIT FOR RENDER
+    // WAIT FOR FINAL RENDER
     // ======================================================
 
     await new Promise(
@@ -806,11 +702,6 @@ async function downloadPDF() {
                             clonedDocument
                         ) {
 
-
-                            // --------------------------------
-                            // CERTIFICATE
-                            // --------------------------------
-
                             const clonedCertificate =
                                 clonedDocument.getElementById(
                                     "certificate"
@@ -829,48 +720,6 @@ async function downloadPDF() {
 
                                 clonedCertificate.style.opacity =
                                     "1";
-
-                            }
-
-
-                            // --------------------------------
-                            // ENSURE REMARK IS PRESENT
-                            // --------------------------------
-
-                            const clonedRemark =
-                                clonedDocument.getElementById(
-                                    "remark"
-                                );
-
-
-                            if (
-                                clonedRemark
-                            ) {
-
-                                clonedRemark.textContent =
-                                    getRemark(
-                                        percentage
-                                    );
-
-                            }
-
-
-                            // --------------------------------
-                            // REMOVE GRADE TEXT
-                            // --------------------------------
-
-                            const clonedGrade =
-                                clonedDocument.getElementById(
-                                    "grade"
-                                );
-
-
-                            if (
-                                clonedGrade
-                            ) {
-
-                                clonedGrade.textContent =
-                                    "";
 
                             }
 
@@ -901,15 +750,6 @@ async function downloadPDF() {
             window.jspdf;
 
 
-        if (!jsPDF) {
-
-            throw new Error(
-                "jsPDF library was not loaded."
-            );
-
-        }
-
-
         // ==================================================
         // CREATE A4 LANDSCAPE PDF
         // ==================================================
@@ -927,7 +767,7 @@ async function downloadPDF() {
 
 
         // ==================================================
-        // ADD CERTIFICATE
+        // ADD CERTIFICATE IMAGE
         // ==================================================
 
         pdf.addImage(
@@ -980,7 +820,7 @@ async function downloadPDF() {
 
 
         alert(
-            "Unable to generate PDF certificate. Please try again."
+            "Unable to generate PDF certificate."
         );
 
     }
@@ -995,7 +835,6 @@ async function downloadPDF() {
 function printCertificate() {
 
     prepareCertificate();
-
 
     window.print();
 
