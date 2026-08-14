@@ -69,7 +69,6 @@ if (
 
 // ==========================================================
 // SAFETY CHECK
-// NEVER ALLOW SCORE > TOTAL QUESTIONS
 // ==========================================================
 
 if (
@@ -224,6 +223,26 @@ function loadCertificate() {
 
 
     // ======================================================
+    // REMARK
+    // ======================================================
+
+    const remark =
+        document.getElementById(
+            "remark"
+        );
+
+
+    if (remark) {
+
+        remark.textContent =
+            getRemark(
+                percentage
+            );
+
+    }
+
+
+    // ======================================================
     // ACHIEVEMENT
     // ======================================================
 
@@ -234,24 +253,25 @@ function loadCertificate() {
 
 
     // ======================================================
-    // GRADE
+    // NO GRADE
     // ======================================================
     //
-    // NO GRADE IS USED.
+    // Grade is intentionally NOT displayed.
     //
-    // The grade element is deliberately cleared
-    // so that certificate.js never displays a grade.
+    // If an old grade element still exists in HTML,
+    // clear its content.
     //
     // ======================================================
 
-    const gradeElement =
+    const grade =
         document.getElementById(
             "grade"
         );
 
-    if (gradeElement) {
 
-        gradeElement.textContent =
+    if (grade) {
+
+        grade.textContent =
             "";
 
     }
@@ -328,12 +348,17 @@ function loadCertificate() {
 
 
     // ======================================================
-    // CONSOLE RESULT
+    // CONSOLE
     // ======================================================
 
     console.log(
         "Achievement:",
         achievement.title
+    );
+
+    console.log(
+        "Remark:",
+        getRemark(percentage)
     );
 
     console.log(
@@ -377,15 +402,95 @@ function loadCertificate() {
 
 
 // ==========================================================
+// REMARK SYSTEM
+// ==========================================================
+//
+// The remark changes according to performance.
+// No grade is used.
+// ==========================================================
+
+function getRemark(
+    percentage
+) {
+
+
+    // ======================================================
+    // 90% AND ABOVE
+    // ======================================================
+
+    if (
+        percentage >= 90
+    ) {
+
+        return (
+            "Your exceptional performance and enthusiastic " +
+            "participation reflect a strong commitment to " +
+            "continuous learning and excellence. Your pursuit " +
+            "of knowledge is truly commendable."
+        );
+
+    }
+
+
+    // ======================================================
+    // 75% TO 89%
+    // ======================================================
+
+    if (
+        percentage >= 75
+    ) {
+
+        return (
+            "Your excellent performance demonstrates a strong " +
+            "spirit of learning and professional development. " +
+            "Your enthusiasm and commitment to knowledge " +
+            "enhancement are highly appreciated."
+        );
+
+    }
+
+
+    // ======================================================
+    // 60% TO 74%
+    // ======================================================
+
+    if (
+        percentage >= 60
+    ) {
+
+        return (
+            "Your sincere participation and positive approach " +
+            "towards learning are highly appreciated. Keep " +
+            "building your knowledge and continue striving " +
+            "towards excellence."
+        );
+
+    }
+
+
+    // ======================================================
+    // BELOW 60%
+    // ======================================================
+
+    return (
+        "Your participation in the NSPCL Power Up SSC-C&M Quiz " +
+        "is appreciated. Keep learning, keep improving and " +
+        "continue your journey towards knowledge and excellence."
+    );
+
+}
+
+
+// ==========================================================
 // ACHIEVEMENT SYSTEM
 // ==========================================================
 //
-// 90% and above  = GOLD CHAMPION
-// 75% to 89%     = SILVER ACHIEVER
-// 60% to 74%     = BRONZE PERFORMER
-// Below 60%      = POWER PARTICIPANT
+// 90% and above = GOLD CHAMPION
+// 75% to 89%   = SILVER ACHIEVER
+// 60% to 74%   = BRONZE PERFORMER
+// Below 60%    = POWER PARTICIPANT
 //
-// NO GRADE IS USED.
+// NO GRADE.
 // ==========================================================
 
 function getAchievement(
@@ -518,11 +623,13 @@ function generateCertificateNumber() {
 
 
     const cleanEmployeeId =
-        String(employeeId)
-            .replace(
-                /[^a-zA-Z0-9]/g,
-                ""
-            );
+        String(
+            employeeId
+        )
+        .replace(
+            /[^a-zA-Z0-9]/g,
+            ""
+        );
 
 
     return (
@@ -574,12 +681,6 @@ function setText(
 
 // ==========================================================
 // PREPARE CERTIFICATE FOR PDF / PRINT
-// ==========================================================
-//
-// Animations and transitions are disabled before
-// PDF capture so that the certificate remains stable.
-//
-// CSS positioning/transforms are NOT removed.
 // ==========================================================
 
 function prepareCertificate() {
@@ -658,7 +759,7 @@ async function downloadPDF() {
 
 
     // ======================================================
-    // WAIT FOR FINAL RENDER
+    // WAIT FOR RENDER
     // ======================================================
 
     await new Promise(
@@ -705,6 +806,11 @@ async function downloadPDF() {
                             clonedDocument
                         ) {
 
+
+                            // --------------------------------
+                            // CERTIFICATE
+                            // --------------------------------
+
                             const clonedCertificate =
                                 clonedDocument.getElementById(
                                     "certificate"
@@ -728,7 +834,29 @@ async function downloadPDF() {
 
 
                             // --------------------------------
-                            // ENSURE GRADE IS EMPTY IN PDF
+                            // ENSURE REMARK IS PRESENT
+                            // --------------------------------
+
+                            const clonedRemark =
+                                clonedDocument.getElementById(
+                                    "remark"
+                                );
+
+
+                            if (
+                                clonedRemark
+                            ) {
+
+                                clonedRemark.textContent =
+                                    getRemark(
+                                        percentage
+                                    );
+
+                            }
+
+
+                            // --------------------------------
+                            // REMOVE GRADE TEXT
                             // --------------------------------
 
                             const clonedGrade =
@@ -799,7 +927,7 @@ async function downloadPDF() {
 
 
         // ==================================================
-        // ADD CERTIFICATE IMAGE
+        // ADD CERTIFICATE
         // ==================================================
 
         pdf.addImage(
