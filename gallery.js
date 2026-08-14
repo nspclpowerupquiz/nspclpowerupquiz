@@ -13,7 +13,7 @@ const SCRIPT_URL =
 
 
 // =======================================
-// FIXED GALLERY IMAGE → TITLE MAPPING
+// FIXED GALLERY TITLES
 // API DOES NOT NEED TO BE CHANGED
 // =======================================
 
@@ -44,6 +44,40 @@ const GALLERY_TITLES = {
     "gallery12.jpg": "Professional Meet"
 
 };
+
+
+// =======================================
+// ORDER-BASED TITLES
+// USED WHEN GOOGLE DRIVE HIDES FILE NAME
+// =======================================
+
+const GALLERY_TITLES_BY_ORDER = [
+
+    "Vendor Meet",
+
+    "C&M Initiatives",
+
+    "Monthly Reward Session",
+
+    "Training Program",
+
+    "Reward to Support Staff",
+
+    "Team Collaboration",
+
+    "Welcome & Farewell",
+
+    "Reward to Support Staff",
+
+    "Retirement Celebration",
+
+    "Materials Management",
+
+    "Vendor Management",
+
+    "Professional Meet"
+
+];
 
 
 // =======================================
@@ -107,8 +141,19 @@ function loadGallery() {
     .then(function (data) {
 
         console.log(
-            "MAIN QUIZ GALLERY DATA:",
+            "======================================="
+        );
+
+        console.log(
+            "NSPCL GALLERY API RESPONSE"
+        );
+
+        console.log(
             data
+        );
+
+        console.log(
+            "======================================="
         );
 
 
@@ -138,7 +183,9 @@ function loadGallery() {
             data.filter(function (item) {
 
                 if (!item) {
+
                     return false;
+
                 }
 
 
@@ -154,13 +201,16 @@ function loadGallery() {
                     : "";
 
 
-                return image !== "" || title !== "";
+                return (
+                    image !== "" ||
+                    title !== ""
+                );
 
             });
 
 
         console.log(
-            "VALID MAIN QUIZ GALLERY RECORDS:",
+            "VALID GALLERY RECORDS:",
             validData
         );
 
@@ -169,7 +219,9 @@ function loadGallery() {
         // NO RECORDS
         // =======================================
 
-        if (validData.length === 0) {
+        if (
+            validData.length === 0
+        ) {
 
             showNoGallery(gallery);
 
@@ -189,15 +241,17 @@ function loadGallery() {
         // CREATE CARDS
         // =======================================
 
-        validData.forEach(function (item, index) {
+        validData.forEach(
+            function (item, index) {
 
-            createGalleryCard(
-                gallery,
-                item,
-                index
-            );
+                createGalleryCard(
+                    gallery,
+                    item,
+                    index
+                );
 
-        });
+            }
+        );
 
     })
 
@@ -213,6 +267,10 @@ function loadGallery() {
         gallery.innerHTML = `
             <div class="loading">
                 ⚠️ Unable to load gallery
+                <br>
+                <small>
+                    Please refresh the page and try again.
+                </small>
             </div>
         `;
 
@@ -236,8 +294,7 @@ function showNoGallery(gallery) {
             <br>
 
             <small>
-                Complete the NSPCL Power-Up Quiz
-                to appear here.
+                Gallery images could not be loaded.
             </small>
 
         </div>
@@ -248,7 +305,7 @@ function showNoGallery(gallery) {
 
 
 // =======================================
-// GET FILE NAME FROM IMAGE URL
+// EXTRACT FILE NAME
 // =======================================
 
 function getImageFileName(url) {
@@ -260,16 +317,23 @@ function getImageFileName(url) {
     }
 
 
-    url = String(url).trim();
+    let cleanURL =
+        String(url).trim();
 
 
     // Remove query parameters
 
-    const cleanURL =
-        url.split("?")[0];
+    cleanURL =
+        cleanURL.split("?")[0];
 
 
-    // Get last part of URL
+    // Remove hash
+
+    cleanURL =
+        cleanURL.split("#")[0];
+
+
+    // Get final part
 
     const parts =
         cleanURL.split("/");
@@ -279,43 +343,96 @@ function getImageFileName(url) {
         parts[parts.length - 1];
 
 
-    // Decode URL if required
-
     try {
 
         fileName =
-            decodeURIComponent(fileName);
+            decodeURIComponent(
+                fileName
+            );
 
     }
 
     catch (error) {
 
         console.warn(
-            "Could not decode filename:",
+            "Filename decoding failed:",
             fileName
         );
 
     }
 
 
-    return fileName.toLowerCase().trim();
+    return fileName
+        .toLowerCase()
+        .trim();
 
 }
 
 
 // =======================================
-// GET FIXED GALLERY TITLE
+// FIND GALLERY NUMBER FROM URL
 // =======================================
 
-function getGalleryTitle(imageURL, fallbackTitle, index) {
+function getGalleryNumber(url) {
+
+    if (!url) {
+
+        return null;
+
+    }
+
+
+    const text =
+        String(url);
+
+
+    // gallery1.jpg
+    // gallery01.jpg
+    // gallery 1.jpg
+    // gallery-1.jpg
+
+    const match =
+        text.match(
+            /gallery[\s_-]*0*(\d+)/i
+        );
+
+
+    if (match) {
+
+        return parseInt(
+            match[1],
+            10
+        );
+
+    }
+
+
+    return null;
+
+}
+
+
+// =======================================
+// GET TITLE
+// =======================================
+
+function getGalleryTitle(
+    originalURL,
+    fallbackTitle,
+    index
+) {
+
+
+    // =======================================
+    // METHOD 1
+    // TRY ACTUAL FILE NAME
+    // =======================================
 
     const fileName =
-        getImageFileName(imageURL);
+        getImageFileName(
+            originalURL
+        );
 
-
-    // =======================================
-    // DIRECT FILE NAME MATCH
-    // =======================================
 
     if (
         GALLERY_TITLES[fileName]
@@ -327,42 +444,37 @@ function getGalleryTitle(imageURL, fallbackTitle, index) {
 
 
     // =======================================
-    // HANDLE GOOGLE DRIVE URLs
+    // METHOD 2
+    // TRY GALLERY NUMBER
     // =======================================
 
-    const galleryNumberMatch =
-        imageURL.match(
-            /gallery\s*([0-9]+)/i
+    const galleryNumber =
+        getGalleryNumber(
+            originalURL
         );
 
 
     if (
-        galleryNumberMatch
-    ) {
-
-        const galleryNumber =
-            galleryNumberMatch[1];
-
-
-        const mappedFile =
+        galleryNumber &&
+        GALLERY_TITLES[
             "gallery" +
             galleryNumber +
-            ".jpg";
+            ".jpg"
+        ]
+    ) {
 
-
-        if (
-            GALLERY_TITLES[mappedFile]
-        ) {
-
-            return GALLERY_TITLES[mappedFile];
-
-        }
+        return GALLERY_TITLES[
+            "gallery" +
+            galleryNumber +
+            ".jpg"
+        ];
 
     }
 
 
     // =======================================
-    // FALLBACK
+    // METHOD 3
+    // USE API DATA IF IT CLEARLY HAS A TITLE
     // =======================================
 
     if (
@@ -377,9 +489,25 @@ function getGalleryTitle(imageURL, fallbackTitle, index) {
     }
 
 
-    return (
-        "NSPCL Power-Up Quiz"
-    );
+    // =======================================
+    // METHOD 4
+    // USE API ORDER
+    // =======================================
+
+    if (
+        GALLERY_TITLES_BY_ORDER[index]
+    ) {
+
+        return GALLERY_TITLES_BY_ORDER[index];
+
+    }
+
+
+    // =======================================
+    // FINAL FALLBACK
+    // =======================================
+
+    return "NSPCL Power-Up Quiz";
 
 }
 
@@ -395,6 +523,10 @@ function createGalleryCard(
 ) {
 
 
+    // =======================================
+    // CARD
+    // =======================================
+
     const card =
         document.createElement("div");
 
@@ -404,30 +536,58 @@ function createGalleryCard(
 
 
     // =======================================
-    // IMAGE URL
+    // ORIGINAL IMAGE URL
+    // =======================================
+
+    const originalImageURL =
+        item.image
+        ? String(item.image).trim()
+        : "";
+
+
+    // =======================================
+    // CONVERT DRIVE URL
     // =======================================
 
     const imageURL =
-        convertDriveLink(item.image);
+        convertDriveLink(
+            originalImageURL
+        );
 
 
     // =======================================
-    // GET CORRECT FIXED TITLE
+    // TITLE
     // =======================================
 
     const displayTitle =
         getGalleryTitle(
-            imageURL,
+            originalImageURL,
             item.title,
             index
         );
 
 
+    // =======================================
+    // DEBUG INFORMATION
+    // =======================================
+
     console.log(
-        "Gallery:",
-        imageURL,
-        "→",
-        displayTitle
+        "Gallery #" +
+        (index + 1) +
+        ":",
+        {
+            originalURL:
+                originalImageURL,
+
+            convertedURL:
+                imageURL,
+
+            apiTitle:
+                item.title,
+
+            displayTitle:
+                displayTitle
+        }
     );
 
 
@@ -435,69 +595,77 @@ function createGalleryCard(
     // IMAGE
     // =======================================
 
-    const img =
-        document.createElement("img");
+    if (imageURL) {
+
+        const img =
+            document.createElement("img");
 
 
-    img.src =
-        imageURL;
+        img.src =
+            imageURL;
 
 
-    img.alt =
-        displayTitle;
+        img.alt =
+            displayTitle;
 
 
-    img.loading =
-        "lazy";
+        img.loading =
+            "lazy";
 
 
-    // =======================================
-    // IMAGE ERROR
-    // =======================================
-
-    img.onerror =
-        function () {
-
-            console.error(
-                "Image failed:",
-                imageURL
-            );
+        img.decoding =
+            "async";
 
 
-            this.style.display =
-                "none";
+        img.className =
+            "gallery-image";
 
 
-            const errorBox =
-                document.createElement("div");
+        // =======================================
+        // IMAGE ERROR
+        // =======================================
+
+        img.onerror =
+            function () {
+
+                console.error(
+                    "Image failed to load:",
+                    imageURL
+                );
 
 
-            errorBox.className =
-                "gallery-image-error";
+                this.style.display =
+                    "none";
 
 
-            errorBox.innerHTML = `
-                ⚠️ Image unavailable
-            `;
+                const errorBox =
+                    document.createElement("div");
 
 
-            card.insertBefore(
-                errorBox,
-                card.firstChild
-            );
-
-        };
+                errorBox.className =
+                    "gallery-image-error";
 
 
-    // =======================================
-    // OPEN IMAGE
-    // =======================================
+                errorBox.innerHTML = `
+                    ⚠️ Image unavailable
+                `;
 
-    img.addEventListener(
-        "click",
-        function () {
 
-            if (imageURL) {
+                card.insertBefore(
+                    errorBox,
+                    card.firstChild
+                );
+
+            };
+
+
+        // =======================================
+        // OPEN IMAGE
+        // =======================================
+
+        img.addEventListener(
+            "click",
+            function () {
 
                 openImage(
                     imageURL,
@@ -505,9 +673,14 @@ function createGalleryCard(
                 );
 
             }
+        );
 
-        }
-    );
+
+        card.appendChild(
+            img
+        );
+
+    }
 
 
     // =======================================
@@ -526,19 +699,26 @@ function createGalleryCard(
         displayTitle;
 
 
+    card.appendChild(
+        title
+    );
+
+
     // =======================================
     // OPTIONAL EMPLOYEE INFORMATION
     // =======================================
 
-    const info =
-        document.createElement("div");
+    if (
+        item.employeeName
+    ) {
+
+        const info =
+            document.createElement("div");
 
 
-    info.className =
-        "gallery-info";
+        info.className =
+            "gallery-info";
 
-
-    if (item.employeeName) {
 
         const name =
             document.createElement("div");
@@ -548,35 +728,25 @@ function createGalleryCard(
             item.employeeName;
 
 
-        info.appendChild(name);
+        info.appendChild(
+            name
+        );
+
+
+        card.appendChild(
+            info
+        );
 
     }
 
 
     // =======================================
-    // ADD ELEMENTS
+    // ADD CARD
     // =======================================
 
-    if (imageURL) {
-
-        card.appendChild(img);
-
-    }
-
-
-    card.appendChild(title);
-
-
-    if (
-        info.children.length > 0
-    ) {
-
-        card.appendChild(info);
-
-    }
-
-
-    gallery.appendChild(card);
+    gallery.appendChild(
+        card
+    );
 
 }
 
@@ -599,7 +769,7 @@ function convertDriveLink(url) {
 
 
     // =======================================
-    // DIRECT DRIVE URL
+    // DIRECT DRIVE UC URL
     // =======================================
 
     if (
@@ -614,7 +784,7 @@ function convertDriveLink(url) {
 
 
     // =======================================
-    // FILE /d/FILE_ID/view
+    // DRIVE /d/FILE_ID/view
     // =======================================
 
     if (
@@ -625,11 +795,14 @@ function convertDriveLink(url) {
             url.split("/d/");
 
 
-        if (parts.length > 1) {
+        if (
+            parts.length > 1
+        ) {
 
             const fileId =
                 parts[1]
-                    .split("/")[0];
+                    .split("/")[0]
+                    .split("?")[0];
 
 
             if (fileId) {
@@ -648,7 +821,7 @@ function convertDriveLink(url) {
 
 
     // =======================================
-    // OPEN?ID=FILE_ID
+    // DRIVE OPEN?ID=FILE_ID
     // =======================================
 
     if (
@@ -759,7 +932,7 @@ function openImage(
 
 
     // =======================================
-    // TITLE IN POPUP
+    // POPUP TITLE
     // =======================================
 
     const popupTitle =
@@ -791,8 +964,14 @@ function openImage(
         "✕";
 
 
+    close.setAttribute(
+        "aria-label",
+        "Close image"
+    );
+
+
     // =======================================
-    // CLOSE
+    // CLOSE BUTTON
     // =======================================
 
     close.onclick =
@@ -804,6 +983,10 @@ function openImage(
 
         };
 
+
+    // =======================================
+    // ADD POPUP ELEMENTS
+    // =======================================
 
     popup.appendChild(
         image
@@ -837,6 +1020,10 @@ function openImage(
 
         };
 
+
+    // =======================================
+    // ADD TO PAGE
+    // =======================================
 
     document.body.appendChild(
         popup
