@@ -1,32 +1,42 @@
 /* =========================================================
    NSPCL POWER-UP QUIZ
-   GALLERY PAGE
+   GALLERY PAGE — COMPLETE REPLACEMENT CSS
    =========================================================
-   THEME:
-   Violet • Purple • Gold • Orange
 
-   GALLERY IMAGE/TITLE MAPPING
+   THEME
    ---------------------------------------------------------
-   1  gallery1.jpg   = Vendor Meet
-   2  gallery2.jpg   = C&M Initiatives
-   3  gallery3.jpg   = Monthly Reward Session
-   4  gallery4.jpg   = Training Program
-   5  gallery5.jpg   = Reward to Support Staff
-   6  gallery6.jpg   = Team Collaboration
-   7  gallery7.jpg   = Welcome & Farewell
-   8  gallery8.jpg   = Reward to Support Staff
-   9  gallery9.jpg   = Retirement Celebration
-   10 gallery10.jpg  = Materials Management
-   11 gallery11.jpg  = Vendor Management
-   12 gallery12.jpg  = Professional Meet
+   Violet • Purple • Magenta • Deep Teal • Gold • Orange
+
+   IMAGE MAPPING
+   ---------------------------------------------------------
+   gallery1.jpg  = Vendor Meet
+   gallery2.jpg  = C&M Initiatives
+   gallery3.jpg  = Monthly Reward Session
+   gallery4.jpg  = Training Program
+   gallery5.jpg  = Reward to Support Staff
+   gallery6.jpg  = Team Collaboration
+   gallery7.jpg  = Welcome & Farewell
+   gallery8.jpg  = Reward to Support Staff
+   gallery9.jpg  = Retirement Celebration
+   gallery10.jpg = Materials Management
+   gallery11.jpg = Vendor Management
+   gallery12.jpg = Professional Meet
 ========================================================= */
 
 
 /* =========================================================
-   MAIN GALLERY PAGE
+   GLOBAL RESET
 ========================================================= */
 
-.gallery-page {
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body.gallery-page {
 
     margin: 0;
 
@@ -34,62 +44,91 @@
 
     min-height: 100vh;
 
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
     color: #ffffff;
+
+    overflow-x: hidden;
+
+    /*
+       IMPORTANT:
+       This is the main Gallery background.
+       It intentionally matches the Contact-page style.
+    */
 
     background:
 
         radial-gradient(
-            circle at 10% 15%,
-            rgba(168, 85, 247, 0.35),
-            transparent 28%
-        ),
-
-        radial-gradient(
-            circle at 90% 10%,
-            rgba(124, 58, 237, 0.35),
+            circle at 12% 12%,
+            rgba(168, 85, 247, 0.30),
             transparent 30%
         ),
 
         radial-gradient(
-            circle at 50% 90%,
-            rgba(217, 70, 239, 0.25),
+            circle at 88% 18%,
+            rgba(217, 70, 239, 0.24),
             transparent 32%
         ),
 
+        radial-gradient(
+            circle at 50% 55%,
+            rgba(124, 58, 237, 0.18),
+            transparent 38%
+        ),
+
+        radial-gradient(
+            circle at 80% 90%,
+            rgba(249, 115, 22, 0.10),
+            transparent 28%
+        ),
+
         linear-gradient(
-            135deg,
-            #160b2e 0%,
-            #241044 30%,
-            #35145f 55%,
-            #241044 75%,
-            #120822 100%
+            180deg,
+            #5d285b 0%,
+            #542455 13%,
+            #351b43 28%,
+            #123d45 48%,
+            #083d43 72%,
+            #062f36 100%
         );
 
-    background-size: 250% 250%;
-
-    animation:
-        galleryBackground 16s ease infinite;
+    background-attachment: fixed;
 
 }
 
 
 /* =========================================================
-   VIOLET BACKGROUND ANIMATION
+   DECORATIVE GLOW
 ========================================================= */
 
-@keyframes galleryBackground {
+body.gallery-page::before {
 
-    0% {
-        background-position: 0% 50%;
-    }
+    content: "";
 
-    50% {
-        background-position: 100% 50%;
-    }
+    position: fixed;
 
-    100% {
-        background-position: 0% 50%;
-    }
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: -1;
+
+    background:
+
+        radial-gradient(
+            circle at 20% 40%,
+            rgba(168, 85, 247, 0.08),
+            transparent 25%
+        ),
+
+        radial-gradient(
+            circle at 80% 70%,
+            rgba(244, 114, 182, 0.06),
+            transparent 25%
+        );
 
 }
 
@@ -106,8 +145,6 @@
 
     padding: 10px 28px;
 
-    box-sizing: border-box;
-
     display: flex;
 
     align-items: center;
@@ -117,15 +154,22 @@
     gap: 20px;
 
     background:
-        rgba(22, 11, 38, 0.96);
+
+        linear-gradient(
+            90deg,
+            rgba(7, 34, 43, 0.97),
+            rgba(9, 57, 62, 0.96)
+        );
 
     border-bottom:
+
         1px solid
-        rgba(192, 132, 252, 0.25);
+        rgba(255,255,255,0.10);
 
     box-shadow:
+
         0 8px 30px
-        rgba(0,0,0,0.35);
+        rgba(0,0,0,0.30);
 
     position: relative;
 
@@ -157,7 +201,7 @@
 
     height: 46px;
 
-    border-radius: 13px;
+    border-radius: 14px;
 
     display: flex;
 
@@ -168,17 +212,20 @@
     font-size: 26px;
 
     background:
+
         linear-gradient(
             135deg,
-            #fbbf24,
+            #ffd166,
+            #ff9f43,
             #f97316
         );
 
-    color: #24120a;
+    color: #321506;
 
     box-shadow:
-        0 6px 20px
-        rgba(249,115,22,0.30);
+
+        0 7px 22px
+        rgba(249,115,22,0.35);
 
 }
 
@@ -189,7 +236,7 @@
 
     font-weight: 800;
 
-    letter-spacing: .5px;
+    letter-spacing: .4px;
 
     color: #ffffff;
 
@@ -204,7 +251,7 @@
 
     letter-spacing: 1.8px;
 
-    color: #d8c8ea;
+    color: #d7d0dc;
 
     margin-top: 4px;
 
@@ -240,9 +287,9 @@
 
     padding: 10px 13px;
 
-    border-radius: 10px;
+    border-radius: 11px;
 
-    color: #eee5f8;
+    color: #eee8f4;
 
     text-decoration: none;
 
@@ -251,9 +298,11 @@
     font-weight: 600;
 
     border:
+
         1px solid transparent;
 
     transition:
+
         all .25s ease;
 
 }
@@ -261,15 +310,18 @@
 
 .nav-links a:hover {
 
-    color: #fbbf24;
+    color: #ffd166;
 
     background:
-        rgba(168,85,247,0.15);
+
+        rgba(168,85,247,0.12);
 
     border-color:
-        rgba(192,132,252,0.30);
+
+        rgba(192,132,252,0.25);
 
     transform:
+
         translateY(-2px);
 
 }
@@ -281,27 +333,31 @@
 
 .nav-links a.active {
 
-    color: #24120a;
+    color: #281508;
 
     background:
+
         linear-gradient(
             135deg,
-            #fbbf24,
+            #ffd166,
+            #ffb347,
             #f97316
         );
 
     border-color:
+
         rgba(255,255,255,0.25);
 
     box-shadow:
-        0 6px 20px
-        rgba(249,115,22,0.28);
+
+        0 7px 22px
+        rgba(249,115,22,0.30);
 
 }
 
 
 /* =========================================================
-   GALLERY HEADER
+   GALLERY HERO / HEADER
 ========================================================= */
 
 .gallery-header {
@@ -311,40 +367,85 @@
     text-align: center;
 
     padding:
-        65px 20px 55px;
+        78px 20px 68px;
+
+    overflow: hidden;
 
     background:
 
         radial-gradient(
-            circle at center,
-            rgba(168,85,247,0.22),
-            transparent 60%
+            ellipse at center,
+            rgba(217,70,239,0.30),
+            transparent 58%
         ),
 
         linear-gradient(
             135deg,
+            rgba(168,85,247,0.28),
             rgba(124,58,237,0.20),
-            rgba(192,132,252,0.08),
-            transparent
+            rgba(236,72,153,0.12)
         );
 
     border-bottom:
+
         1px solid
-        rgba(216,180,254,0.12);
+        rgba(255,255,255,0.10);
+
+    box-shadow:
+
+        0 15px 45px
+        rgba(0,0,0,0.20);
 
 }
 
 
 /* =========================================================
-   GALLERY TITLE
+   HERO DECORATIVE LIGHT
+========================================================= */
+
+.gallery-header::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 420px;
+
+    height: 420px;
+
+    top: -240px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    border-radius: 50%;
+
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(255,255,255,0.10),
+            transparent 68%
+        );
+
+    pointer-events: none;
+
+}
+
+
+/* =========================================================
+   HERO TITLE
 ========================================================= */
 
 .gallery-header h1 {
 
+    position: relative;
+
     margin: 0;
 
     font-size:
-        clamp(32px, 5vw, 48px);
+        clamp(32px, 5vw, 50px);
 
     font-weight: 850;
 
@@ -355,9 +456,10 @@
         linear-gradient(
             90deg,
             #ffffff,
+            #f5d0fe,
             #e9d5ff,
-            #c084fc,
-            #fbbf24,
+            #ffd166,
+            #ffb86c,
             #ffffff
         );
 
@@ -370,7 +472,12 @@
     -webkit-text-fill-color: transparent;
 
     animation:
-        galleryTitle 6s linear infinite;
+        galleryTitle 7s linear infinite;
+
+    text-shadow:
+
+        0 0 30px
+        rgba(216,180,254,0.20);
 
 }
 
@@ -389,21 +496,23 @@
 
 
 /* =========================================================
-   GALLERY SUBTITLE
+   HERO SUBTITLE
 ========================================================= */
 
 .gallery-header p {
 
-    max-width: 700px;
+    position: relative;
+
+    max-width: 760px;
 
     margin:
-        14px auto 0;
+        16px auto 0;
 
     font-size: 17px;
 
-    line-height: 1.6;
+    line-height: 1.7;
 
-    color: #e9ddf5;
+    color: #f1e7f7;
 
 }
 
@@ -416,16 +525,18 @@
 
     text-align: center;
 
-    font-size: 30px;
+    font-size:
+        clamp(25px, 3vw, 32px);
 
-    color: #f3e8ff;
+    color: #ffffff;
 
     margin:
-        50px 0 25px;
+        52px 20px 25px;
 
     text-shadow:
-        0 0 18px
-        rgba(192,132,252,0.35);
+
+        0 0 20px
+        rgba(216,180,254,0.25);
 
 }
 
@@ -436,26 +547,29 @@
 
     display: block;
 
-    width: 70px;
+    width: 80px;
 
-    height: 3px;
+    height: 4px;
 
     margin:
-        12px auto;
+        13px auto 0;
 
-    border-radius: 10px;
+    border-radius: 20px;
 
     background:
+
         linear-gradient(
             90deg,
             #a855f7,
-            #c084fc,
-            #fbbf24
+            #ec4899,
+            #ffd166,
+            #f97316
         );
 
     box-shadow:
-        0 0 12px
-        rgba(168,85,247,0.55);
+
+        0 0 16px
+        rgba(192,132,252,0.55);
 
 }
 
@@ -471,48 +585,91 @@
     grid-template-columns:
         repeat(
             auto-fit,
-            minmax(200px, 1fr)
+            minmax(210px,1fr)
         );
 
-    gap: 20px;
+    gap: 22px;
+
+    max-width: 1400px;
+
+    margin: 0 auto;
 
     padding:
-        25px 6%;
+        30px 6%;
 
 }
 
 
 .stat-card {
 
+    position: relative;
+
     padding:
-        28px 20px;
+        28px 22px;
 
     text-align: center;
 
-    border-radius: 20px;
+    border-radius: 22px;
 
     background:
 
         linear-gradient(
             145deg,
-            rgba(168,85,247,0.20),
-            rgba(255,255,255,0.07)
+            rgba(255,255,255,0.13),
+            rgba(168,85,247,0.13),
+            rgba(255,255,255,0.05)
         );
 
     border:
+
         1px solid
         rgba(216,180,254,0.18);
 
     box-shadow:
-        0 15px 35px
-        rgba(0,0,0,0.28);
+
+        0 18px 40px
+        rgba(0,0,0,0.25);
 
     backdrop-filter:
-        blur(14px);
+        blur(16px);
+
+    -webkit-backdrop-filter:
+        blur(16px);
 
     transition:
+
         transform .3s ease,
+        box-shadow .3s ease,
         border-color .3s ease;
+
+    overflow: hidden;
+
+}
+
+
+.stat-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: 15%;
+
+    width: 70%;
+
+    height: 2px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            #ffd166,
+            #ec4899,
+            transparent
+        );
 
 }
 
@@ -520,10 +677,16 @@
 .stat-card:hover {
 
     transform:
-        translateY(-7px);
+        translateY(-8px);
 
     border-color:
-        rgba(192,132,252,0.55);
+
+        rgba(216,180,254,0.45);
+
+    box-shadow:
+
+        0 25px 55px
+        rgba(168,85,247,0.18);
 
 }
 
@@ -535,7 +698,12 @@
 
     font-size: 40px;
 
-    color: #fbbf24;
+    color: #ffd166;
+
+    text-shadow:
+
+        0 0 18px
+        rgba(255,209,102,0.25);
 
 }
 
@@ -544,13 +712,15 @@
 
     margin: 0;
 
-    color: #e4d8ee;
+    color: #e8ddeb;
+
+    font-size: 15px;
 
 }
 
 
 /* =========================================================
-   WINNER SECTION
+   WINNER CONTAINER
 ========================================================= */
 
 .winner-container {
@@ -560,10 +730,14 @@
     grid-template-columns:
         repeat(
             auto-fit,
-            minmax(240px, 1fr)
+            minmax(240px,1fr)
         );
 
-    gap: 20px;
+    gap: 22px;
+
+    max-width: 1400px;
+
+    margin: 0 auto;
 
     padding:
         20px 6%;
@@ -571,29 +745,41 @@
 }
 
 
+/* =========================================================
+   WINNER CARD
+========================================================= */
+
 .winner-card {
 
-    padding: 24px;
+    position: relative;
 
-    border-radius: 18px;
+    padding: 25px;
+
+    border-radius: 20px;
 
     background:
 
         linear-gradient(
             145deg,
-            rgba(72,32,110,0.90),
-            rgba(35,18,58,0.95)
+            rgba(91,42,117,0.78),
+            rgba(38,22,58,0.90)
         );
 
     border:
+
         1px solid
-        rgba(192,132,252,0.18);
+        rgba(216,180,254,0.16);
 
     box-shadow:
-        0 12px 30px
-        rgba(0,0,0,0.28);
+
+        0 15px 35px
+        rgba(0,0,0,0.25);
+
+    backdrop-filter:
+        blur(12px);
 
     transition:
+
         transform .3s ease,
         border-color .3s ease;
 
@@ -603,19 +789,20 @@
 .winner-card:hover {
 
     transform:
-        translateY(-6px);
+        translateY(-7px);
 
     border-color:
-        rgba(192,132,252,0.55);
+
+        rgba(255,209,102,0.45);
 
 }
 
 
 .winner-card h3 {
 
-    color: #fbbf24;
-
     margin-top: 0;
+
+    color: #ffd166;
 
 }
 
@@ -626,8 +813,14 @@
 
 .gallery-container {
 
+    width: 100%;
+
+    max-width: 1500px;
+
+    margin: 0 auto;
+
     padding:
-        35px 6% 60px;
+        30px 6% 70px;
 
     display: grid;
 
@@ -637,7 +830,7 @@
             minmax(280px,1fr)
         );
 
-    gap: 26px;
+    gap: 28px;
 
 }
 
@@ -652,55 +845,57 @@
 
     overflow: hidden;
 
-    border-radius: 20px;
+    border-radius: 22px;
 
     background:
+
         linear-gradient(
             145deg,
-            #35204c,
-            #21152f
+            rgba(67,38,84,0.94),
+            rgba(27,22,38,0.98)
         );
 
     border:
+
         1px solid
-        rgba(216,180,254,0.15);
+        rgba(255,255,255,0.12);
 
     box-shadow:
-        0 15px 40px
+
+        0 18px 45px
         rgba(0,0,0,0.32);
 
     transition:
-        transform .35s ease,
-        box-shadow .35s ease,
-        border-color .35s ease;
+
+        transform .4s ease,
+        box-shadow .4s ease,
+        border-color .4s ease;
 
     animation:
-        slideUp .7s ease both;
+        galleryCardAppear .7s ease both;
 
 }
 
-
-/* =========================================================
-   CARD HOVER
-========================================================= */
 
 .gallery-card:hover {
 
     transform:
-        translateY(-8px);
+        translateY(-10px);
 
     border-color:
-        rgba(192,132,252,0.55);
+
+        rgba(255,209,102,0.42);
 
     box-shadow:
-        0 22px 55px
-        rgba(126,58,237,0.30);
+
+        0 28px 65px
+        rgba(91,33,182,0.32);
 
 }
 
 
 /* =========================================================
-   GALLERY IMAGE
+   IMAGE
 ========================================================= */
 
 .gallery-card img {
@@ -716,11 +911,12 @@
     background:
         #24152f;
 
-    transition:
-        transform .55s ease,
-        filter .55s ease;
-
     cursor: pointer;
+
+    transition:
+
+        transform .6s ease,
+        filter .6s ease;
 
 }
 
@@ -728,59 +924,59 @@
 .gallery-card:hover img {
 
     transform:
-        scale(1.06);
+        scale(1.07);
 
     filter:
         brightness(1.08)
-        saturate(1.08);
+        saturate(1.12)
+        contrast(1.03);
 
 }
 
 
 /* =========================================================
-   GALLERY IMAGE INFORMATION
+   IMAGE TOP SHINE
 ========================================================= */
 
-.gallery-info {
+.gallery-card::after {
 
-    padding:
-        18px 18px 20px;
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: -100%;
+
+    width: 70%;
+
+    height: 270px;
 
     background:
 
         linear-gradient(
-            180deg,
-            #352442,
-            #24162f
+            90deg,
+            transparent,
+            rgba(255,255,255,0.10),
+            transparent
         );
 
-}
+    transform:
+        skewX(-20deg);
 
+    transition:
+        left .7s ease;
 
-.gallery-info h3 {
+    pointer-events: none;
 
-    margin:
-        0 0 7px;
-
-    font-size: 20px;
-
-    color: #ffffff;
-
-    line-height: 1.3;
+    z-index: 3;
 
 }
 
 
-.gallery-info p {
+.gallery-card:hover::after {
 
-    margin:
-        5px 0;
-
-    color: #d8cbe3;
-
-    line-height: 1.5;
-
-    font-size: 14px;
+    left: 130%;
 
 }
 
@@ -794,8 +990,7 @@
     content:
         "⚡ NSPCL";
 
-    position:
-        absolute;
+    position: absolute;
 
     top: 15px;
 
@@ -805,12 +1000,14 @@
         7px 13px;
 
     border-radius:
-        20px;
+        30px;
 
     background:
+
         linear-gradient(
             135deg,
-            #fbbf24,
+            #ffd166,
+            #ffb347,
             #f97316
         );
 
@@ -827,14 +1024,78 @@
         5;
 
     box-shadow:
-        0 5px 15px
+
+        0 6px 18px
         rgba(0,0,0,0.30);
 
 }
 
 
 /* =========================================================
-   IMAGE ERROR BOX
+   GALLERY INFORMATION
+========================================================= */
+
+.gallery-info {
+
+    position: relative;
+
+    padding:
+        19px 19px 21px;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            rgba(59,34,75,0.96),
+            rgba(31,24,40,0.98)
+        );
+
+}
+
+
+/* =========================================================
+   IMAGE TITLE
+========================================================= */
+
+.gallery-info h3 {
+
+    margin:
+        0 0 8px;
+
+    font-size: 20px;
+
+    font-weight: 750;
+
+    color: #ffffff;
+
+    line-height: 1.35;
+
+}
+
+
+/* =========================================================
+   IMAGE DESCRIPTION
+========================================================= */
+
+.gallery-info p {
+
+    margin:
+        5px 0;
+
+    color:
+        #d8cbe3;
+
+    line-height:
+        1.55;
+
+    font-size:
+        14px;
+
+}
+
+
+/* =========================================================
+   IMAGE ERROR
 ========================================================= */
 
 .image-error {
@@ -853,17 +1114,17 @@
 
         linear-gradient(
             135deg,
-            #2a183b,
-            #1b1027
+            #321b43,
+            #1a1026
         );
 
-    color: #d8cbe3;
+    color:
+        #e9d5ff;
 
     text-align: center;
 
-    padding: 15px;
-
-    box-sizing: border-box;
+    padding:
+        20px;
 
 }
 
@@ -876,11 +1137,14 @@
 
     font-size: 10px;
 
-    color: #a995b8;
+    color:
+        #ae9bbb;
 
-    word-break: break-all;
+    word-break:
+        break-all;
 
-    max-width: 90%;
+    max-width:
+        90%;
 
 }
 
@@ -891,17 +1155,20 @@
 
 .loading {
 
-    text-align: center;
-
-    padding:
-        50px 20px;
-
-    font-size: 20px;
-
-    color: #e9d5ff;
-
     grid-column:
         1 / -1;
+
+    text-align:
+        center;
+
+    padding:
+        60px 20px;
+
+    color:
+        #eadcff;
+
+    font-size:
+        20px;
 
 }
 
@@ -923,7 +1190,12 @@
     box-sizing: border-box;
 
     background:
-        rgba(10,5,18,0.94);
+
+        radial-gradient(
+            circle at center,
+            rgba(90,30,110,0.40),
+            rgba(8,5,15,0.96)
+        );
 
     justify-content:
         center;
@@ -934,25 +1206,35 @@
     z-index:
         99999;
 
+    backdrop-filter:
+        blur(8px);
+
 }
 
 
 .popup img {
 
     max-width:
-        min(92%, 1100px);
+        min(92%,1100px);
 
     max-height:
-        82vh;
+        84vh;
 
     border-radius:
-        15px;
+        18px;
+
+    object-fit:
+        contain;
 
     box-shadow:
-        0 20px 60px
-        rgba(0,0,0,0.70);
 
-    object-fit: contain;
+        0 25px 80px
+        rgba(0,0,0,0.75);
+
+    border:
+
+        1px solid
+        rgba(255,255,255,0.15);
 
 }
 
@@ -962,40 +1244,81 @@
     position:
         absolute;
 
-    top: 18px;
+    top:
+        18px;
 
-    right: 25px;
+    right:
+        25px;
 
-    font-size: 42px;
+    width:
+        48px;
 
-    color: white;
+    height:
+        48px;
 
-    cursor: pointer;
+    display:
+        flex;
 
-    z-index: 100000;
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border-radius:
+        50%;
+
+    background:
+        rgba(255,255,255,0.10);
+
+    color:
+        #ffffff;
+
+    font-size:
+        36px;
+
+    cursor:
+        pointer;
+
+    z-index:
+        100000;
+
+    transition:
+        .25s ease;
 
 }
 
 
 .close:hover {
 
-    color: #fbbf24;
+    background:
+        linear-gradient(
+            135deg,
+            #ffd166,
+            #f97316
+        );
+
+    color:
+        #26150b;
+
+    transform:
+        rotate(90deg);
 
 }
 
 
 /* =========================================================
-   GALLERY CARD ANIMATION
+   CARD ANIMATION
 ========================================================= */
 
-@keyframes slideUp {
+@keyframes galleryCardAppear {
 
     from {
 
         opacity: 0;
 
         transform:
-            translateY(30px);
+            translateY(25px);
 
     }
 
@@ -1012,7 +1335,7 @@
 
 
 /* =========================================================
-   MOBILE
+   MOBILE — TABLET
 ========================================================= */
 
 @media (max-width: 800px) {
@@ -1025,14 +1348,16 @@
         flex-direction:
             column;
 
-        gap: 12px;
+        gap:
+            12px;
 
     }
 
 
     .nav-brand {
 
-        width: 100%;
+        width:
+            100%;
 
         justify-content:
             center;
@@ -1042,12 +1367,14 @@
 
     .nav-links {
 
-        width: 100%;
+        width:
+            100%;
 
         justify-content:
             center;
 
-        gap: 4px;
+        gap:
+            4px;
 
     }
 
@@ -1066,7 +1393,7 @@
     .gallery-header {
 
         padding:
-            45px 18px;
+            55px 18px 45px;
 
     }
 
@@ -1087,10 +1414,32 @@
     }
 
 
+    .stats-container {
+
+        padding:
+            20px 15px;
+
+        gap:
+            15px;
+
+    }
+
+
+    .winner-container {
+
+        padding:
+            15px;
+
+    }
+
+
     .gallery-container {
 
         padding:
-            25px 15px 45px;
+            25px 15px 50px;
+
+        grid-template-columns:
+            repeat(2,1fr);
 
         gap:
             18px;
@@ -1113,30 +1462,14 @@
 
     }
 
-
-    .stats-container {
-
-        padding:
-            20px 15px;
-
-    }
-
-
-    .winner-container {
-
-        padding:
-            15px;
-
-    }
-
 }
 
 
 /* =========================================================
-   SMALL PHONES
+   MOBILE — SMALL PHONE
 ========================================================= */
 
-@media (max-width: 500px) {
+@media (max-width: 550px) {
 
     .brand-icon {
 
@@ -1171,13 +1504,38 @@
     }
 
 
+    .nav-links {
+
+        display:
+            grid;
+
+        grid-template-columns:
+            repeat(3,1fr);
+
+        width:
+            100%;
+
+    }
+
+
     .nav-links a {
 
+        justify-content:
+            center;
+
         padding:
-            7px 8px;
+            8px 5px;
 
         font-size:
             11px;
+
+    }
+
+
+    .gallery-header {
+
+        padding:
+            45px 15px 40px;
 
     }
 
@@ -1190,10 +1548,32 @@
     }
 
 
+    .gallery-header p {
+
+        font-size:
+            14px;
+
+    }
+
+
     .section-title {
 
         font-size:
             25px;
+
+        margin-top:
+            38px;
+
+    }
+
+
+    .gallery-container {
+
+        grid-template-columns:
+            1fr;
+
+        padding:
+            20px 15px 45px;
 
     }
 
@@ -1201,7 +1581,7 @@
     .gallery-card img {
 
         height:
-            200px;
+            230px;
 
     }
 
@@ -1209,16 +1589,62 @@
     .image-error {
 
         height:
-            200px;
+            230px;
 
     }
 
+
+    .gallery-info h3 {
+
+        font-size:
+            18px;
+
+    }
+
+
+    .popup {
+
+        padding:
+            15px;
+
+    }
+
+
+    .popup img {
+
+        max-width:
+            96%;
+
+        max-height:
+            80vh;
+
+    }
+
+
+    .close {
+
+        top:
+            10px;
+
+        right:
+            12px;
+
+        width:
+            42px;
+
+        height:
+            42px;
+
+        font-size:
+            30px;
+
+    }
 
 }
 
 
 /* =========================================================
-   LARGE SCREENS
+   LARGE DESKTOP
 ========================================================= */
 
 @media (min-width: 1200px) {
@@ -1226,7 +1652,29 @@
     .gallery-container {
 
         grid-template-columns:
-            repeat(4, 1fr);
+            repeat(4,1fr);
+
+    }
+
+}
+
+
+/* =========================================================
+   EXTRA LARGE DESKTOP
+========================================================= */
+
+@media (min-width: 1600px) {
+
+    .gallery-container {
+
+        max-width:
+            1600px;
+
+        grid-template-columns:
+            repeat(4,1fr);
+
+        gap:
+            32px;
 
     }
 
