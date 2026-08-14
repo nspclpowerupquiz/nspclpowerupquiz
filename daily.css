@@ -1,1006 +1,271 @@
-/* ==========================================================
-   NSPCL POWER PULSE
-   CLEAN • LIVELY • ANIMATED THEME
-   HTML + JS UNCHANGED
-========================================================== */
-
-
-/* ==========================================================
-   RESET
-========================================================== */
+/* =====================================================
+   NSPCL POWER PULSE - SAFE TEST CSS
+===================================================== */
 
 * {
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-    overflow-y: scroll;
+html,
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 body {
-    margin: 0;
-    min-height: 100vh;
     font-family: "Segoe UI", Arial, sans-serif;
-    color: #ffffff;
-    overflow-x: hidden;
+    color: white;
+    background: #24102f;
 }
 
-
-/* ==========================================================
-   MAIN PAGE
-========================================================== */
-
+/* Main page */
 .daily-page {
-
     min-height: 100vh;
-
-    position: relative;
-
-    overflow-x: hidden;
+    width: 100%;
+    padding-bottom: 40px;
 
     background:
         radial-gradient(
-            circle at 10% 15%,
-            rgba(255, 77, 166, .22),
-            transparent 28%
+            circle at 10% 10%,
+            rgba(255, 70, 170, .25),
+            transparent 30%
         ),
-
         radial-gradient(
-            circle at 88% 18%,
-            rgba(255, 170, 55, .24),
-            transparent 28%
+            circle at 90% 20%,
+            rgba(255, 170, 60, .25),
+            transparent 30%
         ),
-
-        radial-gradient(
-            circle at 50% 85%,
-            rgba(146, 76, 255, .22),
-            transparent 32%
-        ),
-
         linear-gradient(
             135deg,
-            #180b2e,
-            #29113f,
-            #32152f,
-            #201033,
-            #120820
+            #180b28,
+            #35133f,
+            #24102f
         );
-
-    background-size: 250% 250%;
-
-    animation:
-        backgroundMove 18s ease-in-out infinite;
 }
 
-
-@keyframes backgroundMove {
-
-    0% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0% 50%;
-    }
-
-}
-
-
-/* ==========================================================
-   FLOATING GLOW
-========================================================== */
-
-.daily-page::before,
-.daily-page::after {
-
-    content: "";
-
-    position: fixed;
-
-    width: 300px;
-    height: 300px;
-
-    border-radius: 50%;
-
-    filter: blur(75px);
-
-    pointer-events: none;
-
-    z-index: 0;
-}
-
-
-.daily-page::before {
-
-    left: -130px;
-    top: 20%;
-
-    background:
-        rgba(255, 55, 170, .25);
-
-    animation:
-        floatPink 9s ease-in-out infinite;
-}
-
-
-.daily-page::after {
-
-    right: -120px;
-    bottom: 10%;
-
-    background:
-        rgba(255, 165, 50, .22);
-
-    animation:
-        floatOrange 11s ease-in-out infinite;
-}
-
-
-@keyframes floatPink {
-
-    0%,
-    100% {
-        transform:
-            translate(0, 0)
-            scale(1);
-    }
-
-    50% {
-        transform:
-            translate(170px, -80px)
-            scale(1.3);
-    }
-}
-
-
-@keyframes floatOrange {
-
-    0%,
-    100% {
-        transform:
-            translate(0, 0)
-            scale(1);
-    }
-
-    50% {
-        transform:
-            translate(-150px, -70px)
-            scale(1.25);
-    }
-}
-
-
-/* ==========================================================
-   HEADER
-========================================================== */
-
+/* Header */
 .daily-header {
-
-    position: relative;
-
-    z-index: 2;
-
+    padding: 45px 20px 30px;
     text-align: center;
 
-    padding:
-        48px 20px 34px;
-
-    background:
-        rgba(30, 10, 45, .48);
+    background: rgba(255,255,255,.08);
 
     border-bottom:
-        1px solid
-        rgba(255,255,255,.14);
+        1px solid rgba(255,255,255,.18);
 
-    backdrop-filter:
-        blur(20px);
-
-    animation:
-        headerEntry .8s ease;
+    backdrop-filter: blur(15px);
 }
-
-
-@keyframes headerEntry {
-
-    from {
-        opacity: 0;
-        transform:
-            translateY(-30px);
-    }
-
-    to {
-        opacity: 1;
-        transform:
-            translateY(0);
-    }
-}
-
-
-/* ==========================================================
-   TITLE
-========================================================== */
 
 .daily-header h1 {
-
     margin: 0;
 
-    font-size:
-        clamp(32px, 5vw, 54px);
+    font-size: clamp(30px, 5vw, 52px);
 
     font-weight: 900;
 
-    letter-spacing: 1px;
+    color: white;
 
-    background:
-        linear-gradient(
-            90deg,
-            #ffffff,
-            #ff75c8,
-            #ffd166,
-            #ffffff,
-            #ff75c8
-        );
-
-    background-size:
-        300% auto;
-
-    -webkit-background-clip: text;
-    background-clip: text;
-
-    -webkit-text-fill-color: transparent;
-
-    animation:
-        titleFlow 5s linear infinite;
+    text-shadow:
+        0 0 20px rgba(255,80,180,.7);
 }
-
-
-@keyframes titleFlow {
-
-    0% {
-        background-position: 0% center;
-    }
-
-    100% {
-        background-position: 300% center;
-    }
-}
-
 
 .daily-header p {
-
-    margin:
-        12px 0 0;
-
-    color:
-        rgba(255,255,255,.78);
-
-    font-size: 16px;
+    margin-top: 10px;
+    color: rgba(255,255,255,.8);
 }
 
-
-/* ==========================================================
-   MAIN WRAPPER
-========================================================== */
-
+/* Wrapper */
 .daily-wrapper {
-
-    position: relative;
-
-    z-index: 2;
-
     width: 100%;
-
     max-width: 950px;
 
     margin: auto;
 
     padding:
-        25px 20px 55px;
+        25px 20px 50px;
 }
 
-
-/* ==========================================================
-   GLASS CARD
-========================================================== */
-
+/* Cards */
 .motivation-card,
 .question-card,
 .performers-card {
 
     background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.14),
-            rgba(255,255,255,.045)
-        );
+        rgba(255,255,255,.10);
 
     border:
-        1px solid
-        rgba(255,255,255,.18);
+        1px solid rgba(255,255,255,.20);
+
+    border-radius: 22px;
+
+    padding: 25px;
+
+    margin-bottom: 25px;
 
     backdrop-filter:
-        blur(20px);
-
-    -webkit-backdrop-filter:
-        blur(20px);
+        blur(15px);
 
     box-shadow:
-        0 20px 60px
-        rgba(0,0,0,.28);
-
+        0 15px 40px
+        rgba(0,0,0,.25);
 }
 
-
-/* ==========================================================
-   MOTIVATION
-========================================================== */
-
-.motivation-card {
-
-    position: relative;
-
-    margin:
-        20px auto 28px;
-
-    padding: 28px;
-
-    text-align: center;
-
-    border-radius:
-        24px;
-
-    overflow: hidden;
-
-    animation:
-        cardEntry .8s ease;
-}
-
-
-.motivation-card::before {
-
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    left: 10%;
-
-    width: 80%;
-    height: 3px;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            #ff4da6,
-            #ffd166,
-            #ff8c42,
-            #ff4da6,
-            transparent
-        );
-
-    background-size:
-        200% 100%;
-
-    animation:
-        lightSweep 3s linear infinite;
-}
-
-
-@keyframes lightSweep {
-
-    from {
-        background-position: 0% center;
-    }
-
-    to {
-        background-position: 200% center;
-    }
-}
-
-
+/* Motivation */
 .motivation-title {
-
-    margin:
-        0 0 12px;
-
-    color:
-        #ffd166;
-
-    font-size: 23px;
-
-    font-weight: 900;
-
-    text-shadow:
-        0 0 18px
-        rgba(255,209,102,.45);
+    color: #ffd166;
+    text-align: center;
 }
-
 
 #motivation {
-
-    margin: 0;
-
-    color:
-        rgba(255,255,255,.90);
-
-    font-size: 18px;
-
-    line-height: 1.7;
-
-    font-style: italic;
-
-    animation:
-        gentleFloat 3s ease-in-out infinite;
-}
-
-
-@keyframes gentleFloat {
-
-    0%,
-    100% {
-        transform:
-            translateY(0);
-    }
-
-    50% {
-        transform:
-            translateY(-3px);
-    }
-}
-
-
-/* ==========================================================
-   EMPLOYEE
-========================================================== */
-
-.employee-card {
-
-    position: relative;
-
-    z-index: 2;
-
     text-align: center;
-
-    margin:
-        20px 0 25px;
-
-    font-size: 16px;
-
-    animation:
-        fadeUp .7s ease;
+    color: white;
+    font-size: 18px;
+    line-height: 1.6;
 }
 
+/* Employee */
+.employee-card {
+    text-align: center;
+    margin: 20px 0;
+}
 
 .employee-card span {
-
-    display: inline-block;
-
-    margin-left: 5px;
-
-    padding:
-        7px 16px;
-
-    border-radius:
-        30px;
-
-    color:
-        #ffd166;
-
-    background:
-        rgba(255,209,102,.10);
-
-    border:
-        1px solid
-        rgba(255,209,102,.25);
-
-    box-shadow:
-        0 0 18px
-        rgba(255,209,102,.08);
-
-    font-weight: 800;
+    color: #ffd166;
+    font-weight: bold;
 }
 
-
-/* ==========================================================
-   QUESTION CARD
-========================================================== */
-
-.question-card {
-
-    position: relative;
-
-    overflow: hidden;
-
-    padding: 35px;
-
-    border-radius:
-        28px;
-
-    animation:
-        questionEntry .8s ease;
-}
-
-
-.question-card::before {
-
-    content: "";
-
-    position: absolute;
-
-    width: 220px;
-    height: 220px;
-
-    right: -110px;
-    top: -110px;
-
-    border-radius: 50%;
-
-    background:
-        rgba(255,77,166,.15);
-
-    filter:
-        blur(35px);
-
-    pointer-events: none;
-}
-
-
-.question-card::after {
-
-    content: "";
-
-    position: absolute;
-
-    width: 180px;
-    height: 180px;
-
-    left: -100px;
-    bottom: -100px;
-
-    border-radius: 50%;
-
-    background:
-        rgba(255,166,66,.12);
-
-    filter:
-        blur(35px);
-
-    pointer-events: none;
-}
-
-
-@keyframes questionEntry {
-
-    from {
-        opacity: 0;
-
-        transform:
-            translateY(30px)
-            scale(.97);
-    }
-
-    to {
-        opacity: 1;
-
-        transform:
-            translateY(0)
-            scale(1);
-    }
-}
-
-
-/* ==========================================================
-   QUESTION NUMBER
-========================================================== */
-
-.question-card > p {
-
-    color:
-        rgba(255,255,255,.65);
-
-    font-size: 14px;
-}
-
-
-#questionNumber,
-#totalQuestions {
-
-    color:
-        #ffd166;
-
-    font-weight:
-        900;
-}
-
-
-/* ==========================================================
-   QUESTION
-========================================================== */
-
+/* Question */
 #question {
-
-    position: relative;
-
-    z-index: 2;
-
-    margin:
-        15px 0 24px;
-
-    color:
-        #ffffff;
+    color: white;
 
     font-size:
         clamp(20px, 3vw, 28px);
 
-    line-height:
-        1.55;
+    line-height: 1.5;
 
-    font-weight:
-        800;
+    font-weight: 800;
 
-    text-shadow:
-        0 3px 15px
-        rgba(0,0,0,.25);
-
-    animation:
-        questionText .6s ease;
+    margin: 20px 0;
 }
 
-
-@keyframes questionText {
-
-    from {
-        opacity: 0;
-
-        transform:
-            translateX(-15px);
-    }
-
-    to {
-        opacity: 1;
-
-        transform:
-            translateX(0);
-    }
+/* Question numbers */
+#questionNumber,
+#totalQuestions {
+    color: #ffd166;
+    font-weight: 900;
 }
 
-
-/* ==========================================================
-   TIMER
-========================================================== */
-
-.timer-box {
-
-    margin:
-        20px 0 25px;
-
-    padding:
-        14px;
-
-    text-align:
-        center;
-
-    border-radius:
-        18px;
-
-    background:
-        rgba(0,0,0,.20);
-
-    border:
-        1px solid
-        rgba(255,255,255,.10);
-}
-
-
+/* Timer */
 #timer {
+    color: #ff9f43;
 
-    color:
-        #ff9f43;
+    font-size: 28px;
 
-    font-size:
-        27px;
+    font-weight: 900;
 
-    font-weight:
-        900;
+    text-align: center;
 
-    text-shadow:
-        0 0 18px
-        rgba(255,159,67,.65);
-
-    animation:
-        timerPulse 1.2s ease-in-out infinite;
+    margin: 20px 0;
 }
 
-
-@keyframes timerPulse {
-
-    0%,
-    100% {
-        transform:
-            scale(1);
-
-        opacity: .85;
-    }
-
-    50% {
-        transform:
-            scale(1.08);
-
-        opacity: 1;
-    }
-}
-
-
-/* ==========================================================
-   ANSWER OPTIONS
-========================================================== */
-
+/* Options */
 #options {
-
-    display:
-        grid;
+    display: grid;
 
     grid-template-columns:
         repeat(2, 1fr);
 
-    gap:
-        16px;
-
-    margin-top:
-        20px;
+    gap: 15px;
 }
 
-
-/* ==========================================================
-   OPTION BUTTON
-========================================================== */
-
+/* Answer button */
 .daily-option {
 
-    position: relative;
+    min-height: 65px;
 
-    overflow: hidden;
+    padding: 15px;
 
-    min-height:
-        70px;
+    border: none;
 
-    padding:
-        16px 18px;
-
-    border:
-        1px solid
-        rgba(255,255,255,.15);
-
-    border-radius:
-        17px;
+    border-radius: 15px;
 
     background:
         linear-gradient(
             135deg,
-            #6d2d82,
-            #a53c82
+            #7b2cbf,
+            #d63384
         );
 
-    color:
-        #ffffff;
+    color: white;
 
-    font-size:
-        16px;
+    font-size: 16px;
 
-    font-weight:
-        800;
+    font-weight: 800;
 
-    text-align:
-        left;
+    text-align: left;
 
-    cursor:
-        pointer;
+    cursor: pointer;
+
+    transition:
+        .25s ease;
 
     box-shadow:
-        0 10px 25px
-        rgba(0,0,0,.22);
-
-    transition:
-        transform .25s ease,
-        box-shadow .25s ease,
-        filter .25s ease;
-
-    animation:
-        optionEntry .5s ease both;
+        0 8px 25px
+        rgba(0,0,0,.25);
 }
-
-
-.daily-option:nth-child(1) {
-    animation-delay: .05s;
-}
-
-.daily-option:nth-child(2) {
-    animation-delay: .15s;
-}
-
-.daily-option:nth-child(3) {
-    animation-delay: .25s;
-}
-
-.daily-option:nth-child(4) {
-    animation-delay: .35s;
-}
-
-
-@keyframes optionEntry {
-
-    from {
-        opacity: 0;
-
-        transform:
-            translateY(18px);
-    }
-
-    to {
-        opacity: 1;
-
-        transform:
-            translateY(0);
-    }
-}
-
-
-/* ==========================================================
-   OPTION SHINE
-========================================================== */
-
-.daily-option::after {
-
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    left: -120%;
-
-    width: 65%;
-    height: 100%;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(255,255,255,.30),
-            transparent
-        );
-
-    transform:
-        skewX(-25deg);
-
-    transition:
-        left .7s ease;
-}
-
 
 .daily-option:hover {
 
     transform:
-        translateY(-6px)
-        scale(1.02);
-
-    filter:
-        brightness(1.12);
+        translateY(-5px);
 
     box-shadow:
-        0 18px 38px
-        rgba(255,77,166,.28);
+        0 15px 35px
+        rgba(255,60,170,.35);
 }
 
-
-.daily-option:hover::after {
-
-    left:
-        140%;
-}
-
-
-.daily-option:active {
-
-    transform:
-        scale(.97);
-}
-
-
-/* ==========================================================
-   OPTION LETTER
-========================================================== */
-
+/* Option letter */
 .option-letter {
 
-    display:
-        inline-flex;
+    display: inline-flex;
 
-    align-items:
-        center;
+    align-items: center;
 
-    justify-content:
-        center;
+    justify-content: center;
 
-    width:
-        35px;
+    width: 34px;
+    height: 34px;
 
-    height:
-        35px;
+    margin-right: 8px;
 
-    margin-right:
-        10px;
-
-    border-radius:
-        50%;
+    border-radius: 50%;
 
     background:
-        rgba(0,0,0,.20);
+        rgba(0,0,0,.25);
 
-    border:
-        1px solid
-        rgba(255,255,255,.20);
-
-    font-weight:
-        900;
+    font-weight: 900;
 }
 
-
-/* ==========================================================
-   CORRECT ANSWER
-========================================================== */
-
+/* Correct */
 .daily-option.correct {
 
     background:
         linear-gradient(
             135deg,
             #00a878,
-            #23d98b
+            #20d890
         );
 
     box-shadow:
-        0 0 32px
-        rgba(35,217,139,.45);
-
-    animation:
-        correctPulse .65s ease;
+        0 0 30px
+        rgba(32,216,144,.45);
 }
 
-
-@keyframes correctPulse {
-
-    0% {
-        transform:
-            scale(1);
-    }
-
-    40% {
-        transform:
-            scale(1.06);
-    }
-
-    70% {
-        transform:
-            scale(.98);
-    }
-
-    100% {
-        transform:
-            scale(1);
-    }
-}
-
-
-/* ==========================================================
-   WRONG ANSWER
-========================================================== */
-
+/* Wrong */
 .daily-option.incorrect {
 
     background:
@@ -1011,689 +276,213 @@ body {
         );
 
     box-shadow:
-        0 0 28px
-        rgba(255,92,124,.38);
-
-    animation:
-        wrongShake .45s ease;
+        0 0 30px
+        rgba(255,92,124,.40);
 }
 
-
-@keyframes wrongShake {
-
-    0%,
-    100% {
-        transform:
-            translateX(0);
-    }
-
-    25% {
-        transform:
-            translateX(-8px);
-    }
-
-    50% {
-        transform:
-            translateX(8px);
-    }
-
-    75% {
-        transform:
-            translateX(-5px);
-    }
-}
-
-
-/* ==========================================================
-   ANSWER RESULT
-========================================================== */
-
+/* Result */
 #answerResult {
-
-    margin-top:
-        22px;
-
-    line-height:
-        1.7;
+    margin-top: 20px;
+    line-height: 1.6;
 }
-
 
 .correct-message,
 .wrong-message {
 
-    padding:
-        21px;
+    padding: 20px;
 
-    border-radius:
-        18px;
-
-    animation:
-        resultPop .45s ease;
+    border-radius: 15px;
 }
-
-
-@keyframes resultPop {
-
-    from {
-        opacity: 0;
-
-        transform:
-            scale(.92)
-            translateY(10px);
-    }
-
-    to {
-        opacity: 1;
-
-        transform:
-            scale(1)
-            translateY(0);
-    }
-}
-
 
 .correct-message {
 
     background:
-        rgba(0,190,125,.14);
+        rgba(0,190,125,.15);
 
     border:
-        1px solid
-        #23d98b;
-
-    box-shadow:
-        0 0 25px
-        rgba(35,217,139,.12);
+        1px solid #20d890;
 }
-
 
 .wrong-message {
 
     background:
-        rgba(255,75,110,.14);
+        rgba(255,70,100,.15);
 
     border:
-        1px solid
-        #ff5c7c;
-
-    box-shadow:
-        0 0 25px
-        rgba(255,92,124,.12);
+        1px solid #ff5c7c;
 }
 
-
-/* ==========================================================
-   CATEGORY + SOURCE
-========================================================== */
-
+/* Category */
 #category {
 
-    display:
-        inline-block;
+    display: inline-block;
 
-    margin-top:
-        18px;
+    margin-top: 10px;
 
     padding:
-        6px 13px;
+        6px 12px;
 
-    border-radius:
-        30px;
+    border-radius: 20px;
 
-    color:
-        #ffb86b;
+    color: #ffd166;
 
     background:
-        rgba(255,184,107,.09);
-
-    border:
-        1px solid
-        rgba(255,184,107,.20);
-
-    font-size:
-        13px;
-
-    font-weight:
-        800;
+        rgba(255,209,102,.10);
 }
 
-
+/* Source */
 #newsSource {
 
-    margin-top:
-        18px;
+    margin-top: 15px;
 
-    padding-top:
-        14px;
+    padding-top: 12px;
 
     border-top:
-        1px solid
-        rgba(255,255,255,.09);
+        1px solid rgba(255,255,255,.10);
 
     color:
         rgba(255,255,255,.60);
 
-    font-size:
-        13px;
+    font-size: 13px;
 }
 
-
-/* ==========================================================
-   PERFORMERS
-========================================================== */
-
-.performers-card {
-
-    margin-top:
-        30px;
-
-    padding:
-        28px;
-
-    border-radius:
-        24px;
-
-    animation:
-        fadeUp .8s ease;
-}
-
-
+/* Performers */
 .performers-card h2 {
 
-    margin:
-        0 0 22px;
+    margin-top: 0;
 
-    text-align:
-        center;
+    text-align: center;
 
-    color:
-        #ffd166;
-
-    font-size:
-        23px;
-
-    text-shadow:
-        0 0 16px
-        rgba(255,209,102,.35);
+    color: #ffd166;
 }
-
 
 .performer {
 
-    display:
-        flex;
+    display: flex;
 
-    align-items:
-        center;
+    align-items: center;
 
-    padding:
-        14px;
+    padding: 13px;
 
-    margin-bottom:
-        10px;
+    margin-bottom: 8px;
 
-    border-radius:
-        15px;
+    border-radius: 12px;
 
     background:
         rgba(255,255,255,.06);
-
-    border:
-        1px solid
-        rgba(255,255,255,.07);
-
-    transition:
-        transform .25s ease,
-        background .25s ease;
 }
-
-
-.performer:hover {
-
-    transform:
-        translateX(7px);
-
-    background:
-        rgba(255,255,255,.11);
-}
-
 
 .performer-rank {
-
-    width:
-        45px;
-
-    font-size:
-        23px;
+    width: 45px;
 }
-
 
 .performer-name {
-
-    flex:
-        1;
-
-    font-weight:
-        800;
+    flex: 1;
+    font-weight: 700;
 }
-
 
 .performer-points {
-
-    color:
-        #ffd166;
-
-    font-weight:
-        900;
-
-    text-shadow:
-        0 0 12px
-        rgba(255,209,102,.35);
+    color: #ffd166;
+    font-weight: 900;
 }
 
-
-.no-performers {
-
-    text-align:
-        center;
-
-    opacity:
-        .70;
-}
-
-
-/* ==========================================================
-   HOME BUTTON
-========================================================== */
-
+/* Home */
 .home-section {
 
-    position:
-        relative;
-
-    z-index:
-        2;
-
-    text-align:
-        center;
+    text-align: center;
 
     padding:
-        10px 20px 45px;
+        10px 20px 40px;
 }
-
 
 .home-button {
 
-    display:
-        inline-flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    gap:
-        10px;
+    display: inline-block;
 
     padding:
-        15px 32px;
+        14px 30px;
 
-    border-radius:
-        50px;
+    border-radius: 40px;
 
-    text-decoration:
-        none;
+    text-decoration: none;
 
-    color:
-        #ffffff;
+    color: white;
 
-    font-size:
-        16px;
-
-    font-weight:
-        900;
+    font-weight: 900;
 
     background:
         linear-gradient(
             135deg,
             #7b2cbf,
             #e83e8c,
-            #ff8c42
+            #ff9f43
         );
 
-    background-size:
-        200% 200%;
-
-    border:
-        1px solid
-        rgba(255,255,255,.22);
-
-    box-shadow:
-        0 10px 30px
-        rgba(232,62,140,.25);
-
-    animation:
-        buttonGradient 4s ease infinite;
-
     transition:
-        transform .25s ease,
-        box-shadow .25s ease;
+        .25s ease;
 }
-
-
-@keyframes buttonGradient {
-
-    0% {
-        background-position:
-            0% 50%;
-    }
-
-    50% {
-        background-position:
-            100% 50%;
-    }
-
-    100% {
-        background-position:
-            0% 50%;
-    }
-}
-
 
 .home-button:hover {
-
     transform:
-        translateY(-5px)
+        translateY(-4px)
         scale(1.04);
-
-    box-shadow:
-        0 18px 42px
-        rgba(232,62,140,.40);
 }
 
-
-/* ==========================================================
-   FOOTER
-========================================================== */
-
+/* Footer */
 footer {
 
-    position:
-        relative;
+    padding: 25px;
 
-    z-index:
-        2;
+    text-align: center;
 
-    padding:
-        25px 20px;
-
-    text-align:
-        center;
+    color:
+        rgba(255,255,255,.7);
 
     background:
         rgba(0,0,0,.20);
-
-    border-top:
-        1px solid
-        rgba(255,255,255,.08);
-
-    color:
-        rgba(255,255,255,.70);
 }
 
 
-footer p {
-    margin:
-        5px;
-}
-
-
-/* ==========================================================
-   LOADING
-========================================================== */
-
-.loading {
-
-    padding:
-        30px;
-
-    text-align:
-        center;
-
-    color:
-        rgba(255,255,255,.75);
-
-    animation:
-        loadingPulse 1.4s ease-in-out infinite;
-}
-
-
-@keyframes loadingPulse {
-
-    0%,
-    100% {
-        opacity:
-            .45;
-    }
-
-    50% {
-        opacity:
-            1;
-    }
-}
-
-
-/* ==========================================================
-   GENERAL
-========================================================== */
-
-@keyframes cardEntry {
-
-    from {
-        opacity: 0;
-
-        transform:
-            translateY(25px);
-    }
-
-    to {
-        opacity: 1;
-
-        transform:
-            translateY(0);
-    }
-}
-
-
-@keyframes fadeUp {
-
-    from {
-        opacity: 0;
-
-        transform:
-            translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-
-        transform:
-            translateY(0);
-    }
-}
-
-
-/* ==========================================================
+/* =====================================================
    MOBILE
-========================================================== */
+===================================================== */
 
 @media (max-width: 700px) {
 
     .daily-header {
-
         padding:
-            35px 15px 28px;
+            32px 15px 25px;
     }
-
-
-    .daily-header h1 {
-
-        font-size:
-            31px;
-    }
-
-
-    .daily-header p {
-
-        font-size:
-            14px;
-    }
-
 
     .daily-wrapper {
-
         padding:
-            18px 12px 45px;
+            18px 12px 40px;
     }
 
-
-    .motivation-card {
-
+    .motivation-card,
+    .question-card,
+    .performers-card {
         padding:
-            23px 18px;
+            20px 16px;
 
         border-radius:
-            20px;
+            18px;
     }
-
-
-    #motivation {
-
-        font-size:
-            16px;
-    }
-
-
-    .question-card {
-
-        padding:
-            25px 18px;
-
-        border-radius:
-            21px;
-    }
-
-
-    #question {
-
-        font-size:
-            20px;
-    }
-
 
     #options {
-
-        grid-template-columns:
-            1fr;
-
-        gap:
-            13px;
+        grid-template-columns: 1fr;
     }
 
+    #question {
+        font-size: 20px;
+    }
 
     .daily-option {
-
-        min-height:
-            64px;
-
-        font-size:
-            15px;
+        min-height: 62px;
     }
-
-
-    .performers-card {
-
-        padding:
-            21px 16px;
-
-        border-radius:
-            20px;
-    }
-
 
     .home-button {
-
-        width:
-            90%;
-
-        max-width:
-            330px;
+        width: 90%;
+        max-width: 320px;
     }
-
-}
-
-
-/* ==========================================================
-   SMALL PHONES
-========================================================== */
-
-@media (max-width: 400px) {
-
-    .daily-header h1 {
-
-        font-size:
-            27px;
-    }
-
-
-    .question-card {
-
-        padding:
-            21px 15px;
-    }
-
-
-    .daily-option {
-
-        font-size:
-            14px;
-    }
-
-
-    .option-letter {
-
-        width:
-            31px;
-
-        height:
-            31px;
-
-        margin-right:
-            7px;
-    }
-
-}
-
-
-/* ==========================================================
-   ACCESSIBILITY
-========================================================== */
-
-@media (prefers-reduced-motion: reduce) {
-
-    *,
-    *::before,
-    *::after {
-
-        animation-duration:
-            .01ms !important;
-
-        animation-iteration-count:
-            1 !important;
-
-        scroll-behavior:
-            auto !important;
-    }
-
 }
