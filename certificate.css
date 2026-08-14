@@ -1412,3 +1412,40 @@ body {
     }
 
 }
+/* =========================================================
+   PREMIUM GOLDEN CERTIFICATE OUTLINE
+   ========================================================= */
+
+.certificate {
+    border: 4px solid #d4af37 !important;
+
+    outline: 2px solid #f5d76e;
+
+    outline-offset: -10px;
+
+    box-shadow:
+        0 0 0 2px #fff8dc,
+        0 0 0 5px #d4af37,
+        0 8px 30px rgba(0, 0, 0, 0.20);
+
+    position: relative;
+}
+
+
+/* Inner golden decorative line */
+
+.certificate::before {
+    content: "";
+    position: absolute;
+
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+
+    border: 1.5px solid rgba(212, 175, 55, 0.75);
+
+    pointer-events: none;
+
+    z-index: 20;
+}
