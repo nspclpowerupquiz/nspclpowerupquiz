@@ -1581,3 +1581,1664 @@ html {
     }
 
 }
+/* =========================================================
+   NSPCL POWER PULSE — PREMIUM ANIMATED THEME
+   CSS ONLY — NO HTML / JS CHANGES REQUIRED
+========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   MAIN BACKGROUND
+========================================================= */
+
+.daily-page {
+
+    min-height: 100vh;
+
+    position: relative;
+
+    background:
+        radial-gradient(
+            circle at 15% 15%,
+            rgba(0, 238, 255, 0.25),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 85% 20%,
+            rgba(255, 205, 60, 0.18),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 50% 90%,
+            rgba(0, 140, 255, 0.18),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #02152b,
+            #04355c,
+            #056b8e,
+            #022b4d,
+            #01182f
+        );
+
+    background-size: 180% 180%;
+
+    animation:
+        backgroundFlow 14s ease-in-out infinite;
+
+    overflow-x: hidden;
+}
+
+
+@keyframes backgroundFlow {
+
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+
+}
+
+
+/* =========================================================
+   FLOATING GLOW EFFECTS
+========================================================= */
+
+.daily-page::before,
+.daily-page::after {
+
+    content: "";
+
+    position: fixed;
+
+    width: 360px;
+    height: 360px;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    filter: blur(90px);
+
+    z-index: 0;
+
+}
+
+
+.daily-page::before {
+
+    left: -180px;
+    top: 20%;
+
+    background:
+        rgba(0, 229, 255, 0.20);
+
+    animation:
+        floatingGlow 9s ease-in-out infinite;
+
+}
+
+
+.daily-page::after {
+
+    right: -180px;
+    bottom: 10%;
+
+    background:
+        rgba(255, 193, 7, 0.15);
+
+    animation:
+        floatingGlow 11s ease-in-out infinite reverse;
+
+}
+
+
+@keyframes floatingGlow {
+
+    0%,
+    100% {
+        transform: translateY(0) scale(1);
+    }
+
+    50% {
+        transform: translateY(-45px) scale(1.18);
+    }
+
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.daily-header {
+
+    position: relative;
+
+    z-index: 2;
+
+    text-align: center;
+
+    padding: 42px 20px 32px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0, 210, 255, 0.16),
+            rgba(0, 60, 110, 0.45)
+        );
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,0.18);
+
+    backdrop-filter:
+        blur(20px);
+
+    box-shadow:
+        0 10px 35px
+        rgba(0,0,0,0.20);
+
+    animation:
+        headerSlide .8s ease;
+}
+
+
+@keyframes headerSlide {
+
+    from {
+        opacity: 0;
+        transform: translateY(-35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+.daily-header h1 {
+
+    margin: 0;
+
+    font-size:
+        clamp(30px, 5vw, 50px);
+
+    font-weight: 900;
+
+    letter-spacing: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffffff,
+            #66f5ff,
+            #ffffff,
+            #ffd84d,
+            #ffffff
+        );
+
+    background-size: 300% auto;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+
+    animation:
+        titleGlow 5s linear infinite;
+}
+
+
+@keyframes titleGlow {
+
+    0% {
+        background-position: 0% center;
+    }
+
+    100% {
+        background-position: 300% center;
+    }
+
+}
+
+
+.daily-header p {
+
+    margin:
+        12px 0 0;
+
+    font-size: 16px;
+
+    color:
+        rgba(235,250,255,0.88);
+
+    letter-spacing: .4px;
+
+}
+
+
+/* =========================================================
+   MAIN WRAPPER
+========================================================= */
+
+.daily-wrapper {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+
+    max-width: 950px;
+
+    margin: auto;
+
+    padding:
+        25px 20px 55px;
+
+}
+
+
+/* =========================================================
+   MOTIVATION CARD
+========================================================= */
+
+.motivation-card {
+
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 900px;
+
+    margin: 25px auto;
+
+    padding: 28px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,0.16),
+            rgba(255,255,255,0.055)
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,0.22);
+
+    border-radius: 24px;
+
+    backdrop-filter:
+        blur(20px);
+
+    box-shadow:
+        0 20px 60px
+        rgba(0,0,0,0.25);
+
+    animation:
+        cardFloat 5s ease-in-out infinite;
+
+}
+
+
+.motivation-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 10%;
+    right: 10%;
+
+    top: 0;
+
+    height: 3px;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #00eaff,
+            #ffd84d,
+            #00eaff,
+            transparent
+        );
+
+    box-shadow:
+        0 0 18px
+        rgba(0,234,255,0.55);
+
+    animation:
+        lightMove 3s linear infinite;
+
+}
+
+
+@keyframes lightMove {
+
+    0% {
+        opacity: .4;
+        transform: scaleX(.7);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scaleX(1);
+    }
+
+    100% {
+        opacity: .4;
+        transform: scaleX(.7);
+    }
+
+}
+
+
+@keyframes cardFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-3px);
+    }
+
+}
+
+
+.motivation-title {
+
+    color: #ffd84d;
+
+    font-size: 23px;
+
+    font-weight: 900;
+
+    margin-bottom: 12px;
+
+    text-shadow:
+        0 0 15px
+        rgba(255,216,77,0.45);
+
+}
+
+
+#motivation {
+
+    color: #f2fcff;
+
+    font-size: 18px;
+
+    font-style: italic;
+
+    line-height: 1.6;
+
+}
+
+
+/* =========================================================
+   EMPLOYEE
+========================================================= */
+
+.employee-card {
+
+    text-align: center;
+
+    margin: 25px 0;
+
+    font-size: 17px;
+
+    animation:
+        fadeUp .8s ease;
+
+}
+
+
+.employee-card span {
+
+    display: inline-block;
+
+    margin-left: 5px;
+
+    padding:
+        6px 15px;
+
+    border-radius: 30px;
+
+    color: #ffd84d;
+
+    font-weight: 900;
+
+    background:
+        rgba(255,216,77,0.10);
+
+    border:
+        1px solid
+        rgba(255,216,77,0.22);
+
+    box-shadow:
+        0 0 15px
+        rgba(255,216,77,0.08);
+
+}
+
+
+/* =========================================================
+   QUESTION CARD
+========================================================= */
+
+.question-card {
+
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 35px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.17),
+            rgba(255,255,255,0.055)
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,0.24);
+
+    border-radius: 28px;
+
+    backdrop-filter:
+        blur(22px);
+
+    box-shadow:
+        0 25px 70px
+        rgba(0,0,0,0.30);
+
+    animation:
+        questionEntrance .8s ease;
+
+}
+
+
+@keyframes questionEntrance {
+
+    from {
+        opacity: 0;
+        transform:
+            translateY(35px)
+            scale(.97);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+
+/* Decorative glow */
+
+.question-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 220px;
+    height: 220px;
+
+    right: -110px;
+    top: -110px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(0,230,255,0.12);
+
+    filter: blur(30px);
+
+    pointer-events: none;
+
+}
+
+
+.question-card::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 160px;
+    height: 160px;
+
+    left: -90px;
+    bottom: -90px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,210,60,0.09);
+
+    filter: blur(30px);
+
+    pointer-events: none;
+
+}
+
+
+/* =========================================================
+   QUESTION LABEL
+========================================================= */
+
+.question-label {
+
+    display: inline-block;
+
+    padding:
+        7px 15px;
+
+    border-radius: 30px;
+
+    color: #ffd84d;
+
+    font-size: 15px;
+
+    font-weight: 900;
+
+    letter-spacing: .8px;
+
+    background:
+        rgba(255,216,77,0.10);
+
+    border:
+        1px solid
+        rgba(255,216,77,0.22);
+
+    box-shadow:
+        0 0 20px
+        rgba(255,216,77,0.08);
+
+    animation:
+        labelPulse 2.5s ease-in-out infinite;
+
+}
+
+
+@keyframes labelPulse {
+
+    0%,
+    100% {
+        box-shadow:
+            0 0 10px
+            rgba(255,216,77,0.08);
+    }
+
+    50% {
+        box-shadow:
+            0 0 25px
+            rgba(255,216,77,0.25);
+    }
+
+}
+
+
+/* =========================================================
+   QUESTION NUMBER
+========================================================= */
+
+.question-card > p {
+
+    color:
+        rgba(255,255,255,0.72);
+
+    font-size: 14px;
+
+}
+
+
+#questionNumber,
+#totalQuestions {
+
+    color: #ffd84d;
+
+    font-weight: 900;
+
+}
+
+
+/* =========================================================
+   QUESTION TEXT
+========================================================= */
+
+#question {
+
+    position: relative;
+
+    z-index: 2;
+
+    margin:
+        15px 0 22px;
+
+    color: #ffffff;
+
+    font-size:
+        clamp(20px, 3vw, 28px);
+
+    line-height: 1.55;
+
+    font-weight: 800;
+
+    text-shadow:
+        0 2px 12px
+        rgba(0,0,0,0.25);
+
+    animation:
+        questionText .6s ease;
+
+}
+
+
+@keyframes questionText {
+
+    from {
+        opacity: 0;
+        transform: translateX(-15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+}
+
+
+/* =========================================================
+   TIMER
+========================================================= */
+
+.timer-box {
+
+    position: relative;
+
+    margin:
+        20px 0 25px;
+
+    padding: 14px;
+
+    text-align: center;
+
+    border-radius: 18px;
+
+    background:
+        rgba(0,0,0,0.20);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.12);
+
+    box-shadow:
+        inset 0 0 20px
+        rgba(0,0,0,0.12);
+
+}
+
+
+#timer {
+
+    color: #ffd84d;
+
+    font-size: 25px;
+
+    font-weight: 900;
+
+    text-shadow:
+        0 0 15px
+        rgba(255,216,77,0.55);
+
+    animation:
+        timerGlow 1.5s ease-in-out infinite;
+
+}
+
+
+@keyframes timerGlow {
+
+    0%,
+    100% {
+        opacity: .8;
+    }
+
+    50% {
+        opacity: 1;
+        text-shadow:
+            0 0 25px
+            rgba(255,216,77,0.85);
+    }
+
+}
+
+
+/* =========================================================
+   OPTIONS
+========================================================= */
+
+#options {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 17px;
+
+    margin-top: 20px;
+
+}
+
+
+/* =========================================================
+   OPTION BUTTON
+========================================================= */
+
+.daily-option {
+
+    position: relative;
+
+    overflow: hidden;
+
+    min-height: 70px;
+
+    padding: 17px 18px;
+
+    border: 1px solid
+        rgba(255,255,255,0.16);
+
+    border-radius: 17px;
+
+    color: #ffffff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #078eb8,
+            #05b8d2
+        );
+
+    font-size: 16px;
+
+    font-weight: 800;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 25px
+        rgba(0,0,0,0.20);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        filter .25s ease;
+
+    animation:
+        optionSlide .55s ease both;
+
+}
+
+
+.daily-option:nth-child(1) {
+    animation-delay: .05s;
+}
+
+.daily-option:nth-child(2) {
+    animation-delay: .15s;
+}
+
+.daily-option:nth-child(3) {
+    animation-delay: .25s;
+}
+
+.daily-option:nth-child(4) {
+    animation-delay: .35s;
+}
+
+
+@keyframes optionSlide {
+
+    from {
+        opacity: 0;
+        transform:
+            translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+/* Moving shine */
+
+.daily-option::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: -120%;
+
+    width: 70%;
+
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.28),
+            transparent
+        );
+
+    transform:
+        skewX(-25deg);
+
+    transition:
+        left .65s ease;
+
+}
+
+
+.daily-option:hover {
+
+    transform:
+        translateY(-6px)
+        scale(1.015);
+
+    filter:
+        brightness(1.12);
+
+    box-shadow:
+        0 15px 35px
+        rgba(0,220,255,0.28);
+
+}
+
+
+.daily-option:hover::after {
+
+    left: 140%;
+
+}
+
+
+.daily-option:active {
+
+    transform:
+        scale(.97);
+
+}
+
+
+/* =========================================================
+   OPTION LETTER
+========================================================= */
+
+.option-letter {
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 35px;
+    height: 35px;
+
+    margin-right: 10px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(0,0,0,0.22);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.20);
+
+    font-weight: 900;
+
+    box-shadow:
+        inset 0 0 8px
+        rgba(255,255,255,0.08);
+
+}
+
+
+/* =========================================================
+   CORRECT
+========================================================= */
+
+.daily-option.correct {
+
+    background:
+        linear-gradient(
+            135deg,
+            #00a950,
+            #00d879
+        );
+
+    border-color:
+        rgba(255,255,255,0.30);
+
+    box-shadow:
+        0 0 30px
+        rgba(0,220,100,0.35);
+
+    animation:
+        correctAnimation .6s ease;
+
+}
+
+
+@keyframes correctAnimation {
+
+    0% {
+        transform: scale(1);
+    }
+
+    40% {
+        transform: scale(1.05);
+    }
+
+    70% {
+        transform: scale(.98);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+
+}
+
+
+/* =========================================================
+   WRONG
+========================================================= */
+
+.daily-option.incorrect {
+
+    background:
+        linear-gradient(
+            135deg,
+            #d62828,
+            #ff5252
+        );
+
+    box-shadow:
+        0 0 25px
+        rgba(255,70,70,0.30);
+
+    animation:
+        wrongAnimation .45s ease;
+
+}
+
+
+@keyframes wrongAnimation {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    20% {
+        transform: translateX(-8px);
+    }
+
+    40% {
+        transform: translateX(8px);
+    }
+
+    60% {
+        transform: translateX(-5px);
+    }
+
+    80% {
+        transform: translateX(5px);
+    }
+
+}
+
+
+/* =========================================================
+   ANSWER RESULT
+========================================================= */
+
+#answerResult {
+
+    margin-top: 22px;
+
+    line-height: 1.7;
+
+}
+
+
+.correct-message,
+.wrong-message {
+
+    padding: 21px;
+
+    border-radius: 18px;
+
+    animation:
+        resultPop .45s ease;
+
+}
+
+
+@keyframes resultPop {
+
+    from {
+        opacity: 0;
+        transform:
+            scale(.92)
+            translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            scale(1)
+            translateY(0);
+    }
+
+}
+
+
+.correct-message {
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0,200,83,0.23),
+            rgba(0,200,83,0.07)
+        );
+
+    border:
+        1px solid
+        #00d875;
+
+    box-shadow:
+        0 0 30px
+        rgba(0,220,100,0.13);
+
+}
+
+
+.wrong-message {
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,70,70,0.23),
+            rgba(255,70,70,0.07)
+        );
+
+    border:
+        1px solid
+        #ff5252;
+
+    box-shadow:
+        0 0 25px
+        rgba(255,70,70,0.10);
+
+}
+
+
+/* =========================================================
+   SOURCE
+========================================================= */
+
+#newsSource {
+
+    margin-top: 20px;
+
+    padding-top: 15px;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,0.10);
+
+    color:
+        rgba(230,250,255,0.68);
+
+    font-size: 13px;
+
+}
+
+
+/* =========================================================
+   PERFORMERS
+========================================================= */
+
+.performers-card {
+
+    margin-top: 30px;
+
+    padding: 28px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,0.14),
+            rgba(255,255,255,0.055)
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,0.18);
+
+    border-radius: 24px;
+
+    backdrop-filter:
+        blur(18px);
+
+    box-shadow:
+        0 18px 45px
+        rgba(0,0,0,0.22);
+
+    animation:
+        fadeUp 1s ease;
+
+}
+
+
+.performers-card h2 {
+
+    margin-top: 0;
+
+    margin-bottom: 22px;
+
+    text-align: center;
+
+    color: #ffd84d;
+
+    font-size: 23px;
+
+    text-shadow:
+        0 0 15px
+        rgba(255,216,77,0.30);
+
+}
+
+
+.performer {
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 15px;
+
+    margin-bottom: 10px;
+
+    border-radius: 15px;
+
+    background:
+        rgba(255,255,255,0.07);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.07);
+
+    transition:
+        transform .25s ease,
+        background .25s ease,
+        box-shadow .25s ease;
+
+}
+
+
+.performer:hover {
+
+    transform:
+        translateX(7px);
+
+    background:
+        rgba(255,255,255,0.13);
+
+    box-shadow:
+        0 8px 20px
+        rgba(0,0,0,0.15);
+
+}
+
+
+.performer-rank {
+
+    width: 45px;
+
+    font-size: 23px;
+
+}
+
+
+.performer-name {
+
+    flex: 1;
+
+    font-weight: 800;
+
+}
+
+
+.performer-points {
+
+    color: #ffd84d;
+
+    font-weight: 900;
+
+    text-shadow:
+        0 0 10px
+        rgba(255,216,77,0.25);
+
+}
+
+
+.no-performers {
+
+    text-align: center;
+
+    opacity: .75;
+
+}
+
+
+/* =========================================================
+   HOME BUTTON
+========================================================= */
+
+.home-section {
+
+    position: relative;
+
+    z-index: 2;
+
+    text-align: center;
+
+    padding:
+        10px 20px 45px;
+
+}
+
+
+.home-button {
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    padding:
+        15px 32px;
+
+    border-radius: 50px;
+
+    text-decoration: none;
+
+    color: #ffffff;
+
+    font-size: 16px;
+
+    font-weight: 900;
+
+    background:
+        linear-gradient(
+            135deg,
+            #00bcd4,
+            #0077b6
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,0.28);
+
+    box-shadow:
+        0 10px 30px
+        rgba(0,180,220,0.25);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+
+    animation:
+        homePulse 3s ease-in-out infinite;
+
+}
+
+
+.home-button:hover {
+
+    transform:
+        translateY(-6px)
+        scale(1.04);
+
+    box-shadow:
+        0 15px 40px
+        rgba(0,220,255,0.40);
+
+}
+
+
+@keyframes homePulse {
+
+    0%,
+    100% {
+        box-shadow:
+            0 10px 30px
+            rgba(0,180,220,0.25);
+    }
+
+    50% {
+        box-shadow:
+            0 15px 45px
+            rgba(0,220,255,0.42);
+    }
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+
+    position: relative;
+
+    z-index: 2;
+
+    padding:
+        25px 20px;
+
+    text-align: center;
+
+    background:
+        rgba(0,0,0,0.20);
+
+    border-top:
+        1px solid
+        rgba(255,255,255,0.08);
+
+    color:
+        rgba(255,255,255,0.80);
+
+}
+
+
+footer p {
+
+    margin: 5px;
+
+}
+
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.loading {
+
+    padding: 30px;
+
+    text-align: center;
+
+    color: #dffaff;
+
+    animation:
+        loadingPulse 1.4s ease-in-out infinite;
+
+}
+
+
+@keyframes loadingPulse {
+
+    0%,
+    100% {
+        opacity: .45;
+        transform: scale(.98);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+
+
+/* =========================================================
+   GENERAL ANIMATION
+========================================================= */
+
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+        transform:
+            translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .daily-header {
+
+        padding:
+            32px 15px 25px;
+
+    }
+
+
+    .daily-header h1 {
+
+        font-size: 32px;
+
+    }
+
+
+    .daily-header p {
+
+        font-size: 14px;
+
+    }
+
+
+    .daily-wrapper {
+
+        padding:
+            18px 12px 45px;
+
+    }
+
+
+    .motivation-card {
+
+        margin:
+            18px 12px;
+
+        padding:
+            23px 18px;
+
+        border-radius: 20px;
+
+    }
+
+
+    .motivation-title {
+
+        font-size: 20px;
+
+    }
+
+
+    #motivation {
+
+        font-size: 16px;
+
+    }
+
+
+    .question-card {
+
+        padding:
+            25px 18px;
+
+        border-radius: 21px;
+
+    }
+
+
+    #question {
+
+        font-size: 20px;
+
+    }
+
+
+    #options {
+
+        grid-template-columns:
+            1fr;
+
+        gap: 13px;
+
+    }
+
+
+    .daily-option {
+
+        min-height: 64px;
+
+        padding: 15px;
+
+        font-size: 15px;
+
+    }
+
+
+    .performers-card {
+
+        padding:
+            21px 16px;
+
+        border-radius: 20px;
+
+    }
+
+
+    .home-button {
+
+        width: 90%;
+
+        max-width: 330px;
+
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .daily-header h1 {
+
+        font-size: 28px;
+
+    }
+
+
+    .question-card {
+
+        padding:
+            21px 15px;
+
+    }
+
+
+    .option-letter {
+
+        width: 31px;
+        height: 31px;
+
+        margin-right: 7px;
+
+    }
+
+
+    .daily-option {
+
+        font-size: 14px;
+
+    }
+
+}
