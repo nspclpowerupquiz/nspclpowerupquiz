@@ -1,1484 +1,1103 @@
-/* =====================================================
-NSPCL POWER PULSE - SAFE TEST CSS
-===================================================== */
+/* =========================================================
+   NSPCL POWER PULSE — DAILY CHALLENGE
+   GALLERY-MATCHED COLOR THEME
+   ---------------------------------------------------------
+   COLOR ONLY THEME:
+   Violet • Purple • Magenta • Deep Teal • Gold • Orange
 
-{
-box-sizing: border-box;
+   IMPORTANT:
+   Layout / spacing / sizing / responsive structure preserved
+========================================================= */
+
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+    box-sizing: border-box;
 }
 
 html,
 body {
-margin: 0;
-padding: 0;
-min-height: 100%;
-width: 100%;
-overflow-x: hidden;
-overflow-y: auto;
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 body {
-font-family: "Segoe UI", Arial, sans-serif;
-color: white;
-background: #24102f;
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: #ffffff;
+
+    background:
+        radial-gradient(
+            circle at 12% 12%,
+            rgba(168, 85, 247, 0.30),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 88% 18%,
+            rgba(217, 70, 239, 0.24),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 50% 55%,
+            rgba(124, 58, 237, 0.18),
+            transparent 38%
+        ),
+        radial-gradient(
+            circle at 80% 90%,
+            rgba(249, 115, 22, 0.10),
+            transparent 28%
+        ),
+        linear-gradient(
+            180deg,
+            #5d285b 0%,
+            #542455 13%,
+            #351b43 28%,
+            #123d45 48%,
+            #083d43 72%,
+            #062f36 100%
+        );
 }
 
-/* Main page */
-.daily-page {
-min-height: 100vh;
-width: 100%;
-padding-bottom: 40px;
-
-background:
-    radial-gradient(
-        circle at 10% 10%,
-        rgba(255, 70, 170, .25),
-        transparent 30%
-    ),
-    radial-gradient(
-        circle at 90% 20%,
-        rgba(255, 170, 60, .25),
-        transparent 30%
-    ),
-    linear-gradient(
-       135deg,
-            #020b24,
-            #061a40,
-            #082b5c,
-            #03132f
-    );
-
-}
-
-/* Header */
-.daily-header {
-padding: 45px 20px 30px;
-text-align: center;
-
-background: rgba(255,255,255,.08);
-
-border-bottom:
-    1px solid rgba(255,255,255,.18);
-
-backdrop-filter: blur(15px);
-
-}
-
-.daily-header h1 {
-margin: 0;
-
-font-size: clamp(30px, 5vw, 52px);
-
-font-weight: 900;
-
-color: white;
-
-text-shadow:
-    0 0 20px rgba(255,80,180,.7);
-
-}
-
-.daily-header p {
-margin-top: 10px;
-color: rgba(255,255,255,.8);
-}
-
-/* Wrapper */
-.daily-wrapper {
-width: 100%;
-max-width: 950px;
-
-margin: auto;
-
-padding:
-    25px 20px 50px;
-
-}
-
-/* Cards */
-.motivation-card,
-.question-card,
-.performers-card {
-
-background:
-    rgba(255,255,255,.10);
-
-border:
-    1px solid rgba(255,255,255,.20);
-
-border-radius: 22px;
-
-padding: 25px;
-
-margin-bottom: 25px;
-
-backdrop-filter:
-    blur(15px);
-
-box-shadow:
-    0 15px 40px
-    rgba(0,0,0,.25);
-
-}
-
-/* Motivation */
-.motivation-title {
-color: #ffd166;
-text-align: center;
-}
-
-#motivation {
-text-align: center;
-color: white;
-font-size: 18px;
-line-height: 1.6;
-}
-
-/* Employee */
-.employee-card {
-text-align: center;
-margin: 20px 0;
-}
-
-.employee-card span {
-color: #ffd166;
-font-weight: bold;
-}
-
-/* Question */
-#question {
-color: white;
-
-font-size:
-    clamp(20px, 3vw, 28px);
-
-line-height: 1.5;
-
-font-weight: 800;
-
-margin: 20px 0;
-
-}
-
-/* Question numbers */
-#questionNumber,
-#totalQuestions {
-color: #ffd166;
-font-weight: 900;
-}
-
-/* Timer */
-#timer {
-color: #ff9f43;
-
-font-size: 28px;
-
-font-weight: 900;
-
-text-align: center;
-
-margin: 20px 0;
-
-}
-
-/* Options */
-#options {
-display: grid;
-
-grid-template-columns:
-    repeat(2, 1fr);
-
-gap: 15px;
-
-}
-
-/* Answer button */
-.daily-option {
-
-min-height: 65px;
-
-padding: 15px;
-
-border: none;
-
-border-radius: 15px;
-
-background:
-    linear-gradient(
-        135deg,
-        #7b2cbf,
-        #d63384
-    );
-
-color: white;
-
-font-size: 16px;
-
-font-weight: 800;
-
-text-align: left;
-
-cursor: pointer;
-
-transition:
-    .25s ease;
-
-box-shadow:
-    0 8px 25px
-    rgba(0,0,0,.25);
-
-}
-
-.daily-option {
-
-transform:
-    translateY(-5px);
-
-box-shadow:
-    0 15px 35px
-    rgba(255,60,170,.35);
-
-}
-
-/* Option letter */
-.option-letter {
-
-display: inline-flex;
-
-align-items: center;
-
-justify-content: center;
-
-width: 34px;
-height: 34px;
-
-margin-right: 8px;
-
-border-radius: 50%;
-
-background:
-    rgba(0,0,0,.25);
-
-font-weight: 900;
-
-}
-
-/* Correct */
-.daily-option.correct {
-
-background:
-    linear-gradient(
-        135deg,
-        #00a878,
-        #20d890
-    );
-
-box-shadow:
-    0 0 30px
-    rgba(32,216,144,.45);
-
-}
-
-/* Wrong */
-.daily-option.incorrect {
-
-background:
-    linear-gradient(
-        135deg,
-        #d83a68,
-        #ff5c7c
-    );
-
-box-shadow:
-    0 0 30px
-    rgba(255,92,124,.40);
-
-}
-
-/* Result */
-#answerResult {
-margin-top: 20px;
-line-height: 1.6;
-}
-
-.correct-message,
-.wrong-message {
-
-padding: 20px;
-
-border-radius: 15px;
-
-}
-
-.correct-message {
-
-background:
-    rgba(0,190,125,.15);
-
-border:
-    1px solid #20d890;
-
-}
-
-.wrong-message {
-
-background:
-    rgba(255,70,100,.15);
-
-border:
-    1px solid #ff5c7c;
-
-}
-
-/* Category */
-#category {
-
-display: inline-block;
-
-margin-top: 10px;
-
-padding:
-    6px 12px;
-
-border-radius: 20px;
-
-color: #ffd166;
-
-background:
-    rgba(255,209,102,.10);
-
-}
-
-/* Source */
-#newsSource {
-
-margin-top: 15px;
-
-padding-top: 12px;
-
-border-top:
-    1px solid rgba(255,255,255,.10);
-
-color:
-    rgba(255,255,255,.60);
-
-font-size: 13px;
-
-}
-
-/* Performers */
-.performers-card h2 {
-
-margin-top: 0;
-
-text-align: center;
-
-color: #ffd166;
-
-}
-
-.performer {
-
-display: flex;
-
-align-items: center;
-
-padding: 13px;
-
-margin-bottom: 8px;
-
-border-radius: 12px;
-
-background:
-    rgba(255,255,255,.06);
-
-}
-
-.performer-rank {
-width: 45px;
-}
-
-.performer-name {
-flex: 1;
-font-weight: 700;
-}
-
-.performer-points {
-color: #ffd166;
-font-weight: 900;
-}
-
-/* Home */
-.home-section {
-
-text-align: center;
-
-padding:
-    10px 20px 40px;
-
-}
-
-.home-button {
-
-display: inline-block;
-
-padding:
-    14px 30px;
-
-border-radius: 40px;
-
-text-decoration: none;
-
-color: white;
-
-font-weight: 900;
-
-background:
-    linear-gradient(
-        135deg,
-        #7b2cbf,
-        #e83e8c,
-        #ff9f43
-    );
-
-transition:
-    .25s ease;
-
-}
-
-.home-button {
-transform:
-translateY(-4px)
-scale(1.04);
-}
-
-/* Footer */
-footer {
-
-padding: 25px;
-
-text-align: center;
-
-color:
-    rgba(255,255,255,.7);
-
-background:
-    rgba(0,0,0,.20);
-
-}
-
-/* =====================================================
-MOBILE
-===================================================== */
-
-@media (max-width: 700px) {
-
-.daily-header {
-    padding:
-        32px 15px 25px;
-}
-
-.daily-wrapper {
-    padding:
-        18px 12px 40px;
-}
-
-.motivation-card,
-.question-card,
-.performers-card {
-    padding:
-        20px 16px;
-
-    border-radius:
-        18px;
-}
-
-#options {
-    grid-template-columns: 1fr;
-}
-
-#question {
-    font-size: 20px;
-}
-
-.daily-option {
-    min-height: 62px;
-}
-
-.home-button {
-    width: 90%;
-    max-width: 320px;
-}
-
-}
-/* =========================================================
-NSPCL DAILY CHALLENGE — LIVELY NEW COLOR THEME
-Gold • Coral • Violet • Mint
-Add at the VERY END of daily.css
-========================================================= */
 
 /* =========================================================
-MAIN DAILY PAGE
+   MAIN DAILY PAGE
 ========================================================= */
 
 .daily-page {
-
-background:
-    radial-gradient(
-        circle at 8% 12%,
-        rgba(255, 209, 102, 0.24),
-        transparent 28%
-    ),
-    radial-gradient(
-        circle at 92% 18%,
-        rgba(255, 105, 150, 0.20),
-        transparent 30%
-    ),
-    radial-gradient(
-        circle at 50% 88%,
-        rgba(127, 255, 212, 0.16),
-        transparent 32%
-    ),
-    linear-gradient(
-        135deg,
-        #25152f,
-        #472449,
-        #30364a,
-        #263d3c,
-        #351b3d
-    );
-
-background-size: 300% 300%;
-
-animation:
-    dailyColorFlow 16s ease infinite;
-
-}
-
-@keyframes dailyColorFlow {
-
-0% {
-    background-position: 0% 50%;
-}
-
-50% {
-    background-position: 100% 50%;
-}
-
-100% {
-    background-position: 0% 50%;
-}
-
-}
-
-/* =========================================================
-FLOATING GLOW
-========================================================= */
-
-.daily-page::before {
-
-background:
-    radial-gradient(
-        circle,
-        rgba(255, 209, 102, 0.28),
-        transparent 70%
-    );
-
-filter: blur(45px);
-
-animation:
-    dailyGlowLeft 9s ease-in-out infinite;
-
-}
-
-.daily-page::after {
-
-background:
-    radial-gradient(
-        circle,
-        rgba(199, 125, 255, 0.22),
-        transparent 70%
-    );
-
-filter: blur(50px);
-
-animation:
-    dailyGlowRight 11s ease-in-out infinite;
-
-}
-
-@keyframes dailyGlowLeft {
-
-0%,
-100% {
-    transform:
-        translate(0,0)
-        scale(1);
-}
-
-50% {
-    transform:
-        translate(150px,-50px)
-        scale(1.25);
-}
-
-}
-
-@keyframes dailyGlowRight {
-
-0%,
-100% {
-    transform:
-        translate(0,0)
-        scale(1);
-}
-
-50% {
-    transform:
-        translate(-120px,-60px)
-        scale(1.25);
-}
-
-}
-
-/* =========================================================
-DAILY HEADER
-========================================================= */
-
-.daily-header {
-
-background:
-    linear-gradient(
-        135deg,
-        rgba(255,209,102,0.16),
-        rgba(255,105,150,0.12),
-        rgba(127,255,212,0.10)
-    );
-
-border-bottom:
-    1px solid
-    rgba(255,255,255,0.18);
-
-box-shadow:
-    0 12px 40px
-    rgba(0,0,0,0.20);
-
-}
-
-/* =========================================================
-HEADER TITLE
-========================================================= */
-
-.daily-header h1 {
-
-background:
-    linear-gradient(
-        90deg,
-        #ffffff,
-        #ffd166,
-        #ff8fab,
-        #c77dff,
-        #7fffd4,
-        #ffffff
-    );
-
-background-size: 400% auto;
-
--webkit-background-clip: text;
-background-clip: text;
-
--webkit-text-fill-color: transparent;
-
-animation:
-    dailyTitleColor 6s linear infinite;
-
-}
-
-@keyframes dailyTitleColor {
-
-0% {
-    background-position: 0% center;
-}
-
-100% {
-    background-position: 400% center;
-}
-
-}
-
-/* =========================================================
-MOTIVATION CARD
-========================================================= */
-
-.motivation-card {
-
-background:
-    linear-gradient(
-        145deg,
-        rgba(255,255,255,0.17),
-        rgba(255,255,255,0.055)
-    );
-
-border:
-    1px solid
-    rgba(255,209,102,0.25);
-
-box-shadow:
-    0 20px 60px
-    rgba(0,0,0,0.25);
-
-}
-
-.motivation-card::before {
-
-background:
-    linear-gradient(
-        90deg,
-        transparent,
-        #ffd166,
-        #ff8fab,
-        #c77dff,
-        #7fffd4,
-        transparent
-    );
-
-box-shadow:
-    0 0 20px
-    rgba(255,209,102,0.45);
-
-}
-
-.motivation-title {
-
-color: #ffd166;
-
-text-shadow:
-    0 0 18px
-    rgba(255,209,102,0.45);
-
-}
-
-/* =========================================================
-EMPLOYEE BADGE
-========================================================= */
-
-.employee-card span {
-
-color: #ffd166;
-
-background:
-    rgba(255,209,102,0.10);
-
-border-color:
-    rgba(255,209,102,0.28);
-
-box-shadow:
-    0 0 18px
-    rgba(255,209,102,0.12);
-
-}
-
-/* =========================================================
-QUESTION CARD
-========================================================= */
-
-.question-card {
-
-background:
-    linear-gradient(
-        145deg,
-        rgba(255,255,255,0.18),
-        rgba(255,255,255,0.055)
-    );
-
-border:
-    1px solid
-    rgba(255,255,255,0.22);
-
-box-shadow:
-    0 25px 70px
-    rgba(0,0,0,0.30);
-
-}
-
-/* Question decorative glow */
-
-.question-card::before {
-
-background:
-    rgba(255,105,150,0.13);
-
-}
-
-.question-card::after {
-
-background:
-    rgba(127,255,212,0.12);
-
-}
-
-/* =========================================================
-QUESTION LABEL
-========================================================= */
-
-.question-label {
-
-color: #ffd166;
-
-background:
-    rgba(255,209,102,0.11);
-
-border-color:
-    rgba(255,209,102,0.28);
-
-box-shadow:
-    0 0 18px
-    rgba(255,209,102,0.12);
-
-}
-
-/* =========================================================
-QUESTION NUMBER
-========================================================= */
-
-#questionNumber,
-#totalQuestions {
-
-color: #ffd166;
-
-}
-
-/* =========================================================
-QUESTION TEXT
-========================================================= */
-
-#question {
-
-color: #ffffff;
-
-text-shadow:
-    0 2px 14px
-    rgba(0,0,0,0.30);
-
-}
-
-/* =========================================================
-TIMER
-========================================================= */
-
-.timer-box {
-
-background:
-    rgba(20,10,30,0.28);
-
-border:
-    1px solid
-    rgba(255,255,255,0.14);
-
-}
-
-#timer {
-
-color: #ffd166;
-
-text-shadow:
-    0 0 18px
-    rgba(255,209,102,0.60);
-
-animation:
-    livelyTimer 1.5s ease-in-out infinite;
-
-}
-
-@keyframes livelyTimer {
-
-0%,
-100% {
-    transform: scale(1);
-
-    text-shadow:
-        0 0 12px
-        rgba(255,209,102,0.45);
-}
-
-50% {
-    transform: scale(1.06);
-
-    text-shadow:
-        0 0 28px
-        rgba(255,209,102,0.90);
-}
-
-}
-
-/* =========================================================
-ANSWER OPTIONS
-========================================================= */
-
-.daily-option {
-
-background:
-    linear-gradient(
-        135deg,
-        #75458f,
-        #b84f76
-    );
-
-border:
-    1px solid
-    rgba(255,255,255,0.18);
-
-box-shadow:
-    0 10px 28px
-    rgba(0,0,0,0.22);
-
-}
-
-/* Different colors for individual answers */
-
-.daily-option(1) {
-
-background:
-    linear-gradient(
-        135deg,
-        #8e4f78,
-        #c65f72
-    );
-
-}
-
-.daily-option(2) {
-
-background:
-    linear-gradient(
-        135deg,
-        #76509d,
-        #a45fbd
-    );
-
-}
-
-.daily-option(3) {
-
-background:
-    linear-gradient(
-        135deg,
-        #397f76,
-        #4cae91
-    );
-
-}
-
-.daily-option(4) {
-
-background:
-    linear-gradient(
-        135deg,
-        #a36a3f,
-        #d18a4d
-    );
-
-}
-
-/* =========================================================
-OPTION HOVER
-========================================================= */
-
-.daily-option {
-
-transform:
-    translateY(-6px)
-    scale(1.02);
-
-filter:
-    brightness(1.12);
-
-box-shadow:
-    0 16px 38px
-    rgba(255,180,100,0.25);
-
-}
-
-/* =========================================================
-OPTION LETTER
-========================================================= */
-
-.option-letter {
-
-background:
-    rgba(20,10,30,0.25);
-
-border:
-    1px solid
-    rgba(255,255,255,0.22);
-
-}
-
-/* =========================================================
-CORRECT ANSWER
-========================================================= */
-
-.daily-option.correct {
-
-background:
-    linear-gradient(
-        135deg,
-        #258f68,
-        #65d6a4
-    );
-
-box-shadow:
-    0 0 35px
-    rgba(101,214,164,0.45);
-
-}
-
-/* =========================================================
-WRONG ANSWER
-========================================================= */
-
-.daily-option.incorrect {
-
-background:
-    linear-gradient(
-        135deg,
-        #c94b68,
-        #f07878
-    );
-
-box-shadow:
-    0 0 30px
-    rgba(240,120,120,0.38);
-
-}
-
-/* =========================================================
-ANSWER RESULT
-========================================================= */
-
-.correct-message {
-
-background:
-    linear-gradient(
-        135deg,
-        rgba(101,214,164,0.22),
-        rgba(50,150,110,0.08)
-    );
-
-border-color:
-    #65d6a4;
-
-box-shadow:
-    0 0 30px
-    rgba(101,214,164,0.16);
-
-}
-
-.wrong-message {
-
-background:
-    linear-gradient(
-        135deg,
-        rgba(240,120,120,0.22),
-        rgba(200,60,90,0.08)
-    );
-
-border-color:
-    #f07878;
-
-box-shadow:
-    0 0 30px
-    rgba(240,120,120,0.14);
-
-}
-
-/* =========================================================
-PERFORMERS
-========================================================= */
-
-.performers-card {
-
-background:
-    linear-gradient(
-        145deg,
-        rgba(255,255,255,0.16),
-        rgba(255,255,255,0.055)
-    );
-
-border:
-    1px solid
-    rgba(255,255,255,0.20);
-
-}
-
-.performers-card h2 {
-
-color: #ffd166;
-
-text-shadow:
-    0 0 18px
-    rgba(255,209,102,0.35);
-
-}
-
-.performer {
-
-background:
-    rgba(255,255,255,0.065);
-
-border:
-    1px solid
-    rgba(255,255,255,0.08);
-
-}
-
-.performer {
-
-background:
-    rgba(255,255,255,0.13);
-
-transform:
-    translateX(7px);
-
-}
-
-.performer-points {
-
-color: #7fffd4;
-
-text-shadow:
-    0 0 12px
-    rgba(127,255,212,0.30);
-
-}
-
-/* =========================================================
-HOME BUTTON
-========================================================= */
-
-.home-button {
-
-background:
-    linear-gradient(
-        135deg,
-        #ffd166,
-        #ff8fab,
-        #c77dff,
-        #7fffd4
-    );
-
-background-size:
-    300% auto;
-
-color:
-    #281633;
-
-box-shadow:
-    0 10px 30px
-    rgba(255,170,100,0.28);
-
-animation:
-    dailyHomeGradient 5s linear infinite;
-
-}
-
-@keyframes dailyHomeGradient {
-
-0% {
-    background-position: 0% center;
-}
-
-100% {
-    background-position: 300% center;
-}
-
-}
-
-.home-button {
-
-box-shadow:
-    0 18px 45px
-    rgba(255,180,100,0.45);
-
-}
-
-/* =========================================================
-MOBILE
-========================================================= */
-
-@media (max-width: 700px) {
-
-.daily-page {
-
-    background-size:
-        350% 350%;
-}
-
-.daily-option:nth-child(1),
-.daily-option:nth-child(2),
-.daily-option:nth-child(3),
-.daily-option:nth-child(4) {
-
-    min-height: 64px;
-}
-
-}
-/* =========================================================
-NSPCL DAILY CHALLENGE
-Warm Charcoal • Orange • Gold Theme
-========================================================= */
-
-body.daily-page {
-
-margin: 0;
-
-color: #f8f4ed;
-
-background:
-    radial-gradient(
-        circle at 15% 15%,
-        rgba(255, 193, 7, 0.14),
-        transparent 30%
-    ),
-    radial-gradient(
-        circle at 85% 25%,
-        rgba(255, 126, 50, 0.12),
-        transparent 32%
-    ),
-    radial-gradient(
-        circle at 50% 100%,
-        rgba(255, 170, 60, 0.08),
-        transparent 35%
-    ),
-    linear-gradient(
-        135deg,
-        #181716,
-        #27231e,
-        #1d1c1a,
-        #30251d
-    );
-
-background-size: 200% 200%;
-
-animation: dailyBackground 18s ease infinite;
-
-min-height: 100vh;
-
+    min-height: 100vh;
+    width: 100%;
+    padding-bottom: 40px;
+
+    background:
+        radial-gradient(
+            circle at 12% 12%,
+            rgba(168, 85, 247, 0.30),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 88% 18%,
+            rgba(217, 70, 239, 0.24),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 50% 55%,
+            rgba(124, 58, 237, 0.18),
+            transparent 38%
+        ),
+        radial-gradient(
+            circle at 80% 90%,
+            rgba(249, 115, 22, 0.10),
+            transparent 28%
+        ),
+        linear-gradient(
+            180deg,
+            #5d285b 0%,
+            #542455 13%,
+            #351b43 28%,
+            #123d45 48%,
+            #083d43 72%,
+            #062f36 100%
+        );
+
+    background-size: 200% 200%;
+
+    animation:
+        dailyBackground 18s ease infinite;
 }
 
 @keyframes dailyBackground {
 
-0% {
-    background-position: 0% 50%;
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+
 }
 
-50% {
-    background-position: 100% 50%;
-}
-
-100% {
-    background-position: 0% 50%;
-}
-
-}
 
 /* =========================================================
-DAILY CHALLENGE HEADER
+   DECORATIVE GLOW
 ========================================================= */
 
-.daily-page .daily-header {
+.daily-page::before {
 
-background:
-    linear-gradient(
-        135deg,
-        rgba(255,193,7,0.12),
-        rgba(242,140,40,0.08),
-        transparent
-    );
+    content: "";
 
-border-bottom:
-    1px solid
-    rgba(255,193,7,0.15);
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: -1;
+
+    background:
+
+        radial-gradient(
+            circle at 20% 40%,
+            rgba(168, 85, 247, 0.10),
+            transparent 25%
+        ),
+
+        radial-gradient(
+            circle at 80% 70%,
+            rgba(244, 114, 182, 0.08),
+            transparent 25%
+        );
 
 }
+
+
+.daily-page::after {
+
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: -1;
+
+    background:
+
+        radial-gradient(
+            circle at 70% 25%,
+            rgba(255, 209, 102, 0.07),
+            transparent 25%
+        );
+
+}
+
 
 /* =========================================================
-DAILY TITLE
+   DAILY HEADER
 ========================================================= */
 
-.daily-page h1 {
+.daily-header {
 
-color: #ffd166;
+    padding: 45px 20px 30px;
 
-text-shadow:
-    0 0 20px
-    rgba(255,193,7,0.20);
+    text-align: center;
+
+    background:
+
+        radial-gradient(
+            ellipse at center,
+            rgba(217, 70, 239, 0.30),
+            transparent 58%
+        ),
+
+        linear-gradient(
+            135deg,
+            rgba(168, 85, 247, 0.28),
+            rgba(124, 58, 237, 0.20),
+            rgba(236, 72, 153, 0.12)
+        );
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,0.10);
+
+    backdrop-filter:
+        blur(15px);
+
+    box-shadow:
+        0 15px 45px
+        rgba(0,0,0,0.20);
 
 }
 
-.daily-page h2 {
-
-color: #f6a23a;
-
-}
 
 /* =========================================================
-DAILY QUESTION CARD
+   HEADER TITLE
 ========================================================= */
 
-.daily-page .quiz-card,
-.daily-page .question-card,
-.daily-page .daily-card {
+.daily-header h1 {
 
-background:
-    linear-gradient(
-        145deg,
-        rgba(255,255,255,0.10),
-        rgba(255,255,255,0.035)
-    );
+    margin: 0;
 
-border:
-    1px solid
-    rgba(255,193,7,0.16);
+    font-size:
+        clamp(30px, 5vw, 52px);
 
-border-radius:
-    20px;
+    font-weight: 900;
 
-box-shadow:
-    0 18px 45px
-    rgba(0,0,0,0.28);
+    background:
 
-backdrop-filter:
-    blur(14px);
-
-}
-
-/* =========================================================
-ANSWER OPTIONS
-========================================================= */
-
-.daily-page .option,
-.daily-page .option-btn,
-.daily-page .answer-option {
-
-background:
-    rgba(255,255,255,0.06);
-
-border:
-    1px solid
-    rgba(255,255,255,0.10);
-
-color:
-    #f5eee5;
-
-transition:
-    all .25s ease;
-
-}
-
-.daily-page .option,
-.daily-page .option-btn,
-.daily-page .answer-option {
-
-background:
-    rgba(255,193,7,0.12);
-
-border-color:
-    rgba(255,193,7,0.40);
-
-transform:
-    translateY(-2px);
-
-}
-
-/* =========================================================
-TIMER
-========================================================= */
-
-.daily-page .timer {
-
-color:
-    #ffd166;
-
-background:
-    rgba(255,193,7,0.08);
-
-border:
-    1px solid
-    rgba(255,193,7,0.20);
-
-border-radius:
-    12px;
-
-}
-
-/* =========================================================
-BUTTON
-========================================================= */
-
-.daily-page .btn,
-.daily-page button {
-
-background:
-    linear-gradient(
-        135deg,
-        #ffd166,
-        #f28c28
-    );
-
-color:
-    #241b12;
-
-border:
-    none;
-
-font-weight:
-    800;
-
-border-radius:
-    10px;
-
-box-shadow:
-    0 8px 22px
-    rgba(242,140,40,0.22);
-
-transition:
-    all .25s ease;
-
-}
-
-.daily-page .btn,
-.daily-page button {
-
-transform:
-    translateY(-3px);
-
-box-shadow:
-    0 12px 30px
-    rgba(242,140,40,0.32);
-
-}
-
-/* =========================================================
-MOTIVATIONAL TEXT
-========================================================= */
-
-.daily-page .motivation {
-
-color:
-    #e8c98b;
-
-}
-
-/* =========================================================
-MOBILE
-========================================================= */
-
-@media (max-width: 600px) {
-
-body.daily-page {
+        linear-gradient(
+            90deg,
+            #ffffff,
+            #f5d0fe,
+            #e9d5ff,
+            #ffd166,
+            #ffb86c,
+            #ffffff
+        );
 
     background-size:
-        300% 300%;
+        300% auto;
+
+    -webkit-background-clip:
+        text;
+
+    background-clip:
+        text;
+
+    -webkit-text-fill-color:
+        transparent;
+
+    animation:
+        dailyTitleColor 7s linear infinite;
+
+    text-shadow:
+        0 0 30px
+        rgba(216,180,254,0.20);
+
 }
+
+
+@keyframes dailyTitleColor {
+
+    0% {
+        background-position: 0% center;
+    }
+
+    100% {
+        background-position: 300% center;
+    }
+
+}
+
+
+.daily-header p {
+
+    margin-top: 10px;
+
+    color:
+        #f1e7f7;
+
+}
+
+
+/* =========================================================
+   WRAPPER
+========================================================= */
+
+.daily-wrapper {
+
+    width: 100%;
+
+    max-width: 950px;
+
+    margin: auto;
+
+    padding:
+        25px 20px 50px;
+
+}
+
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+.motivation-card,
+.question-card,
+.performers-card {
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.13),
+            rgba(168,85,247,0.13),
+            rgba(255,255,255,0.05)
+        );
+
+    border:
+        1px solid
+        rgba(216,180,254,0.18);
+
+    border-radius:
+        22px;
+
+    padding:
+        25px;
+
+    margin-bottom:
+        25px;
+
+    backdrop-filter:
+        blur(15px);
+
+    box-shadow:
+        0 18px 45px
+        rgba(0,0,0,0.28);
+
+}
+
+
+/* =========================================================
+   MOTIVATION
+========================================================= */
+
+.motivation-title {
+
+    color:
+        #ffd166;
+
+    text-align:
+        center;
+
+    text-shadow:
+        0 0 18px
+        rgba(255,209,102,0.35);
+
+}
+
+
+#motivation {
+
+    text-align:
+        center;
+
+    color:
+        #f1e7f7;
+
+    font-size:
+        18px;
+
+    line-height:
+        1.6;
+
+}
+
+
+/* =========================================================
+   EMPLOYEE
+========================================================= */
+
+.employee-card {
+
+    text-align:
+        center;
+
+    margin:
+        20px 0;
+
+}
+
+
+.employee-card span {
+
+    color:
+        #ffd166;
+
+    font-weight:
+        bold;
+
+}
+
+
+/* =========================================================
+   QUESTION
+========================================================= */
+
+#question {
+
+    color:
+        #ffffff;
+
+    font-size:
+        clamp(20px, 3vw, 28px);
+
+    line-height:
+        1.5;
+
+    font-weight:
+        800;
+
+    margin:
+        20px 0;
+
+    text-shadow:
+        0 2px 14px
+        rgba(0,0,0,0.30);
+
+}
+
+
+/* =========================================================
+   QUESTION NUMBERS
+========================================================= */
+
+#questionNumber,
+#totalQuestions {
+
+    color:
+        #ffd166;
+
+    font-weight:
+        900;
+
+}
+
+
+/* =========================================================
+   TIMER
+========================================================= */
+
+#timer {
+
+    color:
+        #ffd166;
+
+    font-size:
+        28px;
+
+    font-weight:
+        900;
+
+    text-align:
+        center;
+
+    margin:
+        20px 0;
+
+    text-shadow:
+        0 0 18px
+        rgba(255,209,102,0.55);
+
+}
+
+
+/* =========================================================
+   OPTIONS
+========================================================= */
+
+#options {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap:
+        15px;
+
+}
+
+
+/* =========================================================
+   ANSWER BUTTONS
+========================================================= */
+
+.daily-option {
+
+    min-height:
+        65px;
+
+    padding:
+        15px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.15);
+
+    border-radius:
+        15px;
+
+    color:
+        #ffffff;
+
+    font-size:
+        16px;
+
+    font-weight:
+        800;
+
+    text-align:
+        left;
+
+    cursor:
+        pointer;
+
+    transition:
+        .25s ease;
+
+    box-shadow:
+        0 10px 28px
+        rgba(0,0,0,0.25);
+
+}
+
+
+/* =========================================================
+   OPTION 1
+========================================================= */
+
+.daily-option:nth-child(1) {
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #7c3aed,
+            #a855f7
+        );
+
+}
+
+
+/* =========================================================
+   OPTION 2
+========================================================= */
+
+.daily-option:nth-child(2) {
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #a855f7,
+            #d946ef
+        );
+
+}
+
+
+/* =========================================================
+   OPTION 3
+========================================================= */
+
+.daily-option:nth-child(3) {
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #123d45,
+            #087f83
+        );
+
+}
+
+
+/* =========================================================
+   OPTION 4
+========================================================= */
+
+.daily-option:nth-child(4) {
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #f97316,
+            #ffb347
+        );
+
+    color:
+        #29170c;
+
+}
+
+
+/* =========================================================
+   OPTION HOVER
+========================================================= */
+
+.daily-option:hover {
+
+    filter:
+        brightness(1.10);
+
+    box-shadow:
+        0 16px 38px
+        rgba(168,85,247,0.30);
+
+}
+
+
+/* =========================================================
+   OPTION LETTER
+========================================================= */
+
+.option-letter {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    width:
+        34px;
+
+    height:
+        34px;
+
+    margin-right:
+        8px;
+
+    border-radius:
+        50%;
+
+    background:
+        rgba(7,34,43,0.30);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.22);
+
+    font-weight:
+        900;
+
+}
+
+
+/* =========================================================
+   CORRECT ANSWER
+========================================================= */
+
+.daily-option.correct {
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #087f83,
+            #20c997
+        );
+
+    color:
+        #ffffff;
+
+    box-shadow:
+        0 0 35px
+        rgba(32,201,151,0.45);
+
+}
+
+
+/* =========================================================
+   WRONG ANSWER
+========================================================= */
+
+.daily-option.incorrect {
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #c02675,
+            #ec4899
+        );
+
+    color:
+        #ffffff;
+
+    box-shadow:
+        0 0 30px
+        rgba(236,72,153,0.40);
+
+}
+
+
+/* =========================================================
+   RESULT
+========================================================= */
+
+#answerResult {
+
+    margin-top:
+        20px;
+
+    line-height:
+        1.6;
+
+}
+
+
+.correct-message,
+.wrong-message {
+
+    padding:
+        20px;
+
+    border-radius:
+        15px;
+
+}
+
+
+/* =========================================================
+   CORRECT MESSAGE
+========================================================= */
+
+.correct-message {
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(32,201,151,0.20),
+            rgba(8,61,67,0.20)
+        );
+
+    border:
+        1px solid
+        #20c997;
+
+    box-shadow:
+        0 0 30px
+        rgba(32,201,151,0.16);
+
+}
+
+
+/* =========================================================
+   WRONG MESSAGE
+========================================================= */
+
+.wrong-message {
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(236,72,153,0.20),
+            rgba(91,42,117,0.15)
+        );
+
+    border:
+        1px solid
+        #ec4899;
+
+    box-shadow:
+        0 0 30px
+        rgba(236,72,153,0.14);
+
+}
+
+
+/* =========================================================
+   CATEGORY
+========================================================= */
+
+#category {
+
+    display:
+        inline-block;
+
+    margin-top:
+        10px;
+
+    padding:
+        6px 12px;
+
+    border-radius:
+        20px;
+
+    color:
+        #ffd166;
+
+    background:
+        rgba(255,209,102,0.10);
+
+    border:
+        1px solid
+        rgba(255,209,102,0.22);
+
+}
+
+
+/* =========================================================
+   SOURCE
+========================================================= */
+
+#newsSource {
+
+    margin-top:
+        15px;
+
+    padding-top:
+        12px;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,0.10);
+
+    color:
+        #d8cbe3;
+
+    font-size:
+        13px;
+
+}
+
+
+/* =========================================================
+   PERFORMERS
+========================================================= */
+
+.performers-card h2 {
+
+    margin-top:
+        0;
+
+    text-align:
+        center;
+
+    color:
+        #ffd166;
+
+    text-shadow:
+        0 0 18px
+        rgba(255,209,102,0.35);
+
+}
+
+
+.performer {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    padding:
+        13px;
+
+    margin-bottom:
+        8px;
+
+    border-radius:
+        12px;
+
+    background:
+        rgba(255,255,255,0.065);
+
+    border:
+        1px solid
+        rgba(216,180,254,0.10);
+
+}
+
+
+.performer-rank {
+
+    width:
+        45px;
+
+}
+
+
+.performer-name {
+
+    flex:
+        1;
+
+    font-weight:
+        700;
+
+}
+
+
+.performer-points {
+
+    color:
+        #7fffd4;
+
+    font-weight:
+        900;
+
+    text-shadow:
+        0 0 12px
+        rgba(127,255,212,0.30);
+
+}
+
+
+/* =========================================================
+   HOME SECTION
+========================================================= */
+
+.home-section {
+
+    text-align:
+        center;
+
+    padding:
+        10px 20px 40px;
+
+}
+
+
+/* =========================================================
+   HOME BUTTON
+========================================================= */
+
+.home-button {
+
+    display:
+        inline-block;
+
+    padding:
+        14px 30px;
+
+    border-radius:
+        40px;
+
+    text-decoration:
+        none;
+
+    color:
+        #29170c;
+
+    font-weight:
+        900;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #ffd166,
+            #ffb347,
+            #f97316,
+            #a855f7
+        );
+
+    background-size:
+        300% auto;
+
+    box-shadow:
+        0 10px 30px
+        rgba(249,115,22,0.30);
+
+    transition:
+        .25s ease;
+
+}
+
+
+.home-button:hover {
+
+    filter:
+        brightness(1.08);
+
+    box-shadow:
+        0 18px 45px
+        rgba(249,115,22,0.45);
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+
+    padding:
+        25px;
+
+    text-align:
+        center;
+
+    color:
+        #d7d0dc;
+
+    background:
+        rgba(7,34,43,0.35);
+
+    border-top:
+        1px solid
+        rgba(255,255,255,0.08);
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .daily-header {
+
+        padding:
+            32px 15px 25px;
+
+    }
+
+    .daily-wrapper {
+
+        padding:
+            18px 12px 40px;
+
+    }
+
+    .motivation-card,
+    .question-card,
+    .performers-card {
+
+        padding:
+            20px 16px;
+
+        border-radius:
+            18px;
+
+    }
+
+    #options {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+    #question {
+
+        font-size:
+            20px;
+
+    }
+
+    .daily-option {
+
+        min-height:
+            62px;
+
+    }
+
+    .home-button {
+
+        width:
+            90%;
+
+        max-width:
+            320px;
+
+    }
 
 }
