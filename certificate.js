@@ -234,12 +234,27 @@ function loadCertificate() {
 
 
     // ======================================================
-    // IMPORTANT
-    // NO GRADE IS DISPLAYED
+    // GRADE
+    // ======================================================
+    //
+    // NO GRADE IS USED.
+    //
+    // The grade element is deliberately cleared
+    // so that certificate.js never displays a grade.
+    //
     // ======================================================
 
-    // Grade has intentionally been removed.
-    // Achievement title is displayed in the badge instead.
+    const gradeElement =
+        document.getElementById(
+            "grade"
+        );
+
+    if (gradeElement) {
+
+        gradeElement.textContent =
+            "";
+
+    }
 
 
     // ======================================================
@@ -321,7 +336,6 @@ function loadCertificate() {
         achievement.title
     );
 
-
     console.log(
         "Certificate loaded successfully."
     );
@@ -345,6 +359,8 @@ function loadCertificate() {
 
                     spread: 120,
 
+                    startVelocity: 35,
+
                     origin: {
                         y: 0.6
                     }
@@ -364,10 +380,10 @@ function loadCertificate() {
 // ACHIEVEMENT SYSTEM
 // ==========================================================
 //
-// 90% and above  = GOLD
-// 75% to 89%     = SILVER
-// 60% to 74%     = BRONZE
-// Below 60%      = PARTICIPANT
+// 90% and above  = GOLD CHAMPION
+// 75% to 89%     = SILVER ACHIEVER
+// 60% to 74%     = BRONZE PERFORMER
+// Below 60%      = POWER PARTICIPANT
 //
 // NO GRADE IS USED.
 // ==========================================================
@@ -560,12 +576,10 @@ function setText(
 // PREPARE CERTIFICATE FOR PDF / PRINT
 // ==========================================================
 //
-// IMPORTANT:
-// We disable animation and transitions,
-// BUT DO NOT REMOVE TRANSFORMS.
+// Animations and transitions are disabled before
+// PDF capture so that the certificate remains stable.
 //
-// This helps preserve the CSS design,
-// positioning and colors in the PDF.
+// CSS positioning/transforms are NOT removed.
 // ==========================================================
 
 function prepareCertificate() {
@@ -597,21 +611,14 @@ function prepareCertificate() {
     elements.forEach(
         function (el) {
 
-            // Disable animation
             el.style.animation =
                 "none";
 
-            // Disable transitions
             el.style.transition =
                 "none";
 
-            // Keep elements visible
             el.style.opacity =
                 "1";
-
-            // IMPORTANT:
-            // Do NOT use:
-            // el.style.transform = "none";
 
         }
     );
@@ -719,6 +726,26 @@ async function downloadPDF() {
 
                             }
 
+
+                            // --------------------------------
+                            // ENSURE GRADE IS EMPTY IN PDF
+                            // --------------------------------
+
+                            const clonedGrade =
+                                clonedDocument.getElementById(
+                                    "grade"
+                                );
+
+
+                            if (
+                                clonedGrade
+                            ) {
+
+                                clonedGrade.textContent =
+                                    "";
+
+                            }
+
                         }
 
                 }
@@ -744,6 +771,15 @@ async function downloadPDF() {
             jsPDF
         } =
             window.jspdf;
+
+
+        if (!jsPDF) {
+
+            throw new Error(
+                "jsPDF library was not loaded."
+            );
+
+        }
 
 
         // ==================================================
@@ -806,6 +842,7 @@ async function downloadPDF() {
 
     }
 
+
     catch (error) {
 
         console.error(
@@ -815,7 +852,7 @@ async function downloadPDF() {
 
 
         alert(
-            "Unable to generate PDF certificate."
+            "Unable to generate PDF certificate. Please try again."
         );
 
     }
