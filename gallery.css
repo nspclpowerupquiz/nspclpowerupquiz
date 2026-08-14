@@ -1,58 +1,77 @@
 /* =========================================================
    NSPCL POWER-UP QUIZ
-   GALLERY CSS
-   =========================================================
-   Theme:
-   Charcoal • Gold • Warm Orange
-
-   Designed to match the Contact tab
-   ========================================================= */
+   GALLERY PAGE
+   Theme: Violet • Purple • Gold
+========================================================= */
 
 
 /* =========================================================
-   GLOBAL GALLERY PAGE
+   PAGE BACKGROUND
 ========================================================= */
 
 .gallery-page {
 
     margin: 0;
+    padding: 0;
 
     min-height: 100vh;
 
     color: #ffffff;
 
-    font-family:
-        'Segoe UI',
-        Arial,
-        sans-serif;
-
     background:
 
         radial-gradient(
-            circle at 15% 20%,
-            rgba(255, 193, 7, 0.08),
-            transparent 30%
+            circle at 10% 15%,
+            rgba(168, 85, 247, 0.35),
+            transparent 28%
         ),
 
         radial-gradient(
-            circle at 85% 15%,
-            rgba(242, 140, 40, 0.07),
+            circle at 90% 10%,
+            rgba(124, 58, 237, 0.35),
             transparent 30%
         ),
 
         radial-gradient(
             circle at 50% 90%,
-            rgba(255, 193, 7, 0.05),
-            transparent 35%
+            rgba(217, 70, 239, 0.25),
+            transparent 32%
         ),
 
         linear-gradient(
             135deg,
-            #191816,
-            #211f1c,
-            #24211d,
-            #191816
+            #160b2e 0%,
+            #241044 30%,
+            #35145f 55%,
+            #241044 75%,
+            #120822 100%
         );
+
+    background-size: 250% 250%;
+
+    animation:
+        galleryBackground 16s ease infinite;
+
+}
+
+
+/* =========================================================
+   ANIMATED VIOLET BACKGROUND
+========================================================= */
+
+@keyframes galleryBackground {
+
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 
 }
 
@@ -80,15 +99,15 @@
     gap: 20px;
 
     background:
-        rgba(25, 24, 22, 0.96);
+        rgba(22, 11, 38, 0.94);
 
     border-bottom:
         1px solid
-        rgba(255, 193, 7, 0.20);
+        rgba(192, 132, 252, 0.25);
 
     box-shadow:
         0 8px 30px
-        rgba(0, 0, 0, 0.30);
+        rgba(0,0,0,0.35);
 
     position: relative;
 
@@ -133,16 +152,15 @@
     background:
         linear-gradient(
             135deg,
-            #ffd166,
-            #f28c28
+            #fbbf24,
+            #f97316
         );
 
-    color:
-        #241b12;
+    color: #24120a;
 
     box-shadow:
-        0 6px 18px
-        rgba(242, 140, 40, 0.25);
+        0 6px 20px
+        rgba(249,115,22,0.30);
 
 }
 
@@ -153,10 +171,9 @@
 
     font-weight: 800;
 
-    letter-spacing: 0.5px;
+    letter-spacing: .5px;
 
-    color:
-        #ffffff;
+    color: #ffffff;
 
     line-height: 1.1;
 
@@ -169,8 +186,7 @@
 
     letter-spacing: 1.8px;
 
-    color:
-        #d8cfc3;
+    color: #d8c8ea;
 
     margin-top: 4px;
 
@@ -208,8 +224,7 @@
 
     border-radius: 10px;
 
-    color:
-        #eee9e1;
+    color: #eee5f8;
 
     text-decoration: none;
 
@@ -218,25 +233,23 @@
     font-weight: 600;
 
     border:
-        1px solid
-        transparent;
+        1px solid transparent;
 
     transition:
-        all 0.25s ease;
+        all .25s ease;
 
 }
 
 
 .nav-links a:hover {
 
-    color:
-        #ffd166;
+    color: #fbbf24;
 
     background:
-        rgba(255, 193, 7, 0.08);
+        rgba(168,85,247,0.15);
 
     border-color:
-        rgba(255, 193, 7, 0.15);
+        rgba(192,132,252,0.30);
 
     transform:
         translateY(-2px);
@@ -250,22 +263,21 @@
 
 .nav-links a.active {
 
-    color:
-        #241b12;
+    color: #24120a;
 
     background:
         linear-gradient(
             135deg,
-            #ffd166,
-            #f28c28
+            #fbbf24,
+            #f97316
         );
 
     border-color:
-        rgba(255, 255, 255, 0.25);
+        rgba(255,255,255,0.25);
 
     box-shadow:
-        0 6px 18px
-        rgba(242, 140, 40, 0.22);
+        0 6px 20px
+        rgba(249,115,22,0.28);
 
 }
 
@@ -284,19 +296,30 @@
         65px 20px 55px;
 
     background:
+
+        radial-gradient(
+            circle at center,
+            rgba(168,85,247,0.20),
+            transparent 60%
+        ),
+
         linear-gradient(
             135deg,
-            rgba(255, 193, 7, 0.10),
-            rgba(242, 140, 40, 0.07),
+            rgba(124,58,237,0.18),
+            rgba(192,132,252,0.08),
             transparent
         );
 
     border-bottom:
         1px solid
-        rgba(255, 255, 255, 0.06);
+        rgba(216,180,254,0.12);
 
 }
 
+
+/* =========================================================
+   HEADER TITLE
+========================================================= */
 
 .gallery-header h1 {
 
@@ -307,71 +330,62 @@
 
     font-weight: 850;
 
-    letter-spacing:
-        0.5px;
+    letter-spacing: .5px;
 
     background:
+
         linear-gradient(
             90deg,
-            #ffe29a,
-            #ffd166,
-            #f6a23a,
-            #ffe29a
+            #ffffff,
+            #e9d5ff,
+            #c084fc,
+            #fbbf24,
+            #ffffff
         );
 
-    background-size:
-        250% auto;
+    background-size: 300% auto;
 
-    -webkit-background-clip:
-        text;
+    -webkit-background-clip: text;
 
-    background-clip:
-        text;
+    background-clip: text;
 
-    -webkit-text-fill-color:
-        transparent;
+    -webkit-text-fill-color: transparent;
 
     animation:
-        titleGlow 6s linear infinite;
+        galleryTitle 6s linear infinite;
 
 }
 
 
-@keyframes titleGlow {
+@keyframes galleryTitle {
 
     0% {
-
-        background-position:
-            0% center;
-
+        background-position: 0% center;
     }
 
     100% {
-
-        background-position:
-            250% center;
-
+        background-position: 300% center;
     }
 
 }
 
 
+/* =========================================================
+   HEADER DESCRIPTION
+========================================================= */
+
 .gallery-header p {
 
-    max-width:
-        700px;
+    max-width: 700px;
 
     margin:
         14px auto 0;
 
-    font-size:
-        17px;
+    font-size: 17px;
 
-    line-height:
-        1.6;
+    line-height: 1.6;
 
-    color:
-        #d8d1c8;
+    color: #e9ddf5;
 
 }
 
@@ -382,59 +396,59 @@
 
 .section-title {
 
-    text-align:
-        center;
+    text-align: center;
 
-    font-size:
-        30px;
+    font-size: 30px;
 
-    color:
-        #f5eee5;
+    color: #f3e8ff;
 
     margin:
         50px 0 25px;
+
+    text-shadow:
+        0 0 18px
+        rgba(192,132,252,0.35);
 
 }
 
 
 .section-title::after {
 
-    content:
-        "";
+    content: "";
 
-    display:
-        block;
+    display: block;
 
-    width:
-        65px;
+    width: 70px;
 
-    height:
-        3px;
+    height: 3px;
 
     margin:
         12px auto;
 
-    border-radius:
-        10px;
+    border-radius: 10px;
 
     background:
         linear-gradient(
             90deg,
-            #ffd166,
-            #f28c28
+            #a855f7,
+            #c084fc,
+            #fbbf24
         );
+
+    box-shadow:
+        0 0 12px
+        rgba(168,85,247,0.55);
 
 }
 
 
 /* =========================================================
-   STATISTICS CONTAINER
+   STATISTICS
 ========================================================= */
 
 .stats-container {
 
-    display:
-        grid;
+    display: grid;
 
     grid-template-columns:
         repeat(
@@ -442,8 +456,7 @@
             minmax(200px, 1fr)
         );
 
-    gap:
-        20px;
+    gap: 20px;
 
     padding:
         25px 6%;
@@ -451,45 +464,37 @@
 }
 
 
-/* =========================================================
-   STAT CARD
-========================================================= */
-
 .stat-card {
 
     padding:
         28px 20px;
 
-    text-align:
-        center;
+    text-align: center;
 
-    border-radius:
-        20px;
+    border-radius: 20px;
 
     background:
+
         linear-gradient(
             145deg,
-            rgba(255, 255, 255, 0.09),
-            rgba(255, 255, 255, 0.035)
+            rgba(168,85,247,0.20),
+            rgba(255,255,255,0.07)
         );
 
     border:
         1px solid
-        rgba(255, 255, 255, 0.10);
+        rgba(216,180,254,0.18);
 
     box-shadow:
-        0 12px 30px
-        rgba(0, 0, 0, 0.22);
+        0 15px 35px
+        rgba(0,0,0,0.28);
 
     backdrop-filter:
-        blur(12px);
-
-    -webkit-backdrop-filter:
-        blur(12px);
+        blur(14px);
 
     transition:
-        transform 0.3s ease,
-        border-color 0.3s ease;
+        transform .3s ease,
+        border-color .3s ease;
 
 }
 
@@ -500,7 +505,7 @@
         translateY(-7px);
 
     border-color:
-        rgba(255, 193, 7, 0.30);
+        rgba(192,132,252,0.55);
 
 }
 
@@ -510,25 +515,18 @@
     margin:
         0 0 8px;
 
-    font-size:
-        40px;
+    font-size: 40px;
 
-    color:
-        #ffd166;
-
-    word-break:
-        break-word;
+    color: #fbbf24;
 
 }
 
 
 .stat-card p {
 
-    margin:
-        0;
+    margin: 0;
 
-    color:
-        #d7d0c7;
+    color: #e4d8ee;
 
 }
 
@@ -539,8 +537,7 @@
 
 .winner-container {
 
-    display:
-        grid;
+    display: grid;
 
     grid-template-columns:
         repeat(
@@ -548,8 +545,7 @@
             minmax(240px, 1fr)
         );
 
-    gap:
-        20px;
+    gap: 20px;
 
     padding:
         20px 6%;
@@ -563,30 +559,29 @@
 
 .winner-card {
 
-    padding:
-        24px;
+    padding: 24px;
 
-    border-radius:
-        18px;
+    border-radius: 18px;
 
     background:
+
         linear-gradient(
             145deg,
-            #302b25,
-            #211f1c
+            rgba(72,32,110,0.90),
+            rgba(35,18,58,0.95)
         );
 
     border:
         1px solid
-        rgba(255, 193, 7, 0.12);
+        rgba(192,132,252,0.18);
 
     box-shadow:
         0 12px 30px
-        rgba(0, 0, 0, 0.25);
+        rgba(0,0,0,0.28);
 
     transition:
-        transform 0.3s ease,
-        border-color 0.3s ease;
+        transform .3s ease,
+        border-color .3s ease;
 
 }
 
@@ -597,26 +592,16 @@
         translateY(-6px);
 
     border-color:
-        rgba(255, 193, 7, 0.35);
+        rgba(192,132,252,0.55);
 
 }
 
 
 .winner-card h3 {
 
-    margin-top:
-        0;
+    color: #fbbf24;
 
-    color:
-        #ffd166;
-
-}
-
-
-.winner-card p {
-
-    color:
-        #d5cec5;
+    margin-top: 0;
 
 }
 
@@ -630,17 +615,15 @@
     padding:
         35px 6% 60px;
 
-    display:
-        grid;
+    display: grid;
 
     grid-template-columns:
         repeat(
             auto-fit,
-            minmax(280px, 1fr)
+            minmax(280px,1fr)
         );
 
-    gap:
-        26px;
+    gap: 26px;
 
 }
 
@@ -651,33 +634,34 @@
 
 .gallery-card {
 
-    position:
-        relative;
+    position: relative;
 
-    overflow:
-        hidden;
+    overflow: hidden;
 
-    border-radius:
-        20px;
+    border-radius: 20px;
 
     background:
-        #24221f;
+        linear-gradient(
+            145deg,
+            #35204c,
+            #21152f
+        );
 
     border:
         1px solid
-        rgba(255, 255, 255, 0.10);
+        rgba(216,180,254,0.15);
 
     box-shadow:
         0 15px 40px
-        rgba(0, 0, 0, 0.28);
+        rgba(0,0,0,0.32);
 
     transition:
-        transform 0.35s ease,
-        box-shadow 0.35s ease,
-        border-color 0.35s ease;
+        transform .35s ease,
+        box-shadow .35s ease,
+        border-color .35s ease;
 
     animation:
-        slideUp 0.7s ease both;
+        slideUp .7s ease both;
 
 }
 
@@ -688,61 +672,11 @@
         translateY(-8px);
 
     border-color:
-        rgba(255, 193, 7, 0.35);
+        rgba(192,132,252,0.55);
 
     box-shadow:
-        0 22px 50px
-        rgba(0, 0, 0, 0.38);
-
-}
-
-
-/* =========================================================
-   NSPCL BADGE
-========================================================= */
-
-.gallery-card::before {
-
-    content:
-        "⚡ NSPCL";
-
-    position:
-        absolute;
-
-    top:
-        15px;
-
-    left:
-        15px;
-
-    padding:
-        7px 13px;
-
-    border-radius:
-        20px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #ffd166,
-            #f28c28
-        );
-
-    color:
-        #2b2117;
-
-    font-size:
-        12px;
-
-    font-weight:
-        800;
-
-    z-index:
-        5;
-
-    box-shadow:
-        0 5px 15px
-        rgba(0, 0, 0, 0.25);
+        0 22px 55px
+        rgba(126,58,237,0.30);
 
 }
 
@@ -753,27 +687,22 @@
 
 .gallery-card img {
 
-    width:
-        100%;
+    width: 100%;
 
-    height:
-        270px;
+    height: 270px;
 
-    display:
-        block;
+    display: block;
 
-    object-fit:
-        cover;
+    object-fit: cover;
 
     background:
-        #302d29;
-
-    cursor:
-        pointer;
+        #24152f;
 
     transition:
-        transform 0.55s ease,
-        filter 0.55s ease;
+        transform .55s ease,
+        filter .55s ease;
+
+    cursor: pointer;
 
 }
 
@@ -791,87 +720,6 @@
 
 
 /* =========================================================
-   IMAGE ERROR BOX
-========================================================= */
-
-.image-error {
-
-    width:
-        100%;
-
-    height:
-        270px;
-
-    box-sizing:
-        border-box;
-
-    display:
-        flex;
-
-    flex-direction:
-        column;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    text-align:
-        center;
-
-    padding:
-        20px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #302d29,
-            #211f1c
-        );
-
-    color:
-        #ffd166;
-
-    font-size:
-        15px;
-
-    font-weight:
-        700;
-
-}
-
-
-.image-error small {
-
-    display:
-        block;
-
-    margin-top:
-        10px;
-
-    max-width:
-        90%;
-
-    color:
-        #aaa39a;
-
-    font-size:
-        10px;
-
-    font-weight:
-        400;
-
-    line-height:
-        1.4;
-
-    word-break:
-        break-all;
-
-}
-
-
-/* =========================================================
    GALLERY INFORMATION
 ========================================================= */
 
@@ -881,10 +729,11 @@
         18px 18px 20px;
 
     background:
+
         linear-gradient(
             180deg,
-            #292622,
-            #211f1c
+            #352442,
+            #24162f
         );
 
 }
@@ -895,11 +744,9 @@
     margin:
         0 0 7px;
 
-    font-size:
-        20px;
+    font-size: 20px;
 
-    color:
-        #f7f0e8;
+    color: #ffffff;
 
 }
 
@@ -909,14 +756,110 @@
     margin:
         5px 0;
 
-    color:
-        #cfc7bd;
+    color: #d8cbe3;
 
-    line-height:
-        1.5;
+    line-height: 1.5;
+
+    font-size: 14px;
+
+}
+
+
+/* =========================================================
+   NSPCL BADGE
+========================================================= */
+
+.gallery-card::before {
+
+    content:
+        "⚡ NSPCL";
+
+    position:
+        absolute;
+
+    top: 15px;
+
+    left: 15px;
+
+    padding:
+        7px 13px;
+
+    border-radius:
+        20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fbbf24,
+            #f97316
+        );
+
+    color:
+        #29170c;
 
     font-size:
-        14px;
+        12px;
+
+    font-weight:
+        800;
+
+    z-index:
+        5;
+
+    box-shadow:
+        0 5px 15px
+        rgba(0,0,0,0.30);
+
+}
+
+
+/* =========================================================
+   IMAGE ERROR
+========================================================= */
+
+.image-error {
+
+    height: 270px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2a183b,
+            #1b1027
+        );
+
+    color: #d8cbe3;
+
+    text-align: center;
+
+    padding: 15px;
+
+    box-sizing: border-box;
+
+}
+
+
+.image-error small {
+
+    display: block;
+
+    margin-top: 10px;
+
+    font-size: 10px;
+
+    color: #a995b8;
+
+    word-break: break-all;
+
+    max-width: 90%;
 
 }
 
@@ -927,20 +870,17 @@
 
 .loading {
 
-    grid-column:
-        1 / -1;
-
-    text-align:
-        center;
+    text-align: center;
 
     padding:
         50px 20px;
 
-    font-size:
-        20px;
+    font-size: 20px;
 
-    color:
-        #d8d1c8;
+    color: #e9d5ff;
+
+    grid-column:
+        1 / -1;
 
 }
 
@@ -951,23 +891,18 @@
 
 .popup {
 
-    display:
-        none;
+    display: none;
 
-    position:
-        fixed;
+    position: fixed;
 
-    inset:
-        0;
+    inset: 0;
 
-    padding:
-        25px;
+    padding: 25px;
 
-    box-sizing:
-        border-box;
+    box-sizing: border-box;
 
     background:
-        rgba(10, 10, 10, 0.92);
+        rgba(10,5,18,0.94);
 
     justify-content:
         center;
@@ -977,9 +912,6 @@
 
     z-index:
         99999;
-
-    cursor:
-        pointer;
 
 }
 
@@ -992,18 +924,14 @@
     max-height:
         82vh;
 
-    object-fit:
-        contain;
-
     border-radius:
         15px;
 
     box-shadow:
         0 20px 60px
-        rgba(0, 0, 0, 0.60);
+        rgba(0,0,0,0.70);
 
-    cursor:
-        default;
+    object-fit: contain;
 
 }
 
@@ -1013,112 +941,24 @@
     position:
         absolute;
 
-    top:
-        18px;
+    top: 18px;
 
-    right:
-        30px;
+    right: 25px;
 
-    color:
-        #ffffff;
+    font-size: 42px;
 
-    font-size:
-        45px;
+    color: white;
 
-    font-weight:
-        400;
+    cursor: pointer;
 
-    line-height:
-        1;
-
-    cursor:
-        pointer;
-
-    z-index:
-        100000;
-
-    transition:
-        color 0.25s ease,
-        transform 0.25s ease;
+    z-index: 100000;
 
 }
 
 
 .close:hover {
 
-    color:
-        #ffd166;
-
-    transform:
-        scale(1.1);
-
-}
-
-
-/* =========================================================
-   BUTTONS
-========================================================= */
-
-.gallery-page .btn,
-.gallery-page button {
-
-    display:
-        inline-flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    padding:
-        11px 20px;
-
-    border:
-        none;
-
-    border-radius:
-        10px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #ffd166,
-            #f28c28
-        );
-
-    color:
-        #251b12;
-
-    font-weight:
-        800;
-
-    text-decoration:
-        none;
-
-    cursor:
-        pointer;
-
-    box-shadow:
-        0 8px 20px
-        rgba(242, 140, 40, 0.20);
-
-    transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
-
-}
-
-
-.gallery-page .btn:hover,
-.gallery-page button:hover {
-
-    transform:
-        translateY(-3px);
-
-    box-shadow:
-        0 12px 28px
-        rgba(242, 140, 40, 0.30);
+    color: #fbbf24;
 
 }
 
@@ -1131,8 +971,7 @@
 
     from {
 
-        opacity:
-            0;
+        opacity: 0;
 
         transform:
             translateY(30px);
@@ -1141,31 +980,10 @@
 
     to {
 
-        opacity:
-            1;
+        opacity: 1;
 
         transform:
             translateY(0);
-
-    }
-
-}
-
-
-/* =========================================================
-   TABLET
-========================================================= */
-
-@media (min-width: 601px)
-       and (max-width: 900px) {
-
-    .gallery-container {
-
-        grid-template-columns:
-            repeat(2, 1fr);
-
-        padding:
-            25px;
 
     }
 
@@ -1186,16 +1004,14 @@
         flex-direction:
             column;
 
-        gap:
-            12px;
+        gap: 12px;
 
     }
 
 
     .nav-brand {
 
-        width:
-            100%;
+        width: 100%;
 
         justify-content:
             center;
@@ -1205,14 +1021,12 @@
 
     .nav-links {
 
-        width:
-            100%;
+        width: 100%;
 
         justify-content:
             center;
 
-        gap:
-            4px;
+        gap: 4px;
 
     }
 
@@ -1294,47 +1108,6 @@
 
     }
 
-
-    .section-title {
-
-        font-size:
-            26px;
-
-    }
-
-
-    .popup {
-
-        padding:
-            15px;
-
-    }
-
-
-    .popup img {
-
-        max-width:
-            96%;
-
-        max-height:
-            80vh;
-
-    }
-
-
-    .close {
-
-        right:
-            18px;
-
-        top:
-            10px;
-
-        font-size:
-            38px;
-
-    }
-
 }
 
 
@@ -1396,26 +1169,10 @@
     }
 
 
-    .gallery-header p {
-
-        font-size:
-            14px;
-
-    }
-
-
     .section-title {
 
         font-size:
-            24px;
-
-    }
-
-
-    .gallery-container {
-
-        grid-template-columns:
-            1fr;
+            25px;
 
     }
 
@@ -1432,38 +1189,6 @@
 
         height:
             200px;
-
-    }
-
-
-    .gallery-info {
-
-        padding:
-            16px;
-
-    }
-
-
-    .gallery-info h3 {
-
-        font-size:
-            18px;
-
-    }
-
-}
-
-
-/* =========================================================
-   LARGE DESKTOP
-========================================================= */
-
-@media (min-width: 1200px) {
-
-    .gallery-container {
-
-        grid-template-columns:
-            repeat(4, 1fr);
 
     }
 
