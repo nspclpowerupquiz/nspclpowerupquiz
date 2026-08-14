@@ -19,15 +19,25 @@
 ========================================================= */
 
 body {
+
     margin: 0;
-    font-family: 'Segoe UI', Arial, sans-serif;
+
+    font-family:
+        'Segoe UI',
+        Arial,
+        sans-serif;
 
     background:
-        linear-gradient(135deg, #001f3f, #0074a8);
+        linear-gradient(
+            135deg,
+            #001f3f,
+            #0074a8
+        );
 
     color: white;
 
     min-height: 100vh;
+
 }
 
 
@@ -36,8 +46,11 @@ body {
 ========================================================= */
 
 nav {
+
     display: flex;
+
     justify-content: center;
+
     align-items: center;
 
     flex-wrap: wrap;
@@ -47,15 +60,20 @@ nav {
     padding: 15px 20px;
 
     background:
-        rgba(0, 0, 0, 0.25);
+        rgba(0,0,0,0.25);
 
-    backdrop-filter: blur(12px);
+    backdrop-filter:
+        blur(12px);
 
     border-bottom:
-        1px solid rgba(255,255,255,0.15);
+        1px solid
+        rgba(255,255,255,0.15);
+
 }
 
+
 nav a {
+
     text-decoration: none;
 
     color: white;
@@ -67,22 +85,30 @@ nav a {
     font-weight: 600;
 
     transition: 0.3s;
+
 }
 
+
 nav a:hover {
+
     background:
         rgba(255,255,255,0.18);
 
     transform:
         translateY(-2px);
+
 }
 
+
 nav a.active {
+
     background:
         rgba(255,255,255,0.22);
 
     box-shadow:
-        0 4px 15px rgba(0,0,0,0.2);
+        0 4px 15px
+        rgba(0,0,0,0.2);
+
 }
 
 
@@ -99,11 +125,15 @@ nav a.active {
     background:
         rgba(255,255,255,0.10);
 
-    backdrop-filter: blur(12px);
+    backdrop-filter:
+        blur(12px);
 
     border-bottom:
-        1px solid rgba(255,255,255,0.15);
+        1px solid
+        rgba(255,255,255,0.15);
+
 }
+
 
 .gallery-header h1 {
 
@@ -112,7 +142,9 @@ nav a.active {
     margin: 10px 0;
 
     font-weight: 700;
+
 }
+
 
 .gallery-header p {
 
@@ -121,6 +153,7 @@ nav a.active {
     color: #d9f7ff;
 
     margin: 10px 0;
+
 }
 
 
@@ -133,7 +166,10 @@ nav a.active {
     display: grid;
 
     grid-template-columns:
-        repeat(auto-fit, minmax(210px, 1fr));
+        repeat(
+            auto-fit,
+            minmax(210px,1fr)
+        );
 
     gap: 25px;
 
@@ -142,7 +178,9 @@ nav a.active {
     max-width: 1300px;
 
     margin: auto;
+
 }
+
 
 .stat-card {
 
@@ -156,18 +194,24 @@ nav a.active {
     text-align: center;
 
     box-shadow:
-        0 10px 25px rgba(0,0,0,0.30);
+        0 10px 25px
+        rgba(0,0,0,0.30);
 
-    backdrop-filter: blur(10px);
+    backdrop-filter:
+        blur(10px);
 
     transition: 0.4s;
+
 }
+
 
 .stat-card:hover {
 
     transform:
         translateY(-8px);
+
 }
+
 
 .stat-card h2 {
 
@@ -175,16 +219,21 @@ nav a.active {
 
     color: #00ffff;
 
-    margin: 5px 0 10px;
+    margin:
+        5px 0 10px;
 
-    word-break: break-word;
+    word-break:
+        break-word;
+
 }
+
 
 .stat-card p {
 
     margin: 0;
 
     font-size: 16px;
+
 }
 
 
@@ -200,6 +249,7 @@ nav a.active {
 
     margin:
         35px 20px 15px;
+
 }
 
 
@@ -212,16 +262,22 @@ nav a.active {
     display: grid;
 
     grid-template-columns:
-        repeat(auto-fit, minmax(250px, 1fr));
+        repeat(
+            auto-fit,
+            minmax(250px,1fr)
+        );
 
     gap: 20px;
 
-    padding: 25px 35px;
+    padding:
+        25px 35px;
 
     max-width: 1300px;
 
     margin: auto;
+
 }
+
 
 .winner-card {
 
@@ -234,22 +290,28 @@ nav a.active {
     border-radius: 18px;
 
     box-shadow:
-        0 8px 20px rgba(0,0,0,0.25);
+        0 8px 20px
+        rgba(0,0,0,0.25);
 
     transition: 0.3s;
+
 }
+
 
 .winner-card:hover {
 
     transform:
         translateY(-6px);
+
 }
+
 
 .winner-card h3 {
 
     margin-top: 0;
 
     color: #0066cc;
+
 }
 
 
@@ -262,7 +324,10 @@ nav a.active {
     display: grid;
 
     grid-template-columns:
-        repeat(auto-fit, minmax(280px, 1fr));
+        repeat(
+            auto-fit,
+            minmax(280px,1fr)
+        );
 
     gap: 25px;
 
@@ -271,6 +336,7 @@ nav a.active {
     max-width: 1400px;
 
     margin: auto;
+
 }
 
 
@@ -291,15 +357,19 @@ nav a.active {
     cursor: pointer;
 
     box-shadow:
-        0 8px 25px rgba(0,0,0,0.28);
+        0 8px 25px
+        rgba(0,0,0,0.28);
 
     transition:
         transform 0.35s,
         box-shadow 0.35s;
 
     animation:
-        galleryAppear 0.6s ease;
+        galleryAppear
+        0.6s ease;
+
 }
+
 
 .gallery-card:hover {
 
@@ -308,7 +378,9 @@ nav a.active {
         scale(1.02);
 
     box-shadow:
-        0 15px 35px rgba(0,0,0,0.35);
+        0 15px 35px
+        rgba(0,0,0,0.35);
+
 }
 
 
@@ -326,27 +398,34 @@ nav a.active {
 
     display: block;
 
-    background: #eeeeee;
+    background:
+        #eeeeee;
 
     transition:
         transform 0.4s;
+
 }
+
 
 .gallery-card:hover img {
 
     transform:
         scale(1.04);
+
 }
 
 
 /* =========================================================
-   GALLERY INFO
+   GALLERY INFORMATION
 ========================================================= */
 
 .gallery-info {
 
-    padding: 16px 18px 20px;
+    padding:
+        16px 18px 20px;
+
 }
+
 
 .gallery-info h3 {
 
@@ -356,7 +435,9 @@ nav a.active {
     font-size: 20px;
 
     color: #0066cc;
+
 }
+
 
 .gallery-info p {
 
@@ -368,6 +449,7 @@ nav a.active {
     font-size: 14px;
 
     line-height: 1.5;
+
 }
 
 
@@ -387,9 +469,11 @@ nav a.active {
 
     justify-content: center;
 
-    background: #eeeeee;
+    background:
+        #eeeeee;
 
-    color: #777;
+    color:
+        #777;
 
     text-align: center;
 
@@ -398,7 +482,9 @@ nav a.active {
     box-sizing: border-box;
 
     font-weight: 600;
+
 }
+
 
 .image-error small {
 
@@ -411,6 +497,7 @@ nav a.active {
     word-break: break-all;
 
     max-width: 90%;
+
 }
 
 
@@ -428,6 +515,7 @@ nav a.active {
 
     grid-column:
         1 / -1;
+
 }
 
 
@@ -463,7 +551,9 @@ nav a.active {
     padding: 20px;
 
     box-sizing: border-box;
+
 }
+
 
 .popup img {
 
@@ -474,10 +564,13 @@ nav a.active {
     border-radius: 20px;
 
     box-shadow:
-        0 10px 50px rgba(0,0,0,0.8);
+        0 10px 50px
+        rgba(0,0,0,0.8);
 
     object-fit: contain;
+
 }
+
 
 .close {
 
@@ -496,6 +589,7 @@ nav a.active {
     z-index: 10000;
 
     line-height: 1;
+
 }
 
 
@@ -530,50 +624,84 @@ nav a.active {
    MOBILE
 ========================================================= */
 
-@media (max-width: 600px) {
+@media (max-width:600px) {
 
     nav {
+
         padding: 12px;
+
         gap: 6px;
+
     }
+
 
     nav a {
+
         font-size: 13px;
+
         padding: 8px 10px;
+
     }
+
 
     .gallery-header {
-        padding: 30px 15px;
+
+        padding:
+            30px 15px;
+
     }
+
 
     .gallery-header h1 {
+
         font-size: 29px;
+
     }
+
 
     .gallery-header p {
+
         font-size: 15px;
+
     }
+
 
     .stats-container {
+
         padding: 20px;
+
         gap: 15px;
+
     }
+
 
     .stat-card {
+
         padding: 20px;
+
     }
+
 
     .stat-card h2 {
+
         font-size: 32px;
+
     }
+
 
     .section-title {
+
         font-size: 25px;
+
     }
 
+
     .winner-container {
+
         padding: 20px;
+
     }
+
 
     .gallery-container {
 
@@ -583,18 +711,25 @@ nav a.active {
             1fr;
 
         gap: 20px;
+
     }
 
+
     .gallery-card img {
+
         height: 220px;
+
     }
+
 
     .popup img {
 
         max-width: 96%;
 
         max-height: 80%;
+
     }
+
 
     .close {
 
@@ -603,6 +738,7 @@ nav a.active {
         top: 10px;
 
         font-size: 38px;
+
     }
 
 }
@@ -612,14 +748,18 @@ nav a.active {
    TABLET
 ========================================================= */
 
-@media (min-width: 601px) and (max-width: 900px) {
+@media
+(min-width:601px)
+and
+(max-width:900px) {
 
     .gallery-container {
 
         grid-template-columns:
-            repeat(2, 1fr);
+            repeat(2,1fr);
 
         padding: 25px;
+
     }
 
 }
@@ -629,12 +769,13 @@ nav a.active {
    LARGE SCREEN
 ========================================================= */
 
-@media (min-width: 1200px) {
+@media (min-width:1200px) {
 
     .gallery-container {
 
         grid-template-columns:
-            repeat(4, 1fr);
+            repeat(4,1fr);
+
     }
 
 }
@@ -759,7 +900,9 @@ nav a.active {
 ======================================================= -->
 
 <h2 class="section-title">
+
     🏆 Quiz Champions
+
 </h2>
 
 
@@ -767,7 +910,9 @@ nav a.active {
      class="winner-container">
 
     <div class="loading">
+
         Loading Champions...
+
     </div>
 
 </div>
@@ -778,7 +923,9 @@ nav a.active {
 ======================================================= -->
 
 <h2 class="section-title">
+
     📸 NSPCL Moments
+
 </h2>
 
 
@@ -786,7 +933,9 @@ nav a.active {
      class="gallery-container">
 
     <div class="loading">
+
         📸 Loading Gallery...
+
     </div>
 
 </div>
@@ -802,8 +951,11 @@ nav a.active {
 
     <span class="close"
           onclick="closePopup()">
+
         ×
+
     </span>
+
 
     <img id="popupImage"
          alt="Gallery Image"
@@ -821,6 +973,39 @@ nav a.active {
 
 const SCRIPT_URL =
 "https://script.google.com/macros/s/AKfycbziOrV0Tit-jAwCXLZTLJovnnpIh1zTLpZVOOmhtjXyigCj6uxFxY-UYfK6_gn1xXW-yA/exec";
+
+
+// ============================================================
+// FIXED GALLERY TITLES
+// ============================================================
+
+const GALLERY_TITLES = [
+
+    "Vendor Meet",
+
+    "C&M Initiatives",
+
+    "Monthly Reward Session",
+
+    "Training Program",
+
+    "Reward to Support Staff",
+
+    "Team Collaboration",
+
+    "Welcome & Farewell",
+
+    "Reward to Support Staff",
+
+    "Retirement Celebration",
+
+    "Materials Management",
+
+    "Vendor Management",
+
+    "Professional Meet"
+
+];
 
 
 // ============================================================
@@ -905,30 +1090,36 @@ function loadStats() {
         ) {
 
             data.top.forEach(
-                function(item, index) {
+                function(item,index) {
 
                     html += `
 
                         <div class="winner-card">
 
                             <h3>
+
                                 🏆
                                 ${index + 1}.
                                 ${escapeHTML(
                                     item.name || ""
                                 )}
+
                             </h3>
 
                             <p>
+
                                 Employee ID:
                                 ${escapeHTML(
                                     item.id || ""
                                 )}
+
                             </p>
 
                             <p>
+
                                 Score:
                                 ${item.score || 0}
+
                             </p>
 
                         </div>
@@ -939,6 +1130,7 @@ function loadStats() {
             );
 
         }
+
         else {
 
             html = `
@@ -1000,10 +1192,6 @@ function loadGallery() {
 
     if (!gallery) {
 
-        console.error(
-            "galleryContainer not found."
-        );
-
         return;
 
     }
@@ -1055,19 +1243,7 @@ function loadGallery() {
 
 
         // ====================================================
-        // IMPORTANT FIX
-        // ====================================================
-        //
-        // Apps Script returns:
-        //
-        // {
-        //   status: "success",
-        //   count: 12,
-        //   gallery: [...]
-        // }
-        //
-        // Therefore we MUST use data.gallery
-        //
+        // API RESPONSE
         // ====================================================
 
         let galleryData = [];
@@ -1085,13 +1261,13 @@ function loadGallery() {
 
 
         console.log(
-            "GALLERY ARRAY:",
-            galleryData
+            "GALLERY DATA COUNT:",
+            galleryData.length
         );
 
 
         // ====================================================
-        // NO IMAGES
+        // NO DATA
         // ====================================================
 
         if (
@@ -1107,8 +1283,10 @@ function loadGallery() {
                     <br>
 
                     <small>
+
                         The Google Sheet returned
                         no gallery records.
+
                     </small>
 
                 </div>
@@ -1121,18 +1299,18 @@ function loadGallery() {
 
 
         // ====================================================
-        // CLEAR LOADING
+        // CLEAR
         // ====================================================
 
         gallery.innerHTML = "";
 
 
         // ====================================================
-        // CREATE CARDS
+        // CREATE EACH CARD
         // ====================================================
 
         galleryData.forEach(
-            function(item, index) {
+            function(item,index) {
 
                 createGalleryCard(
                     gallery,
@@ -1162,9 +1340,11 @@ function loadGallery() {
                 <br>
 
                 <small>
+
                     ${escapeHTML(
                         error.message || ""
                     )}
+
                 </small>
 
             </div>
@@ -1187,17 +1367,40 @@ function createGalleryCard(
 ) {
 
 
+    // ========================================================
+    // IMAGE URL
+    // ========================================================
+
     const imageURL =
         String(
             item.image || ""
         ).trim();
 
 
-    const title =
-        String(
-            item.title || ""
-        ).trim();
+    // ========================================================
+    // IMPORTANT
+    // IGNORE API TITLE
+    // USE OUR FIXED TITLE
+    // ========================================================
 
+    const title =
+        GALLERY_TITLES[index] ||
+        item.title ||
+        "NSPCL Power-Up Quiz";
+
+
+    console.log(
+        "GALLERY CARD",
+        index + 1,
+        "=>",
+        title,
+        imageURL
+    );
+
+
+    // ========================================================
+    // OTHER API DATA
+    // ========================================================
 
     const category =
         String(
@@ -1209,13 +1412,6 @@ function createGalleryCard(
         String(
             item.description || ""
         ).trim();
-
-
-    console.log(
-        "Creating gallery card:",
-        index + 1,
-        imageURL
-    );
 
 
     // ========================================================
@@ -1244,41 +1440,29 @@ function createGalleryCard(
             );
 
 
-        // IMPORTANT:
-        // Use URL directly from Google Sheet.
-        // These are GitHub Pages image URLs.
-
         img.src =
             imageURL;
 
 
         img.alt =
-            title ||
-            "NSPCL Gallery Image";
+            title;
 
 
         img.loading =
             "lazy";
 
 
-        // ====================================================
-        // SUCCESS
-        // ====================================================
-
         img.onload =
             function() {
 
                 console.log(
-                    "IMAGE LOADED SUCCESSFULLY:",
-                    imageURL
+                    "IMAGE LOADED:",
+                    index + 1,
+                    title
                 );
 
             };
 
-
-        // ====================================================
-        // ERROR
-        // ====================================================
 
         img.onerror =
             function() {
@@ -1308,9 +1492,11 @@ function createGalleryCard(
                     ⚠️ Image could not be loaded
 
                     <small>
+
                         ${escapeHTML(
                             imageURL
                         )}
+
                     </small>
 
                 `;
@@ -1323,10 +1509,6 @@ function createGalleryCard(
 
             };
 
-
-        // ====================================================
-        // CLICK
-        // ====================================================
 
         img.addEventListener(
             "click",
@@ -1347,6 +1529,7 @@ function createGalleryCard(
         );
 
     }
+
     else {
 
         const errorBox =
@@ -1384,30 +1567,74 @@ function createGalleryCard(
         "gallery-info";
 
 
-    info.innerHTML = `
+    // ========================================================
+    // TITLE
+    // ========================================================
 
-        <h3>
-            ${escapeHTML(
-                title ||
-                "NSPCL Power-Up Quiz"
-            )}
-        </h3>
+    const heading =
+        document.createElement(
+            "h3"
+        );
 
-        <p>
-            📂
-            ${escapeHTML(
-                category
-            )}
-        </p>
 
-        <p>
-            ${escapeHTML(
-                description
-            )}
-        </p>
+    heading.textContent =
+        title;
 
-    `;
 
+    info.appendChild(
+        heading
+    );
+
+
+    // ========================================================
+    // CATEGORY
+    // ========================================================
+
+    if (category) {
+
+        const categoryText =
+            document.createElement(
+                "p"
+            );
+
+
+        categoryText.textContent =
+            "📂 " + category;
+
+
+        info.appendChild(
+            categoryText
+        );
+
+    }
+
+
+    // ========================================================
+    // DESCRIPTION
+    // ========================================================
+
+    if (description) {
+
+        const descriptionText =
+            document.createElement(
+                "p"
+            );
+
+
+        descriptionText.textContent =
+            description;
+
+
+        info.appendChild(
+            descriptionText
+        );
+
+    }
+
+
+    // ========================================================
+    // ADD INFO
+    // ========================================================
 
     card.appendChild(
         info
