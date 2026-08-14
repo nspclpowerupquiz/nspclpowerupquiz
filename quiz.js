@@ -8,7 +8,8 @@
 // QUIZ SETTINGS
 // ======================================================
 
-const TOTAL_QUIZ_QUESTIONS = 30;
+// CHANGE: 50 QUESTIONS
+const TOTAL_QUIZ_QUESTIONS = 50;
 
 // 15 SECOND TIMER
 const QUESTION_TIME = 15;
@@ -151,7 +152,7 @@ async function loadQuestions() {
 
 
         // ==================================================
-        // SELECT RANDOM 30 QUESTIONS
+        // SELECT RANDOM 50 QUESTIONS
         // ==================================================
 
         questions =
@@ -166,8 +167,8 @@ async function loadQuestions() {
             questions.length
         );
 
-    }
 
+    }
 
     catch (error) {
 
@@ -235,6 +236,9 @@ function getRandomQuestions(
 
 // ======================================================
 // RANDOMIZE OPTIONS
+//
+// SPECIAL RULE:
+// "All of the Above" will NOT be placed first.
 // ======================================================
 
 function shuffleOptions(question) {
@@ -242,6 +246,10 @@ function shuffleOptions(question) {
     let options =
         [...question.options];
 
+
+    // --------------------------------------------------
+    // FISHER-YATES SHUFFLE
+    // --------------------------------------------------
 
     for (
         let i = options.length - 1;
@@ -263,6 +271,54 @@ function shuffleOptions(question) {
         [
             options[randomIndex],
             options[i]
+        ];
+
+    }
+
+
+    // --------------------------------------------------
+    // FIND "ALL OF THE ABOVE"
+    // --------------------------------------------------
+
+    let allOfAboveIndex =
+        options.findIndex(
+            function (option) {
+
+                return String(option)
+                    .trim()
+                    .toLowerCase()
+                    .replace(/\s+/g, " ")
+                    .includes("all of the above");
+
+            }
+        );
+
+
+    // --------------------------------------------------
+    // IF ALL OF THE ABOVE IS FIRST,
+    // MOVE IT TO A RANDOM POSITION
+    // OTHER THAN FIRST
+    // --------------------------------------------------
+
+    if (
+        allOfAboveIndex === 0 &&
+        options.length > 1
+    ) {
+
+        let newIndex =
+            Math.floor(
+                Math.random() *
+                (options.length - 1)
+            ) + 1;
+
+
+        [
+            options[0],
+            options[newIndex]
+        ] =
+        [
+            options[newIndex],
+            options[0]
         ];
 
     }
@@ -386,7 +442,7 @@ function loadQuestion() {
 
 
     // ==================================================
-    // RESET TIMER TO 15 SECONDS
+    // RESET TIMER
     // ==================================================
 
     time =
@@ -478,6 +534,7 @@ function loadQuestion() {
 
     let optionHTML = "";
 
+
     let letters =
         [
             "A",
@@ -550,7 +607,7 @@ function loadQuestion() {
 
 
     // ==================================================
-    // START 15 SECOND TIMER
+    // START TIMER
     // ==================================================
 
     startTimer();
