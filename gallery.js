@@ -1,6 +1,6 @@
 // =======================================
 // NSPCL POWER-UP QUIZ
-// LIVE GOOGLE SHEET GALLERY
+// GALLERY — MAIN QUIZ RESPONSES ONLY
 // =======================================
 
 
@@ -13,18 +13,18 @@ const SCRIPT_URL =
 
 
 // =======================================
-// LOAD GALLERY WHEN PAGE LOADS
+// LOAD GALLERY
 // =======================================
 
-window.onload = function () {
+window.addEventListener("DOMContentLoaded", function () {
 
     loadGallery();
 
-};
+});
 
 
 // =======================================
-// FETCH GALLERY DATA
+// LOAD GALLERY DATA
 // =======================================
 
 function loadGallery() {
@@ -35,7 +35,10 @@ function loadGallery() {
 
     if (!gallery) {
 
-        console.log("Gallery container not found");
+        console.error(
+            "galleryContainer not found."
+        );
+
         return;
 
     }
@@ -43,240 +46,374 @@ function loadGallery() {
 
     gallery.innerHTML = `
         <div class="loading">
-            Loading Gallery...
+            ⚡ Loading Gallery...
         </div>
     `;
 
 
-    fetch(SCRIPT_URL + "?action=gallery")
+    fetch(
+        SCRIPT_URL + "?action=gallery"
+    )
 
-        .then(response => {
+    .then(function (response) {
 
-            if (!response.ok) {
-                throw new Error(
-                    "HTTP Error: " + response.status
-                );
-            }
+        if (!response.ok) {
 
-            return response.json();
+            throw new Error(
+                "HTTP Error: " + response.status
+            );
 
-        })
+        }
 
+        return response.json();
 
-        .then(data => {
-
-            console.log("Gallery Data:", data);
-
-
-            if (!Array.isArray(data) || data.length === 0) {
-
-                gallery.innerHTML = `
-                    <div class="loading">
-                        No Gallery Images Available
-                    </div>
-                `;
-
-                return;
-
-            }
+    })
 
 
-            gallery.innerHTML = "";
+    .then(function (data) {
+
+        console.log(
+            "MAIN QUIZ GALLERY DATA:",
+            data
+        );
 
 
-            data.forEach(item => {
+        // =======================================
+        // CHECK RESPONSE
+        // =======================================
 
-                console.log("Gallery Item:", item);
+        if (!Array.isArray(data)) {
 
+            console.error(
+                "Gallery response is not an array:",
+                data
+            );
 
-                const card =
-                    document.createElement("div");
+            showNoGallery(gallery);
 
-                card.className =
-                    "gallery-card";
+            return;
 
-
-                // =======================================
-                // CONVERT GOOGLE DRIVE URL
-                // =======================================
-
-                const imgURL =
-                    convertDriveLink(item.image);
+        }
 
 
-                console.log(
-                    "Original Image URL:",
+        // =======================================
+        // REMOVE COMPLETELY BLANK RECORDS
+        // =======================================
+
+        const validData =
+            data.filter(function (item) {
+
+                if (!item) {
+                    return false;
+                }
+
+
+                const image =
                     item.image
-                );
+                    ? String(item.image).trim()
+                    : "";
 
-                console.log(
-                    "Converted Image URL:",
-                    imgURL
-                );
-
-
-                // =======================================
-                // CREATE IMAGE
-                // =======================================
-
-                const img =
-                    document.createElement("img");
-
-
-                img.src = imgURL;
-
-                img.alt =
-                    item.title || "NSPCL Gallery Image";
-
-
-                img.loading = "lazy";
-
-
-                img.style.width = "100%";
-
-                img.style.height = "240px";
-
-                img.style.objectFit = "cover";
-
-
-                // =======================================
-                // IMAGE ERROR HANDLING
-                // =======================================
-
-                img.onerror = function () {
-
-                    console.error(
-                        "IMAGE FAILED TO LOAD:",
-                        imgURL
-                    );
-
-
-                    this.style.display = "none";
-
-
-                    const errorMessage =
-                        document.createElement("div");
-
-
-                    errorMessage.style.height =
-                        "240px";
-
-                    errorMessage.style.display =
-                        "flex";
-
-                    errorMessage.style.alignItems =
-                        "center";
-
-                    errorMessage.style.justifyContent =
-                        "center";
-
-                    errorMessage.style.background =
-                        "#eeeeee";
-
-                    errorMessage.style.color =
-                        "#555";
-
-                    errorMessage.innerHTML =
-                        "⚠️ Image could not be loaded";
-
-
-                    card.insertBefore(
-                        errorMessage,
-                        card.firstChild
-                    );
-
-                };
-
-
-                // =======================================
-                // OPEN IMAGE POPUP
-                // =======================================
-
-                img.onclick = function () {
-
-                    openImage(imgURL);
-
-                };
-
-
-                // =======================================
-                // TITLE
-                // =======================================
 
                 const title =
-                    document.createElement("div");
+                    item.title
+                    ? String(item.title).trim()
+                    : "";
 
 
-                title.className =
-                    "gallery-title";
-
-
-                title.innerHTML =
-                    item.title || "NSPCL Power-Up Quiz";
-
-
-                // =======================================
-                // ADD TO CARD
-                // =======================================
-
-                card.appendChild(img);
-
-                card.appendChild(title);
-
-
-                gallery.appendChild(card);
+                return image !== "" || title !== "";
 
             });
 
-        })
+
+        console.log(
+            "VALID MAIN QUIZ GALLERY RECORDS:",
+            validData
+        );
 
 
-        .catch(error => {
+        // =======================================
+        // NO RECORDS
+        // =======================================
 
-            console.error(
-                "Gallery Error:",
-                error
+        if (validData.length === 0) {
+
+            showNoGallery(gallery);
+
+            return;
+
+        }
+
+
+        // =======================================
+        // CLEAR GALLERY
+        // =======================================
+
+        gallery.innerHTML = "";
+
+
+        // =======================================
+        // CREATE CARDS
+        // =======================================
+
+        validData.forEach(function (item, index) {
+
+            createGalleryCard(
+                gallery,
+                item,
+                index
             );
 
-
-            gallery.innerHTML = `
-                <div class="loading">
-                    Unable to load gallery
-                </div>
-            `;
-
         });
+
+    })
+
+
+    .catch(function (error) {
+
+        console.error(
+            "Gallery Error:",
+            error
+        );
+
+
+        gallery.innerHTML = `
+            <div class="loading">
+                ⚠️ Unable to load gallery
+            </div>
+        `;
+
+    });
 
 }
 
 
+
 // =======================================
-// GOOGLE DRIVE IMAGE LINK CONVERTER
+// SHOW EMPTY GALLERY
+// =======================================
+
+function showNoGallery(gallery) {
+
+    gallery.innerHTML = `
+
+        <div class="loading">
+
+            📸 No Gallery Images Available
+
+            <br>
+
+            <small>
+                Complete the NSPCL Power-Up Quiz
+                to appear here.
+            </small>
+
+        </div>
+
+    `;
+
+}
+
+
+
+// =======================================
+// CREATE GALLERY CARD
+// =======================================
+
+function createGalleryCard(
+    gallery,
+    item,
+    index
+) {
+
+
+    const card =
+        document.createElement("div");
+
+
+    card.className =
+        "gallery-card";
+
+
+    // =======================================
+    // IMAGE URL
+    // =======================================
+
+    const imageURL =
+        convertDriveLink(item.image);
+
+
+    // =======================================
+    // IMAGE
+    // =======================================
+
+    const img =
+        document.createElement("img");
+
+
+    img.src =
+        imageURL;
+
+
+    img.alt =
+        item.title ||
+        "NSPCL Power-Up Quiz";
+
+
+    img.loading =
+        "lazy";
+
+
+    // =======================================
+    // IMAGE ERROR
+    // =======================================
+
+    img.onerror =
+        function () {
+
+            console.error(
+                "Image failed:",
+                imageURL
+            );
+
+
+            this.style.display =
+                "none";
+
+
+            const errorBox =
+                document.createElement("div");
+
+
+            errorBox.className =
+                "gallery-image-error";
+
+
+            errorBox.innerHTML = `
+                ⚠️ Image unavailable
+            `;
+
+
+            card.insertBefore(
+                errorBox,
+                card.firstChild
+            );
+
+        };
+
+
+    // =======================================
+    // OPEN IMAGE
+    // =======================================
+
+    img.addEventListener(
+        "click",
+        function () {
+
+            if (imageURL) {
+
+                openImage(imageURL);
+
+            }
+
+        }
+    );
+
+
+    // =======================================
+    // TITLE
+    // =======================================
+
+    const title =
+        document.createElement("div");
+
+
+    title.className =
+        "gallery-title";
+
+
+    title.textContent =
+        item.title ||
+        "NSPCL Power-Up Quiz";
+
+
+    // =======================================
+    // OPTIONAL EMPLOYEE INFORMATION
+    // =======================================
+
+    const info =
+        document.createElement("div");
+
+
+    info.className =
+        "gallery-info";
+
+
+    if (item.employeeName) {
+
+        const name =
+            document.createElement("div");
+
+
+        name.textContent =
+            item.employeeName;
+
+
+        info.appendChild(name);
+
+    }
+
+
+    // =======================================
+    // ADD ELEMENTS
+    // =======================================
+
+    if (imageURL) {
+
+        card.appendChild(img);
+
+    }
+
+
+    card.appendChild(title);
+
+
+    if (info.children.length > 0) {
+
+        card.appendChild(info);
+
+    }
+
+
+    gallery.appendChild(card);
+
+}
+
+
+
+// =======================================
+// GOOGLE DRIVE LINK CONVERTER
 // =======================================
 
 function convertDriveLink(url) {
 
     if (!url) {
 
-        console.warn(
-            "Empty image URL"
-        );
-
         return "";
 
     }
 
 
-    url = String(url).trim();
+    url =
+        String(url).trim();
 
 
     // =======================================
-    // ALREADY CONVERTED URL
+    // DIRECT DRIVE URL
     // =======================================
 
     if (
         url.includes(
-            "drive.google.com/uc?export=view"
+            "drive.google.com/uc"
         )
     ) {
 
@@ -286,57 +423,104 @@ function convertDriveLink(url) {
 
 
     // =======================================
-    // GOOGLE DRIVE FILE ID
+    // FILE /d/FILE_ID/view
     // =======================================
 
-    let fileId = "";
+    if (
+        url.includes("/d/")
+    ) {
+
+        const parts =
+            url.split("/d/");
 
 
-    // Example:
-    // https://drive.google.com/file/d/FILE_ID/view
+        if (parts.length > 1) {
 
-    if (url.includes("/d/")) {
+            const fileId =
+                parts[1]
+                    .split("/")[0];
 
-        fileId =
-            url
-                .split("/d/")[1]
-                .split("/")[0];
+
+            if (fileId) {
+
+                return (
+                    "https://drive.google.com/uc" +
+                    "?export=view&id=" +
+                    fileId
+                );
+
+            }
+
+        }
 
     }
 
 
-    // Example:
-    // https://drive.google.com/open?id=FILE_ID
+    // =======================================
+    // OPEN?ID=FILE_ID
+    // =======================================
 
-    else if (url.includes("id=")) {
+    if (
+        url.includes("id=")
+    ) {
 
-        fileId =
+        const fileId =
             url
                 .split("id=")[1]
                 .split("&")[0];
 
+
+        if (fileId) {
+
+            return (
+                "https://drive.google.com/uc" +
+                "?export=view&id=" +
+                fileId
+            );
+
+        }
+
     }
 
 
     // =======================================
-    // CREATE DIRECT IMAGE URL
+    // GOOGLE DRIVE THUMBNAIL
     // =======================================
 
-    if (fileId) {
+    if (
+        url.includes(
+            "drive.google.com"
+        )
+    ) {
 
-        return "https://drive.google.com/uc?export=view&id=" + fileId;
+        const match =
+            url.match(
+                /[-\w]{25,}/
+            );
+
+
+        if (match) {
+
+            return (
+                "https://drive.google.com/thumbnail" +
+                "?id=" +
+                match[0] +
+                "&sz=w1200"
+            );
+
+        }
 
     }
 
 
     // =======================================
-    // IF NOT GOOGLE DRIVE
-    // RETURN ORIGINAL URL
+    // NORMAL IMAGE URL
     // =======================================
 
     return url;
 
 }
+
 
 
 // =======================================
@@ -347,72 +531,125 @@ function openImage(src) {
 
     if (!src) {
 
-        console.error(
-            "No image source available"
-        );
-
         return;
 
     }
 
 
+    // =======================================
+    // POPUP
+    // =======================================
+
     const popup =
         document.createElement("div");
 
 
-    popup.style.position =
-        "fixed";
-
-    popup.style.top =
-        "0";
-
-    popup.style.left =
-        "0";
-
-    popup.style.width =
-        "100%";
-
-    popup.style.height =
-        "100%";
-
-    popup.style.background =
-        "rgba(0,0,0,0.85)";
-
-    popup.style.display =
-        "flex";
-
-    popup.style.alignItems =
-        "center";
-
-    popup.style.justifyContent =
-        "center";
-
-    popup.style.zIndex =
-        "9999";
+    popup.className =
+        "gallery-popup";
 
 
-    popup.innerHTML = `
+    // =======================================
+    // IMAGE
+    // =======================================
 
-        <img
-            src="${src}"
-            style="
-                max-width:90%;
-                max-height:90%;
-                border-radius:20px;
-                box-shadow:0 0 40px #000;
-            "
-        >
-
-    `;
+    const image =
+        document.createElement("img");
 
 
-    popup.onclick = function () {
-
-        popup.remove();
-
-    };
+    image.src =
+        src;
 
 
-    document.body.appendChild(popup);
+    image.alt =
+        "NSPCL Gallery Image";
+
+
+    // =======================================
+    // CLOSE BUTTON
+    // =======================================
+
+    const close =
+        document.createElement("button");
+
+
+    close.className =
+        "gallery-popup-close";
+
+
+    close.innerHTML =
+        "✕";
+
+
+    // =======================================
+    // CLOSE
+    // =======================================
+
+    close.onclick =
+        function (event) {
+
+            event.stopPropagation();
+
+            popup.remove();
+
+        };
+
+
+    popup.appendChild(image);
+
+    popup.appendChild(close);
+
+
+    // =======================================
+    // CLICK BACKGROUND TO CLOSE
+    // =======================================
+
+    popup.onclick =
+        function (event) {
+
+            if (
+                event.target === popup
+            ) {
+
+                popup.remove();
+
+            }
+
+        };
+
+
+    document.body.appendChild(
+        popup
+    );
 
 }
+
+
+
+// =======================================
+// ESC KEY CLOSE
+// =======================================
+
+document.addEventListener(
+    "keydown",
+    function (event) {
+
+        if (
+            event.key === "Escape"
+        ) {
+
+            const popup =
+                document.querySelector(
+                    ".gallery-popup"
+                );
+
+
+            if (popup) {
+
+                popup.remove();
+
+            }
+
+        }
+
+    }
+);
