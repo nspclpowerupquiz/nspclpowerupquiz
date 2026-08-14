@@ -1,727 +1,358 @@
-// ==========================================
-// NSPCL POWER-UP QUIZ
+// ==========================================================
+// NSPCL POWER-UP SSC-C&M QUIZ
 // CERTIFICATE.JS
-// COMPLETE REPLACEMENT
-// ==========================================
+// ==========================================================
 
 
-// ==========================================
+// ==========================================================
 // QUIZ SETTINGS
-// ==========================================
+// ==========================================================
 
-const TOTAL_QUIZ_QUESTIONS = 30;
-
-
-// ==========================================
-// GOOGLE APPS SCRIPT URL
-// ==========================================
-
-const SCRIPT_URL =
-"https://script.google.com/macros/s/AKfycbwBbn0mA_VbQG3A4lz7nDGWZm66P6jKBx12zXbYZ-OoCudVBzIvK-MkuZEXxLcECl5wdw/exec";
+const DEFAULT_TOTAL_QUESTIONS = 50;
 
 
-// ==========================================
-// GET LOGIN INFORMATION
-// ==========================================
+// ==========================================================
+// GET DATA SAVED BY QUIZ.JS
+// ==========================================================
 
-const storedEmployeeId =
-localStorage.getItem("employeeId") || "";
+const employeeId =
+    localStorage.getItem("employeeId") || "";
 
-const storedEmployeeName =
-localStorage.getItem("employeeName") || "";
-
-
-// ==========================================
-// LOGGING
-// ==========================================
-
-console.log("=================================");
-console.log("NSPCL CERTIFICATE");
-console.log("=================================");
-console.log("Stored Employee ID:", storedEmployeeId);
-console.log("Stored Employee Name:", storedEmployeeName);
+const employeeName =
+    localStorage.getItem("employeeName") || "Employee";
 
 
-// ==========================================
-// LOGIN CHECK
-// ==========================================
+// IMPORTANT:
+// quiz.js saves these values when the quiz finishes.
 
-if (!storedEmployeeId) {
+let score =
+    Number(
+        localStorage.getItem("score")
+    );
 
-    alert("Please login first.");
+let totalQuestions =
+    Number(
+        localStorage.getItem("totalQuestions")
+    );
 
-    window.location.href = "login.html";
+let percentage =
+    Number(
+        localStorage.getItem("percentage")
+    );
+
+
+// ==========================================================
+// FALLBACKS
+// ==========================================================
+
+if (
+    !Number.isFinite(totalQuestions) ||
+    totalQuestions <= 0
+) {
+
+    totalQuestions =
+        DEFAULT_TOTAL_QUESTIONS;
 
 }
 
 
-// ==========================================
-// PAGE LOAD
-// ==========================================
+if (
+    !Number.isFinite(score) ||
+    score < 0
+) {
 
-window.addEventListener("load", function () {
+    score = 0;
 
-    loadCertificate();
+}
 
-});
 
+// ==========================================================
+// SAFETY
+// NEVER ALLOW SCORE > TOTAL
+// ==========================================================
 
-// ==========================================
-// LOAD CERTIFICATE
-// ==========================================
+if (
+    score > totalQuestions
+) {
 
-async function loadCertificate() {
+    console.warn(
+        "Invalid score detected:",
+        score,
+        "/",
+        totalQuestions
+    );
 
-    try {
+    score =
+        totalQuestions;
 
-        const url =
-            SCRIPT_URL +
-            "?action=certificate&id=" +
-            encodeURIComponent(storedEmployeeId) +
-            "&t=" +
-            Date.now();
+}
 
 
-        console.log("Certificate API:", url);
+// ==========================================================
+// CALCULATE PERCENTAGE
+// ==========================================================
 
+// Always calculate from actual score.
+// This prevents an incorrect percentage
+// from appearing on the certificate.
 
-        const response =
-            await fetch(url);
-
-
-        if (!response.ok) {
-
-            throw new Error(
-                "Certificate server connection failed."
-            );
-
-        }
-
-
-        const data =
-            await response.json();
-
-
-        console.log(
-            "Certificate API Response:",
-            data
-        );
-
-
-        // ==========================================
-        // STATUS CHECK
-        // ==========================================
-
-        if (
-            data.status &&
-            data.status !== "success"
-        ) {
-
-            throw new Error(
-                data.message ||
-                "Certificate data not found."
-            );
-
-        }
-
-
-        // ==========================================
-        // EMPLOYEE NAME
-        // ==========================================
-
-        /*
-         * Priority:
-         *
-         * 1. API employeeName
-         * 2. API name
-         * 3. localStorage employeeName
-         */
-
-        const employeeName =
-            cleanValue(
-                data.employeeName
-            ) ||
-            cleanValue(
-                data.name
-            ) ||
-            storedEmployeeName ||
-            "Quiz Participant";
-
-
-        setText(
-            "name",
-            employeeName
-        );
-
-
-        // ==========================================
-        // EMPLOYEE ID
-        // ==========================================
-
-        const employeeId =
-            cleanValue(
-                data.employeeId
-            ) ||
-            storedEmployeeId;
-
-
-        setText(
-            "empid",
-            employeeId
-        );
-
-
-        // ==========================================
-        // DETERMINE TOTAL QUESTIONS
-        // ==========================================
-
-        let totalQuestions =
-            Number(
-                data.totalQuestions
-            );
-
-
-        if (
-            !Number.isFinite(totalQuestions) ||
-            totalQuestions <= 0
-        ) {
-
-            totalQuestions =
-                TOTAL_QUIZ_QUESTIONS;
-
-        }
-
-
-        // ==========================================
-        // DETERMINE CORRECT ANSWERS
-        // ==========================================
-
-        /*
-         * IMPORTANT
-         *
-         * We DO NOT automatically assume
-         * data.score is the number of correct answers.
-         *
-         * Your previous certificate was showing:
-         *
-         *       49 / 30
-         *
-         * because score was apparently a POINT VALUE,
-         * not the number of correct answers.
-         */
-
-
-        let correctAnswers = null;
-
-
-        // ------------------------------------------
-        // OPTION 1
-        // ------------------------------------------
-
-        if (
-            data.correctAnswers !== undefined &&
-            data.correctAnswers !== null &&
-            data.correctAnswers !== ""
-        ) {
-
-            correctAnswers =
-                Number(
-                    data.correctAnswers
-                );
-
-        }
-
-
-        // ------------------------------------------
-        // OPTION 2
-        // ------------------------------------------
-
-        if (
-            correctAnswers === null &&
-            data.correct !== undefined &&
-            data.correct !== null &&
-            data.correct !== ""
-        ) {
-
-            correctAnswers =
-                Number(
-                    data.correct
-                );
-
-        }
-
-
-        // ------------------------------------------
-        // OPTION 3
-        // ------------------------------------------
-
-        if (
-            correctAnswers === null &&
-            data.correctCount !== undefined &&
-            data.correctCount !== null &&
-            data.correctCount !== ""
-        ) {
-
-            correctAnswers =
-                Number(
-                    data.correctCount
-                );
-
-        }
-
-
-        // ==========================================
-        // GET PERCENTAGE
-        // ==========================================
-
-        let percentage =
-            Number(
-                data.percentage
-            );
-
-
-        /*
-         * Sometimes Google Sheets may return
-         * percentage as text such as "90%".
-         */
-
-        if (
-            typeof data.percentage === "string"
-        ) {
-
-            percentage =
-                parseFloat(
-                    data.percentage
-                );
-
-        }
-
-
-        // ==========================================
-        // IF CORRECT ANSWERS UNKNOWN,
-        // USE PERCENTAGE TO CALCULATE IT
-        // ==========================================
-
-        if (
-            (
-                !Number.isFinite(correctAnswers) ||
-                correctAnswers < 0
-            ) &&
-            Number.isFinite(percentage)
-        ) {
-
-            correctAnswers =
-                Math.round(
-                    (
-                        percentage /
-                        100
-                    ) *
-                    totalQuestions
-                );
-
-        }
-
-
-        // ==========================================
-        // IF CORRECT ANSWERS STILL UNKNOWN
-        // ==========================================
-
-        /*
-         * DO NOT display an impossible value.
-         *
-         * If API sends score = 49,
-         * we will NOT display:
-         *
-         *       49 / 30
-         *
-         */
-
-        if (
-            !Number.isFinite(correctAnswers) ||
-            correctAnswers < 0
-        ) {
-
-            /*
-             * If the API's score is already within
-             * the question range, it is safe to
-             * treat it as correct answers.
-             */
-
-            const possibleScore =
-                Number(
-                    data.score
-                );
-
-
-            if (
-                Number.isFinite(possibleScore) &&
-                possibleScore >= 0 &&
-                possibleScore <= totalQuestions
-            ) {
-
-                correctAnswers =
-                    possibleScore;
-
-            }
-
-        }
-
-
-        // ==========================================
-        // FINAL SAFETY
-        // ==========================================
-
-        if (
-            Number.isFinite(correctAnswers)
-        ) {
-
-            correctAnswers =
-                Math.max(
-                    0,
-                    Math.min(
-                        totalQuestions,
-                        Math.round(correctAnswers)
-                    )
-                );
-
-        }
-
-
-        // ==========================================
-        // CALCULATE PERCENTAGE
-        // ==========================================
-
-        if (
-            !Number.isFinite(percentage) &&
-            Number.isFinite(correctAnswers)
-        ) {
-
-            percentage =
-                (
-                    correctAnswers /
-                    totalQuestions
-                ) *
-                100;
-
-        }
-
-
-        if (
-            !Number.isFinite(percentage)
-        ) {
-
-            percentage = 0;
-
-        }
-
-
-        // ==========================================
-        // ROUND PERCENTAGE
-        // ==========================================
-
-        percentage =
-            Math.round(
-                percentage
-            );
-
-
-        // ==========================================
-        // SCORE DISPLAY
-        // ==========================================
-
-        if (
-            Number.isFinite(correctAnswers)
-        ) {
-
-            setText(
-                "score",
-                correctAnswers +
-                " / " +
-                totalQuestions
-            );
-
-        }
-        else {
-
-            /*
-             * Better to show unavailable than
-             * something incorrect like 49/30.
-             */
-
-            setText(
-                "score",
-                "— / " +
-                totalQuestions
-            );
-
-        }
-
-
-        // ==========================================
-        // PERCENTAGE DISPLAY
-        // ==========================================
-
-        setText(
-            "percentage",
-            percentage + "%"
-        );
-
-
-        // ==========================================
-        // ACHIEVEMENT TITLE
-        // ==========================================
-
-        const achievement =
-            getAchievement(
-                percentage
-            );
-
-
-        // ==========================================
-        // GRADE
-        // ==========================================
-
-        let grade =
-            cleanValue(
-                data.grade
-            );
-
-
-        /*
-         * If your Google Sheet doesn't provide
-         * a grade, automatically create one.
-         */
-
-        if (!grade) {
-
-            grade =
-                achievement.grade;
-
-        }
-
-
-        setText(
-            "grade",
-            grade
-        );
-
-
-        // ==========================================
-        // BADGE
-        // ==========================================
-
-        const badge =
-            document.getElementById(
-                "badge"
-            );
-
-
-        if (badge) {
-
-            badge.innerHTML =
-                `
-                <div class="badgeIcon">
-                    ${achievement.icon}
-                </div>
-
-                <div class="badgeTitle">
-                    ${escapeHTML(
-                        achievement.title
-                    )}
-                </div>
-
-                <div class="badgeSubtitle">
-                    ${escapeHTML(
-                        achievement.subtitle
-                    )}
-                </div>
-                `;
-
-        }
-
-
-        // ==========================================
-        // CERTIFICATE NUMBER
-        // ==========================================
-
-        let certificateNo =
-            cleanValue(
-                data.certificateNo
-            );
-
-
-        /*
-         * If Apps Script does not provide a
-         * certificate number, create one locally.
-         */
-
-        if (!certificateNo) {
-
-            certificateNo =
-                createCertificateNumber(
-                    employeeId
-                );
-
-        }
-
-
-        setText(
-            "certno",
-            certificateNo
-        );
-
-
-        // ==========================================
-        // DATE
-        // ==========================================
-
-        let certificateDate =
-            data.dateTime ||
-            data.date ||
-            data.timestamp;
-
-
-        if (certificateDate) {
-
-            const dateObject =
-                new Date(
-                    certificateDate
-                );
-
-
-            if (
-                !isNaN(
-                    dateObject.getTime()
-                )
-            ) {
-
-                setText(
-                    "date",
-                    dateObject.toLocaleDateString(
-                        "en-IN",
-                        {
-                            day: "numeric",
-                            month: "long",
-                            year: "numeric"
-                        }
-                    )
-                );
-
-            }
-
-        }
-        else {
-
-            /*
-             * If server does not return date,
-             * use today's date.
-             */
-
-            setText(
-                "date",
-                new Date().toLocaleDateString(
-                    "en-IN",
-                    {
-                        day: "numeric",
-                        month: "long",
-                        year: "numeric"
-                    }
-                )
-            );
-
-        }
-
-
-        // ==========================================
-        // CONSOLE DEBUG
-        // ==========================================
-
-        console.log(
-            "---------------------------------"
-        );
-
-        console.log(
-            "Employee:",
-            employeeName
-        );
-
-        console.log(
-            "Employee ID:",
-            employeeId
-        );
-
-        console.log(
-            "Correct Answers:",
-            correctAnswers
-        );
-
-        console.log(
-            "Total Questions:",
+percentage =
+    Math.round(
+        (
+            score /
             totalQuestions
-        );
+        ) *
+        100
+    );
 
-        console.log(
-            "Percentage:",
+
+// ==========================================================
+// LOGIN CHECK
+// ==========================================================
+
+if (!employeeId) {
+
+    alert(
+        "Employee information not found. Please login again."
+    );
+
+    window.location.href =
+        "login.html";
+
+}
+
+
+// ==========================================================
+// PAGE LOAD
+// ==========================================================
+
+window.addEventListener(
+    "load",
+    function () {
+
+        loadCertificate();
+
+    }
+);
+
+
+// ==========================================================
+// LOAD CERTIFICATE
+// ==========================================================
+
+function loadCertificate() {
+
+    console.log(
+        "======================================"
+    );
+
+    console.log(
+        "NSPCL CERTIFICATE"
+    );
+
+    console.log(
+        "======================================"
+    );
+
+    console.log(
+        "Employee Name:",
+        employeeName
+    );
+
+    console.log(
+        "Employee ID:",
+        employeeId
+    );
+
+    console.log(
+        "Score:",
+        score
+    );
+
+    console.log(
+        "Total Questions:",
+        totalQuestions
+    );
+
+    console.log(
+        "Percentage:",
+        percentage + "%"
+    );
+
+
+    // ======================================================
+    // EMPLOYEE NAME
+    // ======================================================
+
+    setText(
+        "name",
+        employeeName
+    );
+
+
+    // ======================================================
+    // EMPLOYEE ID
+    // ======================================================
+
+    setText(
+        "empid",
+        employeeId
+    );
+
+
+    // ======================================================
+    // SCORE
+    // ======================================================
+
+    setText(
+        "score",
+        score +
+        " / " +
+        totalQuestions
+    );
+
+
+    // ======================================================
+    // PERCENTAGE
+    // ======================================================
+
+    setText(
+        "percentage",
+        percentage + "%"
+    );
+
+
+    // ======================================================
+    // ACHIEVEMENT
+    // ======================================================
+
+    const achievement =
+        getAchievement(
             percentage
         );
 
-        console.log(
-            "Grade:",
-            grade
+
+    // ======================================================
+    // GRADE
+    // ======================================================
+
+    setText(
+        "grade",
+        achievement.grade
+    );
+
+
+    // ======================================================
+    // BADGE
+    // ======================================================
+
+    const badge =
+        document.getElementById(
+            "badge"
         );
 
-        console.log(
-            "Achievement:",
-            achievement.title
-        );
 
-        console.log(
-            "---------------------------------"
-        );
+    if (badge) {
 
+        badge.innerHTML = `
 
-        // ==========================================
-        // CONFETTI
-        // ==========================================
+            <div class="badgeIcon">
+                ${achievement.icon}
+            </div>
 
-        if (
-            typeof confetti ===
-            "function"
-        ) {
+            <div class="badgeTitle">
+                ${escapeHTML(
+                    achievement.title
+                )}
+            </div>
 
-            setTimeout(
-                function () {
+            <div class="badgeSubtitle">
+                ${escapeHTML(
+                    achievement.subtitle
+                )}
+            </div>
 
-                    confetti({
-
-                        particleCount: 150,
-
-                        spread: 120,
-
-                        origin: {
-                            y: 0.6
-                        }
-
-                    });
-
-                },
-                500
-            );
-
-        }
-
+        `;
 
     }
-    catch (error) {
-
-        console.error(
-            "Certificate Error:",
-            error
-        );
 
 
-        alert(
-            "Unable to load certificate. Please check your quiz result."
+    // ======================================================
+    // CERTIFICATE NUMBER
+    // ======================================================
+
+    const certificateNumber =
+        generateCertificateNumber();
+
+
+    setText(
+        "certno",
+        certificateNumber
+    );
+
+
+    // ======================================================
+    // DATE
+    // ======================================================
+
+    const today =
+        new Date();
+
+
+    setText(
+        "date",
+        today.toLocaleDateString(
+            "en-IN",
+            {
+                day: "numeric",
+                month: "long",
+                year: "numeric"
+            }
+        )
+    );
+
+
+    // ======================================================
+    // CONSOLE RESULT
+    // ======================================================
+
+    console.log(
+        "Achievement:",
+        achievement.title
+    );
+
+    console.log(
+        "Grade:",
+        achievement.grade
+    );
+
+
+    // ======================================================
+    // CONFETTI
+    // ======================================================
+
+    if (
+        typeof confetti ===
+        "function"
+    ) {
+
+        setTimeout(
+            function () {
+
+                confetti({
+
+                    particleCount: 150,
+
+                    spread: 120,
+
+                    origin: {
+                        y: 0.6
+                    }
+
+                });
+
+            },
+            500
         );
 
     }
@@ -729,13 +360,18 @@ async function loadCertificate() {
 }
 
 
-// ==========================================
+// ==========================================================
 // ACHIEVEMENT SYSTEM
-// ==========================================
+// ==========================================================
 
 function getAchievement(
     percentage
 ) {
+
+
+    // ======================================================
+    // GOLD
+    // ======================================================
 
     if (
         percentage >= 90
@@ -760,6 +396,10 @@ function getAchievement(
     }
 
 
+    // ======================================================
+    // SILVER
+    // ======================================================
+
     if (
         percentage >= 75
     ) {
@@ -782,6 +422,10 @@ function getAchievement(
 
     }
 
+
+    // ======================================================
+    // BRONZE
+    // ======================================================
 
     if (
         percentage >= 60
@@ -806,6 +450,10 @@ function getAchievement(
     }
 
 
+    // ======================================================
+    // PARTICIPANT
+    // ======================================================
+
     return {
 
         title:
@@ -825,25 +473,23 @@ function getAchievement(
 }
 
 
-// ==========================================
+// ==========================================================
 // CERTIFICATE NUMBER
-// ==========================================
+// ==========================================================
 
-function createCertificateNumber(
-    employeeId
-) {
+function generateCertificateNumber() {
 
-    const today =
+    const date =
         new Date();
 
 
     const year =
-        today.getFullYear();
+        date.getFullYear();
 
 
     const month =
         String(
-            today.getMonth() + 1
+            date.getMonth() + 1
         ).padStart(
             2,
             "0"
@@ -852,11 +498,19 @@ function createCertificateNumber(
 
     const day =
         String(
-            today.getDate()
+            date.getDate()
         ).padStart(
             2,
             "0"
         );
+
+
+    const cleanEmployeeId =
+        String(employeeId)
+            .replace(
+                /[^a-zA-Z0-9]/g,
+                ""
+            );
 
 
     return (
@@ -865,22 +519,15 @@ function createCertificateNumber(
         month +
         day +
         "-" +
-        String(employeeId)
-            .replace(
-                /[^a-zA-Z0-9]/g,
-                ""
-            )
-            .slice(
-                -6
-            )
+        cleanEmployeeId
     );
 
 }
 
 
-// ==========================================
-// SAFE TEXT INSERTION
-// ==========================================
+// ==========================================================
+// SET TEXT SAFELY
+// ==========================================================
 
 function setText(
     elementId,
@@ -895,61 +542,27 @@ function setText(
 
     if (!element) {
 
+        console.warn(
+            "Element not found:",
+            elementId
+        );
+
         return;
 
     }
 
 
     element.textContent =
-        value === undefined ||
-        value === null
-            ? ""
-            : String(value);
+        String(
+            value ?? ""
+        );
 
 }
 
 
-// ==========================================
-// CLEAN VALUE
-// ==========================================
-
-function cleanValue(
-    value
-) {
-
-    if (
-        value === undefined ||
-        value === null
-    ) {
-
-        return "";
-
-    }
-
-
-    const text =
-        String(value).trim();
-
-
-    if (
-        text === "" ||
-        text === "undefined" ||
-        text === "null"
-    ) {
-
-        return "";
-
-    }
-
-
-    return text;
-
-}
-
-
-// ==========================================
+// ==========================================================
 // REMOVE ANIMATION BEFORE PDF / PRINT
-// ==========================================
+// ==========================================================
 
 function prepareCertificate() {
 
@@ -998,16 +611,11 @@ function prepareCertificate() {
 }
 
 
-// ==========================================
+// ==========================================================
 // DOWNLOAD PDF
-// ==========================================
+// ==========================================================
 
 async function downloadPDF() {
-
-    console.log(
-        "PDF Download Started"
-    );
-
 
     prepareCertificate();
 
@@ -1072,7 +680,8 @@ async function downloadPDF() {
 
         const {
             jsPDF
-        } = window.jspdf;
+        } =
+            window.jspdf;
 
 
         const pdf =
@@ -1107,12 +716,13 @@ async function downloadPDF() {
         pdf.save(
 
             "NSPCL_Certificate_" +
-            storedEmployeeId +
+            employeeId +
             ".pdf"
 
         );
 
     }
+
     catch (error) {
 
         console.error(
@@ -1130,9 +740,9 @@ async function downloadPDF() {
 }
 
 
-// ==========================================
-// PRINT CERTIFICATE
-// ==========================================
+// ==========================================================
+// PRINT
+// ==========================================================
 
 function printCertificate() {
 
@@ -1143,9 +753,9 @@ function printCertificate() {
 }
 
 
-// ==========================================
+// ==========================================================
 // ESCAPE HTML
-// ==========================================
+// ==========================================================
 
 function escapeHTML(
     value
