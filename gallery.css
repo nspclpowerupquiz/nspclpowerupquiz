@@ -1,1139 +1,58 @@
-/* ======================================
-   PREMIUM NSPCL POWER-UP GALLERY
-====================================== */
-
-
-/* ==========================
-   GLOBAL PAGE
-========================== */
-
-body{
-
-margin:0;
-
-font-family:
-'Segoe UI',
-Arial,
-sans-serif;
-
-color:white;
-
-background:
-
-linear-gradient(
-135deg,
-#001f3f,
-#006994,
-#003566
-);
-
-background-size:400% 400%;
-
-animation:
-backgroundMove 12s infinite ease;
-
-
-}
-
-
-
-@keyframes backgroundMove{
-
-0%{
-background-position:0% 50%;
-}
-
-50%{
-background-position:100% 50%;
-}
-
-100%{
-background-position:0% 50%;
-}
-
-}
-
-
-
+/* =========================================================
+   NSPCL POWER-UP GALLERY
+   CONSISTENT WITH HOME PAGE
+   Theme: Charcoal • Gold • Warm Orange
+========================================================= */
 
 
 /* =========================================================
-   ATTRACTIVE TOP NAVIGATION
+   GLOBAL
 ========================================================= */
 
-.top-navbar {
-
-    width: 100%;
-
-    min-height: 72px;
-
+* {
     box-sizing: border-box;
-
-    padding: 10px 28px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    gap: 25px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #002b49,
-            #005b82,
-            #007fa3
-        );
-
-    border-bottom:
-        2px solid rgba(255,255,255,0.15);
-
-    box-shadow:
-        0 6px 25px rgba(0,0,0,0.30);
-
-    position: relative;
-
-    z-index: 1000;
-
 }
 
-
-/* =========================================================
-   BRAND
-========================================================= */
-
-.nav-brand {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 12px;
-
-    flex-shrink: 0;
-
+html {
+    scroll-behavior: smooth;
 }
 
+body.gallery-page {
 
-/* LIGHTNING ICON */
+    margin: 0;
 
-.brand-icon {
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
 
-    width: 48px;
+    color: #f8f5ef;
 
-    height: 48px;
+    min-height: 100vh;
 
-    border-radius: 14px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    font-size: 28px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #ffb300,
-            #ff6d00
-        );
-
-    box-shadow:
-        0 5px 15px rgba(255,170,0,0.35);
-
-}
-
-
-/* BRAND TEXT */
-
-.brand-title {
-
-    font-size: 19px;
-
-    font-weight: 800;
-
-    letter-spacing: 1px;
-
-    color: white;
-
-    line-height: 1.1;
-
-}
-
-.brand-subtitle {
-
-    font-size: 11px;
-
-    letter-spacing: 2px;
-
-    color: #b9efff;
-
-    margin-top: 4px;
-
-}
-
-
-/* =========================================================
-   NAVIGATION LINKS
-========================================================= */
-
-.nav-links {
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: flex-end;
-
-    gap: 8px;
-
-    flex-wrap: wrap;
-
-}
-
-
-.nav-links a {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 7px;
-
-    padding: 11px 14px;
-
-    border-radius: 12px;
-
-    color: white;
-
-    text-decoration: none;
-
-    font-size: 14px;
-
-    font-weight: 600;
-
-    transition:
-        all 0.3s ease;
-
-    border:
-        1px solid transparent;
-
-}
-
-
-.nav-links a:hover {
-
-    background:
-        rgba(255,255,255,0.14);
-
-    border:
-        1px solid rgba(255,255,255,0.18);
-
-    transform:
-        translateY(-2px);
-
-}
-
-
-/* =========================================================
-   ACTIVE GALLERY BUTTON
-========================================================= */
-
-.nav-links a.active {
-
-    background:
-        linear-gradient(
-            135deg,
-            #00b8d4,
-            #0088aa
-        );
-
-    border:
-        1px solid rgba(255,255,255,0.35);
-
-    box-shadow:
-        0 5px 18px rgba(0,200,230,0.30);
-
-}
-
-
-/* =========================================================
-   ACTIVE GALLERY GLOW
-========================================================= */
-
-.nav-links a.active span {
-
-    font-weight: 700;
-
-}
-
-
-/* =========================================================
-   MOBILE NAVIGATION
-========================================================= */
-
-@media (max-width: 800px) {
-
-    .top-navbar {
-
-        padding: 12px 15px;
-
-        flex-direction: column;
-
-        gap: 12px;
-
-    }
-
-
-    .nav-brand {
-
-        width: 100%;
-
-        justify-content: center;
-
-    }
-
-
-    .nav-links {
-
-        width: 100%;
-
-        justify-content: center;
-
-    }
-
-
-    .nav-links a {
-
-        padding: 9px 10px;
-
-        font-size: 13px;
-
-    }
-
-}
-
-
-@media (max-width: 500px) {
-
-    .brand-icon {
-
-        width: 42px;
-
-        height: 42px;
-
-        font-size: 24px;
-
-    }
-
-
-    .brand-title {
-
-        font-size: 16px;
-
-    }
-
-
-    .brand-subtitle {
-
-        font-size: 9px;
-
-    }
-
-
-    .nav-links {
-
-        gap: 5px;
-
-    }
-
-
-    .nav-links a {
-
-        padding: 8px;
-
-        font-size: 12px;
-
-        gap: 4px;
-
-    }
-
-}
-
-
-/* ==========================
-   HEADER
-========================== */
-
-
-.gallery-header{
-
-
-text-align:center;
-
-
-padding:
-
-35px 20px;
-
-
-background:
-
-linear-gradient(
-135deg,
-#123c69,
-#0077b6
-);
-
-
-}
-
-
-
-.gallery-header h1{
-
-
-font-size:44px;
-
-
-margin:5px;
-
-
-letter-spacing:1px;
-
-
-}
-
-
-
-.gallery-header p{
-
-
-font-size:18px;
-
-
-color:#d9f7ff;
-
-
-}
-
-
-
-
-
-
-
-/* ==========================
-   STATISTICS CARDS
-========================== */
-
-
-.stats-container{
-
-
-display:grid;
-
-
-grid-template-columns:
-
-repeat(
-auto-fit,
-minmax(220px,1fr)
-);
-
-
-gap:25px;
-
-
-padding:
-
-40px 6%;
-
-
-}
-
-
-
-.stat-card{
-
-
-background:
-
-linear-gradient(
-145deg,
-rgba(255,255,255,.25),
-rgba(255,255,255,.08)
-);
-
-
-
-border-radius:25px;
-
-
-
-padding:30px;
-
-
-
-text-align:center;
-
-
-
-border:
-
-1px solid rgba(255,255,255,.3);
-
-
-
-box-shadow:
-
-0 15px 35px rgba(0,0,0,.35);
-
-
-
-transition:.4s;
-
-
-}
-
-
-
-.stat-card:hover{
-
-
-transform:
-
-translateY(-12px);
-
-
-}
-
-
-
-.stat-card h2{
-
-
-font-size:45px;
-
-
-margin:0 0 10px;
-
-
-color:#ffe082;
-
-
-}
-
-
-
-
-
-
-
-/* ==========================
-   SECTION TITLES
-========================== */
-
-
-.section-title{
-
-
-text-align:center;
-
-
-font-size:32px;
-
-
-margin:
-
-45px 0 25px;
-
-
-}
-
-
-
-.section-title::after{
-
-
-content:"";
-
-
-display:block;
-
-
-width:90px;
-
-
-height:4px;
-
-
-background:#ffc107;
-
-
-margin:12px auto;
-
-
-border-radius:10px;
-
-
-}
-
-
-
-
-
-
-/* ==========================
-   WINNER SECTION
-========================== */
-
-
-.winner-container{
-
-
-display:grid;
-
-
-grid-template-columns:
-
-repeat(
-auto-fit,
-minmax(250px,1fr)
-);
-
-
-gap:22px;
-
-
-padding:
-
-20px 6%;
-
-
-}
-
-
-
-.winner-card{
-
-
-background:
-
-linear-gradient(
-135deg,
-#ffffff,
-#e8f4ff
-);
-
-
-color:#003049;
-
-
-padding:22px;
-
-
-border-radius:20px;
-
-
-box-shadow:
-
-0 10px 25px rgba(0,0,0,.3);
-
-
-
-transition:.35s;
-
-
-}
-
-
-
-.winner-card:hover{
-
-
-transform:
-
-translateY(-8px);
-
-
-}
-
-
-
-.winner-card h3{
-
-
-color:#0066cc;
-
-
-}
-
-
-
-
-
-
-
-/* ==========================
-   GALLERY GRID
-========================== */
-
-
-.gallery-container{
-
-
-padding:
-
-40px 6%;
-
-
-display:grid;
-
-
-grid-template-columns:
-
-repeat(
-auto-fit,
-minmax(300px,1fr)
-);
-
-
-
-gap:35px;
-
-
-}
-
-
-
-
-
-
-
-/* ==========================
-   IMAGE CARD
-========================== */
-
-
-.gallery-card{
-
-
-position:relative;
-
-
-overflow:hidden;
-
-
-border-radius:25px;
-
-
-
-background:
-
-rgba(255,255,255,.15);
-
-
-
-backdrop-filter:
-
-blur(15px);
-
-
-
-border:
-
-1px solid rgba(255,255,255,.25);
-
-
-
-box-shadow:
-
-0 20px 45px rgba(0,0,0,.45);
-
-
-
-transition:.5s;
-
-
-
-animation:
-
-slideUp .8s ease;
-
-
-}
-
-
-
-.gallery-card:hover{
-
-
-transform:
-
-translateY(-12px)
-scale(1.03);
-
-
-
-box-shadow:
-
-0 30px 60px rgba(0,0,0,.65);
-
-
-}
-
-
-
-
-
-
-
-/* IMAGE */
-
-
-.gallery-card img{
-
-
-width:100%;
-
-
-height:280px;
-
-
-object-fit:cover;
-
-
-
-transition:.6s;
-
-
-}
-
-
-
-.gallery-card:hover img{
-
-
-transform:
-
-scale(1.15);
-
-
-}
-
-
-
-
-
-/* IMAGE INFO */
-
-
-.gallery-info{
-
-
-padding:18px;
-
-
-color:white;
-
-
-}
-
-
-
-.gallery-info h3{
-
-
-font-size:22px;
-
-
-margin:0 0 8px;
-
-
-}
-
-
-
-
-
-
-/* ==========================
-   NSPCL BADGE
-========================== */
-
-
-.gallery-card::before{
-
-
-content:"⚡ NSPCL";
-
-
-position:absolute;
-
-
-top:18px;
-
-
-left:18px;
-
-
-
-background:
-
-linear-gradient(
-45deg,
-#ffd700,
-#ff9800
-);
-
-
-
-color:#003566;
-
-
-
-padding:
-
-8px 18px;
-
-
-
-border-radius:25px;
-
-
-
-font-size:13px;
-
-
-font-weight:bold;
-
-
-z-index:5;
-
-
-}
-
-
-
-
-
-
-/* ==========================
-   POPUP IMAGE
-========================== */
-
-
-.popup{
-
-
-display:none;
-
-
-position:fixed;
-
-
-inset:0;
-
-
-background:
-
-rgba(0,0,0,.85);
-
-
-
-justify-content:center;
-
-
-align-items:center;
-
-
-
-z-index:99999;
-
-
-}
-
-
-
-.popup img{
-
-
-max-width:90%;
-
-
-max-height:80%;
-
-
-border-radius:20px;
-
-
-}
-
-
-
-
-
-
-/* ==========================
-   ANIMATIONS
-========================== */
-
-
-@keyframes slideUp{
-
-
-from{
-
-
-opacity:0;
-
-
-transform:translateY(50px);
-
-
-}
-
-
-to{
-
-
-opacity:1;
-
-
-transform:translateY(0);
-
-
-}
-
-
-}
-
-
-
-
-
-
-/* ==========================
-   MOBILE
-========================== */
-
-
-@media(max-width:700px){
-
-
-
-.top-nav{
-
-
-gap:8px;
-
-
-}
-
-
-
-.top-nav a{
-
-
-font-size:13px;
-
-
-padding:
-
-10px 14px;
-
-
-}
-
-
-
-
-.gallery-header h1{
-
-
-font-size:30px;
-
-
-}
-
-
-
-.gallery-container{
-
-
-padding:
-
-25px 15px;
-
-
-}
-
-
-
-.gallery-card img{
-
-
-height:220px;
-
-
-}
-
-
-
-.stats-container{
-
-
-padding:
-
-25px 15px;
-
-
-}
-
-
-}
-/* =========================================================
-   NSPCL GALLERY — NEW COLOR THEME
-   Sunset • Violet • Mint
-========================================================= */
-
-/* Gallery page background */
-.gallery-page {
     background:
         radial-gradient(
-            circle at 10% 15%,
-            rgba(255, 190, 92, 0.22),
+            circle at 10% 10%,
+            rgba(255, 183, 77, 0.10),
             transparent 28%
         ),
         radial-gradient(
-            circle at 90% 20%,
-            rgba(190, 90, 255, 0.20),
+            circle at 90% 30%,
+            rgba(255, 126, 50, 0.08),
             transparent 30%
-        ),
-        radial-gradient(
-            circle at 50% 90%,
-            rgba(70, 230, 180, 0.16),
-            transparent 32%
         ),
         linear-gradient(
             135deg,
-            #24152f,
-            #40234f,
-            #263c42,
-            #352044
+            #171717,
+            #24211d,
+            #1d1c1a,
+            #29231d
         );
 
-    background-size: 250% 250%;
+    background-size: 200% 200%;
 
     animation:
-        galleryBackground 16s ease infinite;
-
-    color: #ffffff;
+        galleryBackground 18s ease infinite;
 }
 
 
@@ -1155,233 +74,711 @@ padding:
 
 
 /* =========================================================
-   GALLERY HERO
+   TOP NAVIGATION
 ========================================================= */
 
-.gallery-page .hero,
-.gallery-page .gallery-hero {
+.top-navbar {
+
+    width: 100%;
+
+    min-height: 72px;
+
+    padding: 10px 28px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    background:
+        rgba(25, 24, 22, 0.94);
+
+    border-bottom:
+        1px solid
+        rgba(255, 193, 7, 0.20);
+
+    box-shadow:
+        0 8px 30px
+        rgba(0,0,0,0.30);
+
+    position: relative;
+
+    z-index: 1000;
+
+}
+
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.nav-brand {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    flex-shrink: 0;
+}
+
+
+.brand-icon {
+
+    width: 46px;
+
+    height: 46px;
+
+    border-radius: 13px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 26px;
 
     background:
         linear-gradient(
             135deg,
-            rgba(255,190,92,0.18),
-            rgba(190,90,255,0.16),
-            rgba(70,230,180,0.12)
+            #ffd166,
+            #f28c28
+        );
+
+    color: #241b12;
+
+    box-shadow:
+        0 6px 18px
+        rgba(242,140,40,0.25);
+}
+
+
+.brand-title {
+
+    font-size: 18px;
+
+    font-weight: 800;
+
+    letter-spacing: .5px;
+
+    color: #ffffff;
+
+    line-height: 1.1;
+}
+
+
+.brand-subtitle {
+
+    font-size: 10px;
+
+    letter-spacing: 1.8px;
+
+    color: #d8cfc3;
+
+    margin-top: 4px;
+}
+
+
+/* =========================================================
+   NAV LINKS
+========================================================= */
+
+.nav-links {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-end;
+
+    gap: 6px;
+
+    flex-wrap: wrap;
+}
+
+
+.nav-links a {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    padding: 10px 13px;
+
+    border-radius: 10px;
+
+    color: #eee9e1;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    border:
+        1px solid transparent;
+
+    transition:
+        all .25s ease;
+}
+
+
+.nav-links a:hover {
+
+    color: #ffd166;
+
+    background:
+        rgba(255,193,7,0.08);
+
+    border-color:
+        rgba(255,193,7,0.15);
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* =========================================================
+   ACTIVE GALLERY TAB
+========================================================= */
+
+.nav-links a.active {
+
+    color: #241b12;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffd166,
+            #f28c28
+        );
+
+    border-color:
+        rgba(255,255,255,0.25);
+
+    box-shadow:
+        0 6px 18px
+        rgba(242,140,40,0.22);
+
+}
+
+
+/* =========================================================
+   GALLERY HEADER
+========================================================= */
+
+.gallery-header {
+
+    position: relative;
+
+    text-align: center;
+
+    padding:
+        65px 20px 55px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,193,7,0.10),
+            rgba(242,140,40,0.07),
+            transparent
         );
 
     border-bottom:
         1px solid
-        rgba(255,255,255,0.15);
-
-    box-shadow:
-        0 15px 40px
-        rgba(0,0,0,0.18);
+        rgba(255,255,255,0.06);
 }
 
 
-/* Gallery headings */
+.gallery-header h1 {
 
-.gallery-page h1 {
+    margin: 0;
+
+    font-size: clamp(32px, 5vw, 48px);
+
+    font-weight: 850;
+
+    letter-spacing: .5px;
 
     background:
         linear-gradient(
             90deg,
+            #ffe29a,
             #ffd166,
-            #ff8fab,
-            #c77dff,
-            #7fffd4,
-            #ffd166
+            #f6a23a,
+            #ffe29a
         );
 
-    background-size: 300% auto;
+    background-size: 250% auto;
 
     -webkit-background-clip: text;
+
     background-clip: text;
 
     -webkit-text-fill-color: transparent;
 
     animation:
-        galleryTitle 5s linear infinite;
+        titleGlow 6s linear infinite;
 }
 
 
-@keyframes galleryTitle {
+@keyframes titleGlow {
 
-    from {
+    0% {
         background-position: 0% center;
     }
 
-    to {
-        background-position: 300% center;
+    100% {
+        background-position: 250% center;
     }
+
+}
+
+
+.gallery-header p {
+
+    max-width: 700px;
+
+    margin:
+        14px auto 0;
+
+    font-size: 17px;
+
+    line-height: 1.6;
+
+    color: #d8d1c8;
+}
+
+
+/* =========================================================
+   SECTION TITLES
+========================================================= */
+
+.section-title {
+
+    text-align: center;
+
+    font-size: 30px;
+
+    color: #f5eee5;
+
+    margin:
+        50px 0 25px;
+}
+
+
+.section-title::after {
+
+    content: "";
+
+    display: block;
+
+    width: 65px;
+
+    height: 3px;
+
+    margin:
+        12px auto;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffd166,
+            #f28c28
+        );
 
 }
 
 
 /* =========================================================
-   GALLERY CARDS
+   STATISTICS
 ========================================================= */
 
-.gallery-page .gallery-card,
-.gallery-page .card {
+.stats-container {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(200px, 1fr)
+        );
+
+    gap: 20px;
+
+    padding:
+        25px 6%;
+}
+
+
+.stat-card {
+
+    padding: 28px 20px;
+
+    text-align: center;
+
+    border-radius: 20px;
 
     background:
         linear-gradient(
             145deg,
-            rgba(255,255,255,0.16),
-            rgba(255,255,255,0.055)
+            rgba(255,255,255,0.09),
+            rgba(255,255,255,0.035)
         );
 
     border:
         1px solid
-        rgba(255,255,255,0.20);
+        rgba(255,255,255,0.10);
 
     box-shadow:
-        0 18px 50px
-        rgba(0,0,0,0.25);
+        0 12px 30px
+        rgba(0,0,0,0.22);
 
     backdrop-filter:
-        blur(18px);
+        blur(12px);
+
+    transition:
+        transform .3s ease,
+        border-color .3s ease;
+}
+
+
+.stat-card:hover {
+
+    transform:
+        translateY(-7px);
+
+    border-color:
+        rgba(255,193,7,0.30);
+}
+
+
+.stat-card h2 {
+
+    margin: 0 0 8px;
+
+    font-size: 40px;
+
+    color: #ffd166;
+}
+
+
+.stat-card p {
+
+    margin: 0;
+
+    color: #d7d0c7;
+}
+
+
+/* =========================================================
+   WINNER SECTION
+========================================================= */
+
+.winner-container {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(240px,1fr)
+        );
+
+    gap: 20px;
+
+    padding:
+        20px 6%;
+}
+
+
+.winner-card {
+
+    padding: 24px;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #302b25,
+            #211f1c
+        );
+
+    border:
+        1px solid
+        rgba(255,193,7,0.12);
+
+    box-shadow:
+        0 12px 30px
+        rgba(0,0,0,0.25);
+
+    transition:
+        transform .3s ease,
+        border-color .3s ease;
+}
+
+
+.winner-card:hover {
+
+    transform:
+        translateY(-6px);
+
+    border-color:
+        rgba(255,193,7,0.35);
+}
+
+
+.winner-card h3 {
+
+    color: #ffd166;
+
+    margin-top: 0;
+}
+
+
+/* =========================================================
+   GALLERY GRID
+========================================================= */
+
+.gallery-container {
+
+    padding:
+        35px 6% 60px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(280px,1fr)
+        );
+
+    gap: 26px;
+}
+
+
+/* =========================================================
+   GALLERY CARD
+========================================================= */
+
+.gallery-card {
+
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    background:
+        #24221f;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.10);
+
+    box-shadow:
+        0 15px 40px
+        rgba(0,0,0,0.28);
 
     transition:
         transform .35s ease,
         box-shadow .35s ease,
         border-color .35s ease;
+
+    animation:
+        slideUp .7s ease both;
 }
 
 
-.gallery-page .gallery-card:hover,
-.gallery-page .card:hover {
+.gallery-card:hover {
 
     transform:
-        translateY(-8px)
-        scale(1.015);
+        translateY(-8px);
 
     border-color:
-        rgba(255,209,102,0.45);
+        rgba(255,193,7,0.35);
 
     box-shadow:
-        0 25px 60px
-        rgba(190,90,255,0.22);
+        0 22px 50px
+        rgba(0,0,0,0.38);
 }
 
 
 /* =========================================================
-   GALLERY IMAGES
+   IMAGE
 ========================================================= */
 
-.gallery-page img {
+.gallery-card img {
+
+    width: 100%;
+
+    height: 270px;
+
+    display: block;
+
+    object-fit: cover;
 
     transition:
-        transform .5s ease,
-        filter .5s ease;
-
+        transform .55s ease,
+        filter .55s ease;
 }
 
 
-.gallery-page .gallery-card:hover img,
-.gallery-page .card:hover img {
+.gallery-card:hover img {
 
     transform:
         scale(1.06);
 
     filter:
         brightness(1.08)
-        saturate(1.12);
+        saturate(1.08);
 }
 
 
 /* =========================================================
-   IMAGE GLOW
+   IMAGE INFO
 ========================================================= */
 
-.gallery-page .gallery-item,
-.gallery-page .gallery-card {
+.gallery-info {
 
-    position: relative;
-
-    overflow: hidden;
-}
-
-
-.gallery-page .gallery-item::after,
-.gallery-page .gallery-card::after {
-
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    pointer-events: none;
+    padding:
+        18px 18px 20px;
 
     background:
         linear-gradient(
-            135deg,
-            rgba(255,209,102,0.10),
-            transparent 40%,
-            rgba(199,125,255,0.10)
+            180deg,
+            #292622,
+            #211f1c
         );
-
-    opacity: 0;
-
-    transition:
-        opacity .35s ease;
 }
 
 
-.gallery-page .gallery-item:hover::after,
-.gallery-page .gallery-card:hover::after {
+.gallery-info h3 {
 
-    opacity: 1;
+    margin:
+        0 0 7px;
+
+    font-size: 20px;
+
+    color: #f7f0e8;
+}
+
+
+.gallery-info p {
+
+    margin: 0;
+
+    color: #cfc7bd;
+
+    line-height: 1.5;
+
+    font-size: 14px;
 }
 
 
 /* =========================================================
-   GALLERY SECTION HEADINGS
+   NSPCL BADGE
 ========================================================= */
 
-.gallery-page .section-title {
+.gallery-card::before {
 
-    color: #ffd166;
+    content:
+        "⚡ NSPCL";
 
-    text-shadow:
-        0 0 18px
-        rgba(255,209,102,0.35);
-}
+    position:
+        absolute;
 
+    top: 15px;
 
-/* =========================================================
-   GALLERY BUTTONS
-========================================================= */
+    left: 15px;
 
-.gallery-page .btn,
-.gallery-page button {
+    padding:
+        7px 13px;
+
+    border-radius:
+        20px;
 
     background:
         linear-gradient(
             135deg,
             #ffd166,
-            #ff8fab,
-            #c77dff
+            #f28c28
         );
 
-    background-size: 200% auto;
+    color:
+        #2b2117;
 
-    color: #281633;
+    font-size:
+        12px;
+
+    font-weight:
+        800;
+
+    z-index:
+        5;
+
+    box-shadow:
+        0 5px 15px
+        rgba(0,0,0,0.25);
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.gallery-page .btn,
+.gallery-page button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding:
+        11px 20px;
 
     border: none;
 
-    font-weight: 900;
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffd166,
+            #f28c28
+        );
+
+    color:
+        #251b12;
+
+    font-weight:
+        800;
+
+    text-decoration:
+        none;
+
+    cursor:
+        pointer;
 
     box-shadow:
-        0 10px 30px
-        rgba(255,150,120,0.25);
+        0 8px 20px
+        rgba(242,140,40,0.20);
 
     transition:
         transform .25s ease,
         box-shadow .25s ease;
-
 }
 
 
@@ -1389,29 +786,80 @@ padding:
 .gallery-page button:hover {
 
     transform:
-        translateY(-4px)
-        scale(1.04);
+        translateY(-3px);
 
     box-shadow:
-        0 15px 40px
-        rgba(199,125,255,0.35);
+        0 12px 28px
+        rgba(242,140,40,0.30);
 }
 
 
 /* =========================================================
-   GALLERY LABELS
+   POPUP
 ========================================================= */
 
-.gallery-page .gallery-title,
-.gallery-page .gallery-caption {
+.popup {
 
-    color: #f5eaff;
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    padding: 25px;
+
+    background:
+        rgba(10,10,10,0.90);
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    z-index:
+        99999;
 }
 
 
-.gallery-page .gallery-caption strong {
+.popup img {
 
-    color: #7fffd4;
+    max-width:
+        min(92%, 1100px);
+
+    max-height:
+        82vh;
+
+    border-radius:
+        15px;
+
+    box-shadow:
+        0 20px 60px
+        rgba(0,0,0,0.60);
+}
+
+
+/* =========================================================
+   ANIMATION
+========================================================= */
+
+@keyframes slideUp {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(30px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
 }
 
 
@@ -1419,18 +867,167 @@ padding:
    MOBILE
 ========================================================= */
 
-@media (max-width: 700px) {
+@media (max-width: 800px) {
 
-    .gallery-page {
+    .top-navbar {
 
-        background-size:
-            350% 350%;
+        padding:
+            12px 15px;
+
+        flex-direction:
+            column;
+
+        gap: 12px;
     }
 
-    .gallery-page .gallery-card,
-    .gallery-page .card {
 
-        border-radius: 18px;
+    .nav-brand {
+
+        width: 100%;
+
+        justify-content:
+            center;
+    }
+
+
+    .nav-links {
+
+        width: 100%;
+
+        justify-content:
+            center;
+
+        gap: 4px;
+    }
+
+
+    .nav-links a {
+
+        padding:
+            8px 10px;
+
+        font-size:
+            12px;
+    }
+
+
+    .gallery-header {
+
+        padding:
+            45px 18px;
+    }
+
+
+    .gallery-header h1 {
+
+        font-size:
+            32px;
+    }
+
+
+    .gallery-header p {
+
+        font-size:
+            15px;
+    }
+
+
+    .gallery-container {
+
+        padding:
+            25px 15px 45px;
+
+        gap: 18px;
+    }
+
+
+    .gallery-card img {
+
+        height:
+            220px;
+    }
+
+
+    .stats-container {
+
+        padding:
+            20px 15px;
+    }
+
+
+    .winner-container {
+
+        padding:
+            15px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 500px) {
+
+    .brand-icon {
+
+        width:
+            40px;
+
+        height:
+            40px;
+
+        font-size:
+            22px;
+    }
+
+
+    .brand-title {
+
+        font-size:
+            15px;
+    }
+
+
+    .brand-subtitle {
+
+        font-size:
+            8px;
+
+        letter-spacing:
+            1px;
+    }
+
+
+    .nav-links a {
+
+        padding:
+            7px 8px;
+
+        font-size:
+            11px;
+    }
+
+
+    .gallery-header h1 {
+
+        font-size:
+            28px;
+    }
+
+
+    .section-title {
+
+        font-size:
+            25px;
+    }
+
+
+    .gallery-card img {
+
+        height:
+            200px;
     }
 
 }
