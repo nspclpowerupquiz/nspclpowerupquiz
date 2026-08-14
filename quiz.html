@@ -5,239 +5,166 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
 <title>NSPCL Power-Up Quiz</title>
 
-
 <link rel="stylesheet" href="style.css">
-
 
 </head>
 
 
 <body>
-<body>
 
+
+<!-- ================= NAVIGATION ================= -->
 
 <nav class="top-nav">
 
-<a href="index.html" class="home-btn">
-🏠 Home
-</a>
+    <a href="index.html" class="home-btn">
+        🏠 Home
+    </a>
 
 </nav>
 
 
 <!-- ================= HEADER ================= -->
 
-
 <header>
 
-<h1>⚡ NSPCL Power-Up Quiz</h1>
+    <h1>⚡ NSPCL Power-Up Quiz</h1>
 
-<p>Learn • Compete • Excel</p>
-
+    <p>Learn • Compete • Excel</p>
 
 </header>
 
 
 <!-- ================= USER SECTION ================= -->
 
-
 <div class="user-box">
 
-<h3 id="welcomeUser">
-Welcome
-</h3>
+    <h3 id="welcomeUser">
+        Welcome
+    </h3>
 
-
-<h3>
-Score : 
-<span id="liveScore">0</span>
-</h3>
-
+    <h3>
+        Score :
+        <span id="liveScore">0</span>
+    </h3>
 
 </div>
-
-
-
-
-
 
 
 <!-- ================= QUIZ INTRO ================= -->
 
-
 <div class="quiz-intro">
 
+    <h2>
+        🚀 Welcome to NSPCL Power-Up Quiz
+    </h2>
 
-<h2>🚀 Welcome to NSPCL Power-Up Quiz</h2>
+    <p>
+        Test your knowledge with a KBC-style quiz.
+    </p>
 
+    <p>
+        🎯 <strong>50 Questions</strong>
+    </p>
 
-<p>
+    <p>
+        ⏱ Each question has 5 seconds.
+    </p>
 
-Test your knowledge with KBC style quiz.
-
-</p>
-
-
-<p>
-
-⏱ Each question has 5 seconds.
-
-</p>
-
-
-
-<button onclick="startQuiz()">
-
-START QUIZ
-
-</button>
-
+    <button onclick="startQuiz()">
+        START QUIZ
+    </button>
 
 </div>
-
-
-
-
-
-
-
 
 
 <!-- ================= QUIZ AREA ================= -->
 
-
 <div id="quiz-area" style="display:none;">
 
 
+    <!-- TOP BAR -->
 
-<div class="top-bar">
+    <div class="top-bar">
 
+        <h3>
 
-<h3>
+            Question :
 
-Question :
+            <span id="progress">
+                0 / 50
+            </span>
 
-<span id="progress">
-
-0 / 0
-
-</span>
-
-
-</h3>
+        </h3>
 
 
+        <h3>
 
-<h3>
+            ⏳
 
-⏳
+            <span id="time">
+                5
+            </span>
 
-<span id="time">
+            sec
 
-5
+        </h3>
 
-</span>
-
-sec
-
-</h3>
-
-
-</div>
+    </div>
 
 
+    <!-- QUESTION -->
+
+    <div class="question-box">
+
+        <h2 id="question">
+            Question will appear here
+        </h2>
+
+    </div>
 
 
+    <!-- OPTIONS -->
+
+    <div id="options">
+
+    </div>
 
 
+    <br>
 
 
-<!-- QUESTION -->
+    <!-- NEXT BUTTON -->
 
-<div class="question-box">
+    <button id="nextBtn"
+            onclick="nextQuestion()"
+            disabled>
 
+        NEXT ➡️
 
-<h2 id="question">
-
-Question will appear here
-
-</h2>
-
-
-</div>
-
-
-
-
-
-
-
-
-<!-- OPTIONS -->
-
-
-<div id="options">
+    </button>
 
 
 </div>
-
-
-
-
-
-
-
-<br>
-
-
-<button id="nextBtn" onclick="nextQuestion()" disabled>
-
-NEXT ➡️
-
-</button>
-
-
-
-
-</div>
-
-
-
-
-
-
-
-
 
 
 <!-- ================= RESULT ================= -->
 
-
 <div id="result">
-
 
 </div>
 
 
-
-
-
-
-
-
-
-<!-- ================= SCRIPT ================= -->
-
+<!-- ================= QUIZ JAVASCRIPT ================= -->
 
 <script src="quiz.js"></script>
 
 
-
 </body>
-
 
 </html>
