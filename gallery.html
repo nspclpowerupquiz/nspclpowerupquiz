@@ -31,48 +31,66 @@ body {
 }
 
 
-/* =========================================================
-   NAVIGATION
-========================================================= */
+<!-- =======================================================
+     ATTRACTIVE GALLERY NAVIGATION BAR
+======================================================= -->
 
-nav {
-    background: red;
+<nav class="top-navbar">
 
-    color: white;
+    <!-- BRAND -->
+    <div class="nav-brand">
 
-    padding: 18px 25px;
+        <div class="brand-icon">
+            ⚡
+        </div>
 
-    display: flex;
+        <div class="brand-text">
 
-    gap: 25px;
+            <div class="brand-title">
+                NSPCL POWER-UP
+            </div>
 
-    flex-wrap: wrap;
+            <div class="brand-subtitle">
+                SSC-C&M QUIZ
+            </div>
 
-    align-items: center;
+        </div>
 
-    justify-content: center;
-}
+    </div>
 
-nav a {
-    color: white;
 
-    text-decoration: none;
+    <!-- NAVIGATION -->
+    <div class="nav-links">
 
-    font-weight: 600;
+        <a href="index.html">
+            🏠
+            <span>Home</span>
+        </a>
 
-    padding: 8px 12px;
+        <a href="quiz.html">
+            ⚡
+            <span>Start Quiz</span>
+        </a>
 
-    border-radius: 8px;
+        <a href="leaderboard.html">
+            🏆
+            <span>Leaderboard</span>
+        </a>
 
-    transition: 0.3s;
-}
+        <a href="analytics.html">
+            📊
+            <span>Analytics</span>
+        </a>
 
-nav a:hover,
-nav a.active {
-    background: rgba(255,255,255,0.2);
+        <a href="gallery.html"
+           class="active">
+            📸
+            <span>Gallery</span>
+        </a>
 
-    text-decoration: none;
-}
+    </div>
+
+</nav>
 
 
 /* =========================================================
