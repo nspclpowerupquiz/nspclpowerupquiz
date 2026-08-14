@@ -1444,3 +1444,48 @@ footer p {
     }
 
 }
+/* =========================================================
+   DAILY CHALLENGE - ENABLE PAGE SCROLLING
+========================================================= */
+
+html {
+    height: auto;
+    min-height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+body {
+    min-height: 100vh;
+    height: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* Main Daily Challenge content */
+main,
+.daily-challenge,
+.daily-container,
+.challenge-container {
+    height: auto;
+    min-height: auto;
+    overflow: visible;
+}
+
+/* Allow the complete page to extend vertically */
+section {
+    max-height: none;
+}
+
+/* Mobile scrolling */
+@media (max-width: 768px) {
+
+    html,
+    body {
+        height: auto;
+        min-height: 100%;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+}
