@@ -1,1852 +1,1412 @@
-/* ==========================================
-   NSPCL POWER-UP QUIZ CERTIFICATE
-   PART 2A
-   ========================================== */
+/* =========================================================
+   NSPCL POWER-UP QUIZ
+   PREMIUM CERTIFICATE CSS
+   ========================================================= */
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-
-    background:linear-gradient(135deg,#dfefff,#c9dcff,#eef6ff);
-
-    font-family:'Poppins',sans-serif;
-
-    padding:40px;
-
-    overflow-x:hidden;
-
-}
-
-
-/* PAGE */
-
-.page{
-
-    width:100%;
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-}
-
-
-
-/* CERTIFICATE */
-
-.certificate{
-
-    position:relative;
-
-    width:1200px;
-
-    min-height:850px;
-
-    background:white;
-
-    border:18px solid #0B4FA2;
-
-    outline:8px solid #d4af37;
-
-    border-radius:20px;
-
-    padding:45px;
-
-    overflow:hidden;
-
-    box-shadow:
-    0 15px 40px rgba(0,0,0,.35);
-
-    animation:borderGlow 3s infinite alternate;
-
-}
-
-
-
-/* Animated Border */
-
-@keyframes borderGlow{
-
-    0%{
-
-        box-shadow:
-
-        0 0 15px rgba(11,79,162,.5),
-
-        0 0 40px rgba(212,175,55,.25);
-
-    }
-
-    100%{
-
-        box-shadow:
-
-        0 0 30px rgba(11,79,162,.9),
-
-        0 0 60px rgba(212,175,55,.6);
-
-    }
-
-}
-
-
-
-/* Decorative Corners */
-
-.corner{
-
-    position:absolute;
-
-    width:70px;
-
-    height:70px;
-
-    border:6px solid #d4af37;
-
-}
-
-.tl{
-
-    top:18px;
-
-    left:18px;
-
-    border-right:none;
-
-    border-bottom:none;
-
-}
-
-.tr{
-
-    top:18px;
-
-    right:18px;
-
-    border-left:none;
-
-    border-bottom:none;
-
-}
-
-.bl{
-
-    bottom:18px;
-
-    left:18px;
-
-    border-right:none;
-
-    border-top:none;
-
-}
-
-.br{
-
-    bottom:18px;
-
-    right:18px;
-
-    border-left:none;
-
-    border-top:none;
-
-}
-
-
-
-/* Watermark */
-
-.watermark{
-
-    position:absolute;
-
-    top:50%;
-
-    left:50%;
-
-    transform:translate(-50%,-50%) rotate(-30deg);
-
-    font-size:120px;
-
-    font-weight:800;
-
-    color:#0B4FA2;
-
-    opacity:.05;
-
-    letter-spacing:10px;
-
-    white-space:nowrap;
-
-    pointer-events:none;
-
-}
-
-
-
-/* HEADER */
-
-.header{
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-    justify-content:center;
-
-    text-align:center;
-
-    gap:15px;
-
-}
-
-
-/* Logos */
-
-.logo{
-
-    width:110px;
-
-    height:110px;
-
-    object-fit:contain;
-
-}
-
-
-
-/* Title Area */
-
-.title{
-
-    text-align:center;
-
-    flex:1;
-
-}
-
-
-
-/* Company */
-
-.company{
-
-    font-size:18px;
-
-    font-weight:600;
-
-    color:#0B4FA2;
-
-    letter-spacing:2px;
-
-}
-
-
-
-/* Main Heading */
-
-.heading{
-
-    font-size:46px;
-
-    font-weight:800;
-
-    margin-top:12px;
-
-    text-transform:uppercase;
-
-    background:linear-gradient(90deg,#0B4FA2,#d4af37,#0B4FA2);
-
-    -webkit-background-clip:text;
-
-    -webkit-text-fill-color:transparent;
-
-}
-
-
-
-/* Sub Heading */
-
-.subheading{
-
-    margin-top:10px;
-
-    font-size:22px;
-
-    color:#444;
-
-    letter-spacing:3px;
-
-}
-
-
-
-/* Ribbon */
-
-.ribbon{
-
-    width:420px;
-
-    margin:35px auto;
-
-    background:linear-gradient(90deg,#0B4FA2,#1f77d0);
-
-    color:white;
-
-    padding:12px;
-
-    text-align:center;
-
-    font-size:18px;
-
-    font-weight:600;
-
-    border-radius:40px;
-
-    box-shadow:
-
-    0 8px 20px rgba(0,0,0,.25);
-
-}
-
-
-
-/* Presented */
-
-.presented{
-
-    text-align:center;
-
-    margin-top:30px;
-
-    color:#555;
-
-    letter-spacing:3px;
-
-    font-size:18px;
-
-}
-
-
-
-/* Employee Name */
-
-.employeeName{
-
-    margin-top:22px;
-
-    text-align:center;
-
-    font-size:48px;
-
-    color:#c79200;
-
-    font-weight:800;
-
-    text-transform:uppercase;
-
-    letter-spacing:3px;
-
-}
-
-
-
-/* Employee ID */
-
-.employeeID{
-
-    text-align:center;
-
-    margin-top:12px;
-
-    font-size:22px;
-
-    color:#0B4FA2;
-
-    font-weight:600;
-
-}
-/* ==========================================
-   PART 2B
-   Appreciation • Badge • Score • Details
-   Footer • Buttons
-========================================== */
-
-
-/* Appreciation */
-
-.appreciation{
-
-    width:88%;
-
-    margin:35px auto;
-
-    padding:22px 28px;
-
-    text-align:center;
-
-    font-size:19px;
-
-    line-height:1.9;
-
-    color:#444;
-
-    background:#f7fbff;
-
-    border-left:8px solid #0B4FA2;
-
-    border-right:8px solid #0B4FA2;
-
-    border-radius:14px;
-
-    box-shadow:0 10px 25px rgba(0,0,0,.08);
-
-}
-
-.appreciation strong{
-
-    color:#0B4FA2;
-
-}
-
-
-
-/* Badge */
-
-.badge{
-
-    width:320px;
-
-    margin:30px auto;
-
-    text-align:center;
-
-    padding:15px 25px;
-
-    border-radius:50px;
-
-    font-size:28px;
-
-    font-weight:700;
-
-    color:white;
-
-    background:linear-gradient(90deg,#d4af37,#f4d03f,#d4af37);
-
-    box-shadow:
-
-        0 8px 20px rgba(0,0,0,.25);
-
-    animation:pulseBadge 2s infinite;
-
-}
-
-@keyframes pulseBadge{
-
-    0%{
-
-        transform:scale(1);
-
-    }
-
-    50%{
-
-        transform:scale(1.05);
-
-    }
-
-    100%{
-
-        transform:scale(1);
-
-    }
-
-}
-
-
-
-/* Score Section */
-
-.scoreSection{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    margin-top:40px;
-
-    gap:25px;
-
-}
-
-
-
-.scoreBox{
-
-    flex:1;
-
-    background:white;
-
-    border:3px solid #0B4FA2;
-
-    border-radius:18px;
-
-    text-align:center;
-
-    padding:25px;
-
-    transition:.35s;
-
-    box-shadow:
-
-        0 10px 25px rgba(0,0,0,.12);
-
-}
-
-
-
-.scoreBox:hover{
-
-    transform:translateY(-8px);
-
-    box-shadow:
-
-        0 18px 35px rgba(0,0,0,.20);
-
-}
-
-
-
-.scoreTitle{
-
-    color:#0B4FA2;
-
-    font-size:20px;
-
-    font-weight:700;
-
-    letter-spacing:2px;
-
-}
-
-
-
-.scoreValue{
-
-    margin-top:18px;
-
-    font-size:34px;
-
-    color:#c79200;
-
-    font-weight:800;
-
-}
-
-
-
-/* Certificate Details */
-
-.details{
-
-    margin-top:45px;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-}
-
-
-
-.details div{
-
-    text-align:center;
-
-}
-
-
-
-.detailHeading{
-
-    color:#0B4FA2;
-
-    font-size:20px;
-
-    font-weight:700;
-
-    margin-bottom:10px;
-
-}
-
-
-
-#certno,
-#date{
-
-    font-size:22px;
-
-    color:#444;
-
-    font-weight:600;
-
-}
-
-
-
-/* Footer */
-
-.footer{
-
-    margin-top:65px;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:flex-end;
-
-}
-
-
-
-/* Signature */
-
-.signature{
-
-    width:250px;
-
-    text-align:center;
-
-}
-
-
-
-.line{
-
-    border-top:2px solid #222;
-
-    margin-bottom:12px;
-
-}
-
-
-
-.signature strong{
-
-    color:#0B4FA2;
-
-    font-size:20px;
-
-}
-
-
-
-/* Official Seal */
-
-.seal{
-
-    width:140px;
-
-    height:140px;
-
-    border-radius:50%;
-
-    border:8px solid #d4af37;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    align-items:center;
-
-    background:linear-gradient(#fff8dc,#ffffff);
-
-    box-shadow:
-
-        0 10px 30px rgba(0,0,0,.18);
-
-}
-
-
-
-.seal i{
-
-    font-size:44px;
-
-    color:#d4af37;
-
-}
-
-
-
-.seal div{
-
-    margin-top:10px;
-
-    color:#0B4FA2;
-
-    font-weight:700;
-
-    font-size:18px;
-
-}
-
-
-
-/* Bottom Text */
-
-.bottomText{
-
-    margin-top:40px;
-
-    text-align:center;
-
-    color:#666;
-
-    font-size:16px;
-
-    font-style:italic;
-
-}
-
-
-
-/* Buttons */
-
-.buttons{
-
-    margin-top:35px;
-
-    display:flex;
-
-    justify-content:center;
-
-    gap:20px;
-
-    flex-wrap:wrap;
-
-}
-
-
-
-.buttons button{
-
-    background:linear-gradient(90deg,#0B4FA2,#1e6fd0);
-
-    color:white;
-
-    border:none;
-
-    padding:14px 30px;
-
-    font-size:18px;
-
-    font-weight:600;
-
-    border-radius:10px;
-
-    cursor:pointer;
-
-    transition:.3s;
-
-    box-shadow:0 10px 25px rgba(0,0,0,.18);
-
-}
-
-
-
-.buttons button:hover{
-
-    transform:translateY(-4px);
-
-    background:linear-gradient(90deg,#d4af37,#c79200);
-
-}
-
-
-
-.buttons i{
-
-    margin-right:8px;
-
-}
-/* ==========================================
-   PART 2C
-   Animation • Responsive • Print
-========================================== */
-
-
-/* Fade Animation */
-
-.certificate{
-
-    animation:fadeIn 1.2s ease-in-out;
-}
 
-@keyframes fadeIn{
+/* =========================================================
+   GOOGLE FONT
+   ========================================================= */
 
-    from{
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap');
 
-        opacity:0;
 
-        transform:scale(.96);
+/* =========================================================
+   GLOBAL
+   ========================================================= */
 
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:scale(1);
-
-    }
-
-}
-
-
-/* Ribbon Animation */
-
-.ribbon{
-
-    animation:ribbonGlow 3s infinite alternate;
-
-}
-
-@keyframes ribbonGlow{
-
-    from{
-
-        box-shadow:0 0 12px rgba(11,79,162,.3);
-
-    }
-
-    to{
-
-        box-shadow:0 0 30px rgba(212,175,55,.8);
-
-    }
-
-}
-
-
-/* Heading Animation */
-
-.heading{
-
-    animation:headingGlow 4s infinite alternate;
-
-}
-
-@keyframes headingGlow{
-
-    from{
-
-        letter-spacing:1px;
-
-    }
-
-    to{
-
-        letter-spacing:5px;
-
-    }
-
-}
-
-
-/* Badge Animation */
-
-.badge{
-
-    position:relative;
-
-    overflow:hidden;
-
-}
-
-.badge::after{
-
-    content:"";
-
-    position:absolute;
-
-    top:0;
-
-    left:-120%;
-
-    width:60%;
-
-    height:100%;
-
-    background:rgba(255,255,255,.45);
-
-    transform:skewX(-25deg);
-
-    animation:shine 3s infinite;
-
-}
-
-@keyframes shine{
-
-    100%{
-
-        left:170%;
-
-    }
-
-}
-
-
-/* Official Seal */
-
-.seal{
-
-    animation:sealRotate 5s ease-in-out infinite;
-
-}
-
-@keyframes sealRotate{
-
-    0%{
-
-        transform:rotate(0deg);
-
-    }
-
-    50%{
-
-        transform:rotate(4deg);
-
-    }
-
-    100%{
-
-        transform:rotate(0deg);
-
-    }
-
-}
-
-
-/* Score Hover */
-
-.scoreBox{
-
-    transition:.35s;
-
-}
-
-.scoreBox:hover{
-
-    transform:translateY(-8px) scale(1.02);
-
-}
-
-
-/* Watermark Pulse */
-
-.watermark{
-
-    animation:watermarkPulse 8s infinite;
-
-}
-
-@keyframes watermarkPulse{
-
-    0%{
-
-        opacity:.03;
-
-    }
-
-    50%{
-
-        opacity:.07;
-
-    }
-
-    100%{
-
-        opacity:.03;
-
-    }
-
-}
-
-
-/* Decorative Corners */
-
-.corner{
-
-    animation:cornerGlow 3s infinite alternate;
-
-}
-
-@keyframes cornerGlow{
-
-    from{
-
-        border-color:#d4af37;
-
-    }
-
-    to{
-
-        border-color:#0B4FA2;
-
-    }
-
-}
-
-
-/* Signature */
-
-.signature{
-
-    transition:.3s;
-
-}
-
-.signature:hover{
-
-    transform:translateY(-4px);
-
-}
-
-
-/* Bottom Text */
-
-.bottomText{
-
-    opacity:.75;
-
-}
-
-
-
-/* Print */
-
-@media print{
-
-body{
-
-    background:white;
-
-    padding:0;
-
-}
-
-.buttons{
-
-    display:none;
-
-}
-
-.certificate{
-
-    width:100%;
-
-    border:10px solid #0B4FA2;
-
-    outline:5px solid #d4af37;
-
-    box-shadow:none;
-
-    page-break-after:avoid;
-
-}
-
-}
-
-
-/* Mobile */
-
-@media(max-width:1100px){
-
-.certificate{
-
-    width:100%;
-
-    padding:25px;
-
-}
-
-.header{
-
-    flex-direction:column;
-
-    gap:15px;
-
-}
-
-.logo{
-
-    width:80px;
-
-}
-
-.heading{
-
-    font-size:34px;
-
-}
-
-.employeeName{
-
-    font-size:34px;
-
-}
-
-.scoreSection{
-
-    flex-direction:column;
-
-}
-
-.footer{
-
-    flex-direction:column;
-
-    align-items:center;
-
-    gap:35px;
-
-}
-
-.details{
-
-    flex-direction:column;
-
-    gap:20px;
-
-}
-
-.ribbon{
-
-    width:90%;
-
-}
-
-}
-
-
-/* Small Mobile */
-
-@media(max-width:700px){
-
-.heading{
-
-    font-size:26px;
-
-}
-
-.company{
-
-    font-size:14px;
-
-}
-
-.subheading{
-
-    font-size:18px;
-
-}
-
-.employeeName{
-
-    font-size:28px;
-
-}
-
-.employeeID{
-
-    font-size:18px;
-
-}
-
-.badge{
-
-    width:90%;
-
-    font-size:20px;
-
-}
-
-.scoreValue{
-
-    font-size:26px;
-
-}
-
-.scoreTitle{
-
-    font-size:17px;
-
-}
-
-.buttons{
-
-    flex-direction:column;
-
-}
-
-.buttons button{
-
-    width:100%;
-
-}
-
+* {
+    box-sizing: border-box;
 }
 
 
-/* Landscape PDF */
-
-@page{
-
-    size:A4 landscape;
-
-    margin:10mm;
-
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
 }
-/* ==========================================
-   PART 2D (OPTIONAL)
-   Premium Corporate Effects
-========================================== */
-
-/* Subtle patterned background */
-.certificate::before{
 
-    content:"";
 
-    position:absolute;
+body {
 
-    inset:0;
+    font-family:
+        "Montserrat",
+        Arial,
+        sans-serif;
 
     background:
-        radial-gradient(circle at 20% 20%, rgba(11,79,162,.04) 0, transparent 180px),
-        radial-gradient(circle at 80% 30%, rgba(212,175,55,.05) 0, transparent 180px),
-        radial-gradient(circle at 50% 80%, rgba(11,79,162,.03) 0, transparent 220px);
+        radial-gradient(
+            circle at top left,
+            #5b21b6,
+            #241044 35%,
+            #0f172a 100%
+        );
 
-    pointer-events:none;
+    color: #1f2937;
 
-}
+    display: flex;
 
-/* Decorative top line */
+    justify-content: center;
 
-.certificate::after{
+    align-items: center;
 
-    content:"";
+    min-height: 100vh;
 
-    position:absolute;
-
-    left:40px;
-
-    right:40px;
-
-    top:145px;
-
-    height:3px;
-
-    background:linear-gradient(90deg,
-        transparent,
-        #d4af37,
-        #0B4FA2,
-        #d4af37,
-        transparent);
+    padding: 25px;
 
 }
 
 
-/* Gold line below employee name */
+/* =========================================================
+   PAGE
+   ========================================================= */
 
-.employeeName{
+.page {
 
-    position:relative;
+    width: 100%;
 
-}
+    display: flex;
 
-.employeeName::after{
+    flex-direction: column;
 
-    content:"";
-
-    display:block;
-
-    width:260px;
-
-    height:3px;
-
-    margin:12px auto 0;
-
-    background:linear-gradient(90deg,
-        transparent,
-        #d4af37,
-        transparent);
+    align-items: center;
 
 }
 
 
-/* Fancy score boxes */
+/* =========================================================
+   CERTIFICATE
+   ========================================================= */
 
-.scoreBox{
+.certificate {
 
-    background:linear-gradient(#ffffff,#f8fbff);
+    position: relative;
 
-}
+    width: min(
+        1200px,
+        96vw
+    );
 
+    min-height: 760px;
 
-/* Gold hover */
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff 0%,
+            #fffdf7 45%,
+            #faf5ff 100%
+        );
 
-.scoreBox:hover{
+    overflow: hidden;
 
-    border-color:#d4af37;
-
-}
-
-
-/* Beautiful certificate number */
-
-#certno{
-
-    color:#0B4FA2;
-
-    font-weight:700;
-
-    letter-spacing:1px;
-
-}
-
-
-/* Date */
-
-#date{
-
-    color:#555;
-
-}
-
-
-/* Official seal glow */
-
-.seal{
+    border-radius: 22px;
 
     box-shadow:
-        0 0 20px rgba(212,175,55,.35),
-        0 8px 25px rgba(0,0,0,.18);
+
+        0 35px 80px
+        rgba(0, 0, 0, 0.35),
+
+        0 0 0 1px
+        rgba(255,255,255,0.5);
+
+    padding: 45px 65px;
 
 }
 
 
-/* Footer */
+/* =========================================================
+   PREMIUM OUTER BORDER
+   ========================================================= */
 
-.bottomText{
+.certificate::before {
 
-    border-top:1px dashed #cfcfcf;
+    content: "";
 
-    padding-top:15px;
+    position: absolute;
 
-    margin-top:35px;
+    inset: 16px;
+
+    border: 3px solid #d4af37;
+
+    border-radius: 16px;
+
+    pointer-events: none;
 
 }
 
 
-/* Print quality */
+.certificate::after {
 
-img{
+    content: "";
 
-    image-rendering:auto;
+    position: absolute;
+
+    inset: 24px;
+
+    border: 1px solid
+        rgba(91, 33, 182, 0.35);
+
+    border-radius: 12px;
+
+    pointer-events: none;
 
 }
-.certificate{
-    animation: certificateEntry 1s ease-out;
+
+
+/* =========================================================
+   DECORATIVE CORNERS
+   ========================================================= */
+
+.corner {
+
+    position: absolute;
+
+    width: 85px;
+
+    height: 85px;
+
+    z-index: 3;
+
+}
+
+
+.corner::before,
+.corner::after {
+
+    content: "";
+
+    position: absolute;
+
+    background:
+        linear-gradient(
+            90deg,
+            #d4af37,
+            #f59e0b
+        );
+
+}
+
+
+/* Horizontal */
+
+.corner::before {
+
+    width: 65px;
+
+    height: 3px;
+
+}
+
+
+/* Vertical */
+
+.corner::after {
+
+    width: 3px;
+
+    height: 65px;
+
+}
+
+
+.corner.tl {
+
+    top: 27px;
+
+    left: 27px;
+
+}
+
+
+.corner.tl::before {
+
+    top: 0;
+
+    left: 0;
+
+}
+
+
+.corner.tl::after {
+
+    top: 0;
+
+    left: 0;
+
+}
+
+
+.corner.tr {
+
+    top: 27px;
+
+    right: 27px;
+
+}
+
+
+.corner.tr::before {
+
+    top: 0;
+
+    right: 0;
+
+}
+
+
+.corner.tr::after {
+
+    top: 0;
+
+    right: 0;
+
+}
+
+
+.corner.bl {
+
+    bottom: 27px;
+
+    left: 27px;
+
+}
+
+
+.corner.bl::before {
+
+    bottom: 0;
+
+    left: 0;
+
+}
+
+
+.corner.bl::after {
+
+    bottom: 0;
+
+    left: 0;
+
+}
+
+
+.corner.br {
+
+    bottom: 27px;
+
+    right: 27px;
+
+}
+
+
+.corner.br::before {
+
+    bottom: 0;
+
+    right: 0;
+
+}
+
+
+.corner.br::after {
+
+    bottom: 0;
+
+    right: 0;
+
+}
+
+
+/* =========================================================
+   WATERMARK
+   ========================================================= */
+
+.watermark {
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 50%;
+
+    transform:
+        translate(
+            -50%,
+            -50%
+        )
+        rotate(-18deg);
+
+    font-family:
+        "Cinzel",
+        serif;
+
+    font-size: 95px;
+
+    font-weight: 700;
+
+    letter-spacing: 12px;
+
+    color:
+        rgba(
+            91,
+            33,
+            182,
+            0.045
+        );
+
+    white-space: nowrap;
+
+    pointer-events: none;
+
+    z-index: 0;
+
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.header {
+
     position: relative;
-    overflow: hidden;
+
+    z-index: 2;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 25px;
+
+    margin-top: 5px;
+
 }
 
-@keyframes certificateEntry{
 
-    0%{
-        opacity:0;
-        transform:scale(.90);
+/* =========================================================
+   LOGO
+   ========================================================= */
+
+.logo {
+
+    width: 100px;
+
+    height: 100px;
+
+    object-fit: contain;
+
+    filter:
+        drop-shadow(
+            0 5px 10px
+            rgba(0,0,0,0.12)
+        );
+
+}
+
+
+/* =========================================================
+   TITLE
+   ========================================================= */
+
+.title {
+
+    text-align: center;
+
+}
+
+
+.company {
+
+    font-size: 17px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    color: #4c1d95;
+
+}
+
+
+.heading {
+
+    margin-top: 5px;
+
+    font-family:
+        "Cinzel",
+        Georgia,
+        serif;
+
+    font-size: 37px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #4c1d95,
+            #7e22ce,
+            #b45309
+        );
+
+    -webkit-background-clip: text;
+
+    background-clip: text;
+
+    color: transparent;
+
+}
+
+
+.subheading {
+
+    margin-top: 5px;
+
+    font-size: 15px;
+
+    font-weight: 800;
+
+    letter-spacing: 5px;
+
+    color: #92400e;
+
+}
+
+
+/* =========================================================
+   RIBBON
+   ========================================================= */
+
+.ribbon {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: fit-content;
+
+    margin: 25px auto 18px;
+
+    padding: 9px 28px;
+
+    border-radius: 50px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #4c1d95,
+            #7e22ce,
+            #9333ea
+        );
+
+    color: white;
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    box-shadow:
+        0 8px 20px
+        rgba(
+            76,
+            29,
+            149,
+            0.25
+        );
+
+}
+
+
+/* =========================================================
+   PRESENTED TEXT
+   ========================================================= */
+
+.presented {
+
+    position: relative;
+
+    z-index: 2;
+
+    text-align: center;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    color: #6b7280;
+
+    margin-top: 8px;
+
+}
+
+
+/* =========================================================
+   EMPLOYEE NAME
+   ========================================================= */
+
+.employeeName {
+
+    position: relative;
+
+    z-index: 2;
+
+    text-align: center;
+
+    margin: 8px auto 5px;
+
+    min-height: 60px;
+
+    font-family:
+        "Cinzel",
+        Georgia,
+        serif;
+
+    font-size: 42px;
+
+    line-height: 1.2;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    color: #3b0764;
+
+    padding: 0 30px;
+
+    text-shadow:
+        0 2px 5px
+        rgba(
+            76,
+            29,
+            149,
+            0.12
+        );
+
+}
+
+
+/* =========================================================
+   GOLD UNDERLINE
+   ========================================================= */
+
+.employeeName::after {
+
+    content: "";
+
+    display: block;
+
+    width: 180px;
+
+    height: 3px;
+
+    margin: 9px auto 0;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #d4af37,
+            #f59e0b,
+            #d4af37,
+            transparent
+        );
+
+}
+
+
+/* =========================================================
+   EMPLOYEE ID
+   ========================================================= */
+
+.employeeID {
+
+    position: relative;
+
+    z-index: 2;
+
+    text-align: center;
+
+    margin-top: 8px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    color: #6b7280;
+
+}
+
+
+.employeeID span {
+
+    color: #4c1d95;
+
+    font-weight: 800;
+
+}
+
+
+/* =========================================================
+   APPRECIATION
+   ========================================================= */
+
+.appreciation {
+
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 820px;
+
+    margin: 18px auto 10px;
+
+    text-align: center;
+
+    font-size: 13px;
+
+    line-height: 1.65;
+
+    color: #4b5563;
+
+}
+
+
+.appreciation strong {
+
+    color: #5b21b6;
+
+    font-weight: 800;
+
+}
+
+
+/* =========================================================
+   BADGE
+   ========================================================= */
+
+.badge {
+
+    position: relative;
+
+    z-index: 3;
+
+    width: 230px;
+
+    min-height: 82px;
+
+    margin: 15px auto;
+
+    padding: 10px 18px;
+
+    border-radius: 16px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff7d6,
+            #fde68a,
+            #f59e0b
+        );
+
+    border:
+        2px solid
+        #d4af37;
+
+    box-shadow:
+
+        0 10px 25px
+        rgba(
+            180,
+            83,
+            9,
+            0.20
+        );
+
+}
+
+
+.badgeIcon {
+
+    font-size: 25px;
+
+    line-height: 1;
+
+}
+
+
+.badgeTitle {
+
+    margin-top: 4px;
+
+    font-size: 14px;
+
+    font-weight: 900;
+
+    letter-spacing: 1.5px;
+
+    color: #78350f;
+
+}
+
+
+.badgeSubtitle {
+
+    margin-top: 3px;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    color: #92400e;
+
+}
+
+
+/* =========================================================
+   SCORE SECTION
+   ========================================================= */
+
+.scoreSection {
+
+    position: relative;
+
+    z-index: 2;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            3,
+            1fr
+        );
+
+    gap: 18px;
+
+    max-width: 760px;
+
+    margin: 15px auto;
+
+}
+
+
+/* =========================================================
+   SCORE BOX
+   ========================================================= */
+
+.scoreBox {
+
+    position: relative;
+
+    padding: 14px 10px;
+
+    text-align: center;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.78
+        );
+
+    border:
+        1px solid
+        rgba(
+            91,
+            33,
+            182,
+            0.16
+        );
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 8px 20px
+        rgba(
+            15,
+            23,
+            42,
+            0.07
+        );
+
+}
+
+
+.scoreTitle {
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    color: #6b7280;
+
+}
+
+
+.scoreValue {
+
+    margin-top: 5px;
+
+    font-size: 24px;
+
+    font-weight: 900;
+
+    color: #4c1d95;
+
+}
+
+
+/* =========================================================
+   CERTIFICATE DETAILS
+   ========================================================= */
+
+.details {
+
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 120px;
+
+    margin-top: 16px;
+
+    text-align: center;
+
+}
+
+
+.details > div {
+
+    min-width: 180px;
+
+}
+
+
+.detailHeading {
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+
+    color: #9ca3af;
+
+    margin-bottom: 4px;
+
+}
+
+
+.details > div > div:last-child {
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    color: #374151;
+
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.footer {
+
+    position: relative;
+
+    z-index: 2;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        110px
+        1fr;
+
+    align-items: end;
+
+    gap: 40px;
+
+    max-width: 850px;
+
+    margin: 24px auto 0;
+
+}
+
+
+.signature {
+
+    text-align: center;
+
+    font-size: 11px;
+
+    color: #374151;
+
+}
+
+
+.signature .line {
+
+    width: 150px;
+
+    height: 1px;
+
+    background: #9ca3af;
+
+    margin: 0 auto 7px;
+
+}
+
+
+.signature strong {
+
+    color: #4c1d95;
+
+    letter-spacing: 1px;
+
+}
+
+
+/* =========================================================
+   SEAL
+   ========================================================= */
+
+.seal {
+
+    width: 88px;
+
+    height: 88px;
+
+    border-radius: 50%;
+
+    margin: auto;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background:
+        radial-gradient(
+            circle,
+            #fff8dc 0%,
+            #fcd34d 65%,
+            #d97706 100%
+        );
+
+    border:
+        4px double
+        #a16207;
+
+    box-shadow:
+        0 8px 18px
+        rgba(
+            120,
+            53,
+            15,
+            0.18
+        );
+
+    color: #78350f;
+
+}
+
+
+.seal i {
+
+    font-size: 25px;
+
+    margin-bottom: 2px;
+
+}
+
+
+.seal div {
+
+    font-size: 8px;
+
+    font-weight: 900;
+
+    letter-spacing: 1px;
+
+}
+
+
+/* =========================================================
+   BOTTOM TEXT
+   ========================================================= */
+
+.bottomText {
+
+    position: relative;
+
+    z-index: 2;
+
+    margin-top: 18px;
+
+    text-align: center;
+
+    font-size: 8px;
+
+    color: #9ca3af;
+
+}
+
+
+.bottomText strong {
+
+    color: #6b7280;
+
+}
+
+
+/* =========================================================
+   DECORATIVE ENERGY CIRCLES
+   ========================================================= */
+
+.certificate .watermark::before {
+
+    content: "⚡";
+
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.buttons {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 14px;
+
+    margin-top: 25px;
+
+    flex-wrap: wrap;
+
+}
+
+
+.buttons button {
+
+    border: none;
+
+    border-radius: 12px;
+
+    padding: 12px 20px;
+
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #4c1d95,
+            #7e22ce
+        );
+
+    box-shadow:
+        0 8px 18px
+        rgba(
+            76,
+            29,
+            149,
+            0.22
+        );
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+
+.buttons button:hover {
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 12px 25px
+        rgba(
+            76,
+            29,
+            149,
+            0.32
+        );
+
+}
+
+
+.buttons button i {
+
+    margin-right: 7px;
+
+}
+
+
+/* =========================================================
+   PDF CAPTURE
+   ========================================================= */
+
+.pdf-capture {
+
+    box-shadow: none !important;
+
+    border-radius: 0 !important;
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (
+    max-width: 850px
+) {
+
+    body {
+
+        padding: 10px;
+
+        align-items: flex-start;
+
     }
 
-    100%{
-        opacity:1;
-        transform:scale(1);
-    }
 
-}
-.certificate::before{
+    .certificate {
 
-    content:"";
+        width: 100%;
 
-    position:absolute;
+        min-height: auto;
 
-    top:-60%;
-
-    left:-150%;
-
-    width:70%;
-
-    height:220%;
-
-    background:linear-gradient(
-
-        120deg,
-
-        transparent,
-
-        rgba(255,255,255,.45),
-
-        transparent
-
-    );
-
-    transform:rotate(25deg);
-
-    animation:shine 4s infinite;
-
-}
-
-@keyframes shine{
-
-    0%{
-        left:-150%;
-    }
-
-    100%{
-        left:180%;
-    }
-
-}
-.employeeName{
-
-    opacity:0;
-
-    animation:nameAnimation 1s ease forwards;
-
-    animation-delay:1s;
-
-}
-
-@keyframes nameAnimation{
-
-    from{
-
-        opacity:0;
-
-        transform:translateY(40px);
+        padding:
+            35px 25px;
 
     }
 
-    to{
 
-        opacity:1;
+    .certificate::before {
 
-        transform:translateY(0);
-
-    }
-
-}
-.badge{
-
-    transform:scale(0);
-
-    animation:badgePop .8s ease forwards;
-
-    animation-delay:1.6s;
-
-}
-
-@keyframes badgePop{
-
-    0%{
-
-        transform:scale(0);
+        inset: 10px;
 
     }
 
-    70%{
 
-        transform:scale(1.15);
+    .certificate::after {
 
-    }
-
-    100%{
-
-        transform:scale(1);
+        inset: 16px;
 
     }
 
-}
-.badge{
 
-    transform:scale(0);
+    .header {
 
-    animation:badgePop .8s ease forwards;
+        flex-direction: column;
 
-    animation-delay:1.6s;
-
-}
-
-@keyframes badgePop{
-
-    0%{
-
-        transform:scale(0);
+        gap: 10px;
 
     }
 
-    70%{
 
-        transform:scale(1.15);
+    .logo {
 
-    }
+        width: 75px;
 
-    100%{
-
-        transform:scale(1);
+        height: 75px;
 
     }
 
-}
-.scoreBox{
 
-    opacity:0;
+    .company {
 
-    transform:translateY(40px);
-
-    animation:scoreUp .8s forwards;
-
-}
-
-.scoreBox:nth-child(1){
-
-    animation-delay:2s;
-
-}
-
-.scoreBox:nth-child(2){
-
-    animation-delay:2.2s;
-
-}
-
-.scoreBox:nth-child(3){
-
-    animation-delay:2.4s;
-
-}
-
-@keyframes scoreUp{
-
-    to{
-
-        opacity:1;
-
-        transform:translateY(0);
+        font-size: 12px;
 
     }
 
-}
-@keyframes glow{
 
-    0%,100%{
+    .heading {
 
-        box-shadow:0 0 25px rgba(255,215,0,.25);
+        font-size: 25px;
+
+        letter-spacing: 1px;
 
     }
 
-    50%{
 
-        box-shadow:0 0 60px rgba(255,215,0,.6);
+    .subheading {
+
+        font-size: 11px;
+
+        letter-spacing: 3px;
+
+    }
+
+
+    .employeeName {
+
+        font-size: 30px;
+
+    }
+
+
+    .scoreSection {
+
+        grid-template-columns:
+            1fr;
+
+        max-width: 300px;
+
+    }
+
+
+    .details {
+
+        flex-direction: column;
+
+        gap: 15px;
+
+    }
+
+
+    .footer {
+
+        grid-template-columns:
+            1fr;
+
+        gap: 25px;
+
+    }
+
+
+    .watermark {
+
+        font-size: 50px;
 
     }
 
 }
 
-.certificate{
 
-    animation:
-        certificateEntry 1s ease,
-        glow 4s infinite;
+/* =========================================================
+   PRINT
+   ========================================================= */
 
-}
-.certificate{
-
-    animation:zoomIn 1s ease;
-
-}
-
-@keyframes zoomIn{
-
-    from{
-
-        opacity:0;
-
-        transform:scale(.85);
-
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:scale(1);
-
-    }
-
-}
-.certificate{
-
-    position:relative;
-
-    overflow:hidden;
-
-}
-
-.certificate::before{
-
-    content:"";
-
-    position:absolute;
-
-    top:-50%;
-
-    left:-120%;
-
-    width:60%;
-
-    height:220%;
-
-    background:linear-gradient(
-
-        120deg,
-
-        transparent,
-
-        rgba(255,255,255,.55),
-
-        transparent
-
-    );
-
-    transform:rotate(25deg);
-
-    animation:shine 4s infinite;
-
-}
-
-@keyframes shine{
-
-    from{
-
-        left:-120%;
-
-    }
-
-    to{
-
-        left:170%;
-
-    }
-
-}
-.employeeName{
-
-    animation:namePop 1s ease;
-
-}
-
-@keyframes namePop{
-
-    from{
-
-        transform:scale(.4);
-
-        opacity:0;
-
-    }
-
-    to{
-
-        transform:scale(1);
-
-        opacity:1;
-
-    }
-
-}
-.badge{
-
-    animation:badgePop 1s;
-
-}
-
-@keyframes badgePop{
-
-    0%{
-
-        transform:scale(0);
-
-    }
-
-    80%{
-
-        transform:scale(1.15);
-
-    }
-
-    100%{
-
-        transform:scale(1);
-
-    }
-
-}
 @media print {
 
-    body * {
-        visibility: hidden;
+    @page {
+
+        size: A4 landscape;
+
+        margin: 0;
+
     }
 
 
-    #certificate,
-    #certificate * {
-        visibility: visible;
+    html,
+    body {
+
+        width: 297mm;
+
+        height: 210mm;
+
+        background: white;
+
+        padding: 0;
+
+        margin: 0;
+
     }
 
 
-    #certificate {
+    .page {
 
-        position:absolute;
+        width: 297mm;
 
-        left:0;
+        height: 210mm;
 
-        top:0;
+        padding: 0;
 
-        width:100%;
+    }
+
+
+    .certificate {
+
+        width: 297mm;
+
+        height: 210mm;
+
+        min-height: 210mm;
+
+        border-radius: 0;
+
+        box-shadow: none;
+
+        padding:
+            35px 55px;
 
     }
 
 
     .buttons {
 
-        display:none;
+        display: none !important;
 
     }
 
-}
-/* =====================================
-   PDF CAPTURE MODE
-===================================== */
 
-.pdf-mode,
-.pdf-mode * {
+    .certificate::before {
 
-    animation:none !important;
+        inset: 12px;
 
-    transition:none !important;
-
-}
+    }
 
 
-.pdf-mode .employeeName,
-.pdf-mode .scoreBox,
-.pdf-mode .badge {
+    .certificate::after {
 
-    opacity:1 !important;
+        inset: 20px;
 
-    transform:none !important;
-
-}
-
-
-.pdf-mode .watermark{
-
-    animation:none !important;
-
-}
-
-
-.pdf-mode .heading{
-
-    -webkit-text-fill-color:#0B4FA2 !important;
-
-}
-/* ================================
-   PDF CAPTURE FIX
-================================ */
-
-.pdf-capture * {
-
-    animation:none !important;
-    transition:none !important;
-
-}
-
-
-.pdf-capture .employeeName,
-.pdf-capture .scoreBox,
-.pdf-capture .badge {
-
-    opacity:1 !important;
-
-    transform:none !important;
-
-}
-
-
-.pdf-capture .watermark {
-
-    animation:none !important;
-
-}
-
-
-.pdf-capture .certificate::before,
-.pdf-capture .certificate::after {
-
-    animation:none !important;
-
-}
-/* PDF AND PRINT STATIC MODE */
-
-.pdf-capture,
-.pdf-capture *{
-
-    animation:none !important;
-
-    transition:none !important;
-
-    opacity:1 !important;
-
-    transform:none !important;
-
-}
-/* ==================================
-   PDF WATERMARK FIX
-================================== */
-
-.pdf-capture .watermark{
-
-    color:#0B4FA2 !important;
-
-    opacity:0.05 !important;
-
-    animation:none !important;
+    }
 
 }
