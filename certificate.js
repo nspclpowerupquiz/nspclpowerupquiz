@@ -22,8 +22,9 @@ const employeeName =
     localStorage.getItem("employeeName") || "Employee";
 
 
-// IMPORTANT:
-// quiz.js saves these values when the quiz finishes.
+// ==========================================================
+// GET QUIZ RESULT
+// ==========================================================
 
 let score =
     Number(
@@ -67,8 +68,8 @@ if (
 
 
 // ==========================================================
-// SAFETY
-// NEVER ALLOW SCORE > TOTAL
+// SAFETY CHECK
+// NEVER ALLOW SCORE > TOTAL QUESTIONS
 // ==========================================================
 
 if (
@@ -91,10 +92,6 @@ if (
 // ==========================================================
 // CALCULATE PERCENTAGE
 // ==========================================================
-
-// Always calculate from actual score.
-// This prevents an incorrect percentage
-// from appearing on the certificate.
 
 percentage =
     Math.round(
@@ -147,7 +144,11 @@ function loadCertificate() {
     );
 
     console.log(
-        "NSPCL CERTIFICATE"
+        "NSPCL POWER-UP SSC-C&M QUIZ"
+    );
+
+    console.log(
+        "CERTIFICATE"
     );
 
     console.log(
@@ -233,13 +234,12 @@ function loadCertificate() {
 
 
     // ======================================================
-    // GRADE
+    // IMPORTANT
+    // NO GRADE IS DISPLAYED
     // ======================================================
 
-    setText(
-        "grade",
-        achievement.grade
-    );
+    // Grade has intentionally been removed.
+    // Achievement title is displayed in the badge instead.
 
 
     // ======================================================
@@ -321,9 +321,9 @@ function loadCertificate() {
         achievement.title
     );
 
+
     console.log(
-        "Grade:",
-        achievement.grade
+        "Certificate loaded successfully."
     );
 
 
@@ -363,6 +363,14 @@ function loadCertificate() {
 // ==========================================================
 // ACHIEVEMENT SYSTEM
 // ==========================================================
+//
+// 90% and above  = GOLD
+// 75% to 89%     = SILVER
+// 60% to 74%     = BRONZE
+// Below 60%      = PARTICIPANT
+//
+// NO GRADE IS USED.
+// ==========================================================
 
 function getAchievement(
     percentage
@@ -384,9 +392,6 @@ function getAchievement(
 
             subtitle:
                 "Outstanding Achievement",
-
-            grade:
-                "A+",
 
             icon:
                 "🏆"
@@ -412,9 +417,6 @@ function getAchievement(
             subtitle:
                 "Excellent Performance",
 
-            grade:
-                "A",
-
             icon:
                 "🥈"
 
@@ -439,9 +441,6 @@ function getAchievement(
             subtitle:
                 "Very Good Performance",
 
-            grade:
-                "B",
-
             icon:
                 "🥉"
 
@@ -461,9 +460,6 @@ function getAchievement(
 
         subtitle:
             "Thank You for Participating",
-
-        grade:
-            "C",
 
         icon:
             "⭐"
@@ -561,7 +557,15 @@ function setText(
 
 
 // ==========================================================
-// REMOVE ANIMATION BEFORE PDF / PRINT
+// PREPARE CERTIFICATE FOR PDF / PRINT
+// ==========================================================
+//
+// IMPORTANT:
+// We disable animation and transitions,
+// BUT DO NOT REMOVE TRANSFORMS.
+//
+// This helps preserve the CSS design,
+// positioning and colors in the PDF.
 // ==========================================================
 
 function prepareCertificate() {
@@ -593,17 +597,21 @@ function prepareCertificate() {
     elements.forEach(
         function (el) {
 
+            // Disable animation
             el.style.animation =
                 "none";
 
+            // Disable transitions
             el.style.transition =
                 "none";
 
+            // Keep elements visible
             el.style.opacity =
                 "1";
 
-            el.style.transform =
-                "none";
+            // IMPORTANT:
+            // Do NOT use:
+            // el.style.transform = "none";
 
         }
     );
@@ -616,6 +624,11 @@ function prepareCertificate() {
 // ==========================================================
 
 async function downloadPDF() {
+
+    console.log(
+        "PDF download started..."
+    );
+
 
     prepareCertificate();
 
@@ -637,12 +650,16 @@ async function downloadPDF() {
     }
 
 
+    // ======================================================
+    // WAIT FOR FINAL RENDER
+    // ======================================================
+
     await new Promise(
         function (resolve) {
 
             setTimeout(
                 resolve,
-                500
+                700
             );
 
         }
@@ -650,6 +667,10 @@ async function downloadPDF() {
 
 
     try {
+
+        // ==================================================
+        // CREATE CANVAS
+        // ==================================================
 
         const canvas =
             await html2canvas(
@@ -662,15 +683,52 @@ async function downloadPDF() {
 
                     useCORS: true,
 
+                    allowTaint: false,
+
                     backgroundColor:
                         "#ffffff",
 
-                    logging: false
+                    logging: false,
+
+                    imageTimeout:
+                        15000,
+
+                    onclone:
+                        function (
+                            clonedDocument
+                        ) {
+
+                            const clonedCertificate =
+                                clonedDocument.getElementById(
+                                    "certificate"
+                                );
+
+
+                            if (
+                                clonedCertificate
+                            ) {
+
+                                clonedCertificate.style.animation =
+                                    "none";
+
+                                clonedCertificate.style.transition =
+                                    "none";
+
+                                clonedCertificate.style.opacity =
+                                    "1";
+
+                            }
+
+                        }
 
                 }
 
             );
 
+
+        // ==================================================
+        // CONVERT CANVAS TO IMAGE
+        // ==================================================
 
         const imgData =
             canvas.toDataURL(
@@ -678,11 +736,19 @@ async function downloadPDF() {
             );
 
 
+        // ==================================================
+        // GET jsPDF
+        // ==================================================
+
         const {
             jsPDF
         } =
             window.jspdf;
 
+
+        // ==================================================
+        // CREATE A4 LANDSCAPE PDF
+        // ==================================================
 
         const pdf =
             new jsPDF(
@@ -696,6 +762,10 @@ async function downloadPDF() {
             );
 
 
+        // ==================================================
+        // ADD CERTIFICATE IMAGE
+        // ==================================================
+
         pdf.addImage(
 
             imgData,
@@ -708,10 +778,18 @@ async function downloadPDF() {
 
             287,
 
-            200
+            200,
+
+            undefined,
+
+            "FAST"
 
         );
 
+
+        // ==================================================
+        // SAVE PDF
+        // ==================================================
 
         pdf.save(
 
@@ -719,6 +797,11 @@ async function downloadPDF() {
             employeeId +
             ".pdf"
 
+        );
+
+
+        console.log(
+            "PDF downloaded successfully."
         );
 
     }
@@ -741,12 +824,13 @@ async function downloadPDF() {
 
 
 // ==========================================================
-// PRINT
+// PRINT CERTIFICATE
 // ==========================================================
 
 function printCertificate() {
 
     prepareCertificate();
+
 
     window.print();
 
