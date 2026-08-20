@@ -9,7 +9,7 @@
 // ======================================================
 
 // CHANGE: 50 QUESTIONS
-const TOTAL_QUIZ_QUESTIONS = 50;
+const TOTAL_QUIZ_QUESTIONS = 40;
 
 // 15 SECOND TIMER
 const QUESTION_TIME = 15;
