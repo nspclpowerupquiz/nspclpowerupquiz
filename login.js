@@ -79,10 +79,6 @@ function updateQuizStatus() {
     if (!message || !button) return;
 
 
-    // =================================
-    // CHECK CURRENT TIME
-    // =================================
-
     const now = new Date();
 
     const currentMinutes =
@@ -159,7 +155,7 @@ function login() {
 
 
     // =================================
-    // GET INPUT VALUES
+    // GET EMPLOYEE ID
     // =================================
 
     let employeeIdElement =
@@ -172,6 +168,10 @@ function login() {
             : "";
 
 
+    // =================================
+    // GET EMPLOYEE NAME
+    // =================================
+
     let employeeNameElement =
         document.getElementById("employeeName");
 
@@ -179,8 +179,12 @@ function login() {
     let employeeName =
         employeeNameElement
             ? employeeNameElement.value.trim()
-            : "Employee";
+            : "";
 
+
+    // =================================
+    // GET PASSWORD
+    // =================================
 
     let passwordElement =
         document.getElementById("password");
@@ -191,6 +195,10 @@ function login() {
             ? passwordElement.value.trim()
             : "";
 
+
+    // =================================
+    // LOGIN MESSAGE
+    // =================================
 
     let message =
         document.getElementById("loginMessage");
@@ -231,7 +239,7 @@ function login() {
 
 
     // =================================
-    // DETERMINE ADMIN STATUS
+    // CHECK ADMIN
     // =================================
 
     const admin =
@@ -242,8 +250,8 @@ function login() {
     // PASSWORD
     //
     // Example:
-    // Employee ID 100106
-    // Password NSPCL@100106
+    // Employee ID = 100106
+    // Password = NSPCL@100106
     // =================================
 
     let correctPassword =
@@ -270,7 +278,7 @@ function login() {
     // =================================
     // PARTICIPANT TIME CHECK
     //
-    // ADMIN 100106 BYPASSES THIS CHECK
+    // ADMIN 100106 CAN BYPASS TIME
     // =================================
 
     if (!admin && !isQuizOpen()) {
@@ -287,9 +295,24 @@ function login() {
     }
 
 
-    // =================================
-    // SAVE EMPLOYEE ID
-    // =================================
+    // =====================================
+    // IMPORTANT:
+    // CLEAR PREVIOUS USER / QUIZ DATA
+    // =====================================
+
+    localStorage.removeItem("employeeId");
+    localStorage.removeItem("employeeName");
+
+    localStorage.removeItem("score");
+    localStorage.removeItem("totalQuestions");
+    localStorage.removeItem("percentage");
+
+    localStorage.removeItem("isAdmin");
+
+
+    // =====================================
+    // SAVE CURRENT EMPLOYEE ID
+    // =====================================
 
     localStorage.setItem(
         "employeeId",
@@ -297,9 +320,9 @@ function login() {
     );
 
 
-    // =================================
-    // SAVE EMPLOYEE NAME
-    // =================================
+    // =====================================
+    // SAVE CURRENT EMPLOYEE NAME
+    // =====================================
 
     localStorage.setItem(
         "employeeName",
@@ -307,9 +330,9 @@ function login() {
     );
 
 
-    // =================================
+    // =====================================
     // SAVE ADMIN STATUS
-    // =================================
+    // =====================================
 
     localStorage.setItem(
         "isAdmin",
@@ -317,9 +340,9 @@ function login() {
     );
 
 
-    // =================================
+    // =====================================
     // SUCCESS MESSAGE
-    // =================================
+    // =====================================
 
     if (message) {
 
@@ -340,9 +363,9 @@ function login() {
     }
 
 
-    // =================================
+    // =====================================
     // REDIRECT TO QUIZ
-    // =================================
+    // =====================================
 
     setTimeout(function () {
 
