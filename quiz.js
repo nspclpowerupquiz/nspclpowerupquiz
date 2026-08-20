@@ -8,7 +8,7 @@
 // QUIZ SETTINGS
 // ======================================================
 
-// CHANGE: 50 QUESTIONS
+// CHANGE: 40 QUESTIONS
 const TOTAL_QUIZ_QUESTIONS = 40;
 
 // 15 SECOND TIMER
