@@ -152,7 +152,7 @@ async function loadQuestions() {
 
 
         // ==================================================
-        // SELECT RANDOM 50 QUESTIONS
+        // SELECT RANDOM 40 QUESTIONS
         // ==================================================
 
         questions =
