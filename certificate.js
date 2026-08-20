@@ -8,7 +8,7 @@
 // QUIZ SETTINGS
 // ==========================================================
 
-const DEFAULT_TOTAL_QUESTIONS = 50;
+const DEFAULT_TOTAL_QUESTIONS = 40;
 
 
 // ==========================================================
