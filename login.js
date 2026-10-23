@@ -1,401 +1,120 @@
+
 // =====================================
-// NSPCL POWER-UP QUIZ
+// NSPCL PowerUp SSC-C&M Quiz
 // Employee Login System
-//
-// PARTICIPANTS:
-// 4:00 PM – 4:30 PM
-//
-// ADMIN:
-// Employee ID 100106
-// Admin can login anytime
-// =====================================
-
-
-// =====================================
-// ADMIN SETTINGS
+// PARTICIPANTS: Access available 24x7
+// ADMIN: Employee ID 100106
 // =====================================
 
 const ADMIN_EMPLOYEE_ID = "100106";
 
-
 // =====================================
-// QUIZ TIME WINDOW FOR PARTICIPANTS
-// =====================================
-
-const QUIZ_START_HOUR = 16;      // 4:00 PM
-const QUIZ_START_MINUTE = 0;
-
-const QUIZ_END_HOUR = 16;        // 4:30 PM
-const QUIZ_END_MINUTE = 30;
-
-
-// =====================================
-// CHECK WHETHER PARTICIPANT QUIZ IS OPEN
+// QUIZ ACCESS — NO TIME RESTRICTION
 // =====================================
 
 function isQuizOpen() {
-
-    const now = new Date();
-
-    const currentMinutes =
-        now.getHours() * 60 + now.getMinutes();
-
-    const startMinutes =
-        QUIZ_START_HOUR * 60 + QUIZ_START_MINUTE;
-
-    const endMinutes =
-        QUIZ_END_HOUR * 60 + QUIZ_END_MINUTE;
-
-    return (
-        currentMinutes >= startMinutes &&
-        currentMinutes < endMinutes
-    );
+    return true;
 }
-
 
 // =====================================
 // CHECK WHETHER EMPLOYEE IS ADMIN
 // =====================================
 
 function isAdmin(employeeId) {
-
     return employeeId === ADMIN_EMPLOYEE_ID;
-
 }
 
-
 // =====================================
-// GET QUIZ STATUS MESSAGE
+// UPDATE QUIZ STATUS
 // =====================================
 
 function updateQuizStatus() {
+    const message = document.getElementById("loginMessage");
+    const button = document.querySelector(".login-box button");
 
-    const message =
-        document.getElementById("loginMessage");
-
-    const button =
-        document.querySelector(".login-box button");
-
-    if (!message || !button) return;
-
-
-    const now = new Date();
-
-    const currentMinutes =
-        now.getHours() * 60 + now.getMinutes();
-
-
-    const startMinutes =
-        QUIZ_START_HOUR * 60 + QUIZ_START_MINUTE;
-
-    const endMinutes =
-        QUIZ_END_HOUR * 60 + QUIZ_END_MINUTE;
-
-
-    // =================================
-    // BEFORE 4:00 PM
-    // =================================
-
-    if (currentMinutes < startMinutes) {
-
-        button.disabled = false;
-
+    if (message) {
         message.innerHTML =
-            "🔒 Participants: Quiz opens at " +
-            "<strong>4:00 PM</strong> today.<br>" +
-            "👑 Admin ID <strong>100106</strong> can login anytime.";
-
-        return;
+            "🟢 <strong>Quiz is open!</strong><br>" +
+            "Participants can log in and participate at any time.";
     }
 
-
-    // =================================
-    // 4:00 PM – 4:30 PM
-    // =================================
-
-    if (
-        currentMinutes >= startMinutes &&
-        currentMinutes < endMinutes
-    ) {
-
+    if (button) {
         button.disabled = false;
-
-        message.innerHTML =
-            "🟢 <strong>Quiz is LIVE!</strong> " +
-            "You can participate now.";
-
-        return;
     }
-
-
-    // =================================
-    // AFTER 4:30 PM
-    // =================================
-
-    if (currentMinutes >= endMinutes) {
-
-        button.disabled = false;
-
-        message.innerHTML =
-            "🔴 Quiz participation has closed for today.<br>" +
-            "Quiz window: <strong>4:00 PM – 4:30 PM</strong><br>" +
-            "👑 Admin ID <strong>100106</strong> can login anytime.";
-
-        return;
-    }
-
 }
-
 
 // =====================================
 // LOGIN FUNCTION
 // =====================================
 
 function login() {
+    const employeeIdElement = document.getElementById("employeeId");
+    const employeeNameElement = document.getElementById("employeeName");
+    const passwordElement = document.getElementById("password");
+    const message = document.getElementById("loginMessage");
 
+    const employeeId = employeeIdElement
+        ? employeeIdElement.value.trim()
+        : "";
 
-    // =================================
-    // GET EMPLOYEE ID
-    // =================================
+    const employeeName = employeeNameElement
+        ? employeeNameElement.value.trim()
+        : "";
 
-    let employeeIdElement =
-        document.getElementById("employeeId");
+    const password = passwordElement
+        ? passwordElement.value.trim()
+        : "";
 
-
-    let employeeId =
-        employeeIdElement
-            ? employeeIdElement.value.trim()
-            : "";
-
-
-    // =================================
-    // GET EMPLOYEE NAME
-    // =================================
-
-    let employeeNameElement =
-        document.getElementById("employeeName");
-
-
-    let employeeName =
-        employeeNameElement
-            ? employeeNameElement.value.trim()
-            : "";
-
-
-    // =================================
-    // GET PASSWORD
-    // =================================
-
-    let passwordElement =
-        document.getElementById("password");
-
-
-    let password =
-        passwordElement
-            ? passwordElement.value.trim()
-            : "";
-
-
-    // =================================
-    // LOGIN MESSAGE
-    // =================================
-
-    let message =
-        document.getElementById("loginMessage");
-
-
-    // =================================
-    // CHECK EMPLOYEE ID
-    // =================================
-
-    if (employeeId === "") {
-
-        if (message) {
-
-            message.innerHTML =
-                "⚠️ Please enter Employee ID";
-
-        }
-
+    // Validate Employee ID
+    if (!employeeId) {
+        if (message) message.textContent = "⚠️ Please enter Employee ID.";
         return;
     }
-
-
-    // =================================
-    // VALIDATE EMPLOYEE ID
-    // =================================
 
     if (!/^[A-Za-z0-9]{3,}$/.test(employeeId)) {
-
-        if (message) {
-
-            message.innerHTML =
-                "⚠️ Invalid Employee ID";
-
-        }
-
+        if (message) message.textContent = "⚠️ Invalid Employee ID.";
         return;
     }
 
+    // Identify Admin
+    const admin = isAdmin(employeeId);
 
-    // =================================
-    // CHECK ADMIN
-    // =================================
-
-    const admin =
-        isAdmin(employeeId);
-
-
-    // =================================
-    // PASSWORD
-    //
-    // Example:
-    // Employee ID = 100106
-    // Password = NSPCL@100106
-    // =================================
-
-    let correctPassword =
-        "NSPCL@" + employeeId;
-
-
-    // =================================
-    // PASSWORD CHECK
-    // =================================
+    // Validate password using the existing password convention
+    const correctPassword = "NSPCL@" + employeeId;
 
     if (password !== correctPassword) {
-
-        if (message) {
-
-            message.innerHTML =
-                "⚠️ Incorrect Password";
-
-        }
-
+        if (message) message.textContent = "⚠️ Incorrect Password.";
         return;
     }
 
-
-    // =================================
-    // PARTICIPANT TIME CHECK
-    //
-    // ADMIN 100106 CAN BYPASS TIME
-    // =================================
-
-    if (!admin && !isQuizOpen()) {
-
-        if (message) {
-
-            message.innerHTML =
-                "🔒 The NSPCL Power-Up Quiz is available " +
-                "for participants only from " +
-                "<strong>4:00 PM to 4:30 PM</strong>.";
-        }
-
-        return;
-    }
-
-
-    // =====================================
-    // IMPORTANT:
-    // CLEAR PREVIOUS USER / QUIZ DATA
-    // =====================================
-
+    // Clear previous session and quiz results
     localStorage.removeItem("employeeId");
     localStorage.removeItem("employeeName");
-
     localStorage.removeItem("score");
     localStorage.removeItem("totalQuestions");
     localStorage.removeItem("percentage");
-
     localStorage.removeItem("isAdmin");
 
+    // Save current employee details
+    localStorage.setItem("employeeId", employeeId);
+    localStorage.setItem("employeeName", employeeName || "Employee");
+    localStorage.setItem("isAdmin", admin ? "true" : "false");
 
-    // =====================================
-    // SAVE CURRENT EMPLOYEE ID
-    // =====================================
-
-    localStorage.setItem(
-        "employeeId",
-        employeeId
-    );
-
-
-    // =====================================
-    // SAVE CURRENT EMPLOYEE NAME
-    // =====================================
-
-    localStorage.setItem(
-        "employeeName",
-        employeeName || "Employee"
-    );
-
-
-    // =====================================
-    // SAVE ADMIN STATUS
-    // =====================================
-
-    localStorage.setItem(
-        "isAdmin",
-        admin ? "true" : "false"
-    );
-
-
-    // =====================================
-    // SUCCESS MESSAGE
-    // =====================================
-
+    // Show success message
     if (message) {
-
-        if (admin) {
-
-            message.innerHTML =
-                "👑 <strong>Admin Login Successful!</strong><br>" +
-                "Starting Quiz...";
-
-        } else {
-
-            message.innerHTML =
-                "✅ <strong>Login Successful!</strong><br>" +
-                "Starting Quiz...";
-
-        }
-
+        message.innerHTML = admin
+            ? "👑 <strong>Admin login successful!</strong><br>Opening quiz..."
+            : "✅ <strong>Login successful!</strong><br>Opening quiz...";
     }
 
-
-    // =====================================
-    // REDIRECT TO QUIZ
-    // =====================================
-
-    setTimeout(function () {
-
-        window.location.href =
-            "quiz.html";
-
-    }, 800);
-
+    // Redirect to quiz
+    window.location.href = "quiz.html";
 }
 
-
 // =====================================
-// INITIALIZE QUIZ STATUS
+// INITIALIZE LOGIN PAGE
 // =====================================
 
-document.addEventListener(
-    "DOMContentLoaded",
-    function () {
-
-        updateQuizStatus();
-
-
-        // =================================
-        // UPDATE STATUS EVERY 10 SECONDS
-        // =================================
-
-        setInterval(
-            updateQuizStatus,
-            10000
-        );
-
-    }
-);
+document.addEventListener("DOMContentLoaded", function () {
+    updateQuizStatus();
+});
